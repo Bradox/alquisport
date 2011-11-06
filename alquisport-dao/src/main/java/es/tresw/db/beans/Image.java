@@ -20,17 +20,28 @@ public class Image
 	private String name;
 	@Column(name="DESCRIPTION", columnDefinition="TEXT")
 	private String description;
+	@Column(name="HEIGHT")
+	private int height;
+	@Column(name="WEIGHT")
+	private int weight;
+	@Column(name="DISC_PATH", nullable=false, length=255)
+	private String discPath;
 	@Lob
 	private byte[] image;
 			
-	public Image(String name, String description, byte[] image) 
+
+	
+	public Image(Long id, String name, String description, int height,int weight, String discPath, byte[] image) 
 	{
-		super();
+		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.height = height;
+		this.weight = weight;
+		this.discPath = discPath;
 		this.image = image;
 	}
-	
+
 	public Long getId() 
 	{
 		return id;
@@ -69,6 +80,36 @@ public class Image
 	public void setImage(byte[] image) 
 	{
 		this.image = image;
+	}
+
+	public int getHeight() 
+	{
+		return height;
+	}
+
+	public void setHeight(int height) 
+	{
+		this.height = height;
+	}
+
+	public int getWeight() 
+	{
+		return weight;
+	}
+
+	public void setWeight(int weight) 
+	{
+		this.weight = weight;
+	}
+
+	public String getDiscPath() 
+	{
+		return discPath;
+	}
+
+	public void setDiscPath(String discPath) 
+	{
+		this.discPath = discPath;
 	}
 	
 }

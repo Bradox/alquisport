@@ -34,6 +34,7 @@ public class SportFacility
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })
 	private List<Feature> features;
+	@OneToMany
 	@JoinTable(name = "SPORT_FACILITY_IMAGE", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "IMAGE_ID") })
