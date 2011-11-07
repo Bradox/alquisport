@@ -27,7 +27,7 @@ public class Court
 	@Column(name="STATE", columnDefinition="TEXT")
 	private int state;
 	/**
-	 * TODO : ESTO QUE COÑO ES
+	 * TODO : ESTO QUE CONO ES
 	 */
 	private CourtType courtType;
 	@OneToMany
