@@ -67,7 +67,4 @@ public class Address
 		this.zone = zone;
 	}
 	
-	
-	
-	
 }

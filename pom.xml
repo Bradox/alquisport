@@ -12,6 +12,8 @@
       <spring.group>org.springframework</spring.group>
       <spring.version>3.0.5.RELEASE</spring.version>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <hibernate.version>3.6.7.Final</hibernate.version>
       <ehcache.version>2.2.0</ehcache.version>
       <alquisport.groupId>es.tresw</alquisport.groupId>
