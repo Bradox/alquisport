@@ -30,6 +30,12 @@ public class SportFacility
 	private String description;
 	@Column(name="NAME", nullable=false, length=2)
 	private Integer state;
+	@Embedded
+	private Address address;
+	@Embedded
+	private ContactInfo contactInfo;
+	@Embedded
+	private Appearance appearance;
 	@JoinTable(name = "SPORT_FACILITY_FEATURE", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })
@@ -40,14 +46,9 @@ public class SportFacility
 	 		   inverseJoinColumns = { @JoinColumn(name = "IMAGE_ID") })
 	private List<Image> imagenes;
 	@OneToMany (mappedBy="sportFacility")
-	@JoinColumn(name = "ID_SPORTFACILITY")
 	private List<Administrator> administrators;
-	@Embedded
-	private Address address;
-	@Embedded
-	private ContactInfo contactInfo;
-	@Embedded
-	private Appearance appearance;
+	@OneToMany(mappedBy="sportFacility")	
+	private List<DayClosed> daysClosed;
 	
 	public SportFacility()
 	{
@@ -55,7 +56,7 @@ public class SportFacility
 	}
 
 	
-	public SportFacility(Long id, String name, String getHere, String description, Integer state, List<Feature> features, List<Image> imagenes, List<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance) 
+	public SportFacility(Long id, String name, String getHere, String description, Integer state, List<Feature> features, List<Image> imagenes, List<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, List<DayClosed> daysClosed) 
 	{
 		this.id = id;
 		this.name = name;
@@ -68,6 +69,7 @@ public class SportFacility
 		this.address = address;
 		this.contactInfo = contactInfo;
 		this.appearance = appearance;
+		this.daysClosed=daysClosed;
 	}
 
 
@@ -181,4 +183,17 @@ public class SportFacility
 		this.appearance = appearance;
 	}
 
+
+	public List<DayClosed> getDaysClosed() 
+	{
+		return daysClosed;
+	}
+
+
+	public void setDaysClosed(List<DayClosed> daysClosed)
+	{
+		this.daysClosed = daysClosed;
+	}
+
+	
 }

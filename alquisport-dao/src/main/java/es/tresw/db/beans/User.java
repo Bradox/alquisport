@@ -1,5 +1,6 @@
 package es.tresw.db.beans;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -28,7 +29,7 @@ public class User
 	private Long id;
 	@Column(name="firstLastName", nullable=false, length=255)
 	private String firstLastName;
-	@Column(name="secondLastName", nullable=false, length=255)
+	@Column(name="secondLastName", nullable=true, length=255)
 	private String secondLastName;
     @Column(name="LOGIN", nullable=false, length=255)
 	private String login;
@@ -36,11 +37,17 @@ public class User
 	private String name;
 	@Column(name="PASSWORD", nullable=false, length=255)
 	private String password;
+	@Column(name="BIRTH_DATE")
+	private Date birthDate;
     @OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "USER_ROLE", 
 	 		   joinColumns = { @JoinColumn(name = "USER_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "ROLE_ID") })
 	private List<Role> roles;
+    @OneToMany (mappedBy="userTo")
+    public List<Message> messagesTo;
+    @OneToMany(mappedBy="userFrom")
+    public List<Message> messagesFrom;
 	@Embedded
 	private BankAccount bankAccount;
 	@Embedded
@@ -53,7 +60,7 @@ public class User
 		
 	}
 	
-	public User(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles) 
+	public User(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles, Date birthDate) 
 	{
 		this.firstLastName = firstLastName;
 		this.secondLastName = secondLastName;
@@ -64,6 +71,7 @@ public class User
 		this.address = address;
 		this.contactInfo = contactInfo;
 		this.roles=roles;
+		this.birthDate=birthDate;
 	}
 
 	public Long getId() 
@@ -171,5 +179,15 @@ public class User
 	{
 		this.roles = roles;
 	}
-	
+
+	public Date getBirthDate() 
+	{
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) 
+	{
+		this.birthDate = birthDate;
+	}
+		
 }
