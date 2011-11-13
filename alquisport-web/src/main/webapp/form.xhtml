@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Formulario de prueba" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<h:panelGrid columns="3">
+				<h:outputLabel value="Username:" for="username" />
+				<h:inputText id="username" value="#{userController.user.username}">
+				</h:inputText>
+				<h:message for="username" errorStyle="color: red"
+					infoStyle="color: green" />
+				<h:outputLabel value="E-mail:" for="email" />
+				<h:inputText id="email" value="#{userController.user.email}" />
+				<h:message for="email" errorStyle="color: red"
+					infoStyle="color: green" />
+				<h:outputLabel value="Nombre:" for="nombre" />
+				<h:inputText id="nombre" value="#{userController.nombre}" />
+				<h:message for="nombre" errorStyle="color: red"
+					infoStyle="color: green" />
+				<h:commandLink action="#{userController.saveUser}" value="Save" />
+			</h:panelGrid>
+		</h:form>
+		<h:panelGrid>
+			<h:messages globalOnly="true" errorStyle="color: red"
+				infoStyle="color: green" />
+		</h:panelGrid>
+	</ui:define>
+
+</ui:composition>
+</html>

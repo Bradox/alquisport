@@ -1,36 +1,175 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>alquisport</artifactId>
-    <groupId>es.tresw</groupId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  
-  <groupId>${alquisport.groupId}</groupId>
-  <artifactId>alquisport-web</artifactId>
-  <version>${project.parent.version}</version>
-  <packaging>war</packaging>
-  
-  <dependencies>
-    <dependency>
-      <groupId>${alquisport.groupId}</groupId>
-      <artifactId>alquisport-dao</artifactId>
-      <version>${project.parent.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.0</version>
-      <type>jar</type>
-      <scope>test</scope>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-	  <artifactId>mockito-all</artifactId>
-  	  <version>1.9.0-rc1</version>
- 	  <scope>test</scope>
-    </dependency>
-  </dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>alquisport</artifactId>
+		<groupId>es.tresw</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<groupId>${alquisport.groupId}</groupId>
+	<artifactId>alquisport-web</artifactId>
+	<version>${project.parent.version}</version>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<!-- STANDAR JAVA -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>servlet-api</artifactId>
+		    <version>2.5</version>
+		</dependency>
+	
+		<!-- API e implementación de JSF 2. Del repo dev.java.net -->
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.0.2-b10</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.0.2-b10</version>
+		</dependency>
+
+		<!-- API e implementación de JSR-303 (validaciones). Del repo de jboss -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.0.2.GA</version>
+		</dependency>
+
+		<!-- PRIMEFACES -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>3.0.M4</version>
+		</dependency>
+
+		<!-- APACHE COMMONS -->
+
+		<!-- SPRING SECURITY -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-ldap</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-openid</artifactId>
+			<version>${spring.security.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<!-- FIN SPRING SECURITY -->
+
+		<!-- SPRING FRAMEWORK -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- FIN SPRING FRAMEWORK -->
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+		<repository>
+			<id>maven2-repository.jboss.com</id>
+			<name>Jboss Repository for Maven</name>
+			<url>http://repository.jboss.com/maven2</url>
+		</repository>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>SpringRepo</id>
+			<name>Spring Maven Repository</name>
+			<url>http://repo1.maven.org/maven2/org/springframework/security/</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>alquisport-web</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<configuration>
+					<scanIntervalSeconds>3</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
 
 </project>

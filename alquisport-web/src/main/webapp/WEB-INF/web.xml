@@ -1,0 +1,85 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<display-name>Autentia JSF 2 Tutorial</display-name>
+
+	<context-param>
+		<description>
+			Define the value returned by Application.getProjectStage(). Allowed values: Production, Development, 
+			UnitTest, SystemTest, Extension. Default value is Production.
+		</description>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+
+	<!-- Definir este parámetro es más cómodo y más visual que usar el <ui:remove> 
+		de Facelets. -->
+	<context-param>
+		<description>Do not render comments in facelets (xhtml) pages. Default is false.</description>
+		<param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<!-- Spring Config -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+            /WEB-INF/applicationContext.xml
+            /WEB-INF/applicationContext-security.xml
+        </param-value>
+	</context-param>
+	<!-- Fin Spring Security -->
+
+	<!-- Spring Security Filter -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+	<!-- Fin Spring Security Filter -->
+
+	<!-- LISTENER SPRING -->
+	<!-- - Loads the root application context of this web app at startup. -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- - Publishes events for session creation and destruction through the 
+		application - context. Optional unless concurrent session control is being 
+		used. -->
+	<listener>
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+	<!-- FIN LISTENER SPRING -->
+
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- welcome file mapping -->
+	<welcome-file-list>
+		<welcome-file>faces/index.xhtml</welcome-file>
+	</welcome-file-list>
+
+</web-app>

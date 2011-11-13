@@ -3,11 +3,11 @@
  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-  <session-factory>
-    <property name="show_sql">true</property>
-	<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-	<property name="hibernate.hbm2ddl.auto">update</property>
-	<property name="current_session_context_class">thread</property>
-    <mapping class="es.tresw.db.beans.User"/>
-  </session-factory>
+	<session-factory>
+		<property name="show_sql">true</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="current_session_context_class">thread</property>
+		<mapping class="es.tresw.db.beans.User" />
+	</session-factory>
 </hibernate-configuration>
