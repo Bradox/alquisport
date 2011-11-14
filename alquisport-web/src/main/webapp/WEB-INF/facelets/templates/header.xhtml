@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition>
+	<header id="cabecera-principal">
+		<div class="container">
+			<div id="cabecera-logo">
+				<hgroup>
+					<h1>Alquisport</h1>
+					<h2>Tu página de alquiler de instalaciones deportivas.</h2>
+				</hgroup>
+				<h:graphicImage id="logo" alt="Alquisport: Tu página de alquiler de instalaciones deportivas" url="/resources/images/Logo-01.png"/>    
+			</div>
+			<div id="cabecera-login">
+				<div class="loginform">
+					<form action="j_spring_security_check" method="post">
+						<div class="usuario">
+							<label for="j_username"><h:outputText value="usuario:" /></label><h:inputText id="j_username" required="true"></h:inputText>
+							<p><h:link value="registrate" title="Entra y registrate como usuario." outcome="/registro/registro-usuario.xhtml" /></p>
+						</div>
+						<div class="password">
+							<label for="j_password"><h:outputText value="contraseña:" /></label><h:inputSecret id="j_password" required="true"></h:inputSecret>
+							<p><h:link value="la he olvidado" title="Página para recuperar la contraseña perdida." outcome="/registro/recuperar-password.xhtml" /></p>
+						</div>
+						<div class="entrar">
+							<h:commandButton type="submit" id="login" value="Entrar" class="button"/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</header>
+</ui:composition>
+</html>

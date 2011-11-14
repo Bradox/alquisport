@@ -7,29 +7,26 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="shortcut icon" href="/favicon.ico" />
 	<title><ui:insert name="title" /></title>
+	
+	<!-- Incluimos las CSS necesarias -->
+	<h:outputStylesheet name="style.css" library="css" />
 </h:head>
 <h:body>
-	<div id="layout">
-		<div id="header">
-			<div id="logo">
-				<h1>
-					<ui:insert name="title" />
-				</h1>
+	<div id="page">
+		<ui:include src="header.xhtml" />
+		
+		<div id="contenido-centro">
+			<div class="container">
+					<ui:insert name="content">
+						<section id="pagina-construccion" class="rounded10 box-shadow-light">
+							<h1>Página en construcción</h1>
+						</section>
+					</ui:insert>
 			</div>
-			<ui:include src="menu.xhtml" />
 		</div>
-
-		<div id="content">
-			<ui:insert name="content">
-				<span>Página en construcción</span>
-			</ui:insert>
-		</div>
-
-		<div id="footer">
-			<p>MI PIE</p>
-		</div>
+		<ui:include src="footer.xhtml" />
 	</div>
 </h:body>
 </html>

@@ -13,11 +13,24 @@
 	<packaging>war</packaging>
 
 	<dependencies>
+		<!-- ALQUISPORT DAO -->
+		<dependency>
+		    <groupId>${alquisport.groupId}</groupId>
+		    <artifactId>alquisport-dao</artifactId>
+		    <version>${project.parent.version}</version>
+		</dependency>
+	
 		<!-- STANDAR JAVA -->
 		<dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>servlet-api</artifactId>
 		    <version>2.5</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javax.inject</groupId>
+		    <artifactId>javax.inject</artifactId>
+		    <version>1</version>
 		</dependency>
 	
 		<!-- API e implementación de JSF 2. Del repo dev.java.net -->
@@ -129,7 +142,6 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
 		<!-- FIN SPRING FRAMEWORK -->
 	</dependencies>
 
