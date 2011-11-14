@@ -21,9 +21,9 @@ public class Administrator extends User
 
 	
 	
-	public Administrator(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles, Company company, SportFacility sportFacility, Date birthDate) 
+	public Administrator(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Company company, SportFacility sportFacility, Date birthDate, Boolean enabled) 
 	{
-		super(firstLastName, secondLastName,login, name, password, bankAccount, address, contactInfo, roles, birthDate);
+		super(firstLastName, secondLastName,login, name, password, bankAccount, address, contactInfo, authorities, birthDate, enabled);
 		this.company = company;
 		this.sportFacility = sportFacility;
 	}

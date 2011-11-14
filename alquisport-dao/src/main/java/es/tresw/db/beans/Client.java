@@ -3,35 +3,35 @@ package es.tresw.db.beans;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name="USER_ID")
 public class Client extends User
 {
-	@Column(name="MEMBER",columnDefinition="bool default false")
-	private boolean isMember;
-
+	@OneToMany(mappedBy="user")	
+	private List<Member> memberOf;
+	
 	public Client()
 	{
 		super();
 	}
 	
-	public Client(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles, Date birthDate, boolean isMember)
+	public Client(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, List<Member> memberOf, boolean enabled)
 	{
-		super(firstLastName, secondLastName, login, name, password, bankAccount, address, contactInfo, roles,birthDate);
-		this.isMember=isMember;
-	}
-	public boolean isMember() 
-	{
-		return isMember;
+		super(firstLastName, secondLastName, login, name, password, bankAccount, address, contactInfo, authorities,birthDate, enabled);
+		this.memberOf=memberOf;
 	}
 
-	public void setMember(boolean isMember) 
+	public void setMemberOf(List<Member> memberOf)
 	{
-		this.isMember = isMember;
+		this.memberOf=memberOf;
 	}
 	
+	public List<Member> memberOf()
+	{
+		return this.memberOf;
+	}
 }

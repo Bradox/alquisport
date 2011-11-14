@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,10 +24,7 @@ public class Court
 	private String description;
 	@Column(name="STATE", length=2)
 	private int state;
-	@OneToMany
-	@JoinTable(name = "COURT_TYPE", 
-	     	   joinColumns = { @JoinColumn(name = "COURT_ID") }, 
-	 		   inverseJoinColumns = { @JoinColumn(name = "TYPE_ID") })
+	@Embedded
 	private CourtType courtType;
 	@OneToMany(mappedBy="court")
 	private Schedule schedule;
