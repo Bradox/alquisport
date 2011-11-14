@@ -12,25 +12,25 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Client extends User
 {
 	@OneToMany(mappedBy="user")	
-	private List<Member> memberOf;
+	private List<SportFacilityMember> memberOf;
 	
 	public Client()
 	{
 		super();
 	}
 	
-	public Client(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, List<Member> memberOf, boolean enabled)
+	public Client(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, List<SportFacilityMember> memberOf, boolean enabled)
 	{
 		super(firstLastName, secondLastName, login, name, password, bankAccount, address, contactInfo, authorities,birthDate, enabled);
 		this.memberOf=memberOf;
 	}
 
-	public void setMemberOf(List<Member> memberOf)
+	public void setMemberOf(List<SportFacilityMember> memberOf)
 	{
 		this.memberOf=memberOf;
 	}
 	
-	public List<Member> memberOf()
+	public List<SportFacilityMember> memberOf()
 	{
 		return this.memberOf;
 	}

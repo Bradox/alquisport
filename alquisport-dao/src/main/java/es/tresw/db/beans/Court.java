@@ -33,7 +33,7 @@ public class Court
 	@OneToMany(mappedBy="court")
 	private List<Feature> features;
 	@OneToMany(mappedBy="court")
-	private List<Rent> rents;
+	private List<Rental> rents;
 	
 	
 	public Court()
@@ -41,7 +41,7 @@ public class Court
 		
 	}
 	
-	public Court(Long id, String description, int state, CourtType courtType,Schedule schedule, ReservationConfig reservationConfig,List<Feature> features, List<Rent> rents) 
+	public Court(Long id, String description, int state, CourtType courtType,Schedule schedule, ReservationConfig reservationConfig,List<Feature> features, List<Rental> rents) 
 	{
 		super();
 		this.id = id;
@@ -124,12 +124,12 @@ public class Court
 		this.features = features;
 	}
 
-	public List<Rent> getRents()
+	public List<Rental> getRents()
 	{
 		return rents;
 	}
 
-	public void setRents(List<Rent> rents)
+	public void setRents(List<Rental> rents)
 	{
 		this.rents = rents;
 	}

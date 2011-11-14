@@ -50,7 +50,7 @@ public class SportFacility
 	@OneToMany(mappedBy="sportFacility")	
 	private List<DayClosed> daysClosed;
 	@OneToMany(mappedBy="sportFacility")	
-	private List<Member> members;
+	private List<SportFacilityMember> members;
 	
 	public SportFacility()
 	{
@@ -58,7 +58,7 @@ public class SportFacility
 	}
 
 	
-	public SportFacility(Long id, String name, String getHere, String description, Integer state, List<Feature> features, List<Image> imagenes, List<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, List<DayClosed> daysClosed, List<Member> members) 
+	public SportFacility(Long id, String name, String getHere, String description, Integer state, List<Feature> features, List<Image> imagenes, List<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, List<DayClosed> daysClosed, List<SportFacilityMember> members) 
 	{
 		this.id = id;
 		this.name = name;
@@ -199,12 +199,12 @@ public class SportFacility
 	}
 
 
-	public List<Member> getMembers() {
+	public List<SportFacilityMember> getMembers() {
 		return members;
 	}
 
 
-	public void setMembers(List<Member> members) {
+	public void setMembers(List<SportFacilityMember> members) {
 		this.members = members;
 	}
 
