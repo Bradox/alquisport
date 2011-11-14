@@ -7,6 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,15 +30,20 @@ public class Schedule
 	private int minStart;
 	@Column(name="MINUTE_END", length=2)
 	private int minEnd;
-	@Column(name="PRICE", length=4)
-	private float price;
+	@Column(name="PRICE_COURT", length=4)
+	private float priceCourt;
+	@Column(name="PRICE_LIGHT", length=4)
+	private float priceLight;
+	@ManyToOne
+	@JoinColumn (name="COURT_ID")
+	private Court court;
 	
 	public Schedule()
 	{
 		
 	}
 
-	public Schedule(Long id, DayOfWeek dayOfWeek, int startHour, int endHour,int minStart, int minEnd, float price) 
+	public Schedule(Long id, DayOfWeek dayOfWeek, int startHour, int endHour,int minStart, int minEnd, float priceCourt, Court court, float priceLight) 
 	{
 		this.id = id;
 		this.dayOfWeek = dayOfWeek;
@@ -44,7 +51,9 @@ public class Schedule
 		this.endHour = endHour;
 		this.minStart = minStart;
 		this.minEnd = minEnd;
-		this.price = price;
+		this.priceCourt = priceCourt;
+		this.priceLight=priceLight;
+		this.court=court;
 	}
 
 	public Long getId() {
@@ -106,14 +115,35 @@ public class Schedule
 		this.minEnd = minEnd;
 	}
 
-	public float getPrice() 
+	public float getPriceCourt() 
 	{
-		return price;
+		return priceCourt;
 	}
 
-	public void setPrice(float price) 
+	public void setPriceCourt(float priceCourt) 
 	{
-		this.price = price;
+		this.priceCourt = priceCourt;
 	}
+
+	public float getPriceLight() 
+	{
+		return priceLight;
+	}
+
+	public void setPriceLight(float priceLight) 
+	{
+		this.priceCourt = priceLight;
+	}
+
 	
+	public Court getCourt() 
+	{
+		return court;
+	}
+
+	public void setCourt(Court court) 
+	{
+		this.court = court;
+	}
+		
 }

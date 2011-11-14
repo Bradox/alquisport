@@ -31,25 +31,22 @@ public class Court
 	     	   joinColumns = { @JoinColumn(name = "COURT_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "TYPE_ID") })
 	private CourtType courtType;
-	@OneToMany
-	@JoinTable(name = "COURT_SCHEDULE", 
-	     	   joinColumns = { @JoinColumn(name = "COURT_ID") }, 
-	 		   inverseJoinColumns = { @JoinColumn(name = "SCHEDULE_ID") })
+	@OneToMany(mappedBy="court")
 	private Schedule schedule;
 	@Embedded
 	private ReservationConfig reservationConfig;
-	@OneToMany
-	@JoinTable(name = "SPORT_FACILITY_FEATURE", 
-	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
-	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })
+	@OneToMany(mappedBy="court")
 	private List<Feature> features;
+	@OneToMany(mappedBy="court")
+	private List<Rent> rents;
+	
 	
 	public Court()
 	{
 		
 	}
 	
-	public Court(Long id, String description, int state, CourtType courtType,Schedule schedule, ReservationConfig reservationConfig,List<Feature> features) 
+	public Court(Long id, String description, int state, CourtType courtType,Schedule schedule, ReservationConfig reservationConfig,List<Feature> features, List<Rent> rents) 
 	{
 		super();
 		this.id = id;
@@ -59,6 +56,7 @@ public class Court
 		this.schedule = schedule;
 		this.reservationConfig = reservationConfig;
 		this.features = features;
+		this.setRents(rents);
 	}
 
 	public Long getId() 
@@ -129,6 +127,16 @@ public class Court
 	public void setFeatures(List<Feature> features) 
 	{
 		this.features = features;
+	}
+
+	public List<Rent> getRents()
+	{
+		return rents;
+	}
+
+	public void setRents(List<Rent> rents)
+	{
+		this.rents = rents;
 	}
 
 }
