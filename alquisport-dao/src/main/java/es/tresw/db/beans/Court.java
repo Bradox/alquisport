@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,10 +24,7 @@ public class Court
 	private String description;
 	@Column(name="STATE", length=2)
 	private int state;
-	@OneToMany
-	@JoinTable(name = "COURT_TYPE", 
-	     	   joinColumns = { @JoinColumn(name = "COURT_ID") }, 
-	 		   inverseJoinColumns = { @JoinColumn(name = "TYPE_ID") })
+	@Embedded
 	private CourtType courtType;
 	@OneToMany(mappedBy="court")
 	private Schedule schedule;
@@ -38,7 +33,7 @@ public class Court
 	@OneToMany(mappedBy="court")
 	private List<Feature> features;
 	@OneToMany(mappedBy="court")
-	private List<Rent> rents;
+	private List<Rental> rents;
 	
 	
 	public Court()
@@ -46,7 +41,7 @@ public class Court
 		
 	}
 	
-	public Court(Long id, String description, int state, CourtType courtType,Schedule schedule, ReservationConfig reservationConfig,List<Feature> features, List<Rent> rents) 
+	public Court(Long id, String description, int state, CourtType courtType,Schedule schedule, ReservationConfig reservationConfig,List<Feature> features, List<Rental> rents) 
 	{
 		super();
 		this.id = id;
@@ -129,12 +124,12 @@ public class Court
 		this.features = features;
 	}
 
-	public List<Rent> getRents()
+	public List<Rental> getRents()
 	{
 		return rents;
 	}
 
-	public void setRents(List<Rent> rents)
+	public void setRents(List<Rental> rents)
 	{
 		this.rents = rents;
 	}

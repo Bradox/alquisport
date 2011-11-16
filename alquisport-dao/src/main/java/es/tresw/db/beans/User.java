@@ -3,7 +3,6 @@ package es.tresw.db.beans;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -12,10 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
 import javax.validation.constraints.Size;
 
 
@@ -45,11 +42,10 @@ public class User
 	private String password;
 	@Column(name="BIRTH_DATE")
 	private Date birthDate;
-    @OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "USER_ROLE", 
-	 		   joinColumns = { @JoinColumn(name = "USER_ID") }, 
-	 		   inverseJoinColumns = { @JoinColumn(name = "ROLE_ID") })
-	private List<Role> roles;
+	@Column(name="ENABLED",columnDefinition="bool default true")
+	private Boolean enabled;
+    @OneToMany(mappedBy="user")
+	private List<Authority> authorities;
     @OneToMany (mappedBy="userTo")
     public List<Message> messagesTo;
     @OneToMany(mappedBy="userFrom")
@@ -66,7 +62,7 @@ public class User
 		
 	}
 	
-	public User(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles, Date birthDate) 
+	public User(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, Boolean enabled) 
 	{
 		this.firstLastName = firstLastName;
 		this.secondLastName = secondLastName;
@@ -76,8 +72,9 @@ public class User
 		this.bankAccount = bankAccount;
 		this.address = address;
 		this.contactInfo = contactInfo;
-		this.roles=roles;
+		this.authorities=authorities;
 		this.birthDate=birthDate;
+		this.enabled=enabled;
 	}
 
 	public Long getId() 
@@ -176,14 +173,14 @@ public class User
 		this.contactInfo = contactInfo;
 	}
 
-	public List<Role> getRoles() 
+	public List<Authority> getAuthorities() 
 	{
-		return roles;
+		return authorities;
 	}
 
-	public void setRoles(List<Role> roles) 
+	public void setAuthorities(List<Authority> authorities) 
 	{
-		this.roles = roles;
+		this.authorities = authorities;
 	}
 
 	public Date getBirthDate() 
@@ -195,5 +192,36 @@ public class User
 	{
 		this.birthDate = birthDate;
 	}
+
+	public Boolean getEnabled()
+	{
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled)
+	{
+		this.enabled = enabled;
+	}
+
+	public List<Message> getMessagesTo()
+	{
+		return messagesTo;
+	}
+
+	public void setMessagesTo(List<Message> messagesTo)
+	{
+		this.messagesTo = messagesTo;
+	}
+
+	public List<Message> getMessagesFrom()
+	{
+		return messagesFrom;
+	}
+
+	public void setMessagesFrom(List<Message> messagesFrom)
+	{
+		this.messagesFrom = messagesFrom;
+	}
 		
+	
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.hibernate.criterion.Criterion;
 
-public interface GenericDao<T, PK extends Serializable>
+public interface I_GenericDao<T, PK extends Serializable>
 {
 	/**
 	 * Create a new instance

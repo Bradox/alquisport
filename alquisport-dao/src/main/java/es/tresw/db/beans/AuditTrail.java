@@ -8,49 +8,48 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ROLE", catalog="Alquisport")
-public class Role 
+@Table(name="AUDIT_TRAIL", catalog="Alquisport")
+public class AuditTrail
 {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
-	@Column(name="role", nullable=false, length=2)
-	private Integer role;
+	@Column(name="DESCRIPTION",columnDefinition="TEXT")
+	private String description;
 	
-	public Role()
+	public AuditTrail()
 	{
 		
 	}
-
-	
-	public Role(Integer role) 
+			
+	public AuditTrail(Long id, String description) 
 	{
-		super();
-		this.role = role;
+		this.id = id;
+		this.description = description;
 	}
-
 
 	public Long getId() 
 	{
 		return id;
 	}
 
-	public void setId(Long id) 
+	public void setId(Long id)
 	{
 		this.id = id;
 	}
 
-	public Integer getRole() 
+	public String getDescription()
 	{
-		return role;
+		return description;
 	}
 
-	public void setRole(Integer role) 
+	public void setDescription(String description) 
 	{
-		this.role = role;
+		this.description = description;
 	}
+
 	
 	
 }
