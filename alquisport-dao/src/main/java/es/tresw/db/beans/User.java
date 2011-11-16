@@ -34,13 +34,13 @@ public class User
 	@Size(max=255, message="El apellido no puede superar los 255 caracteres")
 	@Column(name="secondLastName", nullable=false, length=255)
 	private String secondLastName;
-	@Size(min=6,max=255, message="El login debe ser mayor de 6 caractéres")
+	@Size(min=6,max=255, message="El login debe ser mayor de 6 caractï¿½res")
     @Column(name="LOGIN", nullable=false, length=255)
 	private String login;
 	@Size(max=255, message="El nombre no puede superar los 255 caracteres")
 	@Column(name="NAME", nullable=false, length=255)
 	private String name;
-	@Size(min=6,max=255, message="La contraseña debe ser mayor de 6 caractéres")
+	@Size(min=6,max=255, message="La contrasena debe ser mayor de 6 caracteres")
 	@Column(name="PASSWORD", nullable=false, length=255)
 	private String password;
 	@Column(name="BIRTH_DATE")
