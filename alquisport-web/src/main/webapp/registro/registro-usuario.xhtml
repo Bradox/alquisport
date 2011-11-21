@@ -18,40 +18,40 @@
 			<h:form>
 			<div class="filaformulario">
 				<div class="labelformulario w200"><label for="username"><h:outputText value="usuario:" /></label></div>
-				<div class="campoformulario"><h:inputText id="username" required="true" value="register.client.login" class="field w300"></h:inputText></div>
+				<div class="campoformulario"><h:inputText id="username" value="#{registerController.client.login}" class="field w300"></h:inputText></div>
 				<div class="mensajeformulario"><h:message for="username" errorStyle="color: red" infoStyle="color: green" /></div>
 			</div>
 			<div class="filaformulario">
 				<div class="labelformulario w200"><label for="password"><h:outputText value="contraseña:" /></label></div>
-				<div class="campoformulario"><h:inputSecret id="password" required="true" value="register.client.password" class="field w300"></h:inputSecret></div>
+				<div class="campoformulario"><h:inputSecret id="password" value="#{registerController.client.password}" class="field w300"></h:inputSecret></div>
 				<div class="mensajeformulario"><h:message for="password" errorStyle="color: red" infoStyle="color: green" /></div>
 			</div>
 			<div class="filaformulario">
 				<div class="labelformulario w200"><label for="firstname"><h:outputText value="nombre:" /></label></div>
-				<div class="campoformulario"><h:inputSecret id="firstname" required="true" value="register.client.name" class="field w300"></h:inputSecret></div>
+				<div class="campoformulario"><h:inputText id="firstname" value="#{registerController.client.name}" class="field w300"></h:inputText></div>
 				<div class="mensajeformulario"><h:message for="firstname" errorStyle="color: red" infoStyle="color: green" /></div>
 			</div>
 			<div class="filaformulario">
 				<div class="labelformulario w200"><label for="lastname1"><h:outputText value="primer apellido:" /></label></div>
-				<div class="campoformulario"><h:inputSecret id="lastname1" required="true" value="register.client.firstLastName" class="field w300"></h:inputSecret></div>
+				<div class="campoformulario"><h:inputText id="lastname1" value="#{registerController.client.firstLastName}" class="field w300"></h:inputText></div>
 				<div class="mensajeformulario"><h:message for="lastname1" errorStyle="color: red" infoStyle="color: green" /></div>
 			</div>
 			<div class="filaformulario">
 				<div class="labelformulario w200"><label for="lastname2"><h:outputText value="segundo apellido:" /></label></div>
-				<div class="campoformulario"><h:inputSecret id="lastname2" required="true" value="register.client.secondLastName" class="field w300"></h:inputSecret></div>
+				<div class="campoformulario"><h:inputText id="lastname2" value="#{registerController.client.secondLastName}" class="field w300"></h:inputText></div>
 				<div class="mensajeformulario"><h:message for="lastname2" errorStyle="color: red" infoStyle="color: green" /></div>
 			</div>
 			<div class="filaformulario">
 				<div class="labelformulario w200"><label for="email"><h:outputText value="correo electrónico:" /></label></div>
-				<div class="campoformulario"><h:inputSecret id="email" required="true" value="register.client.username" class="field w300"></h:inputSecret></div>
+				<div class="campoformulario"><h:inputText id="email" value="#{registerController.client.contactInfo.email}" class="field w300"></h:inputText></div>
 				<div class="mensajeformulario"><h:message for="email" errorStyle="color: red" infoStyle="color: green" /></div>
 			</div>
 			<div class="filaformulario">
 				<div class="labelformulario w200"><label for="movil"><h:outputText value="móvil:" /></label></div>
-				<div class="campoformulario"><h:inputSecret id="movil" required="true" value="register.client.username" class="field w300"></h:inputSecret></div>
+				<div class="campoformulario"><h:inputText id="movil" value="#{registerController.client.contactInfo.cellphone}" class="field w300"></h:inputText></div>
 				<div class="mensajeformulario"><h:message for="movil" errorStyle="color: red" infoStyle="color: green" /></div>
 			</div>
-			<div class="botonbuscador"><h:commandButton type="submit" action="register.registerFinalUser" id="registrarte" value="Enviar" class="button big"/></div>
+			<div class="botonbuscador"><h:commandButton type="submit" action="#{registerController.registerClient}" id="registrarte" value="Enviar" class="button big"/></div>
 			</h:form>
 		</section>
 	</ui:define>

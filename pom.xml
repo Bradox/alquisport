@@ -10,23 +10,34 @@
 		<module>alquisport-web</module>
 	</modules>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
 		<spring.group>org.springframework</spring.group>
 		<spring.version>3.0.6.RELEASE</spring.version>
 		<spring.security.version>3.0.7.RELEASE</spring.security.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<hibernate.version>3.6.7.Final</hibernate.version>
 		<hibernatevalidator.version>4.2.0.Final</hibernatevalidator.version>
-		<jsf.version>2.0.2-b10</jsf.version>
+		<jsf.version>2.1.3</jsf.version>
 		<ehcache.version>2.2.0</ehcache.version>
 		<alquisport.groupId>es.tresw</alquisport.groupId>
 	</properties>
 	<build>
+		<finalName>alquisport</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<configuration>
+					<scanIntervalSeconds>3</scanIntervalSeconds>
 				</configuration>
 			</plugin>
 		</plugins>
