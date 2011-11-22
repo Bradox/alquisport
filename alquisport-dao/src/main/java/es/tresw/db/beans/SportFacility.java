@@ -24,11 +24,11 @@ public class SportFacility
 	private Long id;
 	@Column(name="NAME", nullable=false, length=255)
 	private String name;
-	@Column(name="NAME", columnDefinition="TEXT")
+	@Column(name="GET_HERE", columnDefinition="TEXT")
 	private String getHere;
-	@Column(name="NAME", columnDefinition="TEXT")
+	@Column(name="DESCRIPTION", columnDefinition="TEXT")
 	private String description;
-	@Column(name="NAME", nullable=false, length=2)
+	@Column(name="STATE", nullable=false, length=2)
 	private Integer state;
 	@Embedded
 	private Address address;
@@ -36,6 +36,7 @@ public class SportFacility
 	private ContactInfo contactInfo;
 	@Embedded
 	private Appearance appearance;
+	@OneToMany
 	@JoinTable(name = "SPORT_FACILITY_FEATURE", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })

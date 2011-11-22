@@ -22,7 +22,7 @@ public class Group
 	@Column(name = "GROUP_NAME", nullable = false)
 	private String name;
 	@OneToMany(mappedBy="group")
-	private List<Authority> authorities;
+	private List<GroupAuthority> groupAuthorities;
 	@OneToMany(mappedBy="group")
 	private List<GroupMember> members;
 	
@@ -31,11 +31,11 @@ public class Group
 	
 	}
 	
-	public Group(Long id, String name, List<Authority>authorities, List<GroupMember> members)
+	public Group(Long id, String name, List<GroupAuthority>groupAuthorities, List<GroupMember> members)
 	{
 		this.id = id;
 		this.name = name;
-		this.authorities=authorities;
+		this.groupAuthorities=groupAuthorities;
 		this.members=members;
 	}
 	
@@ -59,14 +59,14 @@ public class Group
 		this.name = name;
 	}
 
-	public void setAuthorities(List<Authority>authorities)
+	public void setGroupAuthorities(List<GroupAuthority>authorities)
 	{
-		this.authorities=authorities;
+		this.groupAuthorities=authorities;
 	}
 	
-	public List<Authority> getAuthorities()
+	public List<GroupAuthority> getGroupAuthorities()
 	{
-		return this.authorities;
+		return this.groupAuthorities;
 	}
 
 	public List<GroupMember> getMembers()

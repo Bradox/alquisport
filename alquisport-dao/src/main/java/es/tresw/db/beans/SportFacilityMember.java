@@ -1,12 +1,17 @@
 package es.tresw.db.beans;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="SPORT_FACILITY_MEMBER", catalog="Alquisport")
 public class SportFacilityMember 
 {
 	@Id
@@ -18,7 +23,7 @@ public class SportFacilityMember
 	private SportFacility sportFacility;
 	@ManyToOne
 	@JoinColumn(name = "ID_USER")
-	private User user;
+	private Client client;
 	
 	public SportFacilityMember()
 	{
@@ -27,11 +32,11 @@ public class SportFacilityMember
 	
 	
 	
-	public SportFacilityMember(Long id, SportFacility sportFacility, User user)
+	public SportFacilityMember(Long id, SportFacility sportFacility, Client client)
 	{
 		this.id = id;
 		this.sportFacility = sportFacility;
-		this.user = user;
+		this.client = client;
 	}
 
 	public Long getId() 
@@ -54,13 +59,13 @@ public class SportFacilityMember
 		this.sportFacility = sportFacility;
 	}
 	
-	public User getUser() 
+	public Client getClient() 
 	{
-		return user;
+		return client;
 	}
 	
-	public void setUser(User user) 
+	public void setClient(Client client) 
 	{
-		this.user = user;
+		this.client = client;
 	}
 }

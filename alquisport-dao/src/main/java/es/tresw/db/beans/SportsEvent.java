@@ -1,11 +1,14 @@
 package es.tresw.db.beans;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,26 +23,29 @@ public class SportsEvent
 	private Long id;
 	@Column(name="NAME", nullable=false, length=255)
 	private String name;
-	@Column(name="NAME", columnDefinition="TEXT")
+	@Column(name="DESCRIPTION", columnDefinition="TEXT")
 	private String description;
 	@ManyToOne
 	@JoinColumn(name = "ID_SPORTFACILITY")
 	private SportFacility sportFacility;
-	@OneToMany(mappedBy="event")
-	private Rental rents;
+	@OneToMany
+	@JoinTable(name = "SPORTS_EVENTS_RENTALS", 
+	     	   joinColumns = { @JoinColumn(name = "SPORT_EVENT_ID") }, 
+	 		   inverseJoinColumns = { @JoinColumn(name = "RENTAL_ID") })
+	private List<Rental> rentals;
 	
 	public SportsEvent()
 	{
 		
 	}
 
-	public SportsEvent(Long id, String name, String description, SportFacility sportFacility, Rental rents) 
+	public SportsEvent(Long id, String name, String description, SportFacility sportFacility, List<Rental> rents) 
 	{
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.sportFacility = sportFacility;
-		this.rents = rents;
+		this.rentals = rents;
 	}
 
 	public Long getId() 
@@ -82,14 +88,14 @@ public class SportsEvent
 		this.sportFacility = sportFacility;
 	}
 
-	public Rental getRents() 
+	public List<Rental> getRentals() 
 	{
-		return rents;
+		return rentals;
 	}
 
-	public void setRents(Rental rents) 
+	public void setRents(List<Rental> rentals) 
 	{
-		this.rents = rents;
+		this.rentals = rentals;
 	}
 
 }

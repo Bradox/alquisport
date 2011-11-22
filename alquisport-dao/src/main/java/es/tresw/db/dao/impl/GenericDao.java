@@ -6,17 +6,22 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
+
 import es.tresw.db.dao.I_GenericDao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 
 /**
  * Hibernate implementation of GenericDao A typesafe implementation of CRUD.
  */
+
 public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, PK> {
 	private SessionFactory sessionFactory;
 	private Class<T> type;
@@ -24,10 +29,11 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 	@SuppressWarnings("unchecked")
 	public GenericDao()
 	{
-		this.type =  (Class<T>)((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-	}
+		 this.type = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+	} 
 
 	@SuppressWarnings("unchecked")
+	@Transactional(readOnly=false)
 	public PK create(T object) 
 	{
 		return (PK) getSession().save(object);
@@ -77,6 +83,7 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 		return sessionFactory.getCurrentSession();
 	}
 
+	@Autowired  
 	public void setSessionFactory(SessionFactory sessionFactory) 
 	{
 		this.sessionFactory = sessionFactory;

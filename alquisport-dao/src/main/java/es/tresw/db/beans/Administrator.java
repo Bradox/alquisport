@@ -19,7 +19,10 @@ public class Administrator extends User
 	@JoinColumn(name = "ID_SPORTFACILITY")
 	private SportFacility sportFacility;
 
-	
+	public Administrator()
+	{
+		
+	}
 	
 	public Administrator(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Company company, SportFacility sportFacility, Date birthDate, Boolean enabled) 
 	{
