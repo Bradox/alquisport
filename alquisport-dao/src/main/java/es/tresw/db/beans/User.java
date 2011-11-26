@@ -13,6 +13,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
@@ -25,35 +26,52 @@ public class User
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
-	@Size(max=255, message="El apellido no puede superar los 255 caracteres")
+	
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Column(name="firstLastName", nullable=false, length=255)
 	private String firstLastName;
-	@Size(max=255, message="El apellido no puede superar los 255 caracteres")
+	
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Column(name="secondLastName", nullable=false, length=255)
 	private String secondLastName;
-	@Size(min=6,max=255, message="El login debe ser mayor de 6 caract�res")
+	
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
     @Column(name="LOGIN", nullable=false, length=255)
 	private String login;
-	@Size(max=255, message="El nombre no puede superar los 255 caracteres")
+	
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Column(name="NAME", nullable=false, length=255)
 	private String name;
-	@Size(min=6,max=255, message="La contrasena debe ser mayor de 6 caracteres")
+	
+	@Size(min=5,max=255,message="{password_incorrecto}")
 	@Column(name="PASSWORD", nullable=false, length=255)
 	private String password;
+	
 	@Column(name="BIRTH_DATE")
 	private Date birthDate;
+	
 	@Column(name="ENABLED",columnDefinition="bool default true")
 	private Boolean enabled;
+	
     @OneToMany(mappedBy="user")
 	private List<Authority> authorities;
+    
     @OneToMany (mappedBy="userTo")
     public List<Message> messagesTo;
+    
     @OneToMany(mappedBy="userFrom")
     public List<Message> messagesFrom;
+    
 	@Embedded
 	private BankAccount bankAccount;
+	
 	@Embedded
 	private Address address;
+	
 	@Embedded
 	private ContactInfo contactInfo;
 	

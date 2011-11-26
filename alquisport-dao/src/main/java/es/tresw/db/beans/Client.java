@@ -34,4 +34,23 @@ public class Client extends User
 	{
 		return this.memberOf;
 	}
+
+	@Override
+	public String toString() {
+		return "Client [memberOf=" + memberOf + ", getId()=" + getId()
+				+ ", getFirstLastName()=" + getFirstLastName()
+				+ ", getSecondLastName()=" + getSecondLastName()
+				+ ", getLogin()=" + getLogin() + ", getName()=" + getName()
+				+ ", getPassword()=" + getPassword() + ", getBankAccount()="
+				+ getBankAccount() + ", getAddress()=" + getAddress()
+				+ ", getContactInfo()=" + getContactInfo()
+				+ ", getAuthorities()=" + getAuthorities()
+				+ ", getBirthDate()=" + getBirthDate() + ", getEnabled()="
+				+ getEnabled() + ", getMessagesTo()=" + getMessagesTo()
+				+ ", getMessagesFrom()=" + getMessagesFrom() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
+	
+	
 }
