@@ -15,8 +15,7 @@
 		</property>
 	</bean>
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName">
 			<value>${jdbc.driverClassName}</value>
 		</property>
@@ -32,28 +31,17 @@
 	</bean>
 
 	<!-- Hibernate SessionFactory -->
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-		<property name="dataSource">
-			<ref local="dataSource" />
-		</property>
-		<property name="configLocation">
-			<value>classpath:hibernate.cfg.xml</value>
-		</property>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="es.tresw.db.beans"/>
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
 	</bean>
 
 	<!-- Transaction manager for a Hibernate SessionFactory -->
-	<tx:annotation-driven />
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="sessionFactory">
-			<ref local="sessionFactory" />
-		</property>
-	</bean>
-
-	<!-- this bean will be injected into the HibernateTitleDaoTests class -->
-	<bean id="userDao" class="es.tresw.db.dao.impl.UserDaoImpl">
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	    
 
 </beans>

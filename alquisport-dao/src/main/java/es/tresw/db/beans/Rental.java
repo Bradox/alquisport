@@ -19,9 +19,6 @@ public class Rental
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
-	@ManyToOne
-	@JoinColumn(name = "ID_CLIENT")
-	private Client reservedBy;
 	@Column(name="PAYMENT_STATE", length=2)
 	private int paymentState;
 	@Column(name="QUANTITY_PAID", length=2)
@@ -39,10 +36,9 @@ public class Rental
 		
 	}
 
-	public Rental(Long id, Client reservedBy, int paymentState, int quantityPaid, Court court, Date dateStart, Date dateEnd) 
+	public Rental(Long id, int paymentState, int quantityPaid, Court court, Date dateStart, Date dateEnd) 
 	{
 		this.id = id;
-		this.reservedBy = reservedBy;
 		this.paymentState = paymentState;
 		this.quantityPaid = quantityPaid;
 		this.court=court;
@@ -58,16 +54,6 @@ public class Rental
 	public void setId(Long id) 
 	{
 		this.id = id;
-	}
-
-	public Client getReservedBy() 
-	{
-		return reservedBy;
-	}
-
-	public void setReservedBy(Client reservedBy) 
-	{
-		this.reservedBy = reservedBy;
 	}
 
 	public int getPaymentState() 
