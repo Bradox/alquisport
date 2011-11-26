@@ -97,7 +97,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.2.0.Final</version>
+			<version>${hibernatevalidator.version}</version>
 		</dependency>
 		
 		<!-- API e implementación de JSF 2. Del repo dev.java.net -->
