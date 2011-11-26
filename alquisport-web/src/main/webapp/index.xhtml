@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -14,6 +13,22 @@
 	</ui:define>
 	<ui:define name="content">
 		<h1>ESTO ES LA PAGINA PRINCIPAL</h1>
+		<p>Mensajes: #{msgs.buscar } y el de validations = #{msgsValidations.emailIncorrecto }</p>
+		
+		<h:form>
+		   <h:panelGrid columns="3">
+		      <h:outputLabel value="Campo 1:" for="campo1"/>
+		      <h:inputText id="campo1" value="#{pruebaController.campo1}"/>
+		      <h:message for="campo1" errorStyle="color: red" infoStyle="color: green"/>
+		      <h:outputLabel value="Campo 2:" for="campo2"/>
+		      <h:inputText id="campo2" value="#{pruebaController.campo2}"/>
+		      <h:message for="campo2" errorStyle="color: red" infoStyle="color: green"/>
+		   </h:panelGrid>
+		   <h:commandButton action="#{pruebaController.action}" value="Enviar"/>
+		</h:form>
+		<h:panelGrid>
+		   <h:messages globalOnly="true" errorStyle="color: red" infoStyle="color: green"/>
+		</h:panelGrid>
 	</ui:define>
 
 </ui:composition>

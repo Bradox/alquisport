@@ -1,41 +1,50 @@
 package es.tresw.view.controller;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import java.io.Serializable;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import es.tresw.db.beans.Client;
 import es.tresw.service.RegisterService;
 
 @ManagedBean
 @RequestScoped
-public class RegisterController {
+public class RegisterController implements Serializable{
 	
 	private Client client = new Client();
+	@NotNull(message="No puede ser null")
+	@Size(min=5,max=10,message="{nombre}")
+	private String prueba;
 	
 	/*SERVICE A UTILIZAR*/
-	@Autowired
+	@ManagedProperty("#{registerService}")  
 	private RegisterService registerService;
 	
 	
 	/*METODOS ASOCIADOS A ACCIONES DE FORMULARIO*/
-	public void registerClient()
+	public String registerClient()
 	{
-		if(registerService!=null)
+		if(registerService.register(client))
 		{
 			//Llamamos al service de registro para que guarde el cliente
-			registerService.register(client);
-			System.out.println("HA ENTRADO Y REGISTRADO AL USUARIO");
+			System.out.println("Se ha registrado el siguiente cliente: "+client);
+			return "registro-ok";
 		}
 		else
+		{
 			System.out.println("el service no llega!");
+			return "registro-error";
+		}
+		
+		
 	}
 
 	/*GETTERS AND SETTERS*/
 	public Client getClient() {
-		System.out.println("en el get");
-		client.setLogin("ESTE SOY YO");
 		return client;
 	}
 
@@ -50,5 +59,14 @@ public class RegisterController {
 	public void setRegisterService(RegisterService registerService) {
 		this.registerService = registerService;
 	}
+
+	public String getPrueba() {
+		return prueba;
+	}
+
+	public void setPrueba(String prueba) {
+		this.prueba = prueba;
+	}
+	
 
 }

@@ -1,10 +1,7 @@
 package es.tresw.service;
 
-import org.springframework.stereotype.Service;
-
 import es.tresw.db.beans.Client;
 
-@Service
 public class RegisterService {
 	
 	private String mensajeok;

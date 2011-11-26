@@ -6,7 +6,7 @@
 		<bean id="loggerListener"
 		class="org.springframework.security.access.event.LoggerListener" />
 		
-		<bean id="registerService" class="es.tresw.service.RegisterService">
+		<bean id="clientDao" class="es.tresw.db.dao.impl.ClientDao" >
 	    </bean>
 		
 </beans>
