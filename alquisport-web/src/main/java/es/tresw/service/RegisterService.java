@@ -1,6 +1,12 @@
 package es.tresw.service;
 
+<<<<<<< Updated upstream
 import es.tresw.db.beans.Client;
+=======
+import org.springframework.stereotype.Service;
+
+import es.tresw.db.entities.Client;
+>>>>>>> Stashed changes
 
 public class RegisterService {
 	

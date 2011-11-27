@@ -3,6 +3,7 @@ package es.tresw.db.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 
 public interface I_GenericDao<T, PK extends Serializable>
@@ -51,5 +52,7 @@ public interface I_GenericDao<T, PK extends Serializable>
 	 * @param persistentObject
 	 */
 	void delete(T persistentObject);
+	
+	Session getSession();
 	
 }
