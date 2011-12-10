@@ -3,29 +3,36 @@ body {background: none repeat scroll 0 0 #99ddff;color: #515151; margin: 0;paddi
 a img {border: medium none;}
 .clearfix, .container {display: block;}
 
-/*Generales*/
+/*GENERALES*/
 .rounded10 {border.radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;behavior:url(border-radius.htc);}
 .box-shadow-light {box-shadow: 1px 1px 3px 0 #999999;}
-.container:after {clear: both;content: " ";display: block;height: 0;overflow: hidden;visibility: hidden;}
-.container {margin: 0 auto;padding: 0 10px;width: 960px;}
+.oculto{display: none;}
+.bloque-400w{width: 400px; float: left;}
+.small-text{font-size: 0.8em;}
+.normal-text{font-size: 1em;}
+.big-text{font-size: 1.2em;}
 
 h1{border-bottom: 1px solid #aaddff;color: #44aaff;font-size: 1.3em;font-weight: bold;margin: 3px 0 8px;padding: 0 0 5px;}
 h2{color: #44aaff;font-size: 1.1em;margin: 3px 0 8px;padding: 0 0 5px;} 
-input.button.big, a.button.big {height: 40px;padding-left: 80px;padding-right: 80px;}
-input.button.verde, a.button.verde {background: none repeat scroll 0 0 #749F00;}
-input.button, input.button:focus, a.button, a.button:focus, a.button:hover {background: none repeat scroll 0 0 #FF5113;border: 0 none;
+.button.big, a.button.big {height: 40px;padding-left: 80px;padding-right: 80px;}
+.button.verde, a.button.verde {background: none repeat scroll 0 0 #749F00;}
+.button, .button:focus, a.button, a.button:focus, a.button:hover {background: none repeat scroll 0 0 #FF5113;border: 0 none;
     border-radius: 4px 4px 4px 4px;color: #FFFFFF;cursor: pointer;font-family: inherit;font-size: 16px;font-weight: bold;height: 30px;line-height: 30px;
     min-width: 80px;padding-left: 20px;padding-right: 20px;text-align: center;text-decoration: none;text-transform: lowercase;white-space: nowrap;}
     
     
 #bloque-contenido{float: left;background-color:#FFFFFF; margin:10px; padding:10px; width: 900px; }
-/**/
+
+/*ESTRUCTURA*/
+#header {background: none repeat scroll 0 0 #FFFFFF;box-shadow: 0 0 5px #666666;margin-bottom: 5px;width: 100%;height: 70px;}
+#header_content {margin: 0 auto;padding: 0 10px;width: 960px;}
+#footer_content {margin: 0 auto;padding: 0 10px;width: 960px;}
+#contenido {width:900px; min-height:500px; margin:10px;}
+#contenido_content { }
+
+
 /*CABECERA*/
-#cabecera-principal {background: none repeat scroll 0 0 #FFFFFF;box-shadow: 0 0 5px #666666;float: left;margin-bottom: 5px;width: 100%;height: 70px;}
-#cabecera-logo hgroup {display: none;}
-#cabecera-contenedor {}
 #cabecera-logo {float: left;overflow: hidden;}
-#logo {}
 #cabecera-login{float:right;}
 .usuario{float:left; width: 150px;}
 .usuario label{font-size: 9px;}
@@ -39,7 +46,7 @@ input.button, input.button:focus, a.button, a.button:focus, a.button:hover {back
 .password a{text-decoration: none; color:#FF5113; font-size: 10px;}
 .password a:hover{text-decoration: none; color:#FF5113;font-size: 10px;}
 .password a:active{text-decoration: none; color:#FF5113;font-size: 10px;}
-.entrar{float:left; padding-top:15px;}
+.entrar{float:left; padding-top:21px;}
 
 .menu-usuario-superior{padding-top: 40px;}
 .mis-instalaciones a{text-decoration: none; color:#FF5113; font-size: 14px;}
@@ -48,6 +55,10 @@ input.button, input.button:focus, a.button, a.button:focus, a.button:hover {back
 .mis-notificaciones{margin:0 20px; padding:10px; background-color: #FF5113; color:#FFFFFF}
 .mi-menu-desplegable{}
 /**/
+
+
+/*Administracion de instalaciones deportivas y pistas deportivas*/
+.titulo-instalacion {color: #FF5113;font-size: 1.2em;margin: 3px 0 8px;padding: 0 0 5px;}
 
 /*CAJAS HOME*/
 
@@ -103,5 +114,6 @@ select.field option {font-size: 12px;}
 .contenido-bloque-pie ul li a:hover{text-decoration: none; color:#FFFFFF;}
 .contenido-bloque-pie ul li a:active{text-decoration: none; color:#FFFFFF;}
 /**/
+
 
 

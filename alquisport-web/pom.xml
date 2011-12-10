@@ -73,11 +73,22 @@
 			<version>${hibernatevalidator.version}</version>
 		</dependency>
 
-		<!-- PRIMEFACES -->
+		<!-- PRIMEFACES y MYFACES TOMAHAWK -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>3.0.M4</version>
+			<version>${primefaces.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>blitzer</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.myfaces.tomahawk</groupId>
+		    <artifactId>tomahawk20</artifactId>
+		    <version>${tomahawk.version}</version>
 		</dependency>
 
 		<!-- APACHE COMMONS -->

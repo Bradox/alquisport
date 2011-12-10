@@ -2,35 +2,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui">
 <ui:composition>
-	<header id="cabecera-principal">
-		<div class="container">
-			<div id="cabecera-logo">
-				<hgroup>
-					<h1>Alquisport</h1>
-					<h2>Tu página de alquiler de instalaciones deportivas.</h2>
-				</hgroup>
-				<h:graphicImage id="logo" alt="Alquisport: Tu página de alquiler de instalaciones deportivas" url="/resources/images/Logo-01.png"/>    
-			</div>
-			<div id="cabecera-login">
-				<div class="loginform">
-					<form action="j_spring_security_check" method="post">
-						<div class="usuario">
-							<label for="j_username"><h:outputText value="usuario:" /></label><h:inputText id="j_username" required="true"></h:inputText>
-							<p><h:link value="registrate" title="Entra y registrate como usuario." outcome="/registro/registro-usuario.xhtml" /></p>
-						</div>
-						<div class="password">
-							<label for="j_password"><h:outputText value="contraseña:" /></label><h:inputSecret id="j_password" required="true"></h:inputSecret>
-							<p><h:link value="la he olvidado" title="Página para recuperar la contraseña perdida." outcome="/registro/recuperar-password.xhtml" /></p>
-						</div>
-						<div class="entrar">
-							<h:commandButton type="submit" id="login" value="Entrar" class="button"/>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</header>
+	<p:panel id="header">
+		<t:div id="cabecera-logo">
+			<h:graphicImage id="logo" alt="Alquisport: Tu página de alquiler de instalaciones deportivas" url="/resources/images/Logo-01.png"/>    
+		</t:div>
+		<t:div id="cabecera-login">
+			<t:div styleClass="loginform">
+				<h:form action="j_spring_security_check" method="post">
+					<t:div styleClass="usuario">
+						<label for="j_username"><h:outputText value="usuario:" /></label><h:inputText id="j_username" required="true"></h:inputText><br/>
+						<h:link value="registrate" title="Entra y registrate como usuario." outcome="/registro/registro-usuario.xhtml" />
+					</t:div>
+					<t:div styleClass="password">
+						<label for="j_password"><h:outputText value="contraseña:" /></label><h:inputSecret id="j_password" required="true"></h:inputSecret><br/>
+						<h:link value="la he olvidado" title="Página para recuperar la contraseña perdida." outcome="/registro/recuperar-password.xhtml" />
+					</t:div>
+					<t:div styleClass="entrar">
+						<h:commandButton type="submit" id="login" value="Entrar" class="button"/>
+					</t:div>
+				</h:form>
+			</t:div>
+		</t:div>
+	</p:panel>
 </ui:composition>
 </html>

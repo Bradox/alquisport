@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -7,14 +8,13 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition
-	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+	template="/WEB-INF/facelets/templates/adminInsdepLayout.xhtml">
 	<ui:define name="title">
-		<h:outputText value="Página de prueba" />
+		<h:outputText value="Resumen Instalacion Deportiva" />
 	</ui:define>
 	<ui:define name="content">
-		<h1>ESTO ES LA PAGINA PRINCIPAL</h1>
-		
-		<h:link value="Administración de la instalación deportiva" outcome="/insdeportiva/resumen-instalacion-deportiva" />
+		<h:outputText
+			value="Está dentro de la administración de instalaciones deportivas" />
 	</ui:define>
 
 </ui:composition>
