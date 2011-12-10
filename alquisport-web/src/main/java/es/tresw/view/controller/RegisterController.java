@@ -8,7 +8,7 @@ import javax.faces.bean.RequestScoped;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import es.tresw.db.beans.Client;
+import es.tresw.db.entities.Client;
 import es.tresw.service.RegisterService;
 
 @ManagedBean

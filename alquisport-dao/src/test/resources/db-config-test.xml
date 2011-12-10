@@ -33,7 +33,7 @@
 	<!-- Hibernate SessionFactory -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="es.tresw.db.beans"/>
+		<property name="packagesToScan" value="es.tresw.db.entities"/>
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
 	</bean>
 

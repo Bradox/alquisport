@@ -33,27 +33,27 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 	} 
 
 	@SuppressWarnings("unchecked")
-	@Transactional(readOnly=false)
+	//@Transactional(readOnly=false)
 	public PK create(T object) 
 	{
 		return (PK) getSession().save(object);
 	}
 
 	@SuppressWarnings("unchecked")
-	@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
+	//@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
 	public T read(PK id) 
 	{
 		return (T) getSession().get(type, id);
 	}
 
-	@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
+	//@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
 	public List<T> readAll() 
 	{
 		return readByCriteria();
 	}
 
 	@SuppressWarnings("unchecked")
-	@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
+	//@Transactional(readOnly=true, isolation=Isolation.READ_COMMITTED)
 	public List<T> readByCriteria(Criterion... criterion) 
 	{
 		Criteria crit = getSession().createCriteria(type);

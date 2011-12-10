@@ -1,6 +1,8 @@
 package es.tresw.service;
 
-import es.tresw.db.beans.Client;
+import org.springframework.stereotype.Service;
+
+import es.tresw.db.entities.Client;
 
 public class RegisterService {
 	
