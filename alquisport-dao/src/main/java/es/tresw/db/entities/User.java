@@ -30,8 +30,6 @@ public class User
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
-<<<<<<< Updated upstream:alquisport-dao/src/main/java/es/tresw/db/beans/User.java
-	
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Column(name="firstLastName", nullable=false, length=255)
@@ -42,19 +40,8 @@ public class User
 	@Column(name="secondLastName", nullable=false, length=255)
 	private String secondLastName;
 	
-	@NotNull
-	@Size(min=1,max=255,message="{campo_obligatorio}")
-    @Column(name="LOGIN", nullable=false, length=255)
-=======
-	@Size(max=255, message="El apellido no puede superar los 255 caracteres")
-	@Column(name="FIRST_LAST_NAME", nullable=false, length=255)
-	private String firstLastName;
-	@Size(max=255, message="El apellido no puede superar los 255 caracteres")
-	@Column(name="SECOND_LAST_NAME", nullable=false, length=255)
-	private String secondLastName;
-	@Size(min=6,max=255, message="El login debe ser mayor de 6 caract�res")
+	@Size(min=6,max=255, message="{login_incorrecto}")
     @Column(name="LOGIN", nullable=false, length=255,unique=true)
->>>>>>> Stashed changes:alquisport-dao/src/main/java/es/tresw/db/entities/User.java
 	private String login;
 	
 	@NotNull

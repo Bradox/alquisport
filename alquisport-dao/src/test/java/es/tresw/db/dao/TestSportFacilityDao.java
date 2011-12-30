@@ -43,7 +43,7 @@ import es.tresw.db.entities.SportFacilityMember;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:intercambia-servlet-test.xml"})
-@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
+//@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
 @Transactional
 public class TestSportFacilityDao extends TestCase{
 	
@@ -71,14 +71,15 @@ public class TestSportFacilityDao extends TestCase{
 			Address address = new Address();
 			address.setAddress("Mi Casa");
 			address.setType("Calle");
+			address.setZipCode("asdas");
 			address.setProvince(province);
 			address.setMunicipality(province.getMunicipalities().get(0));
 			SportFacility sportFacility = new SportFacility();
 			sportFacility.setAddress(address);
 			Appearance appearance = new Appearance();
-			appearance.setColor1("blue");
-			appearance.setColor2("color2");
-			appearance.setColor3("color3");
+			appearance.setColor1("1");
+			appearance.setColor2("1");
+			appearance.setColor3("1");
 			sportFacility.setAppearance(appearance);
 			ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com", 954417070, 665787878);
 			sportFacility.setContactInfo(contactInfo);	
@@ -91,7 +92,7 @@ public class TestSportFacilityDao extends TestCase{
 			features.add(feature);
 			sportFacility.setFeatures(features);
 			sportFacility.setGetHere("por mar tierra o aire");
-			BufferedImage originalImage = ImageIO.read(new File("/alquisport-dao/src/test/resources/google_logo_41.png"));
+			BufferedImage originalImage = ImageIO.read(new File("../alquisport-dao/src/test/resources/google_logo_41.png"));
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			ImageIO.write( originalImage, "jpg", baos );
 			baos.flush();
@@ -110,13 +111,13 @@ public class TestSportFacilityDao extends TestCase{
 			sportFacility.setImages(images);
 			sportFacility.setName("Entidad guapa");
 			sportFacility.setState(1);
+			sportFacility.setUrlName("sergiomarica");
 			sportFacilityDao.create(sportFacility);
-			sportFacilityDao.getSession().flush();
 			assertNotNull(sportFacilityDao.read(sportFacility.getId()));
 		}
 		catch (Exception e)
 		{
-			
+			fail(e.toString());
 		}
 	}
 	

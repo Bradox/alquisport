@@ -45,6 +45,7 @@ public class TestUserDao extends TestCase{
 		long lDateTime = new Date().getTime();
 		Province province = provinceDao.read(new Long(1));
 		Address address = new Address();
+		address.setZipCode("asasd");
 		address.setAddress("Mi Casa");
 		address.setType("Calle");
 		address.setProvince(province);
@@ -88,7 +89,7 @@ public class TestUserDao extends TestCase{
 	
 	@Test
 	@Transactional
-	@Rollback(false)
+	@Rollback(true)
 	public void testDelete()
 	{
 		Client clientDelete = clientDao.readAll().get(0);

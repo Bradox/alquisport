@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
 
 <ui:composition
 	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
@@ -12,7 +14,7 @@
 		<h:outputText value="Formulario de registro de usuario" />
 	</ui:define>
 	<ui:define name="content">
-		<section id="bloque-contenido" class="rounded10 box-shadow-light">
+		<p:panel id="contenido">
 			<h1>registro de usuario</h1>
 			<p>Rellene el siguiente formulario para registrarse en <strong>alquisport.com</strong> y formar parte de nuestra gran comunidad de deporte.</p>
 			<h:form>
@@ -53,7 +55,7 @@
 			</div>
 			<div class="botonbuscador"><h:commandButton type="submit" action="#{registerController.registerClient}" id="registrarte" value="Enviar" class="button big"/></div>
 			</h:form>
-		</section>
+		</p:panel>
 	</ui:define>
 
 </ui:composition>

@@ -31,8 +31,8 @@ public class SportFacility
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Pattern(regexp="[a-z]*",message="{identificador_incorrecto}")
-	@Column(name="URLNAME", nullable=false, length=255)
-	private String urlname;
+	@Column(name="URL_NAME", nullable=false, length=255)
+	private String urlName;
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Column(name="NAME", nullable=false, length=255)
@@ -221,5 +221,22 @@ public class SportFacility
 	public void setMembers(List<SportFacilityMember> members) {
 		this.members = members;
 	}
+
+
+	public String getUrlName() {
+		return urlName;
+	}
+
+
+	public void setUrlName(String urlName) {
+		this.urlName = urlName;
+	}
+
+
+	public List<Image> getImages() {
+		return images;
+	}
+	
+	
 
 }

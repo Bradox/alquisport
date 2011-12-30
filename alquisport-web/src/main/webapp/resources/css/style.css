@@ -3,6 +3,9 @@ body {background: none repeat scroll 0 0 #99ddff;color: #515151; margin: 0;paddi
 a img {border: medium none;}
 .clearfix, .container {display: block;}
 
+/*Pisamos los estandares de JSF*/
+.ui-widget{font-size: 1em;}
+
 /*GENERALES*/
 .rounded10 {border.radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;behavior:url(border-radius.htc);}
 .box-shadow-light {box-shadow: 1px 1px 3px 0 #999999;}
@@ -27,9 +30,8 @@ h2{color: #44aaff;font-size: 1.1em;margin: 3px 0 8px;padding: 0 0 5px;}
 #header {background: none repeat scroll 0 0 #FFFFFF;box-shadow: 0 0 5px #666666;margin-bottom: 5px;width: 100%;height: 70px;}
 #header_content {margin: 0 auto;padding: 0 10px;width: 960px;}
 #footer_content {margin: 0 auto;padding: 0 10px;width: 960px;}
-#contenido {width:900px; min-height:500px; margin:10px;}
+#contenido {width:900px; min-height:500px; margin:10px; margin:auto;}
 #contenido_content { }
-
 
 /*CABECERA*/
 #cabecera-logo {float: left;overflow: hidden;}

@@ -36,6 +36,22 @@ public class ContactInfo
 	{
 		this.email = email;
 	}
+
+	public int getTelephone1() {
+		return telephone1;
+	}
+
+	public void setTelephone1(int telephone1) {
+		this.telephone1 = telephone1;
+	}
+
+	public int getTelephone2() {
+		return telephone2;
+	}
+
+	public void setTelephone2(int telephone2) {
+		this.telephone2 = telephone2;
+	}
 	
 
 }
