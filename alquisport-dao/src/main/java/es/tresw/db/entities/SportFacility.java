@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.ContactInfo;
@@ -25,6 +28,13 @@ public class SportFacility
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
+	@Pattern(regexp="[a-z]*",message="{identificador_incorrecto}")
+	@Column(name="URLNAME", nullable=false, length=255)
+	private String urlname;
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Column(name="NAME", nullable=false, length=255)
 	private String name;
 	@Column(name="GET_HERE", columnDefinition="TEXT")
