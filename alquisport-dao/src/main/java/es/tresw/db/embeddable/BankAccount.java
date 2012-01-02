@@ -7,13 +7,13 @@ import javax.persistence.Embeddable;
 public class BankAccount 
 {
 	
-	@Column(name="ENTITY_CODE", nullable=false, length=4)
+	@Column(name="ENTITY_CODE", length=4)
 	private Integer entityCode;
-	@Column(name="CONTROL_CODE", nullable=false, length=2)
+	@Column(name="CONTROL_CODE", length=2)
 	private Integer controlCode;
-	@Column(name="OFFICE_CODE", nullable=false, length=4)
+	@Column(name="OFFICE_CODE", length=4)
 	private Integer officeCode;
-	@Column(name="ACCOUNT_NUMBER", nullable=false, length=10)
+	@Column(name="ACCOUNT_NUMBER", length=10)
 	private Integer accountNumber;
 	
 	public BankAccount()

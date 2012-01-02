@@ -7,11 +7,11 @@ import javax.persistence.Embeddable;
 public class ContactInfo 
 {
 
-	@Column(name="EMAIL", nullable=false, length=255,unique=true)
+	@Column(name="EMAIL", length=255,unique=true)
 	private String email;
-	@Column(name="PHONE1", nullable=false, length=255)
+	@Column(name="PHONE1", length=255)
 	private String telephone1;
-	@Column(name="PHONE2", nullable=false, length=255)
+	@Column(name="PHONE2", length=255)
 	private String telephone2;
 
 	public ContactInfo()

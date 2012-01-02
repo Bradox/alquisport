@@ -32,12 +32,12 @@ public class User
 	private Long id;
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
-	@Column(name="firstLastName", nullable=false, length=255)
+	@Column(name="FIRST_LASTNAME", nullable=false, length=255)
 	private String firstLastName;
 	
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
-	@Column(name="secondLastName", nullable=false, length=255)
+	@Column(name="SECOND_LASTNAME", nullable=false, length=255)
 	private String secondLastName;
 	
 	@Size(min=6,max=255, message="{login_incorrecto}")

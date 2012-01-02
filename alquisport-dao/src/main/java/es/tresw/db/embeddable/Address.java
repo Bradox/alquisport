@@ -13,12 +13,12 @@ import es.tresw.db.entities.Zone;
 @Embeddable
 public class Address 
 {
-	@Column(name="ADDRESS", nullable=false, length=255)
+	@Column(name="ADDRESS", length=255)
 	public String address;
-	@Column(name="TYPE", nullable=false, length=255)
+	@Column(name="TYPE", length=255)
 	public String type;
 	@Size(min=5,max=5,message="{zipcode_incorrecto}")
-	@Column(name="ZIP_CODE", nullable=false, length=255)
+	@Column(name="ZIP_CODE", length=255)
 	public String zipCode;
 	@ManyToOne
 	@JoinColumn(name = "ID_PROVINCE")
