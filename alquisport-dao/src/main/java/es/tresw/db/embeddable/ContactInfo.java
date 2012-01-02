@@ -10,16 +10,16 @@ public class ContactInfo
 	@Column(name="EMAIL", nullable=false, length=255,unique=true)
 	private String email;
 	@Column(name="PHONE1", nullable=false, length=255)
-	private int telephone1;
+	private String telephone1;
 	@Column(name="PHONE2", nullable=false, length=255)
-	private int telephone2;
+	private String telephone2;
 
 	public ContactInfo()
 	{
 		
 	}
 	
-	public ContactInfo(String email, int telephone1, int telephone2) 
+	public ContactInfo(String email, String telephone1, String telephone2) 
 	{
 		super();
 		this.email = email;
@@ -37,19 +37,19 @@ public class ContactInfo
 		this.email = email;
 	}
 
-	public int getTelephone1() {
+	public String getTelephone1() {
 		return telephone1;
 	}
 
-	public void setTelephone1(int telephone1) {
+	public void setTelephone1(String telephone1) {
 		this.telephone1 = telephone1;
 	}
 
-	public int getTelephone2() {
+	public String getTelephone2() {
 		return telephone2;
 	}
 
-	public void setTelephone2(int telephone2) {
+	public void setTelephone2(String telephone2) {
 		this.telephone2 = telephone2;
 	}
 	
