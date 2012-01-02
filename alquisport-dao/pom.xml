@@ -12,11 +12,11 @@
 	<version>${project.parent.version}</version>
 
 	<dependencies>
-	<dependency>
-    <groupId>c3p0</groupId>
-    <artifactId>c3p0</artifactId>
-    <version>0.9.0.4</version>
-</dependency>
+		<dependency>
+	    <groupId>c3p0</groupId>
+	    <artifactId>c3p0</artifactId>
+	    <version>0.9.0.4</version>
+	</dependency>
 		<dependency>
 			<groupId>${spring.group}</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -39,20 +39,12 @@
 			<groupId>${spring.group}</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
-			<type>jar</type>
-			<scope>test</scope>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-annotations</artifactId>
-			<version>3.4.0.GA</version>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

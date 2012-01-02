@@ -59,7 +59,7 @@ public class TestUserDao extends TestCase{
 		bankAccount.setOfficeCode(1234);
 		client.setBankAccount(bankAccount);
 		client.setEnabled(true);
-		ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com"+lDateTime, 954417070, 665787878);
+		ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com"+lDateTime, "954417070", "665787878");
 		client.setContactInfo(contactInfo);
 		client.setBirthDate(new Date(1981, 3, 20));
 		client.setFirstLastName("Alves");

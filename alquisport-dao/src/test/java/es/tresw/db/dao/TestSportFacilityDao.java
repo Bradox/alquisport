@@ -81,7 +81,7 @@ public class TestSportFacilityDao extends TestCase{
 			appearance.setColor2("1");
 			appearance.setColor3("1");
 			sportFacility.setAppearance(appearance);
-			ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com", 954417070, 665787878);
+			ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com", "954417070", "665787878");
 			sportFacility.setContactInfo(contactInfo);	
 			sportFacility.setDescription("tenemos las mejores pistas y más guapas");
 			Feature feature = new Feature();
