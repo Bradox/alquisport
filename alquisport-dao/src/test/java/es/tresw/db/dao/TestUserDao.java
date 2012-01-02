@@ -1,9 +1,6 @@
 package es.tresw.db.dao;
 
-import static org.junit.Assert.*;
-
 import java.util.Date;
-import java.util.List;
 
 import junit.framework.TestCase;
 
@@ -12,18 +9,14 @@ import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.tresw.db.dao.impl.AdministratorDao;
-import es.tresw.db.dao.impl.ClientDao;
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
-import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.Client;
 import es.tresw.db.entities.Province;
 
