@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="SPORT_FACILITY_MEMBER", catalog="Alquisport")
+@Table(name="SPORT_FACILITY_MEMBER", catalog="ALQUISPORT")
 public class SportFacilityMember 
 {
 	@Id

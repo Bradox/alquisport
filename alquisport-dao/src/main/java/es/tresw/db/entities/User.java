@@ -39,9 +39,10 @@ public class User
 	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Column(name="SECOND_LASTNAME", nullable=false, length=255)
 	private String secondLastName;
-	
-	@Size(min=6,max=255, message="{login_incorrecto}")
-    @Column(name="LOGIN", nullable=false, length=255,unique=true)
+		
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
+    @Column(name="LOGIN", nullable=false, length=255)
 	private String login;
 	
 	@NotNull

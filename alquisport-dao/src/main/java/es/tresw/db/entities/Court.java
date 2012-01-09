@@ -13,6 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import es.tresw.db.embeddable.CourtType;
 import es.tresw.db.embeddable.ReservationConfig;
 
 @Entity

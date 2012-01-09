@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import es.tresw.db.types.DayOfWeek;
 
 @Entity
-@Table(name="SCHEDULE", catalog="Alquisport")
+@Table(name="SCHEDULE", catalog="ALQUISPORT")
 public class Schedule 
 {
 

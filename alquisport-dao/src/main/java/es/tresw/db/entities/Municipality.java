@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MUNICIPALITY", catalog="Alquisport")
+@Table(name="MUNICIPALITY", catalog="ALQUISPORT")
 public class Municipality 
 {
 	@Id

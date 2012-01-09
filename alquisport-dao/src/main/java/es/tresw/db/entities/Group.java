@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "GROUP", catalog="Alquisport")
+@Table(name = "GROUP", catalog="ALQUISPORT")
 public class Group 
 {
 

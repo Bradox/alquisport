@@ -6,33 +6,21 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import junit.framework.TestCase;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.tresw.db.dao.impl.AdministratorDao;
-import es.tresw.db.dao.impl.ClientDao;
-import es.tresw.db.dao.impl.SportFacilityDao;
 import es.tresw.db.embeddable.Address;
-import es.tresw.db.embeddable.BankAccount;
+import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
-import es.tresw.db.entities.Administrator;
-import es.tresw.db.entities.Appearance;
 import es.tresw.db.entities.Client;
 import es.tresw.db.entities.DayClosed;
 import es.tresw.db.entities.Feature;
@@ -45,7 +33,7 @@ import es.tresw.db.entities.SportFacilityMember;
 @ContextConfiguration(locations = {"classpath:intercambia-servlet-test.xml"})
 //@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
 @Transactional
-public class TestSportFacilityDao extends TestCase{
+public class TestSportFacilityDao{
 	
 
 	@Autowired
@@ -54,10 +42,10 @@ public class TestSportFacilityDao extends TestCase{
 	private I_ProvinceDao provinceDao;
 	@Autowired
 	private I_ClientDao clientDao;
-	@Autowired
-	private I_AdministratorDao administratorDao;
 	@Autowired 
 	private I_DayClosedDao daysClosedDao;
+	@Autowired 
+	private I_FeatureDao featureDao;
 	@Autowired
 	private I_ImageDao imageDao;
 	
@@ -83,13 +71,14 @@ public class TestSportFacilityDao extends TestCase{
 			sportFacility.setAppearance(appearance);
 			ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com", "954417070", "665787878");
 			sportFacility.setContactInfo(contactInfo);	
-			sportFacility.setDescription("tenemos las mejores pistas y más guapas");
+			sportFacility.setDescription("tenemos las mejores pistas y mÃ¡s guapas");
 			Feature feature = new Feature();
 			feature.setKey("Sergio");
 			feature.setPosition(1);
 			feature.setValue("PUTA");
 			List<Feature> features = new ArrayList<Feature>();
 			features.add(feature);
+			featureDao.create(feature);
 			sportFacility.setFeatures(features);
 			sportFacility.setGetHere("por mar tierra o aire");
 			BufferedImage originalImage = ImageIO.read(new File("../alquisport-dao/src/test/resources/google_logo_41.png"));
@@ -165,13 +154,13 @@ public class TestSportFacilityDao extends TestCase{
 	
 	@Test
 	@Transactional
-	@Rollback(false)
+	//@Rollback(false)
 	public void testDelete()
 	{
 		SportFacility sportFacility = sportFacilityDao.readAll().get(0);
 		Long id = sportFacility.getId();
 		sportFacilityDao.delete(sportFacility);
-		assertNotNull(sportFacilityDao.read(id));		
+		assertNull(sportFacilityDao.read(id));		
 	}
 
 	
@@ -190,18 +179,16 @@ public class TestSportFacilityDao extends TestCase{
 		this.clientDao=clientDao;
 	}
 
-	public void setAdministartorDao(I_AdministratorDao administratorDao)
-	{
-		this.administratorDao = administratorDao;
-	}
-	
 	public void setDaysClosedDao(I_DayClosedDao daysClosedDao)
 	{
 		this.daysClosedDao=daysClosedDao;
 	}
 
-	private void setImageDao(I_ImageDao imageDao)
+
+	public void setFeatureDao(I_FeatureDao featureDao) 
 	{
-		this.imageDao=imageDao;
+		this.featureDao = featureDao;
 	}
+	
+	
 }
