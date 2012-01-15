@@ -1,5 +1,7 @@
 package es.tresw.db.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,16 +20,19 @@ public class AuditTrail
 	private Long id;
 	@Column(name="DESCRIPTION",columnDefinition="TEXT")
 	private String description;
+	@Column(name="DATE")
+	private Date date;
 	
 	public AuditTrail()
 	{
 		
 	}
 			
-	public AuditTrail(Long id, String description) 
+	public AuditTrail(Long id, String description, Date date) 
 	{
 		this.id = id;
 		this.description = description;
+		this.date=date;
 	}
 
 	public Long getId() 
@@ -50,6 +55,14 @@ public class AuditTrail
 		this.description = description;
 	}
 
-	
+	public Date getDate() 
+	{
+		return date;
+	}
+
+	public void setDate(Date date) 
+	{
+		this.date = date;
+	}
 	
 }

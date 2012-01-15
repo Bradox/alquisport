@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PROVINCE", catalog="Alquisport")
+@Table(name="PROVINCE", catalog="ALQUISPORT")
 public class Province 
 {
 

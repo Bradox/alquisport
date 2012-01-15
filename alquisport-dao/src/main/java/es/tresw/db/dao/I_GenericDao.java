@@ -63,4 +63,6 @@ public interface I_GenericDao<T, PK extends Serializable>
 	
 	Session getSession();
 	
+	public List<T> readByField(List<String> fields, List<String> expressions, List<String> values, List<String> types);
+	
 }

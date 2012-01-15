@@ -17,6 +17,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import es.tresw.db.embeddable.Address;
+import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
