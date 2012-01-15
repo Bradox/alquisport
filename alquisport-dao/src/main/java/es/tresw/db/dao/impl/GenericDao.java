@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 
 import es.tresw.db.dao.I_GenericDao;
 
@@ -63,7 +64,15 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 		}
 		return crit.list();
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public boolean exists(String field, String value) 
+	{
+		Criteria crit = getSession().createCriteria(type);
+		crit.add(Restrictions.eq(field, value));
+		return (crit.uniqueResult() != null);
+	}
+	
 	@Transactional(readOnly=false)
 	public void update(T object) 
 	{

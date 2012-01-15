@@ -9,5 +9,4 @@ import es.tresw.db.entities.Client;
 @Repository("clientDao")
 public class ClientDao extends GenericDao<Client, Long> implements  I_ClientDao {
 
-
 }
