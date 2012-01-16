@@ -2,15 +2,24 @@ package es.tresw.db.embeddable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Embeddable
 public class ContactInfo 
 {
 
+	@Size(min=1,max=255,message="{campo_obligatorio}")
+	@Email(message="{email_incorrecto}")
 	@Column(name="EMAIL", length=255,unique=true)
 	private String email;
+	@Size(min=9,max=15,message="{telefono_incorrecto}")
 	@Column(name="PHONE1", length=255)
 	private String telephone1;
+	@Size(min=9,max=15,message="{telefono_incorrecto}")
 	@Column(name="PHONE2", length=255)
 	private String telephone2;
 

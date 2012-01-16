@@ -1,24 +1,21 @@
 package es.tresw.db.dao.impl;
 
 import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.MatchMode;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import es.tresw.db.constants.AlquiSportConstants;
 import es.tresw.db.dao.I_GenericDao;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 
 
 /**
@@ -68,11 +65,29 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 	}
 	
 	@SuppressWarnings("unchecked")
-	public boolean exists(String field, String value) 
+	public boolean exists(List<String> fields, List<String> expressions, List<String> values, List<String> types) 
 	{
-		Criteria crit = getSession().createCriteria(type);
-		crit.add(Restrictions.eq(field, value));
-		return (crit.uniqueResult() != null);
+		List<T> result = readByField(fields, expressions, values, types);
+		if(result==null || result.size()==0)
+			return false;
+		else
+			return true;
+					
+	}
+	
+	public boolean existsStringField(String field, String value)
+	{
+		List<String> fields = new ArrayList<String>();
+		fields.add(field); 
+		List<String> expressions = new ArrayList<String>();
+		expressions.add(AlquiSportConstants.EQUALS);
+		List<String> values = new ArrayList<String>();
+		values.add(value);
+		List<String> types = new ArrayList<String>();
+		types.add("String");
+		List<T> objects=readByField(fields, expressions, values, types);
+		boolean exists = (objects.size()>0);
+		return exists;
 	}
 	
 	@Transactional(readOnly=false)

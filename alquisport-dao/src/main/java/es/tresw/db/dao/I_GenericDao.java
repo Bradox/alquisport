@@ -45,7 +45,15 @@ public interface I_GenericDao<T, PK extends Serializable>
 	 * @param value
 	 * @return
 	 */
-	boolean exists(String field, String value);
+	boolean exists(List<String> fields, List<String> expressions, List<String> values, List<String> types);
+	
+	/**
+	 * Check if exists a object with field = value
+	 * @param field
+	 * @param value
+	 * @return
+	 */
+	boolean existsStringField(String field, String value);
 
 	/**
 	 * Update data of transient object
