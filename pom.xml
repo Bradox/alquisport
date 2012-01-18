@@ -18,8 +18,7 @@
 		<spring.security.version>3.0.7.RELEASE</spring.security.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<hibernate.version>3.6.8.Final</hibernate.version>
-			<org.slf4j.version>1.6.1</org.slf4j.version>
-		<hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
+		<org.slf4j.version>1.6.1</org.slf4j.version>
 		<hibernatevalidator.version>4.2.0.Final</hibernatevalidator.version>
 		<jsf.version>2.1.3</jsf.version>
 		<primefaces.version>3.0.M4</primefaces.version>
@@ -36,6 +35,7 @@
 		<cglib.version>2.2</cglib.version>
 		<mysql.version>5.1.17</mysql.version>
 		<c3p0.version>0.9.0.4</c3p0.version> 
+		<log4j.version>1.2.16</log4j.version>
 	</properties>
 	<build>
 		<finalName>alquisport</finalName>
