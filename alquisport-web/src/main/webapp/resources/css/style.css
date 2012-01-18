@@ -14,6 +14,8 @@ a img {border: medium none;}
 .small-text{font-size: 0.8em;}
 .normal-text{font-size: 1em;}
 .big-text{font-size: 1.2em;}
+.error{color:red;}
+.ok{color:green;}
 
 h1{border-bottom: 1px solid #aaddff;color: #44aaff;font-size: 1.3em;font-weight: bold;margin: 3px 0 8px;padding: 0 0 5px;}
 h2{color: #44aaff;font-size: 1.1em;margin: 3px 0 8px;padding: 0 0 5px;} 

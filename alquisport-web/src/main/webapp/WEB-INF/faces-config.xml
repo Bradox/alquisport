@@ -13,6 +13,17 @@
 			<base-name>validations</base-name>
 			<var>msgsValidations</var>
 		</resource-bundle>
-    </application>   
+    </application>
+    
+    <managed-bean>
+	  <managed-bean-name>registerController</managed-bean-name>
+	  <managed-bean-class>es.tresw.view.controller.RegisterController</managed-bean-class>
+	  <managed-bean-scope>request</managed-bean-scope>
+	  <managed-property>
+	   <property-name>registerService</property-name>
+	   <property-class>es.tresw.service.RegisterService</property-class>
+	   <value>#{registerService}</value>
+	  </managed-property>
+	</managed-bean>   
     
 </faces-config>

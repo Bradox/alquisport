@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<ui:composition
+	template="/WEB-INF/facelets/templates/adminInsdepLayout.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Resumen Instalacion Deportiva" />
+	</ui:define>
+	<ui:define name="content">
+		<h1>Información General</h1>
+		<h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="name" value="Nombre" />
+                <p:inputText id="name" label="Nombre" value="#{sportFacilityController.sportFacility.name}" maxlength="255" styleClass="w400"/>
+                <p:message id="nameError" for="name" errorClass="error" />
+                
+                <h:outputLabel for="id" value="Identificador" />
+                <p:inputText id="id" label="Identificador" value="#{sportFacilityController.sportFacility.name}" maxlength="255" styleClass="w400"/>
+                <p:message id="idError" for="name" errorClass="error" />
+             </h:panelGrid>
+             <p:fieldset legend="Dirección">
+             	<p:message id="direccionError" for="direccion" errorClass="error" />  
+             	<p:message id="provinciaError" for="provincia" errorClass="error" />
+             	<p:message id="poblacionError" for="poblacion" errorClass="error" />
+             	<p:message id="codigopostalError" for="codigopostal" errorClass="error" />
+             	<p:message id="zonaError" for="zona" errorClass="error" />
+             	<p:message id="comollegarError" for="comollegar" errorClass="error" />
+             	
+             	<h:outputLabel for="direccion" value="Dirección completa" styleClass="w100"/>
+	            <p:inputText id="direccion" label="Dirección completa" value="#{sportFacilityController.sportFacility.address.address}" maxlength="255" styleClass="w400"/>
+	            
+             	<h:panelGrid columns="4">
+	              <h:outputLabel for="provincia" value="Provincia" styleClass="w100"/>
+	              <p:inputText id="provincia" label="Provincia" value="#{sportFacilityController.sportFacility.address.province}"/>
+	              
+	              <h:outputLabel for="poblacion" value="Población" styleClass="w100"/>
+	              <p:inputText id="poblacion" label="Población" value="#{sportFacilityController.sportFacility.address.municipality}"/>
+	              
+	              <h:outputLabel for="codigopostal" value="Código Postal" />
+	              <p:inputText id="codigopostal" label="Código Postal" value="#{sportFacilityController.sportFacility.address.municipality}"/>
+	              
+	              <h:outputLabel for="zona" value="Zona" />
+	              <p:inputText id="zona" label="Zona" value="#{sportFacilityController.sportFacility.address.zone}"/>
+	              
+	             </h:panelGrid>
+	             <h:outputLabel for="comollegar" value="Como llegar" />
+	             <p:inputTextarea style="width:300px;height:100px;" id="comollegar" value="#{sportFacilityController.sportFacility.getHere}" effectDuration="400" /> 
+	              
+             </p:fieldset>
+             
+             <p:fieldset legend="Información Contacto">  
+             	<h:message id="telefono1Error" for="telefono1" errorClass="error" />
+             	<h:message id="telefono2Error" for="telefono2" errorClass="error" />
+             	<h:message id="emailError" for="email" errorClass="error" />
+             	<h:panelGrid columns="4">
+             	  <h:outputLabel for="telefono1" value="Teléfono 1" styleClass="w200"/>
+	              <p:inputText id="telefono1" label="Teléfono 1" value="#{sportFacilityController.sportFacility.contactInfo.telephone1}" maxlength="9" styleClass="w100"/>
+	              
+	              <h:outputLabel for="telefono2" value="Teléfono 2" styleClass="w200"/>
+	              <p:inputText id="telefono2" label="Teléfono 2" value="#{sportFacilityController.sportFacility.contactInfo.telephone2}" maxlength="9" styleClass="w100"/>
+	            </h:panelGrid>
+	            <h:panelGrid columns="2">
+	              <h:outputLabel for="email" value="Email" styleClass="w200"/>
+	              <p:inputText id="email" label="Email" value="#{sportFacilityController.sportFacility.contactInfo.email}" maxlength="255" styleClass="w300"/>
+	              
+	              <p:button value="Usar mis datos">  
+				  </p:button>
+	              
+	             </h:panelGrid>
+             </p:fieldset>
+                
+            <h:commandButton action="listTutorialsView" value="Guardar" />
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

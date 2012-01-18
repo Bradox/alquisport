@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<ui:composition
+	template="/WEB-INF/facelets/templates/adminInsdepLayout.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Resumen Instalacion Deportiva" />
+	</ui:define>
+	<ui:define name="content">
+		<h1>Descripción</h1>
+		<h:form>
+		    <p:editor value="#{sportFacilityController.sportFacility.description}" widgetVar="editor" width="600"/>
+		    <h:panelGrid columns="2" style="margin-top:10px">
+		        <p:commandButton value="Guardar" update="display" oncomplete="dlg.show()"
+		                        image="ui-icon ui-icon-disk" />
+		        <p:commandButton type="button" value="Limpiar" onclick="editor.clear()"
+		                        image="ui-icon ui-icon-close" />
+		    </h:panelGrid>
+		    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">
+		        <h:outputText id="display" value="La información se ha guardado correctamente" escape="false" />
+		    </p:dialog>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

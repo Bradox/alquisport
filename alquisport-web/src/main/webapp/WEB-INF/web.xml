@@ -23,6 +23,42 @@
 		<param-name>primefaces.THEME</param-name>
 		<param-value>blitzer</param-value>
   </context-param>
+  
+  <!-- Spring Config -->
+  <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/applicationContext.xml
+            /WEB-INF/applicationContext-security.xml
+            /WEB-INF/applicationContext-hibernate.xml
+            /WEB-INF/applicationContext-dao.xml
+        </param-value>
+  </context-param>
+  <!-- Fin Spring -->
+  
+  <!-- Spring Security Filter -->
+  <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  
+  <filter-mapping>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <url-pattern>/*</url-pattern>
+      <dispatcher>FORWARD</dispatcher>
+	  <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  
+  <!-- Fin Spring Security Filter -->
+  
+  	<context-param>
+	   <param-name>log4jConfigLocation</param-name>
+	   <param-value>/WEB-INF/classes/log4j.xml</param-value>
+	</context-param>
+	
+	<listener>
+	   <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
 
 	<!-- Spring Activation -->
 	<listener>

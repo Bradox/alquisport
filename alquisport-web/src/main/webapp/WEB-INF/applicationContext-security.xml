@@ -32,25 +32,12 @@
 	</http>
 
 	<!-- Usernames/Passwords are superadmin/koala user/emu admin/wombat peter/opal -->
-
+	
 	<authentication-manager>
-		<authentication-provider>
-			<password-encoder hash="md5" />
-			<user-service>
-				<user name="superadmin"
-					password="a564de63c2d0da68cf47586ee05984d7"
-					authorities="superadmin" />
-				<user name="user"
-					password="a564de63c2d0da68cf47586ee05984d7"
-					authorities="user" />
-				<user name="admin"
-					password="a564de63c2d0da68cf47586ee05984d7"
-					authorities="admin,user" />
-				<user name="peter"
-					password="a564de63c2d0da68cf47586ee05984d7"
-					authorities="user" />
-			</user-service>
-		</authentication-provider>
+		  <authentication-provider>
+		  	<password-encoder hash="md5" />
+		    <jdbc-user-service data-source-ref="dataSource"/>
+		   </authentication-provider>
 	</authentication-manager>
 	
 </beans:beans>
