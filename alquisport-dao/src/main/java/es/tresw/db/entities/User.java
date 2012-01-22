@@ -54,6 +54,11 @@ public class User
 	@Column(name="PASSWORD", nullable=false, length=255)
 	private String password;
 	
+	@Column(name="active")
+    @NotNull
+    private boolean isActive;
+
+	
 	@Column(name="BIRTH_DATE")
 	private Date birthDate;
 	
@@ -243,6 +248,13 @@ public class User
 	{
 		this.messagesFrom = messagesFrom;
 	}
-		
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 	
 }

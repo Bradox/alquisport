@@ -23,7 +23,7 @@ import es.tresw.db.dao.I_GenericDao;
  */
 
 public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, PK> {
-	private SessionFactory sessionFactory;
+	protected SessionFactory sessionFactory;
 	private Class<T> type;
 
 	@SuppressWarnings("unchecked")
