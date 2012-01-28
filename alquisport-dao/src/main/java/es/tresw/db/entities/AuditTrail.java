@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AUDIT_TRAIL", catalog="Alquisport")
+@Table(name="AUDIT_TRAIL",catalog="Alquisport")
 public class AuditTrail
 {
 
@@ -28,7 +28,7 @@ public class AuditTrail
 		
 	}
 			
-	public AuditTrail(Long id, String description, Date date) 
+	public AuditTrail(Long id,String description, Date date) 
 	{
 		this.id = id;
 		this.description = description;

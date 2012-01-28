@@ -38,15 +38,38 @@
 	</jdbc:embedded-database-->	
 	
 	<!-- Hibernate SessionFactory -->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	 <!-- bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"-->
+	 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan" value="es.tresw.db.entities"/>
+		<!-- property name="annotatedClasses">
+			<list>
+			    <value>es.tresw.db.entities.User</value>
+			    <value>es.tresw.db.entities.Administrator</value>
+			    <value>es.tresw.db.entities.Client</value>
+			    <value>es.tresw.db.entities.User</value>
+			    <value>es.tresw.db.entities.Municipality</value>
+			    <value>es.tresw.db.entities.Province</value>
+			    <value>es.tresw.db.entities.Zone</value>
+				<value>es.tresw.db.entities.Role</value>
+				<value>es.tresw.db.entities.SportFacility</value>
+				<value>es.tresw.db.entities.Feature</value>
+				<value>es.tresw.db.entities.DayClosed</value>
+				<value>es.tresw.db.entities.SportFacilityMember</value>
+				<value>es.tresw.db.entities.Image</value>
+				<value>es.tresw.db.entities.Rental</value>
+				<value>es.tresw.db.entities.Court</value>
+				<value>es.tresw.db.entities.Message</value>
+				<value>es.tresw.db.entities.Schedule</value>
+			</list>
+		</property-->
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
 	</bean>
 
 	<!-- Transaction manager for a Hibernate SessionFactory -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<!-- bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"-->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	    

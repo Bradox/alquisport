@@ -89,7 +89,6 @@ public class TestClientDao{
 	
 	@Test
 	@Transactional
-	@Rollback(true)
 	public void testDelete()
 	{
 		Client clientDelete = clientDao.readAll().get(0);
@@ -103,17 +102,19 @@ public class TestClientDao{
 	@Rollback(true)
 	public void testReadByField()
 	{
+		String login = clientDao.readAll().get(0).getLogin();
 		List<String> fields = new ArrayList<String>();
 		fields.add("login"); 
 		List<String> expressions = new ArrayList<String>();
 		expressions.add(AlquiSportConstants.EQUALS);
 		List<String> values = new ArrayList<String>();
-		values.add("Brato19821325683045122");
+		values.add(login);
 		List<String> types = new ArrayList<String>();
 		types.add("String");
 		List<Client> clients = clientDao.readByField(fields, expressions, values, types);
 		assertEquals(1,clients.size());
 	}
+	
 	
 	public void setClientDao(I_ClientDao clientDao)
 	{

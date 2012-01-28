@@ -11,10 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Type;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
@@ -22,7 +27,7 @@ import es.tresw.db.embeddable.ContactInfo;
 
 
 @Entity
-@Table(name="USER", catalog="Alquisport")
+@Table(name="USER",catalog="Alquisport")
 @Inheritance(strategy=InheritanceType.JOINED)
 public class User 
 {
@@ -54,19 +59,20 @@ public class User
 	@Column(name="PASSWORD", nullable=false, length=255)
 	private String password;
 	
-	@Column(name="active")
-    @NotNull
-    private boolean isActive;
-
-	
 	@Column(name="BIRTH_DATE")
 	private Date birthDate;
 	
-	@Column(name="ENABLED",columnDefinition="bool default true")
-	private Boolean enabled;
+	@Column(name="ENABLED")
+	@Type(type="true_false")
+	private boolean enabled;
 	
-    @OneToMany(mappedBy="user")
-	private List<Authority> authorities;
+	@ManyToMany
+	@JoinTable(name = "USER_ROLE", joinColumns = {
+			 @JoinColumn(name = "USER_ID", referencedColumnName = "ID")}, 
+			 inverseJoinColumns = {
+				@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
+	private List<Role> roles;
+
     
     @OneToMany (mappedBy="userTo")
     public List<Message> messagesTo;
@@ -88,7 +94,7 @@ public class User
 		
 	}
 	
-	public User(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, Boolean enabled) 
+	public User(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles, Date birthDate, Boolean enabled) 
 	{
 		this.firstLastName = firstLastName;
 		this.secondLastName = secondLastName;
@@ -98,7 +104,7 @@ public class User
 		this.bankAccount = bankAccount;
 		this.address = address;
 		this.contactInfo = contactInfo;
-		this.authorities=authorities;
+		this.roles=roles;
 		this.birthDate=birthDate;
 		this.enabled=enabled;
 	}
@@ -199,14 +205,14 @@ public class User
 		this.contactInfo = contactInfo;
 	}
 
-	public List<Authority> getAuthorities() 
+	public List<Role> getRoles() 
 	{
-		return authorities;
+		return roles;
 	}
 
-	public void setAuthorities(List<Authority> authorities) 
+	public void setRoles(List<Role> roles) 
 	{
-		this.authorities = authorities;
+		this.roles = roles;
 	}
 
 	public Date getBirthDate() 
@@ -249,12 +255,5 @@ public class User
 		this.messagesFrom = messagesFrom;
 	}
 
-	public boolean isActive() {
-		return isActive;
-	}
 
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
-	
 }

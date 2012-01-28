@@ -17,7 +17,7 @@ import es.tresw.db.embeddable.CourtType;
 import es.tresw.db.embeddable.ReservationConfig;
 
 @Entity
-@Table(name="COURT", catalog="Alquisport")
+@Table(name="COURT",catalog="Alquisport")
 public class Court 
 {
 
@@ -49,7 +49,7 @@ public class Court
 		
 	}
 	
-	public Court(Long id, String description, int state, CourtType courtType,List<Schedule> schedule, ReservationConfig reservationConfig,List<Feature> features, List<Rental> rents) 
+	public Court(Long id,String description, int state, CourtType courtType,List<Schedule> schedule, ReservationConfig reservationConfig,List<Feature> features, List<Rental> rents) 
 	{
 		super();
 		this.id = id;

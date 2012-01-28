@@ -49,6 +49,7 @@ public class TestCouponUsedDao extends TestCase{
 	}
 	
 	@Test
+	@Rollback(false)
 	public void testUpdate()
 	{
 		List<CouponsUsed> couponsUsed = couponUsedDao.readAll();
@@ -75,7 +76,6 @@ public class TestCouponUsedDao extends TestCase{
 	
 	@Test
 	@Transactional
-	@Rollback(false)
 	public void testDelete()
 	{
 		List<Coupon> coupons = couponDao.readAll();

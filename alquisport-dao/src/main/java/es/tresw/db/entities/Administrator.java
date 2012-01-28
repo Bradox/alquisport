@@ -17,7 +17,7 @@ import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
 @PrimaryKeyJoinColumn(name="USER_ID")
-@Table(name="ADMINISTRATOR")
+@Table(name="ADMINISTRATOR", catalog="Alquisport")
 public class Administrator extends User
 {
 	@Embedded
@@ -31,9 +31,9 @@ public class Administrator extends User
 		
 	}
 	
-	public Administrator(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Company company, SportFacility sportFacility, Date birthDate, Boolean enabled) 
+	public Administrator(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles, Company company, SportFacility sportFacility, Date birthDate, Boolean enabled) 
 	{
-		super(firstLastName, secondLastName,login, name, password, bankAccount, address, contactInfo, authorities, birthDate, enabled);
+		super(firstLastName, secondLastName,login, name, password, bankAccount, address, contactInfo, roles, birthDate, enabled);
 		this.company = company;
 		this.sportFacility = sportFacility;
 	}

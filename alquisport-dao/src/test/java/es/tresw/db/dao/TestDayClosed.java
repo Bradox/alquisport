@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +31,7 @@ public class TestDayClosed {
 	private I_SportFacilityDao sportFacilityDao;
 
 	@Test
+	@Rollback(false)
 	public void testCreate() 
 	{
 		List<SportFacility> sportFacilities = sportFacilityDao.readAll();
@@ -45,12 +47,14 @@ public class TestDayClosed {
 	}
 	
 	@Test
+	@Rollback(false)
 	public void testReadAll()
 	{
 		assertTrue(dayClosedDao.readAll().size()>0);	
 	}
 	
 	@Test
+	@Rollback(false)
 	public void testReadOne()
 	{
 		Long id = dayClosedDao.readAll().get(0).getId();

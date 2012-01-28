@@ -71,7 +71,6 @@ public class TestFeatureDao extends AbstractTransactionalJUnit4SpringContextTest
 	}
 	
 	@Test
-	@Rollback(true)
 	public void testDelete()
 	{
 		List<Feature> features = featureDao.readAll();

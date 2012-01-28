@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "MESSAGE", catalog="ALQUISPORT")
+@Table(name = "MESSAGE",catalog="Alquisport")
 public class Message 
 {
 	@Id
@@ -41,7 +41,7 @@ public class Message
 		
 	}
 
-	public Message(Long id, User userTo, User userFrom, int state, Date dateSend, Date dateRead, String subject, String text) 
+	public Message(Long id,User userTo, User userFrom, int state, Date dateSend, Date dateRead, String subject, String text) 
 	{
 		this.id = id;
 		this.userTo = userTo;

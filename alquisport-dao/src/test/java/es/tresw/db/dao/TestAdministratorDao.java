@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
+import es.tresw.db.embeddable.Company;
 import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.Province;
@@ -64,6 +65,11 @@ public class TestAdministratorDao extends TestCase{
 		administrator.setName("Alejandro");
 		administrator.setPassword("123123");
 		administrator.setSecondLastName("Calderon");
+		Company company = new Company();
+		company.setAddress(address);
+		company.setName("hola");
+		company.setCIF("111111111");
+		administrator.setCompany(company);
 		administratorDao.create(administrator);
 		Criteria criteria = administratorDao.getSession().createCriteria(Administrator.class);
 		criteria.add(Restrictions.eq("login", "Brato1982"+lDateTime));
@@ -98,7 +104,6 @@ public class TestAdministratorDao extends TestCase{
 	
 	@Test
 	@Transactional
-	@Rollback(false)
 	public void testDelete()
 	{
 		List<Administrator> administrators = administratorDao.readAll();

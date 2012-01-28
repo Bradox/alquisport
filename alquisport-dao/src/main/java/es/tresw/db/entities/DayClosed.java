@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="DAYS_CLOSED", catalog="ALQUISPORT")
+@Table(name="DAYS_CLOSED",catalog="Alquisport")
 public class DayClosed 
 {
 	@Id
@@ -32,7 +32,7 @@ public class DayClosed
 		
 	}
 	
-	public DayClosed(Long id, int year, int day, int month,SportFacility sportFacility)
+	public DayClosed(Long id,int year, int day, int month,SportFacility sportFacility)
 	{
 		this.id = id;
 		this.year = year;

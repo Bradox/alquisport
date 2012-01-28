@@ -8,13 +8,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 
-@Entity()
+@Entity
 @PrimaryKeyJoinColumn(name="USER_ID")
+@Table(name="CLIENT",catalog="Alquisport")
 public class Client extends User
 {
 	@OneToMany(mappedBy="client")	
@@ -30,9 +32,9 @@ public class Client extends User
 		super();
 	}
 	
-	public Client(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, List<SportFacilityMember> memberOf, boolean enabled, List<Rental> rentals)
+	public Client(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles, Date birthDate, List<SportFacilityMember> memberOf, boolean enabled, List<Rental> rentals)
 	{
-		super(firstLastName, secondLastName, login, name, password, bankAccount, address, contactInfo, authorities,birthDate, enabled);
+		super(firstLastName, secondLastName, login, name, password, bankAccount, address, contactInfo, roles,birthDate, enabled);
 		this.memberOf=memberOf;
 		this.rentals=rentals;
 	}
@@ -61,25 +63,5 @@ public class Client extends User
 	{
 		return memberOf;
 	}
-	
-	
-
-	@Override
-	public String toString() {
-		return "Client [memberOf=" + memberOf + ", getId()=" + getId()
-				+ ", getFirstLastName()=" + getFirstLastName()
-				+ ", getSecondLastName()=" + getSecondLastName()
-				+ ", getLogin()=" + getLogin() + ", getName()=" + getName()
-				+ ", getPassword()=" + getPassword() + ", getBankAccount()="
-				+ getBankAccount() + ", getAddress()=" + getAddress()
-				+ ", getContactInfo()=" + getContactInfo()
-				+ ", getAuthorities()=" + getAuthorities()
-				+ ", getBirthDate()=" + getBirthDate() + ", getEnabled()="
-				+ getEnabled() + ", getMessagesTo()=" + getMessagesTo()
-				+ ", getMessagesFrom()=" + getMessagesFrom() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
-	}
-	
 	
 }

@@ -30,7 +30,7 @@ public class TestCouponDao extends TestCase{
 	public void testCreate() 
 	{
 		Coupon coupon = new Coupon();
-		coupon.setCode("123213");
+		coupon.setCode("12");
 		coupon.setDiscountQuantity(10);
 		coupon.setDiscountType(1);
 		coupon.setMaxTimesUse(10);
@@ -46,7 +46,7 @@ public class TestCouponDao extends TestCase{
 		Coupon couponToUpdate = coupons.get(coupons.size()-1);
 		couponToUpdate.setDiscountQuantity(12);
 		couponDao.update(couponToUpdate);
-		assertEquals(12, couponDao.read(couponToUpdate.getId()).getDiscountQuantity());
+		assertEquals(0, Float.compare(new Float(12.0), couponDao.read(couponToUpdate.getId()).getDiscountQuantity()));
 	}
 	
 	@Test
@@ -65,13 +65,12 @@ public class TestCouponDao extends TestCase{
 	
 	@Test
 	@Transactional
-	@Rollback(false)
 	public void testDelete()
 	{
 		List<Coupon> coupons = couponDao.readAll();
 		Coupon couponToDelete = coupons.get(coupons.size()-1);
 		couponDao.delete(couponToDelete);
-		assertNotNull(couponDao.read(couponToDelete.getId()));
+		assertNull(couponDao.read(couponToDelete.getId()));
 	}
 
 	

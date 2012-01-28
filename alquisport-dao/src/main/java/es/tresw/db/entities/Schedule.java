@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import es.tresw.db.types.DayOfWeek;
 
 @Entity
-@Table(name="SCHEDULE", catalog="ALQUISPORT")
+@Table(name="SCHEDULE",catalog="Alquisport")
 public class Schedule 
 {
 
@@ -45,7 +45,7 @@ public class Schedule
 		
 	}
 
-	public Schedule(Long id, DayOfWeek dayOfWeek, int startHour, int endHour,int minStart, int minEnd, float priceCourt, Court court, float priceLight) 
+	public Schedule(Long id,DayOfWeek dayOfWeek, int startHour, int endHour,int minStart, int minEnd, float priceCourt, Court court, float priceLight) 
 	{
 		this.id = id;
 		this.dayOfWeek = dayOfWeek;

@@ -21,7 +21,7 @@ import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
-@Table(name="SPORT_FACILITY", catalog="Alquisport")
+@Table(name="SPORT_FACILITY",catalog="Alquisport")
 public class SportFacility 
 {
 
@@ -51,12 +51,12 @@ public class SportFacility
 	@Embedded
 	private Appearance appearance;
 	@OneToMany
-	@JoinTable(name = "SPORT_FACILITY_FEATURE", 
+	@JoinTable(name = "SPORT_FACILITY_FEATURES", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })
 	private List<Feature> features;
 	@OneToMany	
-	@JoinTable(name = "SPORT_FACILITY_IMAGE", 
+	@JoinTable(name = "SPORT_FACIlITY_IMAGE", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "IMAGE_ID") })
 	private List<Image> images;
@@ -73,7 +73,7 @@ public class SportFacility
 	}
 
 	
-	public SportFacility(Long id, String name, String getHere, String description, Integer state, List<Feature> features, List<Image> images, List<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, List<DayClosed> daysClosed, List<SportFacilityMember> members) 
+	public SportFacility(Long id,String name, String getHere, String description, Integer state, List<Feature> features, List<Image> images, List<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, List<DayClosed> daysClosed, List<SportFacilityMember> members) 
 	{
 		this.id = id;
 		this.name = name;

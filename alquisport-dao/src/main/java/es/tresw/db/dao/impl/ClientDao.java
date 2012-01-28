@@ -1,7 +1,6 @@
 package es.tresw.db.dao.impl;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import es.tresw.db.dao.I_ClientDao;
 import es.tresw.db.entities.Client;

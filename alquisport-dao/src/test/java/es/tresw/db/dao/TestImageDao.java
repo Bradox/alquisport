@@ -80,7 +80,6 @@ public class TestImageDao{
 	}
 	
 	@Test
-	@Rollback(true)
 	public void testDelete()
 	{
 		List<Image> images = imageDao.readAll();

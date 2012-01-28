@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -69,7 +70,8 @@ public class TestSportFacilityDao{
 			appearance.setColor2("1");
 			appearance.setColor3("1");
 			sportFacility.setAppearance(appearance);
-			ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com", "954417070", "665787878");
+			long lDateTime = new Date().getTime();
+			ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com"+lDateTime, "954417070", "665787878");
 			sportFacility.setContactInfo(contactInfo);	
 			sportFacility.setDescription("tenemos las mejores pistas y mÃ¡s guapas");
 			Feature feature = new Feature();
@@ -154,7 +156,6 @@ public class TestSportFacilityDao{
 	
 	@Test
 	@Transactional
-	//@Rollback(false)
 	public void testDelete()
 	{
 		SportFacility sportFacility = sportFacilityDao.readAll().get(0);
