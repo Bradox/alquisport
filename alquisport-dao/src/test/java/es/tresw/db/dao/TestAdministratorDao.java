@@ -35,7 +35,8 @@ public class TestAdministratorDao extends TestCase{
 	private I_ProvinceDao provinceDao;
 	@Autowired
 	private I_SportFacilityDao sportFacilityDao;
-	
+	@Autowired
+	private I_CompanyDao companyDao;
 	
 	@Test
 	@Transactional
@@ -69,6 +70,7 @@ public class TestAdministratorDao extends TestCase{
 		company.setAddress(address);
 		company.setName("hola");
 		company.setCIF("111111111");
+		companyDao.create(company);
 		administrator.setCompany(company);
 		administratorDao.create(administrator);
 		Criteria criteria = administratorDao.getSession().createCriteria(Administrator.class);
@@ -127,5 +129,10 @@ public class TestAdministratorDao extends TestCase{
 	public void setSportFacility(I_SportFacilityDao sportFacilityDao)
 	{
 		this.sportFacilityDao=sportFacilityDao;
+	}
+	
+	public void setCompanyDao(I_CompanyDao companyDao)
+	{
+		this.companyDao=companyDao;
 	}
 }

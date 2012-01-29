@@ -16,7 +16,6 @@ import es.tresw.db.embeddable.ReservationConfig;
 import es.tresw.db.entities.Court;
 import es.tresw.db.entities.Feature;
 import es.tresw.db.entities.Schedule;
-import es.tresw.db.types.DayOfWeek;
 
 import static org.junit.Assert.*;
 

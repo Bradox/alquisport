@@ -75,7 +75,6 @@ public class TestCouponUsedDao extends TestCase{
 	}
 	
 	@Test
-	@Transactional
 	public void testDelete()
 	{
 		List<Coupon> coupons = couponDao.readAll();

@@ -23,7 +23,6 @@ import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Client;
-import es.tresw.db.entities.Day;
 import es.tresw.db.entities.Feature;
 import es.tresw.db.entities.Image;
 import es.tresw.db.entities.Province;
