@@ -31,8 +31,6 @@ public class Court
 	private int state;
 	@Embedded
 	private CourtType courtType;
-	@OneToMany(mappedBy="court")
-	private List<Schedule> schedule;
 	@Embedded
 	private ReservationConfig reservationConfig;
 	@OneToMany
@@ -42,6 +40,9 @@ public class Court
 	private List<Feature> features;
 	@OneToMany(mappedBy="court")
 	private List<Rental> rents;
+	@OneToMany(mappedBy="court")	
+	private List<Calendar> calendar;
+
 	
 	
 	public Court()
@@ -49,17 +50,17 @@ public class Court
 		
 	}
 	
-	public Court(Long id,String description, int state, CourtType courtType,List<Schedule> schedule, ReservationConfig reservationConfig,List<Feature> features, List<Rental> rents) 
+	public Court(Long id,String description, int state, CourtType courtType,ReservationConfig reservationConfig,List<Feature> features, List<Rental> rents, List<Calendar> calendar) 
 	{
 		super();
 		this.id = id;
 		this.description = description;
 		this.state = state;
 		this.courtType = courtType;
-		this.schedule = schedule;
 		this.reservationConfig = reservationConfig;
 		this.features = features;
-		this.setRents(rents);
+		this.rents=rents;
+		this.calendar=calendar;
 	}
 
 	public Long getId() 
@@ -102,16 +103,6 @@ public class Court
 		this.courtType = courtType;
 	}
 	
-	public List<Schedule> getSchedule() 
-	{
-		return schedule;
-	}
-	
-	public void setSchedule(List<Schedule> schedule) 
-	{
-		this.schedule = schedule;
-	}
-	
 	public ReservationConfig getReservationConfig() 
 	{
 		return reservationConfig;
@@ -140,6 +131,14 @@ public class Court
 	public void setRents(List<Rental> rents)
 	{
 		this.rents = rents;
+	}
+
+	public List<Calendar> getCalendar() {
+		return calendar;
+	}
+
+	public void setCalendar(List<Calendar> calendar) {
+		this.calendar = calendar;
 	}
 
 }

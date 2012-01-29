@@ -28,11 +28,11 @@ import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
 @Table(name="USER",catalog="Alquisport")
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class User 
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
 	@NotNull

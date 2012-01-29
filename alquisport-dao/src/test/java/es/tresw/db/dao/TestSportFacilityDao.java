@@ -23,7 +23,7 @@ import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Client;
-import es.tresw.db.entities.DayClosed;
+import es.tresw.db.entities.Day;
 import es.tresw.db.entities.Feature;
 import es.tresw.db.entities.Image;
 import es.tresw.db.entities.Province;
@@ -43,8 +43,6 @@ public class TestSportFacilityDao{
 	private I_ProvinceDao provinceDao;
 	@Autowired
 	private I_ClientDao clientDao;
-	@Autowired 
-	private I_DayClosedDao daysClosedDao;
 	@Autowired 
 	private I_FeatureDao featureDao;
 	@Autowired
@@ -116,14 +114,6 @@ public class TestSportFacilityDao{
 	public void testUpdate()
 	{
 		SportFacility sportFacility = sportFacilityDao.readAll().get(0);
-		DayClosed dayClosed = new DayClosed();
-		dayClosed.setDay(2);
-		dayClosed.setMonth(2);
-		dayClosed.setYear(1999);
-		daysClosedDao.create(dayClosed);
-		List<DayClosed> daysClosed = new ArrayList<DayClosed>();
-		daysClosed.add(dayClosed);
-//		sportFacility.setDaysClosed(daysClosed);
 		List<Client> clients = clientDao.readAll();
 		if(clients.size()>0)
 		{
@@ -137,7 +127,6 @@ public class TestSportFacilityDao{
 		sportFacilityDao.update(sportFacility);
 		SportFacility sportFacilityUpdated = sportFacilityDao.read(sportFacility.getId());
 		assertEquals(sportFacility.getMembers(), sportFacilityUpdated.getMembers());
-		assertEquals(sportFacility.getDaysClosed(), sportFacilityUpdated.getDaysClosed());
 	}
 	
 	
@@ -179,12 +168,6 @@ public class TestSportFacilityDao{
 	{
 		this.clientDao=clientDao;
 	}
-
-	public void setDaysClosedDao(I_DayClosedDao daysClosedDao)
-	{
-		this.daysClosedDao=daysClosedDao;
-	}
-
 
 	public void setFeatureDao(I_FeatureDao featureDao) 
 	{

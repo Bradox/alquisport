@@ -2,25 +2,21 @@ package es.tresw.db.entities;
 
 import java.util.Date;
 import java.util.List;
-
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
-import es.tresw.db.embeddable.Company;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
-@PrimaryKeyJoinColumn(name="USER_ID")
 @Table(name="ADMINISTRATOR", catalog="Alquisport")
 public class Administrator extends User
 {
-	@Embedded
+	@ManyToOne
+	@JoinColumn(name = "ID_COMPANY")
 	private Company company;
 	@ManyToOne
 	@JoinColumn(name = "ID_SPORTFACILITY")

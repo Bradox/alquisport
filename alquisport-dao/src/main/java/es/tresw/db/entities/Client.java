@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import es.tresw.db.embeddable.Address;
@@ -15,7 +14,6 @@ import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
-@PrimaryKeyJoinColumn(name="USER_ID")
 @Table(name="CLIENT",catalog="Alquisport")
 public class Client extends User
 {

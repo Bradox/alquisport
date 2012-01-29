@@ -17,9 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
-import es.tresw.db.embeddable.Company;
 import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Administrator;
+import es.tresw.db.entities.Company;
 import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
 

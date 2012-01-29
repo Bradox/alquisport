@@ -60,8 +60,6 @@ public class TestCourtDao{
 		court.setReservationConfig(reservationConfig);
 		courtDao.create(court);
 		Schedule schedule = new Schedule();
-		schedule.setCourt(court);
-		schedule.setDayOfWeek(DayOfWeek.MONDAY);
 		schedule.setEndHour(22);
 		schedule.setMinEnd(00);
 		schedule.setMinStart(00);

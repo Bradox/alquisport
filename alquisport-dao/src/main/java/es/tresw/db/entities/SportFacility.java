@@ -63,8 +63,6 @@ public class SportFacility
 	@OneToMany (mappedBy="sportFacility")
 	private List<Administrator> administrators;
 	@OneToMany(mappedBy="sportFacility")	
-	private List<DayClosed> daysClosed;
-	@OneToMany(mappedBy="sportFacility")	
 	private List<SportFacilityMember> members;
 	
 	public SportFacility()
@@ -73,7 +71,7 @@ public class SportFacility
 	}
 
 	
-	public SportFacility(Long id,String name, String getHere, String description, Integer state, List<Feature> features, List<Image> images, List<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, List<DayClosed> daysClosed, List<SportFacilityMember> members) 
+	public SportFacility(Long id,String name, String getHere, String description, Integer state, List<Feature> features, List<Image> images, List<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, List<SportFacilityMember> members) 
 	{
 		this.id = id;
 		this.name = name;
@@ -86,7 +84,6 @@ public class SportFacility
 		this.address = address;
 		this.contactInfo = contactInfo;
 		this.appearance = appearance;
-		this.daysClosed=daysClosed;
 		this.members=members;
 	}
 
@@ -200,19 +197,6 @@ public class SportFacility
 	{
 		this.appearance = appearance;
 	}
-
-
-	public List<DayClosed> getDaysClosed() 
-	{
-		return daysClosed;
-	}
-
-
-	public void setDaysClosed(List<DayClosed> daysClosed)
-	{
-		this.daysClosed = daysClosed;
-	}
-
 
 	public List<SportFacilityMember> getMembers() {
 		return members;
