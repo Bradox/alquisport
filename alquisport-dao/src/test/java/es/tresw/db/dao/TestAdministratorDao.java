@@ -60,7 +60,7 @@ public class TestAdministratorDao extends TestCase{
 		administrator.setContactInfo(contactInfo);
 		administrator.setBirthDate(new Date(1981, 3, 20));
 		administrator.setFirstLastName("Alves");
-		administrator.setLogin("Brato1982"+lDateTime);
+		administrator.setUsername("Brato1982"+lDateTime);
 		administrator.setName("Alejandro");
 		administrator.setPassword("123123");
 		administrator.setSecondLastName("Calderon");

@@ -32,6 +32,7 @@
             /WEB-INF/applicationContext-security.xml
             /WEB-INF/applicationContext-hibernate.xml
             /WEB-INF/applicationContext-dao.xml
+            /WEB-INF/applicationContext-mail.xml
         </param-value>
   </context-param>
   <!-- Fin Spring -->

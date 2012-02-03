@@ -1,7 +1,6 @@
 package es.tresw.view.controller;
 
 import java.io.Serializable;
-import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
@@ -12,6 +11,7 @@ import org.apache.log4j.Logger;
 import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.Client;
 import es.tresw.service.RegisterService;
+import es.tresw.util.Messages;
 
 public class RegisterController implements Serializable{
 	
@@ -28,20 +28,15 @@ public class RegisterController implements Serializable{
 	/*METODOS ASOCIADOS A ACCIONES DE FORMULARIO*/
 	public String registerClient()
 	{
-		logger.debug("Esto es un mensaje de debug");
-		logger.info("Esto es un mensaje de info");
-		logger.error("Esto es un mensaje de error");
-		logger.warn("Esto es un mensaje de warn");
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		ResourceBundle rb =  ResourceBundle.getBundle("ValidationMessages");
-		if(registerService.existUser(client.getLogin()))
+		if(registerService.existUser(client.getUsername()))
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,rb.getString("username_error_sumary"),rb.getString("username_error_detail"));
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("username_error_sumary"),Messages.getString("username_error_detail"));
 			facesContext.addMessage("register:username",message);
 		}
 		if(registerService.existEmail(client.getContactInfo().getEmail()))
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,rb.getString("email_error_sumary"),rb.getString("email_error_detail"));
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("email_error_sumary"),Messages.getString("email_error_detail"));
 			facesContext.addMessage("register:email",message);
 		}
 		
@@ -50,12 +45,10 @@ public class RegisterController implements Serializable{
 			if(registerService.register(client))
 			{
 				//Llamamos al service de registro para que guarde el cliente
-				System.out.println("Se ha registrado el siguiente cliente: "+client);
 				return "registro-ok";
 			}
 			else
 			{
-				System.out.println("el service no llega!");
 				return "registro-error";
 			}
 		}
@@ -67,15 +60,14 @@ public class RegisterController implements Serializable{
 	public String registerAdministrator()
 	{
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		ResourceBundle rb =  ResourceBundle.getBundle("ValidationMessages");
-		if(registerService.existUser(administrator.getLogin()))
+		if(registerService.existUser(administrator.getUsername()))
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,rb.getString("username_error_sumary"),rb.getString("username_error_detail"));
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("username_error_sumary"),Messages.getString("username_error_detail"));
 			facesContext.addMessage("register:username",message);
 		}
 		if(registerService.existEmail(administrator.getContactInfo().getEmail()))
 		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,rb.getString("email_error_sumary"),rb.getString("email_error_detail"));
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("email_error_sumary"),Messages.getString("email_error_detail"));
 			facesContext.addMessage("register:email",message);
 		}
 		

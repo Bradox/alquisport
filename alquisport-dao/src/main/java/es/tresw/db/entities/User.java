@@ -43,7 +43,7 @@ public class User
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
     @Column(name="LOGIN", nullable=false, length=255)
-	private String login;
+	private String username;
 	
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
@@ -88,11 +88,11 @@ public class User
 		
 	}
 	
-	public User(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, Boolean enabled) 
+	public User(String firstLastName, String secondLastName, String username, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, Boolean enabled) 
 	{
 		this.firstLastName = firstLastName;
 		this.secondLastName = secondLastName;
-		this.login = login;
+		this.username = username;
 		this.name = name;
 		this.password = password;
 		this.bankAccount = bankAccount;
@@ -133,14 +133,14 @@ public class User
 		this.secondLastName = secondLastName;
 	}
 	
-	public String getLogin() 
+	public String getUsername() 
 	{
-		return login;
+		return username;
 	}
 	
-	public void setLogin(String login) 
+	public void setUsername(String username) 
 	{
-		this.login = login;
+		this.username = username;
 	}
 	
 	public String getName() 

@@ -56,7 +56,7 @@ public class TestUserDao extends TestCase{
 		client.setContactInfo(contactInfo);
 		client.setBirthDate(new Date(1981, 3, 20));
 		client.setFirstLastName("Alves");
-		client.setLogin("Brato1982"+lDateTime);
+		client.setUsername("Brato1982"+lDateTime);
 		client.setName("Alejandro");
 		client.setPassword("123123");
 		client.setSecondLastName("Calderon");

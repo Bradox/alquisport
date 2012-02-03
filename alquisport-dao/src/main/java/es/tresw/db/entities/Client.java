@@ -69,7 +69,7 @@ public class Client extends User
 		return "Client [memberOf=" + memberOf + ", getId()=" + getId()
 				+ ", getFirstLastName()=" + getFirstLastName()
 				+ ", getSecondLastName()=" + getSecondLastName()
-				+ ", getLogin()=" + getLogin() + ", getName()=" + getName()
+				+ ", getLogin()=" + getUsername() + ", getName()=" + getName()
 				+ ", getPassword()=" + getPassword() + ", getBankAccount()="
 				+ getBankAccount() + ", getAddress()=" + getAddress()
 				+ ", getContactInfo()=" + getContactInfo()
