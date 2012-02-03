@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="SPORTS_EVENT", catalog="ALQUISPORT")
+@Table(name="SPORTS_EVENT",catalog="Alquisport")
 public class SportsEvent 
 {
 	@Id
@@ -29,7 +29,7 @@ public class SportsEvent
 	@JoinColumn(name = "ID_SPORTFACILITY")
 	private SportFacility sportFacility;
 	@OneToMany
-	@JoinTable(name = "SPORTS_EVENTS_RENTALS", 
+	@JoinTable(name = "SPORT_EVENT_RENTALS", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_EVENT_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "RENTAL_ID") })
 	private List<Rental> rentals;
@@ -39,7 +39,7 @@ public class SportsEvent
 		
 	}
 
-	public SportsEvent(Long id, String name, String description, SportFacility sportFacility, List<Rental> rents) 
+	public SportsEvent(Long id,String name, String description, SportFacility sportFacility, List<Rental> rents) 
 	{
 		this.id = id;
 		this.name = name;

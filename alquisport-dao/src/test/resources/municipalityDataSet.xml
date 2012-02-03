@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dataset>
-	<municipality id="1" id_province="1" name="Alegría-Dulantzi"/>
-	<municipality id="2" id_province="1" name="Amurrio"/>
-	<municipality id="3" id_province="2" name="Alatoz"/>
-	<municipality id="4" id_province="2" name="Albacete"/>
-	<municipality id="5" id_province="3" name="Alicante"/>
-	<municipality id="6" id_province="3" name="El Campello"/>
-</dataset>

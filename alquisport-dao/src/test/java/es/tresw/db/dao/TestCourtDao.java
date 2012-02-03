@@ -16,7 +16,6 @@ import es.tresw.db.embeddable.ReservationConfig;
 import es.tresw.db.entities.Court;
 import es.tresw.db.entities.Feature;
 import es.tresw.db.entities.Schedule;
-import es.tresw.db.types.DayOfWeek;
 
 import static org.junit.Assert.*;
 
@@ -60,8 +59,6 @@ public class TestCourtDao{
 		court.setReservationConfig(reservationConfig);
 		courtDao.create(court);
 		Schedule schedule = new Schedule();
-		schedule.setCourt(court);
-		schedule.setDayOfWeek(DayOfWeek.MONDAY);
 		schedule.setEndHour(22);
 		schedule.setMinEnd(00);
 		schedule.setMinStart(00);

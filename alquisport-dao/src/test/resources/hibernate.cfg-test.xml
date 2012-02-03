@@ -5,7 +5,14 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="show_sql">true</property>
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">validate</property>
+				<property name="hibernate.hbm2ddl.import_files">/alquisport-dao/dbScripts/insert_province.sql,/alquisport-dao/dbScripts/insert_municipality.sql</property>
+
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property-->
 		<!-- property name="current_session_context_class">thread</property-->
+		<property name="hibernate.format_sql">false</property>
+		<property name="hibernate.generate_statistic">false</property>
+		<property name="hibernate.use_sql_comments">false</property>
 	</session-factory>
 </hibernate-configuration>

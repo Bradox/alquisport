@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FEATURE", catalog="Alquisport")
+@Table(name="FEATURE",catalog="Alquisport")
 public class Feature 
 {
 	@Id
@@ -27,7 +27,7 @@ public class Feature
 		
 	}
 	
-	public Feature(Long id, String key, String value, int position) 
+	public Feature(Long id,String key, String value, int position) 
 	{
 		this.id = id;
 		this.key = key;

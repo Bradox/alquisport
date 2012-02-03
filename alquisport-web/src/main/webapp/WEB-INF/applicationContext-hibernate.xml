@@ -31,7 +31,7 @@
 	</bean>
 
 	<!-- Hibernate SessionFactory -->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan" value="es.tresw.db.entities"/>
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
@@ -39,7 +39,7 @@
 
 	<!-- Transaction manager for a Hibernate SessionFactory -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	

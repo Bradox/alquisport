@@ -62,7 +62,6 @@ public class TestMessageDao{
 	}
 	
 	@Test
-	@Rollback(true)
 	public void testDelete()
 	{
 		List<Message> messages = messageDao.readAll();

@@ -65,13 +65,12 @@ public class TestAuditTrailDao  extends AbstractTransactionalJUnit4SpringContext
 	public void testReadOne()
 	{
 		List<AuditTrail> auditTrails = auditTrailDao.readAll();
-		long id = auditTrails.get(auditTrails.size()-1).getId();
+		Long id = auditTrails.get(auditTrails.size()-1).getId();
 		assertNotNull(auditTrailDao.read(id));
 	}
 	
 	@Test
 	@Transactional
-	@Rollback(false)
 	public void testDelete()
 	{
 		List<AuditTrail> auditTrails = auditTrailDao.readAll();

@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PROVINCE", catalog="ALQUISPORT")
+@Table(name="PROVINCE",catalog="Alquisport")
 public class Province 
 {
 
@@ -29,7 +29,7 @@ public class Province
 		
 	}
 	
-	public Province(Long id, String name, List<Municipality> municipalities)
+	public Province(Long id,String name, List<Municipality> municipalities)
 	{
 		this.id = id;
 		this.name = name;

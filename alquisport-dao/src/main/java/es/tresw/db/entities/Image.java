@@ -9,7 +9,7 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "IMAGE", catalog="ALQUISPORT")
+@Table(name = "IMAGE",catalog="Alquisport")
 public class Image 
 {
 	@Id
@@ -34,7 +34,7 @@ public class Image
 		
 	}
 	
-	public Image(Long id, String name, String description, int height,int weight, String discPath, byte[] image) 
+	public Image(Long id,String name, String description, int height,int weight, String discPath, byte[] image) 
 	{
 		this.id = id;
 		this.name = name;

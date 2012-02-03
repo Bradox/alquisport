@@ -19,6 +19,7 @@ import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Administrator;
+import es.tresw.db.entities.Company;
 import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
 
@@ -34,7 +35,8 @@ public class TestAdministratorDao extends TestCase{
 	private I_ProvinceDao provinceDao;
 	@Autowired
 	private I_SportFacilityDao sportFacilityDao;
-	
+	@Autowired
+	private I_CompanyDao companyDao;
 	
 	@Test
 	@Transactional
@@ -64,6 +66,12 @@ public class TestAdministratorDao extends TestCase{
 		administrator.setName("Alejandro");
 		administrator.setPassword("123123");
 		administrator.setSecondLastName("Calderon");
+		Company company = new Company();
+		company.setAddress(address);
+		company.setName("hola");
+		company.setCIF("111111111");
+		companyDao.create(company);
+		administrator.setCompany(company);
 		administratorDao.create(administrator);
 		Criteria criteria = administratorDao.getSession().createCriteria(Administrator.class);
 		criteria.add(Restrictions.eq("login", "Brato1982"+lDateTime));
@@ -98,7 +106,6 @@ public class TestAdministratorDao extends TestCase{
 	
 	@Test
 	@Transactional
-	@Rollback(false)
 	public void testDelete()
 	{
 		List<Administrator> administrators = administratorDao.readAll();
@@ -122,5 +129,10 @@ public class TestAdministratorDao extends TestCase{
 	public void setSportFacility(I_SportFacilityDao sportFacilityDao)
 	{
 		this.sportFacilityDao=sportFacilityDao;
+	}
+	
+	public void setCompanyDao(I_CompanyDao companyDao)
+	{
+		this.companyDao=companyDao;
 	}
 }

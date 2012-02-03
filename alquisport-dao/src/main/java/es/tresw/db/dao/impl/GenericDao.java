@@ -9,13 +9,15 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.MatchMode;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import org.hibernate.criterion.Restrictions;
 
 import es.tresw.db.constants.AlquiSportConstants;
 import es.tresw.db.dao.I_GenericDao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
 
 
 /**
@@ -63,8 +65,7 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 		}
 		return crit.list();
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	public boolean exists(List<String> fields, List<String> expressions, List<String> values, List<String> types) 
 	{
 		List<T> result = readByField(fields, expressions, values, types);
@@ -85,9 +86,7 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 		values.add(value);
 		List<String> types = new ArrayList<String>();
 		types.add("String");
-		List<T> objects=readByField(fields, expressions, values, types);
-		boolean exists = (objects.size()>0);
-		return exists;
+		return exists(fields, expressions, values, types);
 	}
 	
 	@Transactional(readOnly=false)
@@ -104,8 +103,6 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 
 	public Session getSession() 
 	{
-		//boolean allowCreate = true;
-		//return SessionFactoryUtils.getSession(sessionFactory, allowCreate);
 		return sessionFactory.getCurrentSession();
 	}
 
@@ -126,32 +123,34 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
             if (expression.equals(AlquiSportConstants.EQUALS))
             {
                 if(isInt)
-                    filter.add(Expression.eq(field, Integer.valueOf(value)));
+                    filter.add(Restrictions.eq(field, Integer.valueOf(value)));
                 else
-                    filter.add(Expression.eq(field, value));
+                    filter.add(Restrictions.eq(field, value));
             }
             else if (expression.equals(AlquiSportConstants.LESS_THAN))
             {
                 if(isInt)
-                    filter.add(Expression.le(field, Integer.valueOf(value)));
+                    filter.add(Restrictions.le(field, Integer.valueOf(value)));
                 else
-                    filter.add(Expression.le(field, value));
+                    filter.add(Restrictions.le(field, value));
             }
             else if (expression.equals(AlquiSportConstants.LARGER_THAN))
             {
                 if(isInt)
-                    filter.add(Expression.lt(field, Integer.valueOf(value)));
+                    filter.add(Restrictions.lt(field, Integer.valueOf(value)));
                 else
-                    filter.add(Expression.lt(field, field));
+                    filter.add(Restrictions.lt(field, field));
             }
             else if (expression.equals(AlquiSportConstants.CONTAINS))
             {
-                    filter.add(Expression.ilike(field, value, MatchMode.ANYWHERE ));
+                    filter.add(Restrictions.ilike(field, value, MatchMode.ANYWHERE ));
             }
             i++;
         }
         return filter.list();
     }
+	
+
 	
 	@Autowired  
 	public void setSessionFactory(SessionFactory sessionFactory) 
