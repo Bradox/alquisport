@@ -1,5 +1,6 @@
 package es.tresw.db.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -71,23 +72,23 @@ public class User
 			 @JoinColumn(name = "USER_ID", referencedColumnName = "ID")}, 
 			 inverseJoinColumns = {
 				@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
-	private List<Role> roles;
+	private List<Role> roles=new ArrayList<Role>();
 
     
     @OneToMany (mappedBy="userTo")
-    public List<Message> messagesTo;
+    public List<Message> messagesTo=new ArrayList<Message>();
     
     @OneToMany(mappedBy="userFrom")
-    public List<Message> messagesFrom;
+    public List<Message> messagesFrom=new ArrayList<Message>();
     
 	@Embedded
-	private BankAccount bankAccount;
+	private BankAccount bankAccount=new BankAccount();
 	
 	@Embedded
-	private Address address;
+	private Address address=new Address();
 	
 	@Embedded
-	private ContactInfo contactInfo;
+	private ContactInfo contactInfo=new ContactInfo();
 	
 	public User()
 	{

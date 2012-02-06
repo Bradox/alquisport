@@ -1,5 +1,6 @@
 package es.tresw.db.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -45,25 +46,25 @@ public class SportFacility
 	@Column(name="STATE", nullable=false, length=2)
 	private Integer state;
 	@Embedded
-	private Address address;
+	private Address address=new Address();
 	@Embedded
-	private ContactInfo contactInfo;
+	private ContactInfo contactInfo=new ContactInfo();
 	@Embedded
-	private Appearance appearance;
+	private Appearance appearance=new Appearance();
 	@OneToMany
 	@JoinTable(name = "SPORT_FACILITY_FEATURES", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })
-	private List<Feature> features;
+	private List<Feature> features=new ArrayList<Feature>();
 	@OneToMany	
 	@JoinTable(name = "SPORT_FACIlITY_IMAGE", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "IMAGE_ID") })
-	private List<Image> images;
+	private List<Image> images=new ArrayList<Image>();
 	@OneToMany (mappedBy="sportFacility")
-	private List<Administrator> administrators;
+	private List<Administrator> administrators=new ArrayList<Administrator>();
 	@OneToMany(mappedBy="sportFacility")	
-	private List<SportFacilityMember> members;
+	private List<SportFacilityMember> members=new ArrayList<SportFacilityMember>();
 	
 	public SportFacility()
 	{

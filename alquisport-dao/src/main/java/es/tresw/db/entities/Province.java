@@ -1,5 +1,6 @@
 package es.tresw.db.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ public class Province
 	@Column(name="NAME")
 	private String name;
 	@OneToMany(mappedBy="province")
-	private List<Municipality> municipalities;
+	private List<Municipality> municipalities=new ArrayList<Municipality>();
 	
 	public Province()
 	{

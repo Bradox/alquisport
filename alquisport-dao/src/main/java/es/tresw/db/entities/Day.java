@@ -28,10 +28,10 @@ public class Day
 	private DayOfWeek dayOfWeek;
 	@ManyToOne
 	@JoinColumn (name="ID_MONTH")
-	private Month month;
+	private Month month=new Month();
 	@OneToOne
 	@JoinColumn(name = "ID_SCHEDULE")
-	private Schedule schedule;
+	private Schedule schedule=new Schedule();
 
 	public Day()
 	{

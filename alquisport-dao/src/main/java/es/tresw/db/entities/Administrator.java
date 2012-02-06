@@ -17,10 +17,10 @@ public class Administrator extends User
 {
 	@ManyToOne
 	@JoinColumn(name = "ID_COMPANY")
-	private Company company;
+	private Company company=new Company();
 	@ManyToOne
 	@JoinColumn(name = "ID_SPORTFACILITY")
-	private SportFacility sportFacility;
+	private SportFacility sportFacility=new SportFacility();
 
 	public Administrator()
 	{

@@ -20,10 +20,10 @@ public class SportFacilityMember
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "ID_SPORTFACILITY")
-	private SportFacility sportFacility;
+	private SportFacility sportFacility=new SportFacility();
 	@ManyToOne
 	@JoinColumn(name = "ID_USER")
-	private Client client;
+	private Client client=new Client();
 	
 	public SportFacilityMember()
 	{

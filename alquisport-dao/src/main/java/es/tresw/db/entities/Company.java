@@ -1,5 +1,6 @@
 package es.tresw.db.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ public class Company
 	@Embedded
 	private Address address;
 	@OneToMany(mappedBy="company")
-	private List<Administrator> administrators;
+	private List<Administrator> administrators=new ArrayList<Administrator>();
 	
 	public Company()
 	{

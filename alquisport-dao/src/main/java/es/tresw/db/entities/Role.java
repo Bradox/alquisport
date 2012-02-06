@@ -1,6 +1,7 @@
 package es.tresw.db.entities;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ public class Role
 	private String name;
 
 	@ManyToMany(mappedBy = "roles")
-	private List<User> users;
+	private List<User> users=new ArrayList<User>();
 
 	public Role() 
 	{
