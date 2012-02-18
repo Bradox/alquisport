@@ -1,9 +1,12 @@
 package es.tresw.db.dao;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -21,8 +24,6 @@ import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Client;
 import es.tresw.db.entities.Province;
-
-import static org.junit.Assert.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -102,7 +103,7 @@ public class TestClientDao{
 	@Rollback(true)
 	public void testReadByField()
 	{
-		String login = clientDao.readAll().get(0).getLogin();
+		String login = clientDao.readAll().get(0).getUsername();
 		List<String> fields = new ArrayList<String>();
 		fields.add("login"); 
 		List<String> expressions = new ArrayList<String>();

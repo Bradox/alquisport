@@ -155,6 +155,7 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 	@Autowired  
 	public void setSessionFactory(SessionFactory sessionFactory) 
 	{
+		//System.out.println(this.getClass()+"sesion en el setSessionFactory="+sessionFactory.getCurrentSession());
 		this.sessionFactory = sessionFactory;
 	}
 }
