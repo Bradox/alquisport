@@ -1,5 +1,6 @@
 package es.tresw.db.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,12 +19,12 @@ import es.tresw.db.embeddable.ContactInfo;
 public class Client extends User
 {
 	@OneToMany(mappedBy="client")	
-	private List<SportFacilityMember> memberOf;
+	private List<SportFacilityMember> memberOf=new ArrayList<SportFacilityMember>();
 	@OneToMany
 	@JoinTable(name = "RENTAL_CLIENT", 
 	     	   joinColumns = { @JoinColumn(name = "CLIENT_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "RENTAL_ID") })
-	private List<Rental> rentals;
+	private List<Rental> rentals=new ArrayList<Rental>();
 	
 	public Client()
 	{

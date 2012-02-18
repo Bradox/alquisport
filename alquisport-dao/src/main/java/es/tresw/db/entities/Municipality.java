@@ -21,7 +21,7 @@ public class Municipality
 	private String name;
 	@ManyToOne
 	@JoinColumn(name = "ID_PROVINCE")
-	private Province province;
+	private Province province=new Province();
 	
 	public Municipality()
 	{

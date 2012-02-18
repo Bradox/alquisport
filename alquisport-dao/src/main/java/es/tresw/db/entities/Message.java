@@ -31,10 +31,10 @@ public class Message
 	public String subject;
 	@ManyToOne
 	@JoinColumn (name="USER_TO_ID")
-	public User userTo;
+	public User userTo=new User();
 	@ManyToOne
 	@JoinColumn (name="USER_FROM_ID")
-	public User userFrom;
+	public User userFrom=new User();
 	
 	public Message()
 	{

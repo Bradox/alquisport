@@ -1,6 +1,7 @@
 package es.tresw.db.entities;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,9 +31,9 @@ public class Month
 	private MonthName monthName;
 	@ManyToOne
 	@JoinColumn(name = "ID_YEAR")
-	private Year year;
+	private Year year=new Year();
 	@OneToMany(mappedBy="month")	
-	private List<Day> days;
+	private List<Day> days=new ArrayList<Day>();
 	
 	public Month()
 	{

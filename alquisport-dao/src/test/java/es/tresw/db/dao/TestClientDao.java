@@ -24,6 +24,7 @@ import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Client;
 import es.tresw.db.entities.Province;
+import es.tresw.db.entities.Role;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -36,6 +37,8 @@ public class TestClientDao{
 	private I_ClientDao clientDao;
 	@Autowired
 	private I_ProvinceDao provinceDao;
+	@Autowired
+	private I_RoleDao roleDao;
 
 	@SuppressWarnings("deprecation")
 	@Test
@@ -70,6 +73,10 @@ public class TestClientDao{
 		clientDao.create(client);
 		Criteria criteria = clientDao.getSession().createCriteria(Client.class);
 		criteria.add(Restrictions.eq("login", "Brato1982"+lDateTime));
+		Role role = roleDao.read(new Long (1));
+		List<Role> lista = new ArrayList<Role>();
+		lista.add(role);
+		client.setRoles(lista);
 		Client clientInserted = (Client) criteria.list().get(0);
 		assertNotNull(clientInserted);
 	}
@@ -125,5 +132,10 @@ public class TestClientDao{
 	public void setProvinceDao(I_ProvinceDao provinceDao)
 	{
 		this.provinceDao=provinceDao;
+	}
+	
+	public void setRoleDao(I_RoleDao roleDao)
+	{
+		this.roleDao=roleDao;
 	}
 }

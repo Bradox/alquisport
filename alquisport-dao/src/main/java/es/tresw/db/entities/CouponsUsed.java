@@ -19,13 +19,13 @@ public class CouponsUsed
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "ID_COUPON")
-	private Coupon coupon;
+	private Coupon coupon=new Coupon();
 	@ManyToOne
 	@JoinColumn(name = "ID_RENT")
-	private Rental rent;
+	private Rental rent=new Rental();
 	@ManyToOne
 	@JoinColumn(name = "ID_USER")
-	private Client client;
+	private Client client=new Client();
 	
 	public CouponsUsed()
 	{

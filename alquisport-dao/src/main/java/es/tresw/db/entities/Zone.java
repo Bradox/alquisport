@@ -21,7 +21,7 @@ public class Zone
 	private String name;
 	@ManyToOne
 	@JoinColumn(name = "ID_MUNICIPALITY")
-	private Municipality municipality;
+	private Municipality municipality=new Municipality();
 
 	public Zone()
 	{

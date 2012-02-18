@@ -29,7 +29,7 @@ public class Rental
 	private Date dateEnd;
 	@ManyToOne
 	@JoinColumn(name="COURT_ID")	
-	private Court court;
+	private Court court=new Court();
 
 	public Rental()
 	{

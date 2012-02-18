@@ -1,5 +1,6 @@
 package es.tresw.db.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -27,12 +28,12 @@ public class SportsEvent
 	private String description;
 	@ManyToOne
 	@JoinColumn(name = "ID_SPORTFACILITY")
-	private SportFacility sportFacility;
+	private SportFacility sportFacility=new SportFacility();
 	@OneToMany
 	@JoinTable(name = "SPORT_EVENT_RENTALS", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_EVENT_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "RENTAL_ID") })
-	private List<Rental> rentals;
+	private List<Rental> rentals=new ArrayList<Rental>();
 	
 	public SportsEvent()
 	{

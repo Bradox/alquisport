@@ -1,5 +1,6 @@
 package es.tresw.db.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -30,18 +31,18 @@ public class Court
 	@Column(name="STATE", length=2)
 	private int state;
 	@Embedded
-	private CourtType courtType;
+	private CourtType courtType=new CourtType();
 	@Embedded
-	private ReservationConfig reservationConfig;
+	private ReservationConfig reservationConfig=new ReservationConfig();
 	@OneToMany
 	@JoinTable(name = "COURT_FEATURE", 
 	     	   joinColumns = { @JoinColumn(name = "COURT_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })
-	private List<Feature> features;
+	private List<Feature> features=new ArrayList<Feature>();
 	@OneToMany(mappedBy="court")
-	private List<Rental> rents;
+	private List<Rental> rents=new ArrayList<Rental>();
 	@OneToMany(mappedBy="court")	
-	private List<Calendar> calendar;
+	private List<Calendar> calendar=new ArrayList<Calendar>();
 
 	
 	
