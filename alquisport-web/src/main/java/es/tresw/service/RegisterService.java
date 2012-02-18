@@ -1,5 +1,8 @@
 package es.tresw.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
@@ -8,14 +11,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 import es.tresw.db.dao.I_AdministratorDao;
 import es.tresw.db.dao.I_ClientDao;
+import es.tresw.db.dao.I_RoleDao;
 import es.tresw.db.dao.I_UserDao;
 import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.Client;
+import es.tresw.db.entities.Role;
 import es.tresw.db.entities.User;
-import es.tresw.view.controller.RecoverPasswordController;
 
 @Transactional
 public class RegisterService {
+	
+	//ROLES DE USUARIO
+	private static final Long ID_ROLE_SPORTFACILITY_ADMIN = new Long(3);
+	private static final Long ID_ROLE_USER = new Long(2);
 	
 	private static final Logger log = Logger.getLogger(RegisterService.class);
 	
@@ -30,6 +38,9 @@ public class RegisterService {
 	private I_UserDao userDao;
 	
 	@Autowired
+	private I_RoleDao roleDao;
+	
+	@Autowired
 	private NotificationService notificacionService;
 	
 	public boolean register(Client c)
@@ -38,6 +49,12 @@ public class RegisterService {
 		PasswordEncoder encoder = new Md5PasswordEncoder();
 	    String hashedPass = encoder.encodePassword(c.getPassword(), null);
 	    c.setPassword(hashedPass);
+	    
+	    //Le asignamos el rol correspondiente
+	    Role role = roleDao.read(ID_ROLE_USER);
+	    List<Role> roles = new ArrayList<Role>();
+	    roles.add(role);
+	    c.setRoles(roles);
 		
 		//Guardamos en BBDD el cliente
 		Long id = (Long) clientDao.create(c);
@@ -53,6 +70,10 @@ public class RegisterService {
 		PasswordEncoder encoder = new Md5PasswordEncoder();
 	    String hashedPass = encoder.encodePassword(a.getPassword(), null);
 	    a.setPassword(hashedPass);
+	    
+	    //Le asignamos el rol correspondiente
+	    Role role = roleDao.read(ID_ROLE_SPORTFACILITY_ADMIN);
+	    a.getRoles().add(role);
 		
 		//Guardamos en BBDD el cliente
 		Long id = (Long) administratorDao.create(a);
@@ -62,9 +83,14 @@ public class RegisterService {
 			return false;
 	}
 	
+	public List<Client> getClients()
+	{
+		return getClientDao().readAll();
+	}
+	
 	public boolean existUser(String login)
 	{
-		return clientDao.existsStringField("login", login);
+		return clientDao.existsStringField("username", login);
 	}
 	
 	public boolean existEmail(String email)
@@ -153,5 +179,15 @@ public class RegisterService {
 	public void setNotificacionService(NotificationService notificacionService) {
 		this.notificacionService = notificacionService;
 	}
+
+	public I_RoleDao getRoleDao() {
+		return roleDao;
+	}
+
+	public void setRoleDao(I_RoleDao roleDao) {
+		this.roleDao = roleDao;
+	}
+	
+	
 
 }

@@ -18,6 +18,12 @@
 			<h1>registro de usuario</h1>
 			<p>Rellene el siguiente formulario para registrarse en <strong>alquisport.com</strong> y formar parte de nuestra gran comunidad de deporte.</p>
 			<h:form id="register">
+			
+					<p:selectOneMenu id="clientes" value="#{registerController.client.id}" >
+			         <f:selectItem itemLabel="Selecciona un cliente" itemValue="" />
+			         <f:selectItems value="#{registerController.allUser}" />
+			      </p:selectOneMenu>
+			
 			<div class="filaformulario">
 				<div class="labelformulario w200"><label for="username"><h:outputText value="usuario (*):" /></label></div>
 				<div class="campoformulario"><h:inputText id="username" value="#{registerController.client.username}" class="field w300"></h:inputText></div>

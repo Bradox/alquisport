@@ -36,5 +36,27 @@
 	   <value>#{registerService}</value>
 	  </managed-property>
 	</managed-bean>  
+	
+	<managed-bean>
+	  <managed-bean-name>sportFacilityController</managed-bean-name>
+	  <managed-bean-class>es.tresw.view.controller.sportfacility.SportFacilityController</managed-bean-class>
+	  <managed-bean-scope>request</managed-bean-scope>
+	  <managed-property>
+	   <property-name>sportFacilityService</property-name>
+	   <property-class>es.tresw.service.SportFacilityService</property-class>
+	   <value>#{sportFacilityService}</value>
+	  </managed-property>
+	</managed-bean>  
+	
+	<managed-bean>
+	  <managed-bean-name>pruebaController</managed-bean-name>
+	  <managed-bean-class>es.tresw.view.controller.PruebaController</managed-bean-class>
+	  <managed-bean-scope>request</managed-bean-scope>
+	  <managed-property>
+	   <property-name>sportFacilityService</property-name>
+	   <property-class>es.tresw.service.SportFacilityService</property-class>
+	   <value>#{sportFacilityService}</value>
+	  </managed-property>
+	</managed-bean>  
     
 </faces-config>

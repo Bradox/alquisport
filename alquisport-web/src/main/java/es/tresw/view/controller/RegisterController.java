@@ -24,7 +24,6 @@ public class RegisterController implements Serializable{
 	@ManagedProperty("#{registerService}")  
 	private RegisterService registerService;
 	
-	
 	/*METODOS ASOCIADOS A ACCIONES DE FORMULARIO*/
 	public String registerClient()
 	{

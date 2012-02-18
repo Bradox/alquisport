@@ -12,7 +12,7 @@
 
 	<http use-expressions="true">
 		<intercept-url pattern="/superadmin/**" access="hasRole('superadmin')" />
-		<intercept-url pattern="/insdeportiva/**" access="hasRole('admin')" />
+		<!-- <intercept-url pattern="/insdeportiva/**" access="hasRole('admin')" /> -->
 		<intercept-url pattern="/user/**" access="isAuthenticated()" />
 		<!-- Allow all other requests. In a real application you should adopt a 
 			whitelisting approach where access is not allowed by default -->

@@ -18,7 +18,9 @@
 		<h:form>
             <h:panelGrid columns="3">
                 <h:outputLabel for="name" value="Nombre" />
-                <p:inputText id="name" label="Nombre" value="#{sportFacilityController.sportFacility.name}" maxlength="255" styleClass="w400"/>
+                <p:inputText id="name" label="Nombre"  value="#{sportFacilityController.sportFacility.name}" maxlength="255" styleClass="w400">
+                	<p:ajax event="keyup" listener="#{sportFacilityController.loadMunicipality}"/>
+                </p:inputText>
                 <p:message id="nameError" for="name" errorClass="error" />
                 
                 <h:outputLabel for="id" value="Identificador" />
@@ -27,8 +29,8 @@
              </h:panelGrid>
              <p:fieldset legend="Dirección">
              	<p:message id="direccionError" for="direccion" errorClass="error" />  
-             	<p:message id="provinciaError" for="provincia" errorClass="error" />
-             	<p:message id="poblacionError" for="poblacion" errorClass="error" />
+             	<p:message id="provinciaError" for="provincias" errorClass="error" />
+             	<p:message id="poblacionError" for="municipios" errorClass="error" />
              	<p:message id="codigopostalError" for="codigopostal" errorClass="error" />
              	<p:message id="zonaError" for="zona" errorClass="error" />
              	<p:message id="comollegarError" for="comollegar" errorClass="error" />
@@ -37,11 +39,20 @@
 	            <p:inputText id="direccion" label="Dirección completa" value="#{sportFacilityController.sportFacility.address.address}" maxlength="255" styleClass="w400"/>
 	            
              	<h:panelGrid columns="4">
-	              <h:outputLabel for="provincia" value="Provincia" styleClass="w100"/>
-	              <p:inputText id="provincia" label="Provincia" value="#{sportFacilityController.sportFacility.address.province}"/>
-	              
-	              <h:outputLabel for="poblacion" value="Población" styleClass="w100"/>
-	              <p:inputText id="poblacion" label="Población" value="#{sportFacilityController.sportFacility.address.municipality}"/>
+             	
+			      
+                <h:outputLabel for="provincias" value="Provincia" styleClass="w100"/>
+                <p:selectOneMenu id="provincias" value="#{sportFacilityController.province}">
+				    <f:selectItem itemLabel="Selecciona una provincia" itemValue="" />
+				    <f:selectItems value="#{sportFacilityController.provincias}" />
+				    <p:ajax update="municipios"
+				            listener="#{sportFacilityController.handleProvinceChange}" />
+				</p:selectOneMenu>
+			  	<h:outputLabel for="municipios" value="Municipio" styleClass="w100"/>
+				<p:selectOneMenu id="municipios" value="#{sportFacilityController.municipality}">
+				    <f:selectItem itemLabel="Seleccione un municipio" itemValue="" />
+				    <f:selectItems value="#{sportFacilityController.municipios}" />
+				</p:selectOneMenu>
 	              
 	              <h:outputLabel for="codigopostal" value="Código Postal" />
 	              <p:inputText id="codigopostal" label="Código Postal" value="#{sportFacilityController.sportFacility.address.municipality}"/>
@@ -76,7 +87,7 @@
 	             </h:panelGrid>
              </p:fieldset>
                 
-            <h:commandButton action="listTutorialsView" value="Guardar" />
+            <div class="botonbuscador"><h:commandButton type="submit" action="#{sportFacilityController.createSportFacility}" id="registrarte" value="Enviar" class="button big"/></div>
 		</h:form>
 	</ui:define>
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Página de prueba" />
+	</ui:define>
+	<ui:define name="content">
+		<h1>ESTO ES LA PAGINA PRINCIPAL</h1>
+		
+		<h:form id="form">
+
+		    <p:growl id="msgs" showDetail="true"/>
+						
+			<p:panel header="Double Combo" style="margin-bottom:10px;">
+		        <h:panelGrid columns="2" cellpadding="5">
+		            <p:selectOneMenu id="provincias" value="#{pruebaController.provincia}">
+		                <f:selectItem itemLabel="Selecciona una provincia" itemValue="" />
+		                <f:selectItems value="#{pruebaController.provincias}" />
+		                <p:ajax update="municipios"
+		                        listener="#{pruebaController.handleProvinceChange}" />
+		            </p:selectOneMenu>
+		
+		            <p:selectOneMenu id="municipios" value="#{pruebaController.municipio}">
+		                <f:selectItem itemLabel="Seleccione un municipio" itemValue="" />
+		                <f:selectItems value="#{pruebaController.municipios}" />
+		            </p:selectOneMenu>
+		        </h:panelGrid>
+		
+		        <p:separator />
+				
+				<p:commandButton value="Submit" update="msgs" actionListener="#{pruebaController.displayLocation}" id="btnSubmit"/>
+		
+			</p:panel>
+		
+		</h:form>
+		
+		
+	</ui:define>
+
+</ui:composition>
+</html>

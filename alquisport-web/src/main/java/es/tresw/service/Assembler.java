@@ -8,7 +8,7 @@ import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.tresw.db.entities.Authority;
+import es.tresw.db.entities.Role;
 
 public class Assembler {
 
@@ -17,13 +17,13 @@ public class Assembler {
 
     String username = userEntity.getUsername();
     String password = userEntity.getPassword();
-    boolean enabled = userEntity.isActive();
-    boolean accountNonExpired = userEntity.isActive();
-    boolean credentialsNonExpired = userEntity.isActive();
-    boolean accountNonLocked = userEntity.isActive();
+    boolean enabled = userEntity.getEnabled();
+    boolean accountNonExpired = userEntity.getEnabled();
+    boolean credentialsNonExpired = userEntity.getEnabled();
+    boolean accountNonLocked = userEntity.getEnabled();
 
     Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-    for (Authority role : userEntity.getAuthorities()) {
+    for (Role role : userEntity.getRoles()) {
       authorities.add(new GrantedAuthorityImpl(role.getName()));
     }
 

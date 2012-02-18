@@ -15,5 +15,10 @@
 	    <bean id="userDetailsService" class="es.tresw.service.UserDetailsServiceImpl">
 		</bean>
 		
+		<bean id="sportFacilityService" class="es.tresw.service.SportFacilityService">
+		</bean>
+		
+		
+		
 </beans>
 
