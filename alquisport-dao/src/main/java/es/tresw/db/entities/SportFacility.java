@@ -30,39 +30,51 @@ public class SportFacility
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
+	
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Pattern(regexp="[a-z]*",message="{identificador_incorrecto}")
 	@Column(name="URL_NAME", nullable=false, length=255)
 	private String urlName;
+	
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Column(name="NAME", nullable=false, length=255)
 	private String name;
+	
 	@Column(name="GET_HERE", columnDefinition="TEXT")
 	private String getHere;
+	
 	@Column(name="DESCRIPTION", columnDefinition="TEXT")
 	private String description;
+	
 	@Column(name="STATE", nullable=false, length=2)
 	private Integer state;
+	
 	@Embedded
 	private Address address=new Address();
+	
 	@Embedded
 	private ContactInfo contactInfo=new ContactInfo();
+	
 	@Embedded
 	private Appearance appearance=new Appearance();
+	
 	@OneToMany
 	@JoinTable(name = "SPORT_FACILITY_FEATURES", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })
 	private List<Feature> features=new ArrayList<Feature>();
+	
 	@OneToMany	
 	@JoinTable(name = "SPORT_FACIlITY_IMAGE", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "IMAGE_ID") })
 	private List<Image> images=new ArrayList<Image>();
+	
 	@OneToMany (mappedBy="sportFacility")
 	private List<Administrator> administrators=new ArrayList<Administrator>();
+	
 	@OneToMany(mappedBy="sportFacility")	
 	private List<SportFacilityMember> members=new ArrayList<SportFacilityMember>();
 	
