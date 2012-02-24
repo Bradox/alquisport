@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
@@ -16,6 +17,7 @@ import es.tresw.db.entities.Municipality;
 import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
 import es.tresw.service.SportFacilityService;
+import es.tresw.util.Messages;
 
 public class SportFacilityController implements Serializable{
 	
@@ -44,19 +46,27 @@ public class SportFacilityController implements Serializable{
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		
 		//leemos la provincia y el municipio y actualizamos
-		if(province!=null)
+		if(province!=null && municipality!=null)
 		{
 			Province p = sportFacilityService.getProvince(province);
 			sportFacility.getAddress().setProvince(p);
-		}
-		if(municipality!=null)
-		{
+			
 			Municipality m = sportFacilityService.getMunicipality(municipality);
 			sportFacility.getAddress().setMunicipality(m);
+			
+			//Guardamos
+			sportFacilityService.createSportFacility(sportFacility);
+		}
+		else
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					Messages.getString("sportfacility.infogeneral.error.direccion_incorrecta"),
+					Messages.getString("sportfacility.infogeneral.error.direccion_incorrecta"));
+			facesContext.addMessage("register:username",message);
+			return null;
 		}
 		
-		//Guardamos
-		sportFacilityService.createSportFacility(sportFacility);
+		
 		
 		return "resumen-instalacion-deportiva";
 	}
@@ -65,8 +75,7 @@ public class SportFacilityController implements Serializable{
 	public void handleProvinceChange() {  
         if(province !=null)
         {
-        	Province p = sportFacilityService.getProvince(province);
-        	List<Municipality> municipiosEntity = sportFacilityService.getMunicipality(p);
+        	List<Municipality> municipiosEntity = sportFacilityService.getMunicipalityByProvince(province);
         	municipios = new ArrayList<SelectItem>();
         	for(Municipality m:municipiosEntity)
         	{
@@ -116,6 +125,7 @@ public class SportFacilityController implements Serializable{
 	}
 
 	public List<SelectItem> getMunicipios() {
+		handleProvinceChange();
 		return municipios;
 	}
 	public void setMunicipios(List<SelectItem> municipios) {

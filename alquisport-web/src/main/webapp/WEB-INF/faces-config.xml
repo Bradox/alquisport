@@ -15,6 +15,13 @@
 		</resource-bundle>
     </application>
     
+    
+    <managed-bean>
+	  <managed-bean-name>adminSessionController</managed-bean-name>
+	  <managed-bean-class>es.tresw.view.controller.AdminSessionController</managed-bean-class>
+	  <managed-bean-scope>session</managed-bean-scope>
+	</managed-bean> 
+    
     <managed-bean>
 	  <managed-bean-name>registerController</managed-bean-name>
 	  <managed-bean-class>es.tresw.view.controller.RegisterController</managed-bean-class>

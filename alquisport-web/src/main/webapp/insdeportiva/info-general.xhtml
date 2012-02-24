@@ -17,15 +17,15 @@
 		<h1>Información General</h1>
 		<h:form>
             <h:panelGrid columns="3">
-                <h:outputLabel for="name" value="Nombre" />
+                <h:outputLabel for="name" value="Nombre(*)" />
                 <p:inputText id="name" label="Nombre"  value="#{sportFacilityController.sportFacility.name}" maxlength="255" styleClass="w400">
                 	<p:ajax event="keyup" listener="#{sportFacilityController.loadMunicipality}"/>
                 </p:inputText>
                 <p:message id="nameError" for="name" errorClass="error" />
                 
-                <h:outputLabel for="id" value="Identificador" />
-                <p:inputText id="id" label="Identificador" value="#{sportFacilityController.sportFacility.name}" maxlength="255" styleClass="w400"/>
-                <p:message id="idError" for="name" errorClass="error" />
+                <h:outputLabel for="id" value="Identificador(*)" />
+                <p:inputText id="id" label="Identificador" value="#{sportFacilityController.sportFacility.urlName}" maxlength="255" styleClass="w400"/>
+                <p:message id="idError" for="id" errorClass="error" />
              </h:panelGrid>
              <p:fieldset legend="Dirección">
              	<p:message id="direccionError" for="direccion" errorClass="error" />  
@@ -41,20 +41,20 @@
              	<h:panelGrid columns="4">
              	
 			      
-                <h:outputLabel for="provincias" value="Provincia" styleClass="w100"/>
+                <h:outputLabel for="provincias" value="Provincia(*)" styleClass="w100"/>
                 <p:selectOneMenu id="provincias" value="#{sportFacilityController.province}">
 				    <f:selectItem itemLabel="Selecciona una provincia" itemValue="" />
 				    <f:selectItems value="#{sportFacilityController.provincias}" />
 				    <p:ajax update="municipios"
 				            listener="#{sportFacilityController.handleProvinceChange}" />
 				</p:selectOneMenu>
-			  	<h:outputLabel for="municipios" value="Municipio" styleClass="w100"/>
+			  	<h:outputLabel for="municipios" value="Municipio(*)" styleClass="w100"/>
 				<p:selectOneMenu id="municipios" value="#{sportFacilityController.municipality}">
 				    <f:selectItem itemLabel="Seleccione un municipio" itemValue="" />
 				    <f:selectItems value="#{sportFacilityController.municipios}" />
 				</p:selectOneMenu>
 	              
-	              <h:outputLabel for="codigopostal" value="Código Postal" />
+	              <h:outputLabel for="codigopostal" value="Código Postal(*)" />
 	              <p:inputText id="codigopostal" label="Código Postal" value="#{sportFacilityController.sportFacility.address.municipality}"/>
 	              
 	              <h:outputLabel for="zona" value="Zona" />
@@ -67,18 +67,17 @@
              </p:fieldset>
              
              <p:fieldset legend="Información Contacto">  
-             	<h:message id="telefono1Error" for="telefono1" errorClass="error" />
-             	<h:message id="telefono2Error" for="telefono2" errorClass="error" />
-             	<h:message id="emailError" for="email" errorClass="error" />
+             	<p:message id="telefono1Error" for="telefono1" errorClass="error" />
+             	<p:message id="emailError" for="email" errorClass="error" />
              	<h:panelGrid columns="4">
-             	  <h:outputLabel for="telefono1" value="Teléfono 1" styleClass="w200"/>
+             	  <h:outputLabel for="telefono1" value="Teléfono 1(*)" styleClass="w200"/>
 	              <p:inputText id="telefono1" label="Teléfono 1" value="#{sportFacilityController.sportFacility.contactInfo.telephone1}" maxlength="9" styleClass="w100"/>
 	              
 	              <h:outputLabel for="telefono2" value="Teléfono 2" styleClass="w200"/>
 	              <p:inputText id="telefono2" label="Teléfono 2" value="#{sportFacilityController.sportFacility.contactInfo.telephone2}" maxlength="9" styleClass="w100"/>
 	            </h:panelGrid>
 	            <h:panelGrid columns="2">
-	              <h:outputLabel for="email" value="Email" styleClass="w200"/>
+	              <h:outputLabel for="email" value="Email(*)" styleClass="w200"/>
 	              <p:inputText id="email" label="Email" value="#{sportFacilityController.sportFacility.contactInfo.email}" maxlength="255" styleClass="w300"/>
 	              
 	              <p:button value="Usar mis datos">  

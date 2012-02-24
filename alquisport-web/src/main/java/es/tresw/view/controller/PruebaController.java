@@ -31,8 +31,7 @@ public class PruebaController implements Serializable {
 		System.out.println("entra y la provincia es = "+provincia);
         if(provincia !=null && !provincia.equals(""))
         {
-        	Province p = sportFacilityService.getProvince(provincia);
-        	List<Municipality> municipiosEntity = sportFacilityService.getMunicipality(p);
+        	List<Municipality> municipiosEntity = sportFacilityService.getMunicipalityByProvince(provincia);
         	municipios = new ArrayList<SelectItem>();
         	for(Municipality m:municipiosEntity)
         	{

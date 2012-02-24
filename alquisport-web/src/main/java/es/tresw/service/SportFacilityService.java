@@ -54,9 +54,14 @@ public class SportFacilityService {
 		return municipalityDao.readAll();
 	}
 	
-	public List<Municipality> getMunicipality(Province p)
+	public List<Municipality> getMunicipalityByProvince(Province p)
 	{
 		return municipalityDao.getMunicipalityByProvince(p);
+	}
+	
+	public List<Municipality> getMunicipalityByProvince(Long idProvince)
+	{
+		return municipalityDao.getMunicipalityByProvince(idProvince);
 	}
 
 	public I_SportFacilityDao getDao() {
