@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import es.tresw.db.types.DayOfWeek;
 
 @Entity
-@Table(name="DAYS",catalog="Alquisport")
+@Table(name="DAYS",catalog="PISTEA")
 public class Day 
 {
 	@Id
@@ -28,10 +28,10 @@ public class Day
 	private DayOfWeek dayOfWeek;
 	@ManyToOne
 	@JoinColumn (name="ID_MONTH")
-	private Month month=new Month();
+	private Month month;
 	@OneToOne
 	@JoinColumn(name = "ID_SCHEDULE")
-	private Schedule schedule=new Schedule();
+	private Schedule schedule;
 
 	public Day()
 	{

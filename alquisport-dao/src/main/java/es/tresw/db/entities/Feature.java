@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FEATURE",catalog="Alquisport")
+@Table(name="FEATURE",catalog="PISTEA")
 public class Feature 
 {
 	@Id

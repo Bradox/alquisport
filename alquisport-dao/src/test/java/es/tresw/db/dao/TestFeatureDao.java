@@ -5,8 +5,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,7 +41,7 @@ public class TestFeatureDao extends AbstractTransactionalJUnit4SpringContextTest
 		feature.setKey("asdsad");
 		feature.setPosition(1);
 		feature.setValue("asdsada");
-		List<Feature> features = new ArrayList<Feature>();
+		Set<Feature> features = new HashSet<Feature>();
 		features.add(feature);
 		List<SportFacility> sportFacilities = sportFacilityDao.readAll();
 		SportFacility sportFacility = sportFacilities.get(0);

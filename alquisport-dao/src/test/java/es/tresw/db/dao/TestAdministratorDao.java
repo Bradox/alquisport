@@ -48,7 +48,7 @@ public class TestAdministratorDao extends TestCase{
 		address.setAddress("Mi Casa");
 		address.setType("Calle");
 		address.setProvince(province);
-		address.setMunicipality(province.getMunicipalities().get(0));
+		address.setMunicipality(province.getMunicipalities().iterator().next());
 		Administrator administrator = new Administrator();
 		administrator.setAddress(address);
 		BankAccount bankAccount=new BankAccount();
@@ -62,7 +62,7 @@ public class TestAdministratorDao extends TestCase{
 		administrator.setContactInfo(contactInfo);
 		administrator.setBirthDate(new Date(1981, 3, 20));
 		administrator.setFirstLastName("Alves");
-		administrator.setUsername("Brato1982"+lDateTime);
+		administrator.setusername("Brato1982"+lDateTime);
 		administrator.setName("Alejandro");
 		administrator.setPassword("123123");
 		administrator.setSecondLastName("Calderon");
@@ -74,7 +74,7 @@ public class TestAdministratorDao extends TestCase{
 		administrator.setCompany(company);
 		administratorDao.create(administrator);
 		Criteria criteria = administratorDao.getSession().createCriteria(Administrator.class);
-		criteria.add(Restrictions.eq("login", "Brato1982"+lDateTime));
+		criteria.add(Restrictions.eq("username", "Brato1982"+lDateTime));
 		Administrator administratorInserted = (Administrator) criteria.list().get(0);
 		assertNotNull(administratorInserted);
 	}

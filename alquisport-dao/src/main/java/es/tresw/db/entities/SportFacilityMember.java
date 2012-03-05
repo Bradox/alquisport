@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="SPORT_FACILITY_MEMBER",catalog="Alquisport")
+@Table(name="SPORT_FACILITY_MEMBER",catalog="PISTEA")
 public class SportFacilityMember 
 {
 	@Id
@@ -20,10 +20,10 @@ public class SportFacilityMember
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "ID_SPORTFACILITY")
-	private SportFacility sportFacility=new SportFacility();
+	private SportFacility sportFacility;
 	@ManyToOne
 	@JoinColumn(name = "ID_USER")
-	private Client client=new Client();
+	private Client client;
 	
 	public SportFacilityMember()
 	{

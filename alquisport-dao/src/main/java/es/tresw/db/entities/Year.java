@@ -1,7 +1,7 @@
 package es.tresw.db.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="YEAR",catalog="Alquisport")
+@Table(name="YEAR",catalog="PISTEA")
 public class Year 
 {
 	@Id
@@ -25,16 +25,16 @@ public class Year
 	private int year;
 	@ManyToOne
 	@JoinColumn(name = "ID_CALENDAR")
-	private Calendar calendar=new Calendar();	
+	private Calendar calendar;	
 	@OneToMany(mappedBy="year")	
-	private List<Month> months=new ArrayList<Month>();
+	private Set<Month> months=new HashSet<Month>();
 	
 	public Year()
 	{
 		
 	}
 	
-	public Year(int year, Calendar calendar, List<Month> months)
+	public Year(int year, Calendar calendar, Set<Month> months)
 	{
 		this.year = year;
 		this.calendar = calendar;
@@ -71,12 +71,12 @@ public class Year
 		this.calendar = calendar;
 	}
 	
-	public List<Month> getMonths() 
+	public Set<Month> getMonths() 
 	{
 		return months;
 	}
 	
-	public void setMonths(List<Month> months)
+	public void setMonths(Set<Month> months)
 	{
 		this.months = months;
 	}	

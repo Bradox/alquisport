@@ -1,7 +1,7 @@
 package es.tresw.db.dao;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,7 +47,7 @@ public class TestCourtDao{
 		feature.setKey("Sergio");
 		feature.setPosition(1);
 		feature.setValue("PUTA");
-		List<Feature> features = new ArrayList<Feature>();
+		Set<Feature> features = new HashSet<Feature>();
 		features.add(feature);
 		featureDao.create(feature);
 		court.setFeatures(features);

@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ZONE",catalog="Alquisport")
+@Table(name="ZONE",catalog="PISTEA")
 public class Zone 
 {
 	@Id
@@ -21,7 +21,7 @@ public class Zone
 	private String name;
 	@ManyToOne
 	@JoinColumn(name = "ID_MUNICIPALITY")
-	private Municipality municipality=new Municipality();
+	private Municipality municipality;
 
 	public Zone()
 	{

@@ -120,10 +120,10 @@ public class RegisterService {
 	    log.info("");
 	    
 	    //Enviamos el mail
-	    notificacionService.recoverPassword(user.getUsername(), newPassword);
+	    notificacionService.recoverPassword(user.getusername(), newPassword);
 	}
 	
-	public User getUserByUsername(String username)
+	public User getUserByusername(String username)
 	{
 		return userDao.findByName(username);
 	}

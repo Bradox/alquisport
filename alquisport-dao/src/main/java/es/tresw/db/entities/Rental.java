@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="RENT",catalog="Alquisport")
+@Table(name="RENT",catalog="PISTEA")
 public class Rental
 {
 	@Id
@@ -29,7 +29,7 @@ public class Rental
 	private Date dateEnd;
 	@ManyToOne
 	@JoinColumn(name="COURT_ID")	
-	private Court court=new Court();
+	private Court court;
 
 	public Rental()
 	{
