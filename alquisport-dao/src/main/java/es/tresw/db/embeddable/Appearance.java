@@ -12,11 +12,11 @@ import es.tresw.db.entities.Image;
 public class Appearance 
 {
 
-	@Column(name="COLOR_ONE", nullable=false, length=2)
+	@Column(name="COLOR_ONE", length=2)
 	private String color1;
-	@Column(name="COLOR_TWO", nullable=false, length=2)
+	@Column(name="COLOR_TWO", length=2)
 	private String color2;
-	@Column(name="COLOR_THREE", nullable=false, length=2)
+	@Column(name="COLOR_THREE", length=2)
 	private String color3;
 	@OneToOne
 	@JoinColumn(name="IMAGE_ID")

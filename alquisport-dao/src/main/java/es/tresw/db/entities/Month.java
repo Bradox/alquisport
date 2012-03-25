@@ -1,8 +1,8 @@
 package es.tresw.db.entities;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import es.tresw.db.types.MonthName;
 
 @Entity
-@Table(name="MONTH",catalog="Alquisport")
+@Table(name="MONTH",catalog="PISTEA")
 public class Month 
 {
 	@Id
@@ -31,9 +31,9 @@ public class Month
 	private MonthName monthName;
 	@ManyToOne
 	@JoinColumn(name = "ID_YEAR")
-	private Year year=new Year();
+	private Year year;
 	@OneToMany(mappedBy="month")	
-	private List<Day> days=new ArrayList<Day>();
+	private Set<Day> days=new HashSet<Day>();
 	
 	public Month()
 	{
@@ -42,7 +42,7 @@ public class Month
 	
 	
 	
-	public Month(int month, Year year, List<Day> days)
+	public Month(int month, Year year, Set<Day> days)
 	{
 		super();
 		this.month = month;
@@ -93,12 +93,12 @@ public class Month
 		this.year = year;
 	}
 	
-	public List<Day> getDays()
+	public Set<Day> getDays()
 	{
 		return days;
 	}
 
-	public void setDays(List<Day> days) 
+	public void setDays(Set<Day> days) 
 	{
 		this.days = days;
 	}

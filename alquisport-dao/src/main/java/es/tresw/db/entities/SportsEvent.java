@@ -1,7 +1,7 @@
 package es.tresw.db.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="SPORTS_EVENT",catalog="Alquisport")
+@Table(name="SPORTS_EVENT",catalog="PISTEA")
 public class SportsEvent 
 {
 	@Id
@@ -28,19 +28,19 @@ public class SportsEvent
 	private String description;
 	@ManyToOne
 	@JoinColumn(name = "ID_SPORTFACILITY")
-	private SportFacility sportFacility=new SportFacility();
+	private SportFacility sportFacility;
 	@OneToMany
 	@JoinTable(name = "SPORT_EVENT_RENTALS", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_EVENT_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "RENTAL_ID") })
-	private List<Rental> rentals=new ArrayList<Rental>();
+	private Set<Rental> rentals=new HashSet<Rental>();
 	
 	public SportsEvent()
 	{
 		
 	}
 
-	public SportsEvent(Long id,String name, String description, SportFacility sportFacility, List<Rental> rents) 
+	public SportsEvent(Long id,String name, String description, SportFacility sportFacility, Set<Rental> rents) 
 	{
 		this.id = id;
 		this.name = name;
@@ -89,12 +89,12 @@ public class SportsEvent
 		this.sportFacility = sportFacility;
 	}
 
-	public List<Rental> getRentals() 
+	public Set<Rental> getRentals() 
 	{
 		return rentals;
 	}
 
-	public void setRents(List<Rental> rentals) 
+	public void setRents(Set<Rental> rentals) 
 	{
 		this.rentals = rentals;
 	}

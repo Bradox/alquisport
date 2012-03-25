@@ -1,0 +1,1126 @@
+0    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE924783631D041
+1    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+2    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE924783639600F30
+2    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE9247836E6FAD77A
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COURT drop foreign key FK3D5596B30778F3A
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.court' doesn't exist
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.DAYS drop foreign key FK1FE8573A8B5B12
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.days' doesn't exist
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.DAYS drop foreign key FK1FE8578714799C
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.days' doesn't exist
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MESSAGE drop foreign key FK63B68BE7F434A6F6
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.message' doesn't exist
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MESSAGE drop foreign key FK63B68BE7B858E867
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.message' doesn't exist
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MONTH drop foreign key FK4622A60E35DD85E
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.month' doesn't exist
+127  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MUNICIPALITY drop foreign key FK48132C7C18068C44
+127  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Error on rename of '.\alquisport\municipality' to '.\alquisport\#sql2-440-18' (errno: 152)
+442  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.RENT drop foreign key FK26533982F8469A
+442  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Error on rename of '.\alquisport\rent' to '.\alquisport\#sql2-440-18' (errno: 152)
+760  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.ROLE drop foreign key FK267876EA244CD3
+760  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Error on rename of '.\alquisport\role' to '.\alquisport\#sql2-440-18' (errno: 152)
+1029 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.SPORTS_EVENT drop foreign key FKC93EBDBAA16C00EA
+1030 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Error on rename of '.\alquisport\sports_event' to '.\alquisport\#sql2-440-18' (errno: 152)
+1    [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a2eaa] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.hibernate.cfg.annotations.CollectionBinder.bind(CollectionBinder.java:484)
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1929)
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:765)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:684)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processAnnotatedClassesQueue(Configuration.java:3406)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processMetadata(Configuration.java:3360)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1334)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1724)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+177  [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a2eaa] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.hibernate.cfg.annotations.CollectionBinder.bind(CollectionBinder.java:484)
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1929)
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:765)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:684)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processAnnotatedClassesQueue(Configuration.java:3406)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processMetadata(Configuration.java:3360)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1334)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1724)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+324  [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a2eaa] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.hibernate.cfg.annotations.CollectionBinder.bind(CollectionBinder.java:484)
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1929)
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:765)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:684)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processAnnotatedClassesQueue(Configuration.java:3406)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processMetadata(Configuration.java:3360)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1334)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1724)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+458  [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a2eaa] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.hibernate.cfg.annotations.CollectionBinder.bind(CollectionBinder.java:484)
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1929)
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:765)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:684)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processAnnotatedClassesQueue(Configuration.java:3406)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processMetadata(Configuration.java:3360)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1334)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1724)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+591  [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a2eaa] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: es.tresw.db.entities.UserRole.roles
+	at org.hibernate.cfg.annotations.CollectionBinder.bind(CollectionBinder.java:484)
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1929)
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:765)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:684)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processAnnotatedClassesQueue(Configuration.java:3406)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processMetadata(Configuration.java:3360)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1334)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1724)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+0    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE924783631D041
+1    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+2    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE924783639600F30
+2    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE9247836E6FAD77A
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COURT drop foreign key FK3D5596BDDB28DA9
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.court' doesn't exist
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.DAYS drop foreign key FK1FE8573A8B5B12
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.days' doesn't exist
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.DAYS drop foreign key FK1FE8578714799C
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.days' doesn't exist
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MESSAGE drop foreign key FK63B68BE7F434A6F6
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.message' doesn't exist
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MESSAGE drop foreign key FK63B68BE7B858E867
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.message' doesn't exist
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MONTH drop foreign key FK4622A60E35DD85E
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.month' doesn't exist
+0    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE924783631D041
+1    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+2    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE924783639600F30
+2    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE9247836E6FAD77A
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COURT drop foreign key FK3D5596BDDB28DA9
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.court' doesn't exist
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.DAYS drop foreign key FK1FE8573A8B5B12
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.days' doesn't exist
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.DAYS drop foreign key FK1FE8578714799C
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.days' doesn't exist
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MESSAGE drop foreign key FK63B68BE7F434A6F6
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.message' doesn't exist
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MESSAGE drop foreign key FK63B68BE7B858E867
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.message' doesn't exist
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MONTH drop foreign key FK4622A60E35DD85E
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.month' doesn't exist
+0    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE924783631D041
+1    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE924783639600F30
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COUPON_USED drop foreign key FKE9247836E6FAD77A
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.coupon_used' doesn't exist
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.COURT drop foreign key FK3D5596BDDB28DA9
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.court' doesn't exist
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.DAYS drop foreign key FK1FE8573A8B5B12
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.days' doesn't exist
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.DAYS drop foreign key FK1FE8578714799C
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.days' doesn't exist
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MESSAGE drop foreign key FK63B68BE7F434A6F6
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.message' doesn't exist
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MESSAGE drop foreign key FK63B68BE7B858E867
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.message' doesn't exist
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.MONTH drop foreign key FK4622A60E35DD85E
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.month' doesn't exist
+0    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.ROLE drop foreign key FK2678764C0A1BA5
+1    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.role' doesn't exist
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table CALENDAR drop foreign key FK2404EB3E85FAD7B2
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.calendar' doesn't exist
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COMPANY drop foreign key FK6372C85DF2112CDC
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.company' doesn't exist
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COMPANY drop foreign key FK6372C85DE35F0F3C
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.company' doesn't exist
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COMPANY drop foreign key FK6372C85D18068C44
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.company' doesn't exist
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COURT_FEATURE drop foreign key FK9F046C0293AE1ABA
+6    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.court_feature' doesn't exist
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COURT_FEATURE drop foreign key FK9F046C0282F8469A
+7    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.court_feature' doesn't exist
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.COUPON_USED drop foreign key FKE924783631D041
+8    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.coupon_used' doesn't exist
+9    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.COUPON_USED drop foreign key FKE924783639600F30
+9    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.coupon_used' doesn't exist
+9    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.COUPON_USED drop foreign key FKE9247836E6FAD77A
+9    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.coupon_used' doesn't exist
+10   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.COURT drop foreign key FK3D5596BDDB28DA9
+11   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.court' doesn't exist
+12   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.DAYS drop foreign key FK1FE8573A8B5B12
+12   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.days' doesn't exist
+13   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.DAYS drop foreign key FK1FE8578714799C
+13   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.days' doesn't exist
+14   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.MESSAGE drop foreign key FK63B68BE7F434A6F6
+14   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.message' doesn't exist
+14   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.MESSAGE drop foreign key FK63B68BE7B858E867
+14   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.message' doesn't exist
+16   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.MONTH drop foreign key FK4622A60E35DD85E
+16   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.month' doesn't exist
+17   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.MUNICIPALITY drop foreign key FK48132C7C18068C44
+18   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.municipality' doesn't exist
+19   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.RENT drop foreign key FK26533982F8469A
+19   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.rent' doesn't exist
+20   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.SPORTS_EVENT drop foreign key FKC93EBDBAA16C00EA
+20   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sports_event' doesn't exist
+20   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.SPORT_FACILITY drop foreign key FK4EF05F2E6603749A
+21   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility' doesn't exist
+21   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.SPORT_FACILITY drop foreign key FK4EF05F2EF2112CDC
+21   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility' doesn't exist
+22   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.SPORT_FACILITY drop foreign key FK4EF05F2EE35F0F3C
+22   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility' doesn't exist
+23   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.SPORT_FACILITY drop foreign key FK4EF05F2E18068C44
+23   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility' doesn't exist
+24   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.SPORT_FACILITY_MEMBER drop foreign key FK65F24CCBA16C00EA
+24   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility_member' doesn't exist
+25   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.SPORT_FACILITY_MEMBER drop foreign key FK65F24CCBE6FAD77A
+26   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility_member' doesn't exist
+26   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.USER drop foreign key FK27E3CBF1BFF696
+27   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.user' doesn't exist
+28   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.USER drop foreign key FK27E3CBF2112CDC
+28   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.user' doesn't exist
+29   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.USER drop foreign key FK27E3CBA16C00EA
+29   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.user' doesn't exist
+30   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.USER drop foreign key FK27E3CB4C0A1BA5
+30   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.user' doesn't exist
+31   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.USER drop foreign key FK27E3CBE35F0F3C
+31   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.user' doesn't exist
+32   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.USER drop foreign key FK27E3CB18068C44
+32   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.user' doesn't exist
+33   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.YEAR drop foreign key FK29803D787C2C60
+33   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.year' doesn't exist
+34   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.ZONE drop foreign key FK2A1BACF2112CDC
+34   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.zone' doesn't exist
+35   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table RENTAL_CLIENT drop foreign key FK92F0A34612F82D1A
+35   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.rental_client' doesn't exist
+36   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table RENTAL_CLIENT drop foreign key FK92F0A3462668027A
+36   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.rental_client' doesn't exist
+37   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_EVENT_RENTALS drop foreign key FK9C3C593F6A653466
+37   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_event_rentals' doesn't exist
+38   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_EVENT_RENTALS drop foreign key FK9C3C593F2668027A
+38   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_event_rentals' doesn't exist
+39   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACILITY_FEATURES drop foreign key FKC7F4DA2E93AE1ABA
+39   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_facility_features' doesn't exist
+40   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACILITY_FEATURES drop foreign key FKC7F4DA2E4F421EE3
+40   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_facility_features' doesn't exist
+41   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACIlITY_IMAGE drop foreign key FK7BBEFCCA6603749A
+41   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_facility_image' doesn't exist
+42   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACIlITY_IMAGE drop foreign key FK7BBEFCCA4F421EE3
+42   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_facility_image' doesn't exist
+75   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table Alquisport.ROLE (ID bigint not null auto_increment, NAME varchar(255), ROLE_ID bigint, primary key (ID))
+75   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+76   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table CALENDAR (ID bigint not null auto_increment, ID_COURT bigint, primary key (ID))
+76   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+78   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table COMPANY (ID bigint not null auto_increment, CIF varchar(9) not null, ADDRESS varchar(255), TYPE varchar(255), ZIP_CODE varchar(255), NAME varchar(255) not null, ID_MUNICIPALITY bigint, ID_PROVINCE bigint, ID_ZONE bigint, primary key (ID))
+78   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+80   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table COUPON (ID bigint not null auto_increment, CODE varchar(2) not null, DISCOUNT_QUANTITY float not null, DISCOUNT_TYPE integer not null, MAX_TIMES_USE integer not null, TIMES_USED integer not null, primary key (ID))
+80   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+81   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table COURT_FEATURE (COURT_ID bigint not null, FEATURE_ID bigint not null, primary key (COURT_ID, FEATURE_ID), unique (FEATURE_ID))
+81   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+273  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table RENTAL_CLIENT (CLIENT_ID bigint not null, RENTAL_ID bigint not null, primary key (CLIENT_ID, RENTAL_ID), unique (RENTAL_ID))
+273  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+275  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table SPORT_EVENT_RENTALS (SPORT_EVENT_ID bigint not null, RENTAL_ID bigint not null, primary key (SPORT_EVENT_ID, RENTAL_ID), unique (RENTAL_ID))
+275  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+277  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table SPORT_FACILITY_FEATURES (SPORT_FACILITY_ID bigint not null, FEATURE_ID bigint not null, primary key (SPORT_FACILITY_ID, FEATURE_ID), unique (FEATURE_ID))
+277  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+280  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table SPORT_FACIlITY_IMAGE (SPORT_FACILITY_ID bigint not null, IMAGE_ID bigint not null, primary key (SPORT_FACILITY_ID, IMAGE_ID), unique (IMAGE_ID))
+280  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+282  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table Alquisport.ROLE add index FK2678764C0A1BA5 (ROLE_ID), add constraint FK2678764C0A1BA5 foreign key (ROLE_ID) references PISTEA.USER_ROLE (ID)
+282  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.role' doesn't exist
+283  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table CALENDAR add index FK2404EB3E85FAD7B2 (ID_COURT), add constraint FK2404EB3E85FAD7B2 foreign key (ID_COURT) references PISTEA.COURT (ID)
+283  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.calendar' doesn't exist
+284  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COMPANY add index FK6372C85DF2112CDC (ID_MUNICIPALITY), add constraint FK6372C85DF2112CDC foreign key (ID_MUNICIPALITY) references PISTEA.MUNICIPALITY (ID)
+284  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.company' doesn't exist
+285  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COMPANY add index FK6372C85DE35F0F3C (ID_ZONE), add constraint FK6372C85DE35F0F3C foreign key (ID_ZONE) references PISTEA.ZONE (ID)
+286  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.company' doesn't exist
+288  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COMPANY add index FK6372C85D18068C44 (ID_PROVINCE), add constraint FK6372C85D18068C44 foreign key (ID_PROVINCE) references PISTEA.PROVINCE (ID)
+288  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.company' doesn't exist
+291  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COURT_FEATURE add index FK9F046C0293AE1ABA (FEATURE_ID), add constraint FK9F046C0293AE1ABA foreign key (FEATURE_ID) references PISTEA.FEATURE (ID)
+291  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.court_feature' doesn't exist
+293  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COURT_FEATURE add index FK9F046C0282F8469A (COURT_ID), add constraint FK9F046C0282F8469A foreign key (COURT_ID) references PISTEA.COURT (ID)
+293  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.court_feature' doesn't exist
+373  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.COUPON_USED add index FKE924783639600F30 (ID_COUPON), add constraint FKE924783639600F30 foreign key (ID_COUPON) references COUPON (ID)
+373  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Can't create table 'pistea.#sql-440_28' (errno: 150)
+594  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.USER add index FK27E3CBF1BFF696 (ID_COMPANY), add constraint FK27E3CBF1BFF696 foreign key (ID_COMPANY) references COMPANY (ID)
+594  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Can't create table 'pistea.#sql-440_28' (errno: 150)
+678  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.YEAR add index FK29803D787C2C60 (ID_CALENDAR), add constraint FK29803D787C2C60 foreign key (ID_CALENDAR) references CALENDAR (ID)
+679  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Can't create table 'pistea.#sql-440_28' (errno: 150)
+688  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table RENTAL_CLIENT add index FK92F0A34612F82D1A (CLIENT_ID), add constraint FK92F0A34612F82D1A foreign key (CLIENT_ID) references PISTEA.USER (ID)
+688  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.rental_client' doesn't exist
+689  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table RENTAL_CLIENT add index FK92F0A3462668027A (RENTAL_ID), add constraint FK92F0A3462668027A foreign key (RENTAL_ID) references PISTEA.RENT (ID)
+689  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.rental_client' doesn't exist
+690  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_EVENT_RENTALS add index FK9C3C593F6A653466 (SPORT_EVENT_ID), add constraint FK9C3C593F6A653466 foreign key (SPORT_EVENT_ID) references PISTEA.SPORTS_EVENT (ID)
+690  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_event_rentals' doesn't exist
+691  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_EVENT_RENTALS add index FK9C3C593F2668027A (RENTAL_ID), add constraint FK9C3C593F2668027A foreign key (RENTAL_ID) references PISTEA.RENT (ID)
+691  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_event_rentals' doesn't exist
+692  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACILITY_FEATURES add index FKC7F4DA2E93AE1ABA (FEATURE_ID), add constraint FKC7F4DA2E93AE1ABA foreign key (FEATURE_ID) references PISTEA.FEATURE (ID)
+692  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_facility_features' doesn't exist
+692  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACILITY_FEATURES add index FKC7F4DA2E4F421EE3 (SPORT_FACILITY_ID), add constraint FKC7F4DA2E4F421EE3 foreign key (SPORT_FACILITY_ID) references PISTEA.SPORT_FACILITY (ID)
+692  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_facility_features' doesn't exist
+693  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACIlITY_IMAGE add index FK7BBEFCCA6603749A (IMAGE_ID), add constraint FK7BBEFCCA6603749A foreign key (IMAGE_ID) references PISTEA.IMAGE (ID)
+693  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_facility_image' doesn't exist
+694  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACIlITY_IMAGE add index FK7BBEFCCA4F421EE3 (SPORT_FACILITY_ID), add constraint FK7BBEFCCA4F421EE3 foreign key (SPORT_FACILITY_ID) references PISTEA.SPORT_FACILITY (ID)
+694  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'alquisport.sport_facility_image' doesn't exist
+696  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: create table hibernate_sequences ( sequence_name varchar(255),  sequence_next_hi_value integer ) 
+696  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Unknown database 'alquisport'
+1114 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Table 'alquisport.company' doesn't exist
+1122 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Table 'alquisport.company' doesn't exist
+1130 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Table 'alquisport.company' doesn't exist
+1    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000231: Schema export unsuccessful
+org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Unknown database 'alquisport')
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1225)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:880)
+	at org.hibernate.service.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:141)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:51)
+	at org.hibernate.tool.hbm2ddl.DatabaseExporter.<init>(DatabaseExporter.java:52)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.execute(SchemaExport.java:368)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:305)
+	at org.hibernate.tool.hbm2ddl.SchemaExport.create(SchemaExport.java:294)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:452)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1737)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'alquisport'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3609)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3541)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:943)
+	at com.mysql.jdbc.MysqlIO.secureAuth411(MysqlIO.java:4113)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1308)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2336)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2369)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2153)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:792)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:381)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:294)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1247)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1221)
+	... 65 more
+330  [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot create PoolableConnectionFactory (Unknown database 'alquisport')
+341  [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot create PoolableConnectionFactory (Unknown database 'alquisport')
+347  [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot create PoolableConnectionFactory (Unknown database 'alquisport')
+355  [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot create PoolableConnectionFactory (Unknown database 'alquisport')
+361  [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot create PoolableConnectionFactory (Unknown database 'alquisport')
+0    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table CALENDAR drop foreign key FK2404EB3E85FAD7B2
+1    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.calendar' doesn't exist
+2    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COMPANY drop foreign key FK6372C85DF2112CDC
+2    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.company' doesn't exist
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COMPANY drop foreign key FK6372C85DE35F0F3C
+3    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.company' doesn't exist
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COMPANY drop foreign key FK6372C85D18068C44
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.company' doesn't exist
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COURT_FEATURE drop foreign key FK9F046C0293AE1ABA
+4    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.court_feature' doesn't exist
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table COURT_FEATURE drop foreign key FK9F046C0282F8469A
+5    [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.court_feature' doesn't exist
+49   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.COUPON_USED drop foreign key FKE924783639600F30
+49   [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Error on rename of '.\pistea\coupon_used' to '.\pistea\#sql2-440-31' (errno: 152)
+174  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.ROLE drop foreign key FK2678764C0A1BA5
+174  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.role' doesn't exist
+253  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.USER drop foreign key FK27E3CBF1BFF696
+253  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Error on rename of '.\pistea\user' to '.\pistea\#sql2-440-31' (errno: 152)
+485  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table PISTEA.YEAR drop foreign key FK29803D787C2C60
+485  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Error on rename of '.\pistea\year' to '.\pistea\#sql2-440-31' (errno: 152)
+496  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table RENTAL_CLIENT drop foreign key FK92F0A34612F82D1A
+496  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.rental_client' doesn't exist
+497  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table RENTAL_CLIENT drop foreign key FK92F0A3462668027A
+497  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.rental_client' doesn't exist
+498  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_EVENT_RENTALS drop foreign key FK9C3C593F6A653466
+498  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_event_rentals' doesn't exist
+498  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_EVENT_RENTALS drop foreign key FK9C3C593F2668027A
+499  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_event_rentals' doesn't exist
+499  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACILITY_FEATURES drop foreign key FKC7F4DA2E93AE1ABA
+499  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility_features' doesn't exist
+500  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACILITY_FEATURES drop foreign key FKC7F4DA2E4F421EE3
+500  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility_features' doesn't exist
+501  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACIlITY_IMAGE drop foreign key FK7BBEFCCA6603749A
+501  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility_image' doesn't exist
+502  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - HHH000389: Unsuccessful: alter table SPORT_FACIlITY_IMAGE drop foreign key FK7BBEFCCA4F421EE3
+502  [main] ERROR org.hibernate.tool.hbm2ddl.SchemaExport  - Table 'pistea.sport_facility_image' doesn't exist
+0    [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1feafba] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.hibernate.mapping.Table.validateColumns(Table.java:275)
+	at org.hibernate.cfg.Configuration.validateSchema(Configuration.java:1268)
+	at org.hibernate.tool.hbm2ddl.SchemaValidator.validate(SchemaValidator.java:155)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:460)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1737)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+460  [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1feafba] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.hibernate.mapping.Table.validateColumns(Table.java:275)
+	at org.hibernate.cfg.Configuration.validateSchema(Configuration.java:1268)
+	at org.hibernate.tool.hbm2ddl.SchemaValidator.validate(SchemaValidator.java:155)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:460)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1737)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+858  [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1feafba] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.hibernate.mapping.Table.validateColumns(Table.java:275)
+	at org.hibernate.cfg.Configuration.validateSchema(Configuration.java:1268)
+	at org.hibernate.tool.hbm2ddl.SchemaValidator.validate(SchemaValidator.java:155)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:460)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1737)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+1342 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1feafba] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.hibernate.mapping.Table.validateColumns(Table.java:275)
+	at org.hibernate.cfg.Configuration.validateSchema(Configuration.java:1268)
+	at org.hibernate.tool.hbm2ddl.SchemaValidator.validate(SchemaValidator.java:155)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:460)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1737)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+1698 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1feafba] to prepare test instance [null(es.tresw.db.dao.TestAdministratorDao)]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'administratorDao': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:103)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.support.DelegatingSmartContextLoader.loadContext(DelegatingSmartContextLoader.java:228)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire method: public void es.tresw.db.dao.impl.GenericDao.setSessionFactory(org.hibernate.SessionFactory); nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:284)
+	... 39 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [db-config-test.xml]: Invocation of init method failed; nested exception is org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:848)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:790)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:707)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:551)
+	... 41 more
+Caused by: org.hibernate.HibernateException: Missing column: USERTYPE in pistea.user
+	at org.hibernate.mapping.Table.validateColumns(Table.java:275)
+	at org.hibernate.cfg.Configuration.validateSchema(Configuration.java:1268)
+	at org.hibernate.tool.hbm2ddl.SchemaValidator.validate(SchemaValidator.java:155)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:460)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1737)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1775)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:184)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:314)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 51 more
+0    [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Column 'COLOR_ONE' cannot be null

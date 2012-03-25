@@ -15,7 +15,7 @@ public class Assembler {
   @Transactional(readOnly = true)
   User buildUserFromUserEntity(es.tresw.db.entities.User userEntity) {
 
-    String username = userEntity.getUsername();
+    String username = userEntity.getusername();
     String password = userEntity.getPassword();
     boolean enabled = userEntity.getEnabled();
     boolean accountNonExpired = userEntity.getEnabled();

@@ -1,7 +1,8 @@
 package es.tresw.db.entities;
 
 import java.util.Date;
-import java.util.List;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,22 +13,23 @@ import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
-@Table(name="ADMINISTRATOR", catalog="Alquisport")
+@Table(name="ADMINISTRATOR", catalog="PISTEA")
+@DiscriminatorValue("ADMIN")
 public class Administrator extends User
 {
 	@ManyToOne
 	@JoinColumn(name = "ID_COMPANY")
-	private Company company=new Company();
+	private Company company;
 	@ManyToOne
 	@JoinColumn(name = "ID_SPORTFACILITY")
-	private SportFacility sportFacility=new SportFacility();
+	private SportFacility sportFacility;
 
 	public Administrator()
 	{
 		
 	}
 	
-	public Administrator(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles, Company company, SportFacility sportFacility, Date birthDate, Boolean enabled) 
+	public Administrator(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, UserRole roles, Company company, SportFacility sportFacility, Date birthDate, Boolean enabled) 
 	{
 		super(firstLastName, secondLastName,login, name, password, bankAccount, address, contactInfo, roles, birthDate, enabled);
 		this.company = company;

@@ -1,6 +1,6 @@
 package es.tresw.db.constants;
 
-public class AlquiSportConstants
+public class PisteaConstants
 {
 	public static final Integer ROLE_ADMIN=1;
 	public static final Integer ROLE_USER=2;

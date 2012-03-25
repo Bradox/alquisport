@@ -15,6 +15,7 @@ import es.tresw.db.entities.Province;
 public class MunicipalityDao extends GenericDao<Municipality, Long> implements  I_MunicipalityDao {
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Municipality> getMunicipalityByProvince(Province p) {
 		
 		Criteria criteria = getSession().createCriteria(Municipality.class);
@@ -23,10 +24,11 @@ public class MunicipalityDao extends GenericDao<Municipality, Long> implements  
 		
 		criteria.addOrder(Order.asc("name"));
 		
-		return criteria.list();
+		return (List<Municipality>) criteria.list();
 	}
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Municipality> getMunicipalityByProvince(Long idProvince) {
 		
 		Criteria criteria = getSession().createCriteria(Municipality.class);
@@ -35,7 +37,7 @@ public class MunicipalityDao extends GenericDao<Municipality, Long> implements  
 		
 		criteria.addOrder(Order.asc("name"));
 		
-		return criteria.list();
+		return (List<Municipality>)criteria.list();
 	}
 
 }

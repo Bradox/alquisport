@@ -18,13 +18,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import es.tresw.db.constants.AlquiSportConstants;
+import es.tresw.db.constants.PisteaConstants;
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Client;
 import es.tresw.db.entities.Province;
-import es.tresw.db.entities.Role;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -37,8 +36,6 @@ public class TestClientDao{
 	private I_ClientDao clientDao;
 	@Autowired
 	private I_ProvinceDao provinceDao;
-	@Autowired
-	private I_RoleDao roleDao;
 
 	@SuppressWarnings("deprecation")
 	@Test
@@ -52,7 +49,7 @@ public class TestClientDao{
 		address.setAddress("Mi Casa");
 		address.setType("Calle");
 		address.setProvince(province);
-		address.setMunicipality(province.getMunicipalities().get(0));
+		address.setMunicipality(province.getMunicipalities().iterator().next());
 		Client client = new Client();
 		client.setAddress(address);
 		BankAccount bankAccount=new BankAccount();
@@ -66,17 +63,17 @@ public class TestClientDao{
 		client.setContactInfo(contactInfo);
 		client.setBirthDate(new Date(1981, 3, 20));
 		client.setFirstLastName("Alves");
-		client.setUsername("Brato1982"+lDateTime);
+		client.setusername("Brato1982"+lDateTime);
 		client.setName("Alejandro");
 		client.setPassword("123123");
 		client.setSecondLastName("Calderon");
 		clientDao.create(client);
 		Criteria criteria = clientDao.getSession().createCriteria(Client.class);
 		criteria.add(Restrictions.eq("login", "Brato1982"+lDateTime));
-		Role role = roleDao.read(new Long (1));
+		/*Role role = roleDao.read(new Long (1));
 		List<Role> lista = new ArrayList<Role>();
 		lista.add(role);
-		client.setRoles(lista);
+		client.setRoles(lista);*/
 		Client clientInserted = (Client) criteria.list().get(0);
 		assertNotNull(clientInserted);
 	}
@@ -110,11 +107,11 @@ public class TestClientDao{
 	@Rollback(true)
 	public void testReadByField()
 	{
-		String login = clientDao.readAll().get(0).getUsername();
+		String login = clientDao.readAll().get(0).getusername();
 		List<String> fields = new ArrayList<String>();
 		fields.add("login"); 
 		List<String> expressions = new ArrayList<String>();
-		expressions.add(AlquiSportConstants.EQUALS);
+		expressions.add(PisteaConstants.EQUALS);
 		List<String> values = new ArrayList<String>();
 		values.add(login);
 		List<String> types = new ArrayList<String>();
@@ -134,8 +131,4 @@ public class TestClientDao{
 		this.provinceDao=provinceDao;
 	}
 	
-	public void setRoleDao(I_RoleDao roleDao)
-	{
-		this.roleDao=roleDao;
-	}
 }

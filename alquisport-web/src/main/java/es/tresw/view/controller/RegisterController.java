@@ -28,7 +28,7 @@ public class RegisterController implements Serializable{
 	public String registerClient()
 	{
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		if(registerService.existUser(client.getUsername()))
+		if(registerService.existUser(client.getusername()))
 		{
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("username_error_sumary"),Messages.getString("username_error_detail"));
 			facesContext.addMessage("register:username",message);
@@ -59,7 +59,7 @@ public class RegisterController implements Serializable{
 	public String registerAdministrator()
 	{
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		if(registerService.existUser(administrator.getUsername()))
+		if(registerService.existUser(administrator.getusername()))
 		{
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("username_error_sumary"),Messages.getString("username_error_detail"));
 			facesContext.addMessage("register:username",message);

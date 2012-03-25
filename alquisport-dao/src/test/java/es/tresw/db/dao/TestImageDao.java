@@ -5,8 +5,9 @@ import static org.junit.Assert.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.imageio.ImageIO;
 
@@ -50,7 +51,7 @@ public class TestImageDao{
 			image.setWeight(100);
 			image.setName("name");
 			imageDao.create(image);
-			List<Image> images=new ArrayList<Image>();
+			Set<Image> images=new HashSet<Image>();
 			images.add(image);
 			List<SportFacility> sportFacilities = sportFacilityDao.readAll();
 			SportFacility sportFacility = sportFacilities.get(0);

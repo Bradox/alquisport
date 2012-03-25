@@ -12,7 +12,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
-import es.tresw.db.constants.AlquiSportConstants;
+import es.tresw.db.constants.PisteaConstants;
 import es.tresw.db.dao.I_GenericDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,7 +81,7 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 		List<String> fields = new ArrayList<String>();
 		fields.add(field); 
 		List<String> expressions = new ArrayList<String>();
-		expressions.add(AlquiSportConstants.EQUALS);
+		expressions.add(PisteaConstants.EQUALS);
 		List<String> values = new ArrayList<String>();
 		values.add(value);
 		List<String> types = new ArrayList<String>();
@@ -116,32 +116,32 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
         {   
         	String expression = expressions.get(i);
         	String value = values.get(i);
-            if(types.get(i).equals(AlquiSportConstants.INT))
+            if(types.get(i).equals(PisteaConstants.INT))
             {
                 isInt=true;
             }
-            if (expression.equals(AlquiSportConstants.EQUALS))
+            if (expression.equals(PisteaConstants.EQUALS))
             {
                 if(isInt)
                     filter.add(Restrictions.eq(field, Integer.valueOf(value)));
                 else
                     filter.add(Restrictions.eq(field, value));
             }
-            else if (expression.equals(AlquiSportConstants.LESS_THAN))
+            else if (expression.equals(PisteaConstants.LESS_THAN))
             {
                 if(isInt)
                     filter.add(Restrictions.le(field, Integer.valueOf(value)));
                 else
                     filter.add(Restrictions.le(field, value));
             }
-            else if (expression.equals(AlquiSportConstants.LARGER_THAN))
+            else if (expression.equals(PisteaConstants.LARGER_THAN))
             {
                 if(isInt)
                     filter.add(Restrictions.lt(field, Integer.valueOf(value)));
                 else
                     filter.add(Restrictions.lt(field, field));
             }
-            else if (expression.equals(AlquiSportConstants.CONTAINS))
+            else if (expression.equals(PisteaConstants.CONTAINS))
             {
                     filter.add(Restrictions.ilike(field, value, MatchMode.ANYWHERE ));
             }

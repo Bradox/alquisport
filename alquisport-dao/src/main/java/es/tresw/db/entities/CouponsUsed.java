@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="COUPON_USED",catalog="Alquisport")
+@Table(name="COUPON_USED",catalog="PISTEA")
 public class CouponsUsed
 {
 	@Id
@@ -19,13 +19,13 @@ public class CouponsUsed
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "ID_COUPON")
-	private Coupon coupon=new Coupon();
+	private Coupon coupon;
 	@ManyToOne
 	@JoinColumn(name = "ID_RENT")
-	private Rental rent=new Rental();
+	private Rental rent;
 	@ManyToOne
 	@JoinColumn(name = "ID_USER")
-	private Client client=new Client();
+	private Client client;
 	
 	public CouponsUsed()
 	{

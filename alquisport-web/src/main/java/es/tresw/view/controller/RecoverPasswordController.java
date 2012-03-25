@@ -32,7 +32,7 @@ public class RecoverPasswordController implements Serializable{
 	public String recoverPassword()
 	{
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		User u = registerService.getUserByUsername(username);
+		User u = registerService.getUserByusername(username);
 		
 		String msg=validate(u);
 		if(msg==null)
@@ -77,11 +77,11 @@ public class RecoverPasswordController implements Serializable{
 		this.registerService = registerService;
 	}
 
-	public String getUsername() {
+	public String getusername() {
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public void setusername(String username) {
 		this.username = username;
 	}
 

@@ -1,7 +1,7 @@
 package es.tresw.db.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -30,14 +30,14 @@ public class Company
 	@Embedded
 	private Address address;
 	@OneToMany(mappedBy="company")
-	private List<Administrator> administrators=new ArrayList<Administrator>();
+	private Set<Administrator> administrators=new HashSet<Administrator>();
 	
 	public Company()
 	{
 		
 	}	
 	
-	public Company(String name, String CIF, Address address, List<Administrator> administrators)
+	public Company(String name, String CIF, Address address, Set<Administrator> administrators)
 	{
 		this.name=name;
 		this.CIF=CIF;
@@ -75,12 +75,12 @@ public class Company
 		this.address = address;
 	}
 
-	public List<Administrator> getAdministrators() 
+	public Set<Administrator> getAdministrators() 
 	{
 		return administrators;
 	}
 
-	public void setAdministrators(List<Administrator> administrators)
+	public void setAdministrators(Set<Administrator> administrators)
 	{
 		this.administrators = administrators;
 	}

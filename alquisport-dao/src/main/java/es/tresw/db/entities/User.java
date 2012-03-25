@@ -1,10 +1,11 @@
 package es.tresw.db.entities;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Date;
-import java.util.List;
-
+import java.util.Set;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,23 +14,21 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.hibernate.annotations.Type;
-
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 
 
 @Entity
-@Table(name="USER",catalog="Alquisport")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Table(name="USER",catalog="PISTEA")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="USERTYPE",discriminatorType=DiscriminatorType.STRING)
 public class User 
 {
 	@Id
@@ -48,7 +47,7 @@ public class User
 		
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
-    @Column(name="LOGIN", nullable=false, length=255)
+    @Column(name="username", nullable=false, length=255)
 	private String username;
 	
 	@NotNull
@@ -66,36 +65,32 @@ public class User
 	@Column(name="ENABLED")
 	@Type(type="true_false")
 	private boolean enabled;
-	
-	@ManyToMany
-	@JoinTable(name = "USER_ROLE", joinColumns = {
-			 @JoinColumn(name = "USER_ID", referencedColumnName = "ID")}, 
-			 inverseJoinColumns = {
-				@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
-	private List<Role> roles=new ArrayList<Role>();
-
     
     @OneToMany (mappedBy="userTo")
-    public List<Message> messagesTo=new ArrayList<Message>();
+    private Set<Message> messagesTo=new HashSet<Message>();
+    
+    @ManyToOne
+    @JoinColumn(name="ROLE_ID")
+    private UserRole roles;
     
     @OneToMany(mappedBy="userFrom")
-    public List<Message> messagesFrom=new ArrayList<Message>();
+    private Set<Message> messagesFrom=new HashSet<Message>();
     
 	@Embedded
-	private BankAccount bankAccount=new BankAccount();
+	private BankAccount bankAccount;
 	
 	@Embedded
-	private Address address=new Address();
+	private Address address;
 	
 	@Embedded
-	private ContactInfo contactInfo=new ContactInfo();
+	private ContactInfo contactInfo;
 	
 	public User()
 	{
 		
 	}
 	
-	public User(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Role> roles, Date birthDate, Boolean enabled) 
+	public User(String firstLastName, String secondLastName, String username, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, UserRole roles, Date birthDate, Boolean enabled) 
 	{
 		this.firstLastName = firstLastName;
 		this.secondLastName = secondLastName;
@@ -140,12 +135,12 @@ public class User
 		this.secondLastName = secondLastName;
 	}
 	
-	public String getUsername() 
+	public String getusername() 
 	{
 		return username;
 	}
 	
-	public void setUsername(String username) 
+	public void setusername(String username) 
 	{
 		this.username = username;
 	}
@@ -206,12 +201,12 @@ public class User
 		this.contactInfo = contactInfo;
 	}
 
-	public List<Role> getRoles() 
+	public UserRole getRoles() 
 	{
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) 
+	public void setRoles(UserRole roles) 
 	{
 		this.roles = roles;
 	}
@@ -236,22 +231,22 @@ public class User
 		this.enabled = enabled;
 	}
 
-	public List<Message> getMessagesTo()
+	public Set<Message> getMessagesTo()
 	{
 		return messagesTo;
 	}
 
-	public void setMessagesTo(List<Message> messagesTo)
+	public void setMessagesTo(Set<Message> messagesTo)
 	{
 		this.messagesTo = messagesTo;
 	}
 
-	public List<Message> getMessagesFrom()
+	public Set<Message> getMessagesFrom()
 	{
 		return messagesFrom;
 	}
 
-	public void setMessagesFrom(List<Message> messagesFrom)
+	public void setMessagesFrom(Set<Message> messagesFrom)
 	{
 		this.messagesFrom = messagesFrom;
 	}

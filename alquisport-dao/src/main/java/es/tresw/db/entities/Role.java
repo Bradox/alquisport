@@ -1,19 +1,17 @@
 package es.tresw.db.entities;
 
-
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "ROLE", catalog = "Alquisport")
+@Table(name = "ROLE", catalog = "PISTEA")
 public class Role
 {
 
@@ -26,8 +24,9 @@ public class Role
 	@Column(name = "NAME")
 	private String name;
 
-	@ManyToMany(mappedBy = "roles")
-	private List<User> users=new ArrayList<User>();
+	@ManyToOne
+	@JoinColumn(name="ROLE_ID")
+	private UserRole users;
 
 	public Role() 
 	{
@@ -61,13 +60,13 @@ public class Role
 	}
 
 
-	public List<User> getUserCollection() 
+	public UserRole getUserCollection() 
 	{
 		return users;
 	}
 
 	
-	public void setUserCollection(List<User> users) 
+	public void setUserCollection(UserRole users) 
 	{
 		this.users = users;
 	}

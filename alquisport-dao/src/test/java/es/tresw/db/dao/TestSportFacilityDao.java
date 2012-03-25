@@ -5,9 +5,10 @@ import static org.junit.Assert.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.imageio.ImageIO;
 
@@ -25,9 +26,11 @@ import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Client;
 import es.tresw.db.entities.Feature;
 import es.tresw.db.entities.Image;
+import es.tresw.db.entities.Municipality;
 import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
 import es.tresw.db.entities.SportFacilityMember;
+import es.tresw.db.entities.Zone;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:intercambia-servlet-test.xml"})
@@ -59,7 +62,7 @@ public class TestSportFacilityDao{
 			address.setType("Calle");
 			address.setZipCode("asdas");
 			address.setProvince(province);
-			address.setMunicipality(province.getMunicipalities().get(0));
+			address.setMunicipality(province.getMunicipalities().iterator().next());
 			SportFacility sportFacility = new SportFacility();
 			sportFacility.setAddress(address);
 			Appearance appearance = new Appearance();
@@ -75,7 +78,7 @@ public class TestSportFacilityDao{
 			feature.setKey("Sergio");
 			feature.setPosition(1);
 			feature.setValue("PUTA");
-			List<Feature> features = new ArrayList<Feature>();
+			Set<Feature> features = new HashSet<Feature>();
 			features.add(feature);
 			featureDao.create(feature);
 			sportFacility.setFeatures(features);
@@ -94,7 +97,7 @@ public class TestSportFacilityDao{
 			image.setWeight(100);
 			image.setName("name");
 			imageDao.create(image);
-			List<Image> images=new ArrayList<Image>();
+			Set<Image> images=new HashSet<Image>();
 			images.add(image);
 			sportFacility.setImages(images);
 			sportFacility.setName("Entidad guapa");
@@ -110,6 +113,36 @@ public class TestSportFacilityDao{
 	}
 	
 	@Test
+	public void testCreateForm()
+	{
+		SportFacility sf = new SportFacility();
+		sf.setName("Name");
+		sf.setUrlName("asdasdasdasd");
+		
+		ContactInfo ci = new ContactInfo();
+		ci.setTelephone1("asdasdasd");
+		ci.setEmail("asdad@asdsad.com");
+		sf.setContactInfo(ci);
+		
+		Address a = new Address();
+		a.setAddress("asdasd sdas d ");
+		a.setZipCode("41013");
+		
+		Province p = provinceDao.read(new Long(1));
+		a.setProvince(p);
+		Municipality m = p.getMunicipalities().iterator().next();
+		a.setMunicipality(m);
+		sf.setAddress(a);
+		
+		
+		
+		//Guardamos
+		//sf = sportFacilityService.createSportFacility(sf);
+		sportFacilityDao.create(sf);
+
+	}
+	
+	@Test
 	public void testUpdate()
 	{
 		SportFacility sportFacility = sportFacilityDao.readAll().get(0);
@@ -119,7 +152,7 @@ public class TestSportFacilityDao{
 			SportFacilityMember sportFacilityMember = new SportFacilityMember();
 			sportFacilityMember.setClient(clients.get(0));
 			sportFacilityMember.setSportFacility(sportFacility);
-			List<SportFacilityMember> members = new ArrayList<SportFacilityMember>();
+			Set<SportFacilityMember> members = new HashSet<SportFacilityMember>();
 			members.add(sportFacilityMember);
 			sportFacility.setMembers(members);
 		}

@@ -1,7 +1,7 @@
 package es.tresw.db.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,17 +22,17 @@ public class Calendar
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
 	@OneToMany(mappedBy="calendar")	
-	private List<Year> years=new ArrayList<Year>();
+	private Set<Year> years=new HashSet<Year>();
 	@ManyToOne
 	@JoinColumn(name = "ID_COURT")
-	private Court court=new Court();
+	private Court court;
 	
 	public Calendar()
 	{
 		
 	}
 	
-	public Calendar(List<Year> years, Court court) {
+	public Calendar(Set<Year> years, Court court) {
 		super();
 		this.years = years;
 		this.court = court;
@@ -44,10 +44,10 @@ public class Calendar
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public List<Year> getYears() {
+	public Set<Year> getYears() {
 		return years;
 	}
-	public void setYears(List<Year> years) {
+	public void setYears(Set<Year> years) {
 		this.years = years;
 	}
 	public Court getCourt() {
