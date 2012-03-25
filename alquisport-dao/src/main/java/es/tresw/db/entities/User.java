@@ -93,7 +93,7 @@ public class User
     @OneToMany (mappedBy="userTo")
     private Set<Message> messagesTo=new HashSet<Message>();
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "USER")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<UserRole> userRoles = new HashSet<UserRole>(0);
     
     @OneToMany(mappedBy="userFrom")

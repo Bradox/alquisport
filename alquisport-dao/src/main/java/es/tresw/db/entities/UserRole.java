@@ -22,10 +22,10 @@ public class UserRole
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_USER", nullable = false)
+	@JoinColumn(name = "USER", nullable = false)
 	private User user;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_ROL", nullable = false)
+	@JoinColumn(name = "ROLE", nullable = false)
 	private Role role;
 	
 	public UserRole()

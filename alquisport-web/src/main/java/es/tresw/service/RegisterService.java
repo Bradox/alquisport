@@ -11,6 +11,7 @@ import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
+import es.tresw.db.constants.PisteaConstants;
 import es.tresw.db.dao.I_AdministratorDao;
 import es.tresw.db.dao.I_ClientDao;
 import es.tresw.db.dao.I_RoleDao;
@@ -24,10 +25,6 @@ import es.tresw.db.entities.UserRole;
 
 @Transactional
 public class RegisterService {
-	
-	//ROLES DE USUARIO
-	private static final Long ID_ROLE_SPORTFACILITY_ADMIN = new Long(3);
-	private static final Long ID_ROLE_USER = new Long(2);
 	
 	private static final Logger log = Logger.getLogger(RegisterService.class);
 	
@@ -69,7 +66,7 @@ public class RegisterService {
 	    c.setCredentialsNonExpired(true);
 	    
 	    //Le asignamos el rol correspondiente
-	    Role role = roleDao.read(ID_ROLE_USER);
+	    Role role = roleDao.read(PisteaConstants.ID_ROLE_USER);
 	    UserRole ur = new UserRole();
 	    ur.setRole(role);
 	    ur.setUser(c);
@@ -108,7 +105,7 @@ public class RegisterService {
 	    a.setCredentialsNonExpired(true);
 	    
 	  //Le asignamos el rol correspondiente
-	    Role role = roleDao.read(ID_ROLE_SPORTFACILITY_ADMIN);
+	    Role role = roleDao.read(PisteaConstants.ID_ROLE_SPORTFACILITY_ADMIN);
 	    UserRole ur = new UserRole();
 	    ur.setRole(role);
 	    ur.setUser(a);
