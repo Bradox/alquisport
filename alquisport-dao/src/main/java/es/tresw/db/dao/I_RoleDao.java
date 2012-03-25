@@ -1,8 +1,8 @@
 package es.tresw.db.dao;
 
-import es.tresw.db.entities.UserRole;
+import es.tresw.db.entities.Role;
 
-public interface I_RoleDao extends I_GenericDao<UserRole, Long> 
+public interface I_RoleDao extends I_GenericDao<Role, Long> 
 {
 
 }

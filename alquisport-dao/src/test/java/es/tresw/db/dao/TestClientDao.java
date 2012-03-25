@@ -63,7 +63,7 @@ public class TestClientDao{
 		client.setContactInfo(contactInfo);
 		client.setBirthDate(new Date(1981, 3, 20));
 		client.setFirstLastName("Alves");
-		client.setusername("Brato1982"+lDateTime);
+		client.setUsername("Brato1982"+lDateTime);
 		client.setName("Alejandro");
 		client.setPassword("123123");
 		client.setSecondLastName("Calderon");
@@ -107,7 +107,7 @@ public class TestClientDao{
 	@Rollback(true)
 	public void testReadByField()
 	{
-		String login = clientDao.readAll().get(0).getusername();
+		String login = clientDao.readAll().get(0).getUsername();
 		List<String> fields = new ArrayList<String>();
 		fields.add("login"); 
 		List<String> expressions = new ArrayList<String>();

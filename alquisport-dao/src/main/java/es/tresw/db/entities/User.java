@@ -1,25 +1,29 @@
 package es.tresw.db.entities;
 
-import java.util.HashSet;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import org.hibernate.annotations.Type;
+
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
@@ -65,13 +69,32 @@ public class User
 	@Column(name="ENABLED")
 	@Type(type="true_false")
 	private boolean enabled;
+	
+	@Column(name="ACCOUNT_NON_EXPIRED")
+	@Type(type="true_false")
+	private boolean accountNonExpired = true;
+	
+	@Column(name="CREDENTIALS_NON_EXPIRED")
+	@Type(type="true_false")
+	private boolean credentialsNonExpired = true;
+	
+	@Column(name="ACCOUNT_NON_LOCKED")
+	@Type(type="true_false")
+	private boolean accountNonLocked = true;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "CREATED_DATE", length = 19)
+	private Date createDate;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "LAST_MODIFIED_DATE", length = 19)
+	private Date lastModifiedDate;
     
     @OneToMany (mappedBy="userTo")
     private Set<Message> messagesTo=new HashSet<Message>();
     
-    @ManyToOne
-    @JoinColumn(name="ROLE_ID")
-    private UserRole roles;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "USER")
+    private Set<UserRole> userRoles = new HashSet<UserRole>(0);
     
     @OneToMany(mappedBy="userFrom")
     private Set<Message> messagesFrom=new HashSet<Message>();
@@ -100,7 +123,7 @@ public class User
 		this.bankAccount = bankAccount;
 		this.address = address;
 		this.contactInfo = contactInfo;
-		this.roles=roles;
+		this.userRoles=new HashSet<UserRole>();
 		this.birthDate=birthDate;
 		this.enabled=enabled;
 	}
@@ -135,12 +158,12 @@ public class User
 		this.secondLastName = secondLastName;
 	}
 	
-	public String getusername() 
+	public String getUsername() 
 	{
 		return username;
 	}
 	
-	public void setusername(String username) 
+	public void setUsername(String username) 
 	{
 		this.username = username;
 	}
@@ -201,14 +224,12 @@ public class User
 		this.contactInfo = contactInfo;
 	}
 
-	public UserRole getRoles() 
-	{
-		return roles;
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
 	}
 
-	public void setRoles(UserRole roles) 
-	{
-		this.roles = roles;
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
 	}
 
 	public Date getBirthDate() 
@@ -226,11 +247,11 @@ public class User
 		return enabled;
 	}
 
-	public void setEnabled(Boolean enabled)
+	public void setEnabled(boolean enabled)
 	{
 		this.enabled = enabled;
 	}
-
+	
 	public Set<Message> getMessagesTo()
 	{
 		return messagesTo;
@@ -251,5 +272,44 @@ public class User
 		this.messagesFrom = messagesFrom;
 	}
 
+	public Date getCreateDate() {
+		return createDate;
+	}
 
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+
+	public boolean isAccountNonExpired() {
+		return accountNonExpired;
+	}
+
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return credentialsNonExpired;
+	}
+
+	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+		this.credentialsNonExpired = credentialsNonExpired;
+	}
+
+	public boolean isAccountNonLocked() {
+		return accountNonLocked;
+	}
+
+	public void setAccountNonLocked(boolean accountNonLocked) {
+		this.accountNonLocked = accountNonLocked;
+	}
+	
 }

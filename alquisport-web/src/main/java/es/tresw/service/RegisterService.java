@@ -1,7 +1,9 @@
 package es.tresw.service;
 
-import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +15,12 @@ import es.tresw.db.dao.I_AdministratorDao;
 import es.tresw.db.dao.I_ClientDao;
 import es.tresw.db.dao.I_RoleDao;
 import es.tresw.db.dao.I_UserDao;
+import es.tresw.db.dao.I_UserRoleDao;
 import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.Client;
 import es.tresw.db.entities.Role;
 import es.tresw.db.entities.User;
+import es.tresw.db.entities.UserRole;
 
 @Transactional
 public class RegisterService {
@@ -41,6 +45,9 @@ public class RegisterService {
 	private I_RoleDao roleDao;
 	
 	@Autowired
+	private I_UserRoleDao userRoleDao;
+	
+	@Autowired
 	private NotificationService notificacionService;
 	
 	public boolean register(Client c)
@@ -50,14 +57,32 @@ public class RegisterService {
 	    String hashedPass = encoder.encodePassword(c.getPassword(), null);
 	    c.setPassword(hashedPass);
 	    
+	    //Fecha de creacion y ultima modificacion ponemos la actual
+	    Date ahora = new Date();
+	    c.setCreateDate(ahora);
+	    c.setLastModifiedDate(ahora);
+	    
+	    //Ponemos el usuario como activo en todos los flags
+	    c.setEnabled(true);
+	    c.setAccountNonExpired(true);
+	    c.setAccountNonLocked(true);
+	    c.setCredentialsNonExpired(true);
+	    
 	    //Le asignamos el rol correspondiente
 	    Role role = roleDao.read(ID_ROLE_USER);
-	    List<Role> roles = new ArrayList<Role>();
-	    roles.add(role);
-	    c.setRoles(roles);
+	    UserRole ur = new UserRole();
+	    ur.setRole(role);
+	    ur.setUser(c);
+	    
+	    Set<UserRole> roles = new HashSet<UserRole>();
+	    roles.add(ur);
+	    c.setUserRoles(roles);
 		
 		//Guardamos en BBDD el cliente
 		Long id = (Long) clientDao.create(c);
+		
+		//Guardamos el rol
+	    userRoleDao.create(ur);
 		if(id!=null)
 			return true;
 		else
@@ -71,12 +96,32 @@ public class RegisterService {
 	    String hashedPass = encoder.encodePassword(a.getPassword(), null);
 	    a.setPassword(hashedPass);
 	    
-	    //Le asignamos el rol correspondiente
+	  //Fecha de creacion y ultima modificacion ponemos la actual
+	    Date ahora = new Date();
+	    a.setCreateDate(ahora);
+	    a.setLastModifiedDate(ahora);
+	    
+	  //Ponemos el usuario como activo en todos los flags
+	    a.setEnabled(true);
+	    a.setAccountNonExpired(true);
+	    a.setAccountNonLocked(true);
+	    a.setCredentialsNonExpired(true);
+	    
+	  //Le asignamos el rol correspondiente
 	    Role role = roleDao.read(ID_ROLE_SPORTFACILITY_ADMIN);
-	    a.getRoles().add(role);
+	    UserRole ur = new UserRole();
+	    ur.setRole(role);
+	    ur.setUser(a);
+	    
+	    Set<UserRole> roles = new HashSet<UserRole>();
+	    roles.add(ur);
+	    a.setUserRoles(roles);
 		
 		//Guardamos en BBDD el cliente
 		Long id = (Long) administratorDao.create(a);
+		
+		//Guardamos el rol
+	    userRoleDao.create(ur);
 		if(id!=null)
 			return true;
 		else
@@ -120,7 +165,7 @@ public class RegisterService {
 	    log.info("");
 	    
 	    //Enviamos el mail
-	    notificacionService.recoverPassword(user.getusername(), newPassword);
+	    notificacionService.recoverPassword(user.getUsername(), newPassword);
 	}
 	
 	public User getUserByusername(String username)
@@ -187,7 +232,14 @@ public class RegisterService {
 	public void setRoleDao(I_RoleDao roleDao) {
 		this.roleDao = roleDao;
 	}
-	
+
+	public I_UserRoleDao getUserRoleDao() {
+		return userRoleDao;
+	}
+
+	public void setUserRoleDao(I_UserRoleDao userRoleDao) {
+		this.userRoleDao = userRoleDao;
+	}
 	
 
 }
