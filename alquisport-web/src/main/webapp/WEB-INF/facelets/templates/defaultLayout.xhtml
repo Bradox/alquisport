@@ -4,29 +4,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<title><ui:insert name="title" /></title>
 	
-	<!-- Incluimos las CSS necesarias -->
+	<!-- Incluimos las CSS de blueprint -->
+	<h:outputStylesheet name="screen.css" library="css" media="screen, projection"/>
+	<h:outputStylesheet name="print.css" library="css" media="print" />
+	<!--[if lt IE 8]>
+	<h:outputStylesheet name="ie.css" library="css" media="screen, projection" />
+	<![endif]-->
+	
 	<h:outputStylesheet name="style.css" library="css" />
 </h:head>
 <h:body>
-	<div id="page">
-		<ui:include src="elements/header.xhtml" />
-		
-		<div id="contenido-centro">
-			<div class="container">
-					<ui:insert name="content">
-						<section id="pagina-construccion" class="rounded10 box-shadow-light">
-							<h1>Página en construcción</h1>
-						</section>
-					</ui:insert>
-			</div>
-		</div>
-		<ui:include src="elements/footer.xhtml" />
+	<p:growl id="growl" showDetail="false" sticky="true" globalOnly="true"/>  
+	<div id="cabecera">
+      <ui:include src="elements/header.xhtml" />
 	</div>
+	
+    <div class="container">
+      <div class="span-6">
+      	<ui:insert name="colizq">
+			<h1>Página en construcción</h1>
+			<p>Lo sentimos pero la página solicitada no ha sido encontrada.</p>
+		 </ui:insert>
+      </div>
+      <div class="span-18 last">
+         <ui:insert name="colder">
+			<h1>Página en construcción</h1>
+			<p>Lo sentimos pero la página solicitada no ha sido encontrada.</p>
+		 </ui:insert>
+      </div>
+    </div>
+    
+    <div id="pie">
+      <ui:include src="elements/footer.xhtml" />
+    </div>
 </h:body>
 </html>

@@ -1,12 +1,17 @@
 package es.tresw.db.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -24,9 +29,8 @@ public class Role
 	@Column(name = "NAME")
 	private String name;
 
-	@ManyToOne
-	@JoinColumn(name="ROLE_ID")
-	private UserRole users;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
+	private Set<UserRole> userRoleses = new HashSet<UserRole>(0);
 
 	public Role() 
 	{
@@ -59,17 +63,12 @@ public class Role
 		this.name = name;
 	}
 
-
-	public UserRole getUserCollection() 
-	{
-		return users;
+	public Set<UserRole> getUserRoleses() {
+		return userRoleses;
 	}
 
-	
-	public void setUserCollection(UserRole users) 
-	{
-		this.users = users;
+	public void setUserRoleses(Set<UserRole> userRoleses) {
+		this.userRoleses = userRoleses;
 	}
-
 
 }

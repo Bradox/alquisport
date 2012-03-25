@@ -14,17 +14,12 @@
 		<intercept-url pattern="/superadmin/**" access="hasRole('superadmin')" />
 		<!-- <intercept-url pattern="/insdeportiva/**" access="hasRole('admin')" /> -->
 		<intercept-url pattern="/user/**" access="isAuthenticated()" />
-		<!-- Allow all other requests. In a real application you should adopt a 
-			whitelisting approach where access is not allowed by default -->
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-processing-url="/j_spring_security_check"
 			login-page='/login.xhtml' default-target-url='/index.xhtml'
 			always-use-default-target='true' authentication-failure-url="/login.xhtml?error=true" />
-		<logout logout-success-url="/logout.xhtml" />
-		<remember-me />
-		<!-- Uncomment to enable X509 client authentication support <x509 /> -->
-		<!-- Uncomment to limit the number of sessions a user can have -->
-		<session-management invalid-session-url="/timeout.xhtml">
+		<logout logout-success-url="/index.xhtml" />
+		<session-management invalid-session-url="/index.xhtml">
 			<concurrency-control max-sessions="1"
 				error-if-maximum-exceeded="true" />
 		</session-management>

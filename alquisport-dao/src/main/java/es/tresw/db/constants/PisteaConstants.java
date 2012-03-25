@@ -16,4 +16,10 @@ public class PisteaConstants
 	public static final String LESS_THAN = ">";
 	public static final String CONTAINS = "contains";
 	
+	
+	//ID ROLES
+	public static final Long ID_SUPER_ADMIN = new Long(1);
+	public static final Long ID_ROLE_USER = new Long(2);
+	public static final Long ID_ROLE_SPORTFACILITY_ADMIN = new Long(3);
+	
 }

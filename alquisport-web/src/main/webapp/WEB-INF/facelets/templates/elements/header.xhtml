@@ -6,27 +6,26 @@
 	xmlns:t="http://myfaces.apache.org/tomahawk"
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition>
-	<p:panel id="header">
-		<t:div id="cabecera-logo">
-			<h:graphicImage id="logo" alt="Alquisport: Tu página de alquiler de instalaciones deportivas" url="/resources/images/Logo-01.png"/>    
-		</t:div>
-		<t:div id="cabecera-login">
-			<t:div styleClass="loginform">
-				<h:form action="j_spring_security_check" method="post">
-					<t:div styleClass="usuario">
-						<label for="j_username"><h:outputText value="usuario:" /></label><h:inputText id="j_username" required="true"></h:inputText><br/>
-						<h:link value="registrate" title="Entra y registrate como usuario." outcome="/registro/registro-usuario.xhtml" />
-					</t:div>
-					<t:div styleClass="password">
-						<label for="j_password"><h:outputText value="contraseña:" /></label><h:inputSecret id="j_password" required="true"></h:inputSecret><br/>
-						<h:link value="la he olvidado" title="Página para recuperar la contraseña perdida." outcome="/registro/recuperar-password.xhtml" />
-					</t:div>
-					<t:div styleClass="entrar">
-						<h:commandButton type="submit" id="login" value="Entrar" class="button"/>
-					</t:div>
-				</h:form>
-			</t:div>
-		</t:div>
-	</p:panel>
+	<div class="container">
+         <div class="span-6 append-6">
+            <h:graphicImage id="logo" alt="Alquisport: Tu página de alquiler de instalaciones deportivas" url="/resources/images/Logo-01.png"/>
+         </div>
+         <div class="span-12 last">
+            <p:panel id="login" rendered="#{!sesionController.logado}" style="fontSize:0.9em;">			
+				<h:form id="loginForm">
+		            <h:panelGrid columns="3">  
+		                <h:outputLabel for="j_username" value="usuario: " />  
+		                <h:outputLabel for="j_password" value="contraseña: " />  
+		                <h:outputText value=" "/>
+		                <p:inputText id="j_username" required="true" requiredMessage="Debe ingresar un nombre de usuario." value="#{loginController.username}"/>
+		                <p:password id="j_password" required="true" requiredMessage="Debe ingresar una contraseña." feedback="false"  value="#{loginController.password}"/>
+			            <p:commandButton type="submit" id="entrar" action="#{loginController.doLogin}" value="Entrar" ajax="false"/>  
+		                <h:link value="Registrate!" outcome="/registro/registro-usuario" />
+		                <h:link value="No recuerdas tu contraseña?" outcome="/registro/recuperar-password" />
+		            </h:panelGrid>  
+		        </h:form>
+			</p:panel>
+         </div>
+      </div>
 </ui:composition>
 </html>

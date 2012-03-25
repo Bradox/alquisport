@@ -3,7 +3,6 @@ package es.tresw.view.controller.sportfacility;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
@@ -14,13 +13,17 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
+import es.tresw.db.embeddable.Address;
+import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Municipality;
 import es.tresw.db.entities.Province;
+import es.tresw.db.entities.SportFacility;
+import es.tresw.db.entities.Zone;
 import es.tresw.service.SportFacilityService;
 import es.tresw.util.Messages;
 import es.tresw.view.controller.AdminSessionController;
 
-public class GeneralInfoController {
+public class NewSportFacilityController {
 	
 	/*Bean en session*/
 	@ManagedProperty("#{adminSessionController}")
@@ -63,51 +66,64 @@ public class GeneralInfoController {
 	private String zone;
 	private String getHere;
 	
-	private Boolean mostrarFormulario;
-	
 	/*Lista de los select*/
 	private List<SelectItem> municipios;
 	private List<SelectItem> provincias;
 	
 	
 	/*Constructor*/
-	public GeneralInfoController()
+	public NewSportFacilityController()
 	{
-		loadData();
-		
 	}
 	
-	@PostConstruct
-	public void init(){  
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,"error validate2", null);  
-		facesContext.addMessage("myform:input2",msg);  
-		System.out.println("add message test");                 
-	}  
-	
 	/*Acciones*/
-	public String saveSportFacility()
+	public String createSportFacility()
 	{
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		
 		if(validate(facesContext))
 		{
+			
+			//Creamos el objeto SportFacility y lo metemos en BBDD
+			SportFacility sf = new SportFacility();
+			sf.setName(name);
+			sf.setUrlName(urlName);
+			
+			ContactInfo ci = new ContactInfo();
+			ci.setTelephone1(phone1);
+			ci.setTelephone2(phone2);
+			ci.setEmail(email);
+			sf.setContactInfo(ci);
+			
+			Address a = new Address();
+			a.setAddress(address);
+			a.setZipCode(zipCode);
+			
 			Province p = sportFacilityService.getProvince(province);
-			adminSessionController.getSportFacility().getAddress().setProvince(p);
-			
+			a.setProvince(p);
 			Municipality m = sportFacilityService.getMunicipality(municipality);
-			adminSessionController.getSportFacility().getAddress().setMunicipality(m);
+			a.setMunicipality(m);
+			Zone z = new Zone();
+			z.setName(zone);
+			z.setMunicipality(m);
+			a.setZone(z);			
+			sf.setAddress(a);
 			
-			//Actualizamos el objeto en sesion
-			writeSession();
+			sf.setGetHere(getHere);
+			
 			
 			//Guardamos
-			sportFacilityService.createSportFacility(adminSessionController.getSportFacility());
+			//sf = sportFacilityService.createSportFacility(sf);
+			sportFacilityService.createSportFacility(sf);
+			//actualizo el objeto de la sesion metiendo el recien creado y nos vamos a la pagina resumen.
+			//adminSessionController.setSportFacility(sf);
+			
+			return "resumen-instalacion-deportiva";
 		}else
 		{
 			return null;
 		}
-		return "resumen-instalacion-deportiva";
+		
 	}
 	
 	/*Manejadores de eventos*/
@@ -130,19 +146,16 @@ public class GeneralInfoController {
 	
 	
 	/*Metodos privados*/
+	/**
+	 * Validamos que el usuario haya elegido una provincia y un municipio.
+	 * @param facesContext
+	 * @return
+	 */
 	private boolean validate(FacesContext facesContext)
 	{
 		boolean r = true;
 		
-		//Primero tenemos que revisar que existe en sesion una instalacion
-		if(adminSessionController ==null || adminSessionController.getSportFacility()==null)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					Messages.getString("sportfacility.no_session"),
-					Messages.getString("sportfacility.no_session"));
-			facesContext.addMessage("generalinfo:message",message);
-			r = false;
-		}else if(province==null || municipality==null)
+		if(province==null || municipality==null)
 		{
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					Messages.getString("sportfacility.infogeneral.error.direccion_incorrecta"),
@@ -153,80 +166,6 @@ public class GeneralInfoController {
 		
 		return r;
 	}
-	
-	private void loadData()
-	{
-		if(adminSessionController!=null && adminSessionController.getSportFacility()!=null)
-		{
-			name = adminSessionController.getSportFacility().getName();
-			urlName = adminSessionController.getSportFacility().getUrlName();
-			if(adminSessionController.getSportFacility().getContactInfo()!=null)
-			{
-				phone1 = adminSessionController.getSportFacility().getContactInfo().getTelephone1();
-				phone2 = adminSessionController.getSportFacility().getContactInfo().getTelephone2();
-				email = adminSessionController.getSportFacility().getContactInfo().getEmail();
-			}
-			if(adminSessionController.getSportFacility().getAddress()!=null)
-			{
-				province = adminSessionController.getSportFacility().getAddress().getProvince().getId();
-				municipality = adminSessionController.getSportFacility().getAddress().getMunicipality().getId();
-				address = adminSessionController.getSportFacility().getAddress().getAddress();
-				zipCode = adminSessionController.getSportFacility().getAddress().getZipCode();
-				zone = adminSessionController.getSportFacility().getAddress().getZone().getName();
-			}
-			getHere = adminSessionController.getSportFacility().getGetHere();
-			mostrarFormulario = true;
-		}
-		else{
-			//Tenemos que mostrar el error y que no aparezca el formulario
-			FacesContext facesContext = FacesContext.getCurrentInstance();
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					Messages.getString("sportfacility.no_session"),
-					Messages.getString("sportfacility.no_session"));
-			facesContext.addMessage(null,message);
-			
-			mostrarFormulario = false;
-		}
-	}
-	
-	public String postLoad()
-	{
-		System.out.println("entra en postload");
-		if(adminSessionController!=null && adminSessionController.getSportFacility()!=null)
-		{
-			System.out.println("hay sesion");
-			return null;
-		}else
-		{
-			System.out.println("no hay sesion");
-			return "sinpermisos.xhtml";
-		}
-	}
-	
-	private void writeSession()
-	{
-		if(adminSessionController!=null && adminSessionController.getSportFacility()!=null)
-		{
-			adminSessionController.getSportFacility().setName(name);
-			adminSessionController.getSportFacility().setUrlName(urlName);
-			if(adminSessionController.getSportFacility().getContactInfo()!=null)
-			{
-				adminSessionController.getSportFacility().getContactInfo().setTelephone1(phone1);
-				adminSessionController.getSportFacility().getContactInfo().setTelephone2(phone2);
-				adminSessionController.getSportFacility().getContactInfo().setEmail(email);
-			}
-			if(adminSessionController.getSportFacility().getAddress()!=null)
-			{
-				adminSessionController.getSportFacility().getAddress().getProvince().setId(province);
-				adminSessionController.getSportFacility().getAddress().getMunicipality().setId(municipality);
-				adminSessionController.getSportFacility().getAddress().setAddress(address);
-				adminSessionController.getSportFacility().getAddress().setZipCode(zipCode);
-				adminSessionController.getSportFacility().getAddress().getZone().setName(zone);
-			}
-			adminSessionController.getSportFacility().setGetHere(getHere);
-		}
-	}
-	
 	
 	/*GETTERS y SETTERS*/
 	public AdminSessionController getAdminSessionController() {
@@ -328,12 +267,6 @@ public class GeneralInfoController {
 	}
 	public void setSportFacilityService(SportFacilityService sportFacilityService) {
 		this.sportFacilityService = sportFacilityService;
-	}
-	public Boolean getMostrarFormulario() {
-		return mostrarFormulario;
-	}
-	public void setMostrarFormulario(Boolean mostrarFormulario) {
-		this.mostrarFormulario = mostrarFormulario;
 	}
 
 }

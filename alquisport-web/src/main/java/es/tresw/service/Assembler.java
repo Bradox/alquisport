@@ -9,13 +9,14 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.tresw.db.entities.Role;
+import es.tresw.db.entities.UserRole;
 
 public class Assembler {
 
   @Transactional(readOnly = true)
   User buildUserFromUserEntity(es.tresw.db.entities.User userEntity) {
 
-    String username = userEntity.getusername();
+    String username = userEntity.getUsername();
     String password = userEntity.getPassword();
     boolean enabled = userEntity.getEnabled();
     boolean accountNonExpired = userEntity.getEnabled();
@@ -23,8 +24,8 @@ public class Assembler {
     boolean accountNonLocked = userEntity.getEnabled();
 
     Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-    for (Role role : userEntity.getRoles()) {
-      authorities.add(new GrantedAuthorityImpl(role.getName()));
+    for (UserRole userRole : userEntity.getUserRoles()) {
+      authorities.add(new GrantedAuthorityImpl(userRole.getRole().getName()));
     }
 
     User user = new User(username, password, enabled,

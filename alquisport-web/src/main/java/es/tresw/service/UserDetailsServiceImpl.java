@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.usernameNotFoundException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,15 +19,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
   @Autowired private Assembler assembler;
 
   @Transactional(readOnly = true)
-  public UserDetails loadUserByusername(String username)
-      throws usernameNotFoundException, DataAccessException {
-
-    UserDetails userDetails = null;
-    User userEntity = dao.findByName(username);
-    if (userEntity == null)
-      throw new usernameNotFoundException("user not found");
-
-    return assembler.buildUserFromUserEntity(userEntity);
+  public UserDetails loadUserByUsername(String username)
+      throws DataAccessException {
+	  User u = dao.findByName(username);
+	  if (u == null)
+		  throw new UsernameNotFoundException("El usuario no existe");
+	  return assembler.buildUserFromUserEntity(u);
   }
 
 	public I_UserDao getDao() {
@@ -45,8 +42,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public void setAssembler(Assembler assembler) {
 		this.assembler = assembler;
 	}
-  
-	
   
 }
 

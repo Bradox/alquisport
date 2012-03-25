@@ -1,0 +1,123 @@
+body {background: none repeat scroll 0 0 #99ddff;color: #515151; margin: 0;padding: 0;font-family: "Helvetica Neue",Arial,sans-serif;}
+
+a img {border: medium none;}
+.clearfix, .container {display: block;}
+
+/*Pisamos los estandares de JSF*/
+.ui-widget{font-size: 1em;}
+
+/*GENERALES*/
+.rounded10 {border.radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;behavior:url(border-radius.htc);}
+.box-shadow-light {box-shadow: 1px 1px 3px 0 #999999;}
+.oculto{display: none;}
+.bloque-400w{width: 400px; float: left;}
+.small-text{font-size: 0.8em;}
+.normal-text{font-size: 1em;}
+.big-text{font-size: 1.2em;}
+.error{color:red;}
+.ok{color:green;}
+
+h1{border-bottom: 1px solid #aaddff;color: #44aaff;font-size: 1.3em;font-weight: bold;margin: 3px 0 8px;padding: 0 0 5px;}
+h2{color: #44aaff;font-size: 1.1em;margin: 3px 0 8px;padding: 0 0 5px;} 
+.button.big, a.button.big {height: 40px;padding-left: 80px;padding-right: 80px;}
+.button.verde, a.button.verde {background: none repeat scroll 0 0 #749F00;}
+.button, .button:focus, a.button, a.button:focus, a.button:hover {background: none repeat scroll 0 0 #FF5113;border: 0 none;
+    border-radius: 4px 4px 4px 4px;color: #FFFFFF;cursor: pointer;font-family: inherit;font-size: 16px;font-weight: bold;height: 30px;line-height: 30px;
+    min-width: 80px;padding-left: 20px;padding-right: 20px;text-align: center;text-decoration: none;text-transform: lowercase;white-space: nowrap;}
+    
+    
+#bloque-contenido{float: left;background-color:#FFFFFF; margin:10px; padding:10px; width: 900px; }
+
+/*ESTRUCTURA*/
+#header {background: none repeat scroll 0 0 #FFFFFF;box-shadow: 0 0 5px #666666;margin-bottom: 5px;width: 100%;height: 70px;}
+#header_content {margin: 0 auto;padding: 0 10px;width: 960px;}
+#footer_content {margin: 0 auto;padding: 0 10px;width: 960px;}
+#contenido {width:900px; min-height:500px; margin:10px; margin:auto;}
+#contenido_content { }
+
+/*CABECERA*/
+#cabecera-logo {float: left;overflow: hidden;}
+#cabecera-login{float:right;}
+.usuario{float:left; width: 150px;}
+.usuario label{font-size: 9px;}
+.usuario a{text-decoration: none; color:#FF5113; font-size: 10px;}
+.usuario a:hover{text-decoration: none; color:#FF5113;font-size: 10px;}
+.usuario a:active{text-decoration: none; color:#FF5113;font-size: 10px;}
+.usuario input {color: #333333;font-size: 12px;height: 18px;padding: 3px; }
+.password{float:left; width: 150px;}
+.password label{font-size: 9px;}
+.password input {color: #333333;font-size: 12px;height: 18px;padding: 3px; }
+.password a{text-decoration: none; color:#FF5113; font-size: 10px;}
+.password a:hover{text-decoration: none; color:#FF5113;font-size: 10px;}
+.password a:active{text-decoration: none; color:#FF5113;font-size: 10px;}
+.entrar{float:left; padding-top:21px;}
+
+.menu-usuario-superior{padding-top: 40px;}
+.mis-instalaciones a{text-decoration: none; color:#FF5113; font-size: 14px;}
+.mis-instalaciones a:hover{text-decoration: none; color:#FF5113;font-size: 14px;}
+.mis-instalaciones a:active{text-decoration: none; color:#FF5113;font-size: 14px;}
+.mis-notificaciones{margin:0 20px; padding:10px; background-color: #FF5113; color:#FFFFFF}
+.mi-menu-desplegable{}
+/**/
+
+
+/*Administracion de instalaciones deportivas y pistas deportivas*/
+.titulo-instalacion {color: #FF5113;font-size: 1.2em;margin: 3px 0 8px;padding: 0 0 5px;}
+
+/*CAJAS HOME*/
+
+#bloque-presentacion{float: left;background-color:#FFFFFF; margin:10px; padding:10px; width: 430px; height: 200px;}
+#bloque-buscador{float: left;background-color:#FFFFFF; margin:10px; padding:10px; width: 900px; }
+#bloque-estadisticas-uso{float: left;background-color:#FFFFFF; margin:10px; padding:10px; width: 430px; }
+#bloque-publicidad{float: left;background-color:#FFFFFF; margin:10px; padding:10px; width: 430px; height: 200px;}
+/**/
+/*BUSCADOR*/
+.busqueda-instalacion{float:left;width: 434px; padding-right: 15px; border-right: 1px solid #aaddff;}
+.busqueda-pista{float:left;width: 434px; padding-left: 15px;}
+.botonbuscador{clear:both;text-align: center; margin: 10px; padding: 10px;}
+.labelbuscador{float:left; width: 80px; padding-top: 8px;}
+.labelbuscador label{}
+input.buscador{width: 295px;}
+select.buscador{width: 305px;}
+select.hora{width: 55px;}
+input.dia{width: 112px;}
+/**/
+
+/*FORMULARIO*/
+.filaformulario{margin: 10px; height: 35px;}
+.labelformulario {float:left;}
+.campoformulario{float:left;}
+.mensajeformulario {}
+input.field {color: #333333;font-size: 18px;height: 22px;padding: 3px; }
+select.field {color: #333333;font-size: 18px;padding: 3px; height: 30px;}
+select.field option {font-size: 12px;}
+.w400 {width: 400px;}
+.w300 {width: 300px;}
+.w200 {width: 200px;}
+.w100 {width: 100px;}
+
+
+/**/
+
+/*Estadisticas*/
+.estadisticas-alquileres{width: 140px; text-align: center; float:left;}
+.bloque-ico-campo{height: 50px;}
+.ico-estadistica{float:left;}
+.campo-estadistica{font-size: 12px; font-weight: bold;}
+.valor-estadistica {color: #FF5113;clear:both;font-size: 36px;height: 32px; margin-left: 10px;margin-top: 10px;text-shadow: 1px 1px 1px #FFFFFF;width: auto;}
+/**/
+/*PIE*/
+#pie-principal{	background: none repeat scroll 0 0 #749F00; box-shadow: 0 0 5px #FFFFFF; float: left; margin: 20px 0px;
+	width: 100%; height: 300px;}
+.bloque-pie{width: 280px; padding: 10px; margin: 10px; float: left;}
+.titulo-bloque-pie{border-bottom: 1px solid #9BC234;color: #3E5410;font-size: 16px;margin: 3px 0 8px;padding: 0 0 5px;}
+.contenido-bloque-pie{}
+.contenido-bloque-pie ul{list-style:none;}
+.contenido-bloque-pie ul li{padding: 5px;}
+.contenido-bloque-pie ul li a{text-decoration: none; color:#FFFFFF;}
+.contenido-bloque-pie ul li a:hover{text-decoration: none; color:#FFFFFF;}
+.contenido-bloque-pie ul li a:active{text-decoration: none; color:#FFFFFF;}
+/**/
+
+
+

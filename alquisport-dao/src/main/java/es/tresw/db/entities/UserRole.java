@@ -1,12 +1,15 @@
 package es.tresw.db.entities;
 
-import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,21 +21,23 @@ public class UserRole
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
-	@OneToMany(mappedBy="roles") 
-	private Set<User> users=new HashSet<User>();
-	@OneToMany(mappedBy="users") 
-	private Set<Role> roles=new HashSet<Role>();
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "USER", nullable = false)
+	private User user;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ROLE", nullable = false)
+	private Role role;
 	
 	public UserRole()
 	{
 		
 	}
 
-	public UserRole(Long id, Set<User> users, Set<Role> roles) 
+	public UserRole(Long id, User user, Role role) 
 	{
 		this.id = id;
-		this.users = users;
-		this.roles = roles;
+		this.user = user;
+		this.role = role;
 	}
 
 	public Long getId()
@@ -45,23 +50,21 @@ public class UserRole
 		this.id = id;
 	}
 
-	public Set<User> getUsers() 
-	{
-		return users;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser(Set<User> users) 
-	{
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Set<Role> getRoles() 
-	{
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoles(Set<Role> roles)
-	{
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
 	}
+
+	
 }
