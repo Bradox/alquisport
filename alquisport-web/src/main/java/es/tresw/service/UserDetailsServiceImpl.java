@@ -20,14 +20,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
   @Transactional(readOnly = true)
   public UserDetails loadUserByUsername(String username)
-      throws UsernameNotFoundException, DataAccessException {
-
-    UserDetails userDetails = null;
-    User userEntity = dao.findByName(username);
-    if (userEntity == null)
-      throw new UsernameNotFoundException("user not found");
-
-    return assembler.buildUserFromUserEntity(userEntity);
+      throws DataAccessException {
+	  User u = dao.findByName(username);
+	  if (u == null)
+		  throw new UsernameNotFoundException("El usuario no existe");
+	  return assembler.buildUserFromUserEntity(u);
   }
 
 	public I_UserDao getDao() {
@@ -45,8 +42,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public void setAssembler(Assembler assembler) {
 		this.assembler = assembler;
 	}
-  
-	
   
 }
 
