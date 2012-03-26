@@ -1,11 +1,15 @@
 package es.tresw.db.entities;
 
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,8 +17,12 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Type;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
@@ -22,26 +30,29 @@ import es.tresw.db.embeddable.ContactInfo;
 
 
 @Entity
-@Table(name="USER", catalog="Alquisport")
-@Inheritance(strategy=InheritanceType.JOINED)
+@Table(name="USER",catalog="PISTEA")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="USERTYPE",discriminatorType=DiscriminatorType.STRING)
 public class User 
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
-	
-	@Size(max=255, message="El apellido no puede superar los 255 caracteres")
-	@Column(name="FIRST_LAST_NAME", nullable=false, length=255)
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
+	@Column(name="FIRST_LASTNAME", nullable=false, length=255)
 	private String firstLastName;
 	
-	@Size(max=255, message="El apellido no puede superar los 255 caracteres")
-	@Column(name="SECOND_LAST_NAME", nullable=false, length=255)
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
+	@Column(name="SECOND_LASTNAME", nullable=false, length=255)
 	private String secondLastName;
-	
-	@Size(min=6,max=255, message="El login debe ser mayor de 6 caract�res")
-    @Column(name="LOGIN", nullable=false, length=255,unique=true)
-	private String login;
+		
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
+    @Column(name="username", nullable=false, length=255)
+	private String username;
 	
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
@@ -55,17 +66,38 @@ public class User
 	@Column(name="BIRTH_DATE")
 	private Date birthDate;
 	
-	@Column(name="ENABLED",columnDefinition="bool default true")
-	private Boolean enabled;
+	@Column(name="ENABLED")
+	@Type(type="true_false")
+	private boolean enabled;
 	
-    @OneToMany(mappedBy="user")
-	private List<Authority> authorities;
+	@Column(name="ACCOUNT_NON_EXPIRED")
+	@Type(type="true_false")
+	private boolean accountNonExpired = true;
+	
+	@Column(name="CREDENTIALS_NON_EXPIRED")
+	@Type(type="true_false")
+	private boolean credentialsNonExpired = true;
+	
+	@Column(name="ACCOUNT_NON_LOCKED")
+	@Type(type="true_false")
+	private boolean accountNonLocked = true;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "CREATED_DATE", length = 19)
+	private Date createDate;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "LAST_MODIFIED_DATE", length = 19)
+	private Date lastModifiedDate;
     
     @OneToMany (mappedBy="userTo")
-    public List<Message> messagesTo;
+    private Set<Message> messagesTo=new HashSet<Message>();
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<UserRole> userRoles = new HashSet<UserRole>(0);
     
     @OneToMany(mappedBy="userFrom")
-    public List<Message> messagesFrom;
+    private Set<Message> messagesFrom=new HashSet<Message>();
     
 	@Embedded
 	private BankAccount bankAccount;
@@ -81,17 +113,17 @@ public class User
 		
 	}
 	
-	public User(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, Boolean enabled) 
+	public User(String firstLastName, String secondLastName, String username, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, UserRole roles, Date birthDate, Boolean enabled) 
 	{
 		this.firstLastName = firstLastName;
 		this.secondLastName = secondLastName;
-		this.login = login;
+		this.username = username;
 		this.name = name;
 		this.password = password;
 		this.bankAccount = bankAccount;
 		this.address = address;
 		this.contactInfo = contactInfo;
-		this.authorities=authorities;
+		this.userRoles=new HashSet<UserRole>();
 		this.birthDate=birthDate;
 		this.enabled=enabled;
 	}
@@ -126,14 +158,14 @@ public class User
 		this.secondLastName = secondLastName;
 	}
 	
-	public String getLogin() 
+	public String getUsername() 
 	{
-		return login;
+		return username;
 	}
 	
-	public void setLogin(String login) 
+	public void setUsername(String username) 
 	{
-		this.login = login;
+		this.username = username;
 	}
 	
 	public String getName() 
@@ -192,14 +224,12 @@ public class User
 		this.contactInfo = contactInfo;
 	}
 
-	public List<Authority> getAuthorities() 
-	{
-		return authorities;
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
 	}
 
-	public void setAuthorities(List<Authority> authorities) 
-	{
-		this.authorities = authorities;
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
 	}
 
 	public Date getBirthDate() 
@@ -217,30 +247,69 @@ public class User
 		return enabled;
 	}
 
-	public void setEnabled(Boolean enabled)
+	public void setEnabled(boolean enabled)
 	{
 		this.enabled = enabled;
 	}
-
-	public List<Message> getMessagesTo()
+	
+	public Set<Message> getMessagesTo()
 	{
 		return messagesTo;
 	}
 
-	public void setMessagesTo(List<Message> messagesTo)
+	public void setMessagesTo(Set<Message> messagesTo)
 	{
 		this.messagesTo = messagesTo;
 	}
 
-	public List<Message> getMessagesFrom()
+	public Set<Message> getMessagesFrom()
 	{
 		return messagesFrom;
 	}
 
-	public void setMessagesFrom(List<Message> messagesFrom)
+	public void setMessagesFrom(Set<Message> messagesFrom)
 	{
 		this.messagesFrom = messagesFrom;
 	}
-		
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+
+	public boolean isAccountNonExpired() {
+		return accountNonExpired;
+	}
+
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return credentialsNonExpired;
+	}
+
+	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+		this.credentialsNonExpired = credentialsNonExpired;
+	}
+
+	public boolean isAccountNonLocked() {
+		return accountNonLocked;
+	}
+
+	public void setAccountNonLocked(boolean accountNonLocked) {
+		this.accountNonLocked = accountNonLocked;
+	}
 	
 }

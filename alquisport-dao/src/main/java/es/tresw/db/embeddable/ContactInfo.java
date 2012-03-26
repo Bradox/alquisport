@@ -2,29 +2,37 @@ package es.tresw.db.embeddable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 
 @Embeddable
 public class ContactInfo 
 {
 
-	@Column(name="EMAIL", nullable=false, length=255,unique=true)
+	@Size(min=1,max=255,message="{campo_obligatorio}")
+	@Email(message="{email_incorrecto}")
+	@Column(name="EMAIL", length=255,unique=true)
 	private String email;
-	@Column(name="PHONE", nullable=false, length=255)
-	private int telephone;
-	@Column(name="CELLPHONE", nullable=false, length=255)
-	private int cellphone;
+	
+	@Size(min=9,max=15,message="{telefono_incorrecto}")
+	@Column(name="PHONE1", length=255)
+	private String telephone1;
+	
+	@Size(min=0,max=15,message="{telefono_incorrecto}")
+	@Column(name="PHONE2", length=255)
+	private String telephone2;
 
 	public ContactInfo()
 	{
 		
 	}
 	
-	public ContactInfo(String email, int telephone, int cellphone) 
+	public ContactInfo(String email, String telephone1, String telephone2) 
 	{
 		super();
 		this.email = email;
-		this.telephone = telephone;
-		this.cellphone = cellphone;
+		this.telephone1 = telephone1;
+		this.telephone2 = telephone2;
 	}
 
 	public String getEmail() 
@@ -36,25 +44,22 @@ public class ContactInfo
 	{
 		this.email = email;
 	}
-	
-	public int getTelephone() 
-	{
-		return telephone;
+
+	public String getTelephone1() {
+		return telephone1;
+	}
+
+	public void setTelephone1(String telephone1) {
+		this.telephone1 = telephone1;
+	}
+
+	public String getTelephone2() {
+		return telephone2;
+	}
+
+	public void setTelephone2(String telephone2) {
+		this.telephone2 = telephone2;
 	}
 	
-	public void setTelephone(int telephone) 
-	{
-		this.telephone = telephone;
-	}
-	
-	public int getCellphone() 
-	{
-		return cellphone;
-	}
-	
-	public void setCellphone(int cellphone) 
-	{
-		this.cellphone = cellphone;
-	}
 
 }

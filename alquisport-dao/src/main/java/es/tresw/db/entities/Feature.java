@@ -8,15 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FEATURE", catalog="Alquisport")
-public class Feature
+@Table(name="FEATURE",catalog="PISTEA")
+public class Feature 
 {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
-	@Column(name="KEY", nullable=false, length=255)
+	@Column(name="IDENTIFICATOR", nullable=false, length=255)
 	private String key;
 	@Column(name="VALUE", nullable=false, length=255)
 	private String value;
@@ -28,7 +27,7 @@ public class Feature
 		
 	}
 	
-	public Feature(Long id, String key, String value, int position) 
+	public Feature(Long id,String key, String value, int position) 
 	{
 		this.id = id;
 		this.key = key;

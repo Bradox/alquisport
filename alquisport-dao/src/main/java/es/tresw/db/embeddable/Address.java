@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 import es.tresw.db.entities.Municipality;
 import es.tresw.db.entities.Province;
@@ -12,16 +13,24 @@ import es.tresw.db.entities.Zone;
 @Embeddable
 public class Address 
 {
-	@Column(name="ADDRESS", nullable=false, length=255)
+	@Column(name="ADDRESS", length=255)
 	public String address;
-	@Column(name="TYPE", nullable=false, length=255)
+	
+	@Column(name="TYPE", length=255)
 	public String type;
+	
+	@Size(min=5,max=5,message="{zipcode_incorrecto}")
+	@Column(name="ZIP_CODE", length=255)
+	public String zipCode;
+	
 	@ManyToOne
 	@JoinColumn(name = "ID_PROVINCE")
 	public Province province;
+	
 	@ManyToOne
 	@JoinColumn(name = "ID_ZONE")
 	public Zone zone;
+	
 	@ManyToOne
 	@JoinColumn(name = "ID_MUNICIPALITY")
 	public Municipality municipality;
@@ -92,5 +101,13 @@ public class Address
 		this.municipality = municipality;
 	}
 
+	public void setZipCode(String zipCode)
+	{
+		this.zipCode=zipCode;
+	}
 	
+	public String getZipCode()
+	{
+		return zipCode;
+	}
 }

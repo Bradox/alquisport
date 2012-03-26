@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "MESSAGE", catalog="Alquisport")
+@Table(name = "MESSAGE",catalog="PISTEA")
 public class Message 
 {
 	@Id
@@ -20,28 +20,28 @@ public class Message
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
 	@Column(name="STATE", nullable=false)
-	public int state;
+	private int state;
 	@Column(name="DATE_SEND", nullable=false)
-	public Date dateSend;
+	private Date dateSend;
 	@Column(name="DATE_READ", nullable=false)
-	public Date dateRead;
+	private Date dateRead;
 	@Column(name="TEXT", nullable=false, columnDefinition="TEXT")
-	public String text;
+	private String text;
 	@Column(name="SUBJECT", nullable=false)
-	public String subject;
+	private String subject;
 	@ManyToOne
 	@JoinColumn (name="USER_TO_ID")
-	public User userTo;
+	private User userTo;
 	@ManyToOne
 	@JoinColumn (name="USER_FROM_ID")
-	public User userFrom;
+	private User userFrom;
 	
 	public Message()
 	{
 		
 	}
 
-	public Message(Long id, User userTo, User userFrom, int state, Date dateSend, Date dateRead, String subject, String text) 
+	public Message(Long id,User userTo, User userFrom, int state, Date dateSend, Date dateRead, String subject, String text) 
 	{
 		this.id = id;
 		this.userTo = userTo;

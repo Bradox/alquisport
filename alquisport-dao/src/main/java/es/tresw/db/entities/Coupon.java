@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="COUPON", catalog="Alquisport")
+@Table(name="COUPON")
 public class Coupon 
 {
 	@Id
@@ -31,7 +31,7 @@ public class Coupon
 		
 	}
 	
-	public Coupon(Long id, float discountQuantity, String code, int timesUsed,int maxTimesUse, int discountType) 
+	public Coupon(Long id,float discountQuantity, String code, int timesUsed,int maxTimesUse, int discountType) 
 	{
 		this.id = id;
 		this.discountQuantity = discountQuantity;

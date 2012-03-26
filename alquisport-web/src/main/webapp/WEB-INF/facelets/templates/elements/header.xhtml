@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition>
+	<div class="container">
+         <div class="span-6 append-6">
+            <h:graphicImage id="logo" alt="Alquisport: Tu página de alquiler de instalaciones deportivas" url="/resources/images/Logo-01.png"/>
+         </div>
+         <div class="span-12 last">
+            <p:panel id="login" rendered="#{!sesionController.logado}" style="fontSize:0.9em;">			
+				<h:form id="loginForm">
+		            <h:panelGrid columns="3">  
+		                <h:outputLabel for="j_username" value="usuario: " />  
+		                <h:outputLabel for="j_password" value="contraseña: " />  
+		                <h:outputText value=" "/>
+		                <p:inputText id="j_username" required="true" requiredMessage="Debe ingresar un nombre de usuario." value="#{loginController.username}"/>
+		                <p:password id="j_password" required="true" requiredMessage="Debe ingresar una contraseña." feedback="false"  value="#{loginController.password}"/>
+			            <p:commandButton type="submit" id="entrar" action="#{loginController.doLogin}" value="Entrar" ajax="false"/>  
+		                <h:link value="Registrate!" outcome="/registro/registro-usuario" />
+		                <h:link value="No recuerdas tu contraseña?" outcome="/registro/recuperar-password" />
+		            </h:panelGrid>  
+		        </h:form>
+			</p:panel>
+         </div>
+      </div>
+</ui:composition>
+</html>

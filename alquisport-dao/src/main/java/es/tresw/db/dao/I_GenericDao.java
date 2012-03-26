@@ -38,6 +38,22 @@ public interface I_GenericDao<T, PK extends Serializable>
 	 * @return
 	 */
 	List<T> readByCriteria(Criterion... criterion);
+	
+	/**
+	 * Check if exists a object with field = value
+	 * @param field
+	 * @param value
+	 * @return
+	 */
+	boolean exists(List<String> fields, List<String> expressions, List<String> values, List<String> types);
+	
+	/**
+	 * Check if exists a object with field = value
+	 * @param field
+	 * @param value
+	 * @return
+	 */
+	boolean existsStringField(String field, String value);
 
 	/**
 	 * Update data of transient object
@@ -54,5 +70,7 @@ public interface I_GenericDao<T, PK extends Serializable>
 	void delete(T persistentObject);
 	
 	Session getSession();
+	
+	public List<T> readByField(List<String> fields, List<String> expressions, List<String> values, List<String> types);
 	
 }

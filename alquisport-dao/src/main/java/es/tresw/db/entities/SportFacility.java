@@ -1,6 +1,7 @@
 package es.tresw.db.entities;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -12,12 +13,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import es.tresw.db.embeddable.Address;
+import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
-@Table(name="SPORT_FACILITY", catalog="Alquisport")
+@Table(name="SPORT_FACILITY",catalog="PISTEA")
 public class SportFacility 
 {
 
@@ -25,36 +30,56 @@ public class SportFacility
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
-	@Column(name="NAME", nullable=false, length=255)
+	
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
+	@Pattern(regexp="[a-z]*",message="{identificador_incorrecto}")
+	@Column(name="URL_NAME")
+	private String urlName;
+	
+	@NotNull
+	@Size(min=1,max=255,message="{campo_obligatorio}")
+	@Column(name="NAME", length=255)
 	private String name;
+	
 	@Column(name="GET_HERE", columnDefinition="TEXT")
 	private String getHere;
+	
 	@Column(name="DESCRIPTION", columnDefinition="TEXT")
 	private String description;
-	@Column(name="STATE", nullable=false, length=2)
+	
+	@Column(name="STATE", length=2)
 	private Integer state;
+	
 	@Embedded
 	private Address address;
+	
 	@Embedded
 	private ContactInfo contactInfo;
+	
 	@Embedded
 	private Appearance appearance;
+	
 	@OneToMany
-	@JoinTable(name = "SPORT_FACILITY_FEATURE", 
+	@JoinTable(name = "SPORT_FACILITY_FEATURES", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })
-	private List<Feature> features;
+	private Set<Feature> features=new HashSet<Feature>();
+	
 	@OneToMany	
-	@JoinTable(name = "SPORT_FACILITY_IMAGE", 
+	@JoinTable(name = "SPORT_FACIlITY_IMAGE", 
 	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "IMAGE_ID") })
-	private List<Image> images;
+	private Set<Image> images=new HashSet<Image>();
+	
 	@OneToMany (mappedBy="sportFacility")
-	private List<Administrator> administrators;
+	private Set<Administrator> administrators=new HashSet<Administrator>();
+	
 	@OneToMany(mappedBy="sportFacility")	
-	private List<DayClosed> daysClosed;
+	private Set<SportFacilityMember> members=new HashSet<SportFacilityMember>();
+	
 	@OneToMany(mappedBy="sportFacility")	
-	private List<SportFacilityMember> members;
+	private Set<Court> courts = new HashSet<Court>();
 	
 	public SportFacility()
 	{
@@ -62,7 +87,7 @@ public class SportFacility
 	}
 
 	
-	public SportFacility(Long id, String name, String getHere, String description, Integer state, List<Feature> features, List<Image> images, List<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, List<DayClosed> daysClosed, List<SportFacilityMember> members) 
+	public SportFacility(Long id,String name, String getHere, String description, Integer state, Set<Feature> features, Set<Image> images, Set<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, Set<SportFacilityMember> members, Set<Court> courts) 
 	{
 		this.id = id;
 		this.name = name;
@@ -75,8 +100,8 @@ public class SportFacility
 		this.address = address;
 		this.contactInfo = contactInfo;
 		this.appearance = appearance;
-		this.daysClosed=daysClosed;
 		this.members=members;
+		this.courts=courts;
 	}
 
 
@@ -130,32 +155,32 @@ public class SportFacility
 		this.state = state;
 	}
 
-	public List<Feature> getFeatures() 
+	public Set<Feature> getFeatures() 
 	{
 		return features;
 	}
 
-	public void setFeatures(List<Feature> features) 
+	public void setFeatures(Set<Feature> features) 
 	{
 		this.features = features;
 	}
 
-	public List<Image> getImagenes() 
+	public Set<Image> getImagenes() 
 	{
 		return images;
 	}
 
-	public void setImages(List<Image> images) 
+	public void setImages(Set<Image> images) 
 	{
 		this.images = images;
 	}
 
-	public List<Administrator> getAdministrators() 
+	public Set<Administrator> getAdministrators() 
 	{
 		return administrators;
 	}
 
-	public void setAdministrators(List<Administrator> administrators) 
+	public void setAdministrators(Set<Administrator> administrators) 
 	{
 		this.administrators = administrators;
 	}
@@ -190,26 +215,46 @@ public class SportFacility
 		this.appearance = appearance;
 	}
 
-
-	public List<DayClosed> getDaysClosed() 
-	{
-		return daysClosed;
-	}
-
-
-	public void setDaysClosed(List<DayClosed> daysClosed)
-	{
-		this.daysClosed = daysClosed;
-	}
-
-
-	public List<SportFacilityMember> getMembers() {
+	public Set<SportFacilityMember> getMembers() {
 		return members;
 	}
 
 
-	public void setMembers(List<SportFacilityMember> members) {
+	public void setMembers(Set<SportFacilityMember> members)
+	{
 		this.members = members;
 	}
+
+
+	public String getUrlName() 
+	{
+		return urlName;
+	}
+
+
+	public void setUrlName(String urlName)
+	{
+		this.urlName = urlName;
+	}
+
+
+	public Set<Image> getImages()
+	{
+		return images;
+	}
+
+
+	public Set<Court> getCourts()
+	{
+		return courts;
+	}
+
+
+	public void setCourts(Set<Court> courts)
+	{
+		this.courts = courts;
+	}
+	
+	
 
 }

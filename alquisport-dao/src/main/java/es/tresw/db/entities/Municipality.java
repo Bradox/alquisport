@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MUNICIPALITY", catalog="Alquisport")
+@Table(name="MUNICIPALITY",catalog="PISTEA")
 public class Municipality 
 {
 	@Id
@@ -28,7 +28,7 @@ public class Municipality
 		
 	}
 	
-	public Municipality(Long id, String name, Province province) 
+	public Municipality(Long id,String name, Province province) 
 	{
 		this.id = id;
 		this.name = name;

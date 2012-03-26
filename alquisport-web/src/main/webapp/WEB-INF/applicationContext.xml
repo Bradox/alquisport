@@ -8,6 +8,17 @@
 		
 		<bean id="registerService" class="es.tresw.service.RegisterService">
 	    </bean>
+	    
+	    <bean id="assembler" class="es.tresw.service.Assembler">
+	    </bean>
+	    
+	    <bean id="userDetailsService" class="es.tresw.service.UserDetailsServiceImpl">
+		</bean>
+		
+		<bean id="sportFacilityService" class="es.tresw.service.SportFacilityService">
+		</bean>
+		
+		
 		
 </beans>
 

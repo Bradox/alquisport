@@ -1,7 +1,9 @@
 package es.tresw.db.entities;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -10,13 +12,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import es.tresw.db.embeddable.CourtType;
 import es.tresw.db.embeddable.ReservationConfig;
 
 @Entity
-@Table(name="COURT", catalog="Alquisport")
+@Table(name="COURT",catalog="PISTEA")
 public class Court 
 {
 
@@ -29,18 +33,21 @@ public class Court
 	@Column(name="STATE", length=2)
 	private int state;
 	@Embedded
-	private CourtType courtType;
-	@OneToMany(mappedBy="court")
-	private List<Schedule> schedule;
+	private CourtType courtType=new CourtType();
 	@Embedded
-	private ReservationConfig reservationConfig;
+	private ReservationConfig reservationConfig=new ReservationConfig();
 	@OneToMany
 	@JoinTable(name = "COURT_FEATURE", 
 	     	   joinColumns = { @JoinColumn(name = "COURT_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "FEATURE_ID") })
-	private List<Feature> features;
+	private Set<Feature> features=new HashSet<Feature>();
 	@OneToMany(mappedBy="court")
-	private List<Rental> rents;
+	private Set<Rental> rents=new HashSet<Rental>();
+	@OneToMany(mappedBy="court")	
+	private Set<Calendar> calendar=new HashSet<Calendar>();
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "ID_SPORT_FACILITY")
+	public SportFacility sportFacility;
 	
 	
 	public Court()
@@ -48,17 +55,18 @@ public class Court
 		
 	}
 	
-	public Court(Long id, String description, int state, CourtType courtType,List<Schedule> schedule, ReservationConfig reservationConfig,List<Feature> features, List<Rental> rents) 
+	public Court(Long id,String description, int state, CourtType courtType,ReservationConfig reservationConfig,Set<Feature> features, Set<Rental> rents, Set<Calendar> calendar, SportFacility sportFacility) 
 	{
 		super();
 		this.id = id;
 		this.description = description;
 		this.state = state;
 		this.courtType = courtType;
-		this.schedule = schedule;
 		this.reservationConfig = reservationConfig;
 		this.features = features;
-		this.setRents(rents);
+		this.rents=rents;
+		this.calendar=calendar;
+		this.sportFacility = sportFacility;
 	}
 
 	public Long getId() 
@@ -101,16 +109,6 @@ public class Court
 		this.courtType = courtType;
 	}
 	
-	public List<Schedule> getSchedule() 
-	{
-		return schedule;
-	}
-	
-	public void setSchedule(List<Schedule> schedule) 
-	{
-		this.schedule = schedule;
-	}
-	
 	public ReservationConfig getReservationConfig() 
 	{
 		return reservationConfig;
@@ -121,24 +119,43 @@ public class Court
 		this.reservationConfig = reservationConfig;
 	}
 	
-	public List<Feature> getFeatures() 
+	public Set<Feature> getFeatures() 
 	{
 		return features;
 	}
 	
-	public void setFeatures(List<Feature> features) 
+	public void setFeatures(Set<Feature> features) 
 	{
 		this.features = features;
 	}
 
-	public List<Rental> getRents()
+	public Set<Rental> getRents()
 	{
 		return rents;
 	}
 
-	public void setRents(List<Rental> rents)
+	public void setRents(Set<Rental> rents)
 	{
 		this.rents = rents;
 	}
 
+	public Set<Calendar> getCalendar() {
+		return calendar;
+	}
+
+	public void setCalendar(Set<Calendar> calendar) {
+		this.calendar = calendar;
+	}
+
+	public SportFacility getSportFacility() 
+	{
+		return sportFacility;
+	}
+
+	public void setSportFacility(SportFacility sportFacility)
+	{
+		this.sportFacility = sportFacility;
+	}
+
+	
 }

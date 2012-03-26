@@ -1,85 +1,68 @@
 package es.tresw.db.entities;
 
+import java.util.HashSet;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 
-@Entity()
-@PrimaryKeyJoinColumn(name="USER_ID")
+@Entity
+@Table(name="CLIENT",catalog="PISTEA")
+@DiscriminatorValue("CLIENT")
 public class Client extends User
 {
 	@OneToMany(mappedBy="client")	
-	private List<SportFacilityMember> memberOf;
+	private Set<SportFacilityMember> memberOf=new HashSet<SportFacilityMember>();
 	@OneToMany
 	@JoinTable(name = "RENTAL_CLIENT", 
 	     	   joinColumns = { @JoinColumn(name = "CLIENT_ID") }, 
 	 		   inverseJoinColumns = { @JoinColumn(name = "RENTAL_ID") })
-	private List<Rental> rentals;
+	private Set<Rental> rentals=new HashSet<Rental>();
 	
 	public Client()
 	{
 		super();
 	}
 	
-	public Client(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, List<Authority> authorities, Date birthDate, List<SportFacilityMember> memberOf, boolean enabled, List<Rental> rentals)
+	public Client(String firstLastName, String secondLastName, String login, String name, String password, BankAccount bankAccount, Address address, ContactInfo contactInfo, UserRole roles, Date birthDate, Set<SportFacilityMember> memberOf, boolean enabled, Set<Rental> rentals)
 	{
-		super(firstLastName, secondLastName, login, name, password, bankAccount, address, contactInfo, authorities,birthDate, enabled);
+		super(firstLastName, secondLastName, login, name, password, bankAccount, address, contactInfo, roles,birthDate, enabled);
 		this.memberOf=memberOf;
 		this.rentals=rentals;
 	}
 
-	public void setMemberOf(List<SportFacilityMember> memberOf)
+	public void setMemberOf(Set<SportFacilityMember> memberOf)
 	{
 		this.memberOf=memberOf;
 	}
 	
-	public List<SportFacilityMember> memberOf()
+	public Set<SportFacilityMember> memberOf()
 	{
 		return this.memberOf;
 	}
 
-	public List<Rental> getRentals() 
+	public Set<Rental> getRentals() 
 	{
 		return rentals;
 	}
 
-	public void setRentals(List<Rental> rentals)
+	public void setRentals(Set<Rental> rentals)
 	{
 		this.rentals = rentals;
 	}
 
-	public List<SportFacilityMember> getMemberOf()
+	public Set<SportFacilityMember> getMemberOf()
 	{
 		return memberOf;
 	}
-	
-	
-
-	@Override
-	public String toString() {
-		return "Client [memberOf=" + memberOf + ", getId()=" + getId()
-				+ ", getFirstLastName()=" + getFirstLastName()
-				+ ", getSecondLastName()=" + getSecondLastName()
-				+ ", getLogin()=" + getLogin() + ", getName()=" + getName()
-				+ ", getPassword()=" + getPassword() + ", getBankAccount()="
-				+ getBankAccount() + ", getAddress()=" + getAddress()
-				+ ", getContactInfo()=" + getContactInfo()
-				+ ", getAuthorities()=" + getAuthorities()
-				+ ", getBirthDate()=" + getBirthDate() + ", getEnabled()="
-				+ getEnabled() + ", getMessagesTo()=" + getMessagesTo()
-				+ ", getMessagesFrom()=" + getMessagesFrom() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
-	}
-	
 	
 }

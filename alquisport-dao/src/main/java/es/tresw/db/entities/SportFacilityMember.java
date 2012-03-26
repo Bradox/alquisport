@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="SPORT_FACILITY_MEMBER", catalog="Alquisport")
+@Table(name="SPORT_FACILITY_MEMBER",catalog="PISTEA")
 public class SportFacilityMember 
 {
 	@Id
@@ -32,7 +32,7 @@ public class SportFacilityMember
 	
 	
 	
-	public SportFacilityMember(Long id, SportFacility sportFacility, Client client)
+	public SportFacilityMember(Long id,SportFacility sportFacility, Client client)
 	{
 		this.id = id;
 		this.sportFacility = sportFacility;

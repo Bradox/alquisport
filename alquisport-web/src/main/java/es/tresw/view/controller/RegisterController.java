@@ -2,45 +2,91 @@ package es.tresw.view.controller;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
+
+import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.Client;
 import es.tresw.service.RegisterService;
+import es.tresw.util.Messages;
 
-@ManagedBean
-@RequestScoped
 public class RegisterController implements Serializable{
 	
+	private static final Logger logger = Logger.getLogger(RegisterController.class);
+	
 	private Client client = new Client();
-	@NotNull(message="No puede ser null")
-	@Size(min=5,max=10,message="{nombre}")
-	private String prueba;
+	private Administrator administrator = new Administrator();
 	
 	/*SERVICE A UTILIZAR*/
 	@ManagedProperty("#{registerService}")  
 	private RegisterService registerService;
 	
-	
 	/*METODOS ASOCIADOS A ACCIONES DE FORMULARIO*/
 	public String registerClient()
 	{
-		if(registerService.register(client))
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		if(registerService.existUser(client.getUsername()))
 		{
-			//Llamamos al service de registro para que guarde el cliente
-			System.out.println("Se ha registrado el siguiente cliente: "+client);
-			return "registro-ok";
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("username_error_sumary"),Messages.getString("username_error_detail"));
+			facesContext.addMessage("register:username",message);
+		}
+		if(registerService.existEmail(client.getContactInfo().getEmail()))
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("email_error_sumary"),Messages.getString("email_error_detail"));
+			facesContext.addMessage("register:email",message);
+		}
+		
+		if(facesContext.getMessageList().size()==0)
+		{
+			if(registerService.register(client))
+			{
+				//Llamamos al service de registro para que guarde el cliente
+				return "registro-ok";
+			}
+			else
+			{
+				return "registro-error";
+			}
 		}
 		else
+			return null;
+				
+	}
+	
+	public String registerAdministrator()
+	{
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		if(registerService.existUser(administrator.getUsername()))
 		{
-			System.out.println("el service no llega!");
-			return "registro-error";
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("username_error_sumary"),Messages.getString("username_error_detail"));
+			facesContext.addMessage("register:username",message);
+		}
+		if(registerService.existEmail(administrator.getContactInfo().getEmail()))
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("email_error_sumary"),Messages.getString("email_error_detail"));
+			facesContext.addMessage("register:email",message);
 		}
 		
-		
+		if(facesContext.getMessageList().size()==0)
+		{
+			if(registerService.register(administrator))
+			{
+				//Llamamos al service de registro para que guarde el cliente
+				System.out.println("Se ha registrado el siguiente administrador: "+administrator);
+				return "registro-ok";
+			}
+			else
+			{
+				System.out.println("el service no llega!");
+				return "registro-error";
+			}
+		}
+		else
+			return null;
+				
 	}
 
 	/*GETTERS AND SETTERS*/
@@ -51,6 +97,14 @@ public class RegisterController implements Serializable{
 	public void setClient(Client client) {
 		this.client = client;
 	}
+	
+	public Administrator getAdministrator() {
+		return administrator;
+	}
+
+	public void setAdministrator(Administrator administrator) {
+		this.administrator = administrator;
+	}
 
 	public RegisterService getRegisterService() {
 		return registerService;
@@ -59,14 +113,4 @@ public class RegisterController implements Serializable{
 	public void setRegisterService(RegisterService registerService) {
 		this.registerService = registerService;
 	}
-
-	public String getPrueba() {
-		return prueba;
-	}
-
-	public void setPrueba(String prueba) {
-		this.prueba = prueba;
-	}
-	
-
 }

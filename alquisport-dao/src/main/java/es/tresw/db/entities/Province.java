@@ -1,6 +1,7 @@
 package es.tresw.db.entities;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PROVINCE", catalog="Alquisport")
+@Table(name="PROVINCE",catalog="PISTEA")
 public class Province 
 {
 
@@ -22,14 +23,14 @@ public class Province
 	@Column(name="NAME")
 	private String name;
 	@OneToMany(mappedBy="province")
-	private List<Municipality> municipalities;
+	private Set<Municipality> municipalities=new HashSet<Municipality>();
 	
 	public Province()
 	{
 		
 	}
 	
-	public Province(Long id, String name, List<Municipality> municipalities)
+	public Province(Long id,String name, Set<Municipality> municipalities)
 	{
 		this.id = id;
 		this.name = name;
@@ -58,12 +59,12 @@ public class Province
 		this.name = name;
 	}
 	
-	public List<Municipality> getMunicipalities() 
+	public Set<Municipality> getMunicipalities() 
 	{
 		return municipalities;
 	}
 	
-	public void setMunicipalities(List<Municipality> municipalities) 
+	public void setMunicipalities(Set<Municipality> municipalities) 
 	{
 		this.municipalities = municipalities;
 	}
