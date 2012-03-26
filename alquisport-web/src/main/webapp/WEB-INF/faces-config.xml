@@ -15,6 +15,9 @@
 		</resource-bundle>
     </application>
     
+    <lifecycle>
+		<phase-listener>es.tresw.view.listener.LoginErrorPhaseListener</phase-listener>
+	</lifecycle>
     
     <managed-bean>
 	  <managed-bean-name>adminSessionController</managed-bean-name>
@@ -31,6 +34,12 @@
 	   <property-class>es.tresw.service.RegisterService</property-class>
 	   <value>#{registerService}</value>
 	  </managed-property>
+	</managed-bean> 
+	
+	<managed-bean>
+	  <managed-bean-name>loginController</managed-bean-name>
+	  <managed-bean-class>es.tresw.view.controller.LoginController</managed-bean-class>
+	  <managed-bean-scope>request</managed-bean-scope>
 	</managed-bean> 
 	
 	<managed-bean>
