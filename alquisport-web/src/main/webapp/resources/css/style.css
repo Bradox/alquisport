@@ -11,13 +11,17 @@ a img {border: medium none;}
 .small-text{font-size: 0.8em;}
 .normal-text{font-size: 1em;}
 .big-text{font-size: 1.2em;}
+.orange-text{color: #FF5113;}
+.green-text{color: #749F00;}
+.bold-text{font-weight: bold;}
+
 
 h1{border-bottom: 1px solid #aaddff;color: #44aaff;font-size: 1.3em;font-weight: bold;margin: 3px 0 8px;padding: 0 0 5px;}
 h2{color: #44aaff;font-size: 1.1em;margin: 3px 0 8px;padding: 0 0 5px;} 
 .button.big, a.button.big {height: 40px;padding-left: 80px;padding-right: 80px;}
 .button.verde, a.button.verde {background: none repeat scroll 0 0 #749F00;}
 .button, .button:focus, a.button, a.button:focus, a.button:hover {background: none repeat scroll 0 0 #FF5113;border: 0 none;
-    border-radius: 4px 4px 4px 4px;color: #FFFFFF;cursor: pointer;font-family: inherit;font-size: 16px;font-weight: bold;height: 30px;line-height: 30px;
+    border-radius: 4px 4px 4px 4px;color: #FFFFFF;cursor: pointer;font-weight: bold;height: 30px;line-height: 30px;
     min-width: 80px;padding-left: 20px;padding-right: 20px;text-align: center;text-decoration: none;text-transform: lowercase;white-space: nowrap;}
     
     
@@ -27,8 +31,10 @@ h2{color: #44aaff;font-size: 1.1em;margin: 3px 0 8px;padding: 0 0 5px;}
 #header {background: none repeat scroll 0 0 #FFFFFF;box-shadow: 0 0 5px #666666;margin-bottom: 5px;width: 100%;height: 70px;}
 #header_content {margin: 0 auto;padding: 0 10px;width: 960px;}
 #footer_content {margin: 0 auto;padding: 0 10px;width: 960px;}
-#contenido {width:900px; min-height:500px; margin:10px;}
+#contenido {margin: 0 auto;padding: 0 10px;width: 960px; min-height:500px;}
 #contenido_content { }
+#contenido .ui-dashboard-column {width: 480px; }
+.caja-dashboard {margin: 5px;}
 
 
 /*CABECERA*/

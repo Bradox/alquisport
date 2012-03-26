@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
 
 <h:head>
 	<link rel="shortcut icon" href="/favicon.ico" />
@@ -14,19 +16,12 @@
 	<h:outputStylesheet name="style.css" library="css" />
 </h:head>
 <h:body>
-	<div id="page">
 		<ui:include src="../elements/header.xhtml" />
 		
-		<div id="contenido-centro">
-			<div class="container">
-					<ui:insert name="content">
-						<section id="pagina-construccion" class="rounded10 box-shadow-light">
-							<h1>Página en construcción</h1>
-						</section>
-					</ui:insert>
-			</div>
-		</div>
+		<ui:insert name="content">
+		</ui:insert>
+		
 		<ui:include src="../elements/footer.xhtml" />
-	</div>
+		
 </h:body>
 </html>
