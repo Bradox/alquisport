@@ -18,7 +18,7 @@ import es.tresw.db.entities.Municipality;
 import es.tresw.db.entities.Province;
 import es.tresw.service.SportFacilityService;
 import es.tresw.util.Messages;
-import es.tresw.view.controller.AdminSessionController;
+import es.tresw.view.controller.user.AdminSessionController;
 
 public class GeneralInfoController {
 	

@@ -5,8 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:t="http://myfaces.apache.org/tomahawk">
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition
 	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
@@ -16,13 +15,14 @@
 	<ui:define name="colizq">
 		<p:panel header="Información">
 			<p>¿Eres un administrador de una instalación deportiva? Pincha en el botón para poder registrarte y dar de alta tus pistas.</p>
-			<h:link value="Registrate como administrador" url="registro-instalaciondeportiva.xhtml"/>
+			<h:link value="Registrate como administrador" outcome="registro-instalaciondeportiva.xhtml"/>
 		</p:panel>
 	</ui:define>
 	<ui:define name="colder">
 		<p:panel id="registroUsuario" header="Registro de usuario">
 			<p>Rellene el siguiente formulario para registrarse en <strong>pistea.com</strong> y formar parte de nuestra gran comunidad de deporte.</p>
 			<h:form id="registroUsuarioForm">
+				<p:messages id="mensajesGlobales" globalOnly="true"/>
 				<h:panelGrid columns="3" >
 					<h:outputLabel value="Usuario*:" for="user"/>
 					<p:inputText id="user" value="#{registerController.client.username}" required="true" requiredMessage="El campo es obligatorio" maxlength="255"/>
@@ -33,7 +33,7 @@
 					<p:message id="passwordError" for="password" />  
 					
 					<h:outputLabel value="Repite Contraseña*:" for="passwordRepite"/>
-					<p:password  id="passwordRepite" value="#{registerController.client.password}" required="true" requiredMessage="El campo es obligatorio" maxlength="100" />
+					<p:password  id="passwordRepite" value="#{registerController.repitePassword}" required="true" requiredMessage="El campo es obligatorio" maxlength="100" />
 					<p:message id="passwordRepiteError" for="passwordRepite" />  
 					
 					<h:outputLabel value="Nombre*:"/>

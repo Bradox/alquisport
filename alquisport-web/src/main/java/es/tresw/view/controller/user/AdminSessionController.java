@@ -1,4 +1,4 @@
-package es.tresw.view.controller;
+package es.tresw.view.controller.user;
 
 import java.io.Serializable;
 
@@ -7,16 +7,12 @@ import es.tresw.db.entities.SportFacility;
 
 public class AdminSessionController implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private SportFacility sportFacility;
 	private Court court;
 	
 	public AdminSessionController()
 	{
-		System.out.println("Entra en el constructor AdminSessionController");
 	}
 	
 	
@@ -32,8 +28,6 @@ public class AdminSessionController implements Serializable{
 	public void setCourt(Court court) {
 		this.court = court;
 	}
-	
-	
 	
 
 }

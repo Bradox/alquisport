@@ -19,22 +19,17 @@ public class LoginErrorPhaseListener implements PhaseListener{
     @Override
     public void beforePhase(final PhaseEvent arg0)
     {
-    	System.out.println("Entra en el listener");
         Exception e = (Exception) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(
         		WebAttributes.AUTHENTICATION_EXCEPTION);
-        
-        System.out.println("La excepcion es "+e);
         
         //Miramos, y segun la excepcion que se encuentra se pinta un mensaje u otro	
         if (e instanceof UsernameNotFoundException)
         {
-        	 System.out.println("UsernameNotFoundException "+e.getMessage());
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(
             		WebAttributes.AUTHENTICATION_EXCEPTION, null);
             FacesUtil.addErrorMessage(Messages.getString("error.login.usuario_no_existe"));
         }else if (e instanceof BadCredentialsException)
         {
-        	System.out.println("BadCredentialsException "+e.getMessage());
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(
             		WebAttributes.AUTHENTICATION_EXCEPTION, null);
             FacesUtil.addErrorMessage(Messages.getString("error.login.password_incorrecto"));

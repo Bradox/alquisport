@@ -1,4 +1,4 @@
-package es.tresw.view.controller;
+package es.tresw.view.controller.user;
 
 import java.io.Serializable;
 
@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.Client;
 import es.tresw.service.RegisterService;
+import es.tresw.util.FacesUtil;
 import es.tresw.util.Messages;
 
 public class RegisterController implements Serializable{
@@ -19,6 +20,8 @@ public class RegisterController implements Serializable{
 	
 	private Client client = new Client();
 	private Administrator administrator = new Administrator();
+	
+	private String repitePassword;
 	
 	/*SERVICE A UTILIZAR*/
 	@ManagedProperty("#{registerService}")  
@@ -31,12 +34,16 @@ public class RegisterController implements Serializable{
 		if(registerService.existUser(client.getUsername()))
 		{
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("username_error_sumary"),Messages.getString("username_error_detail"));
-			facesContext.addMessage("register:username",message);
+			facesContext.addMessage("registroUsuarioForm:username",message);
 		}
 		if(registerService.existEmail(client.getContactInfo().getEmail()))
 		{
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("email_error_sumary"),Messages.getString("email_error_detail"));
-			facesContext.addMessage("register:email",message);
+			facesContext.addMessage("registroUsuarioForm:email",message);
+		}
+		if(repitePassword==null || !repitePassword.equals(client.getPassword()))
+		{
+			FacesUtil.addErrorMessageField("registroUsuarioForm:passwordRepite", Messages.getString("error.repitepassword"));
 		}
 		
 		if(facesContext.getMessageList().size()==0)
@@ -48,11 +55,10 @@ public class RegisterController implements Serializable{
 			}
 			else
 			{
-				return "registro-error";
+				FacesUtil.addErrorMessage(Messages.getString("error.sistema"));
 			}
 		}
-		else
-			return null;
+		return null;
 				
 	}
 	
@@ -62,12 +68,17 @@ public class RegisterController implements Serializable{
 		if(registerService.existUser(administrator.getUsername()))
 		{
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("username_error_sumary"),Messages.getString("username_error_detail"));
-			facesContext.addMessage("register:username",message);
+			facesContext.addMessage("registroAdminForm:username",message);
 		}
 		if(registerService.existEmail(administrator.getContactInfo().getEmail()))
 		{
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,Messages.getString("email_error_sumary"),Messages.getString("email_error_detail"));
-			facesContext.addMessage("register:email",message);
+			facesContext.addMessage("registroAdminForm:email",message);
+		}
+		
+		if(repitePassword==null || !repitePassword.equals(administrator.getPassword()))
+		{
+			FacesUtil.addErrorMessageField("registroAdminForm:passwordRepite", Messages.getString("error.repitepassword"));
 		}
 		
 		if(facesContext.getMessageList().size()==0)
@@ -75,17 +86,15 @@ public class RegisterController implements Serializable{
 			if(registerService.register(administrator))
 			{
 				//Llamamos al service de registro para que guarde el cliente
-				System.out.println("Se ha registrado el siguiente administrador: "+administrator);
 				return "registro-ok";
 			}
 			else
 			{
-				System.out.println("el service no llega!");
-				return "registro-error";
+				FacesUtil.addErrorMessage(Messages.getString("error.sistema"));
 			}
 		}
-		else
-			return null;
+		
+		return null;
 				
 	}
 
@@ -113,4 +122,14 @@ public class RegisterController implements Serializable{
 	public void setRegisterService(RegisterService registerService) {
 		this.registerService = registerService;
 	}
+
+	public String getRepitePassword() {
+		return repitePassword;
+	}
+
+	public void setRepitePassword(String repitePassword) {
+		this.repitePassword = repitePassword;
+	}
+	
+	
 }

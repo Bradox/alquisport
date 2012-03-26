@@ -10,6 +10,5 @@ public interface I_UserDao extends I_GenericDao<User, Long>
     public List<User> listUserEntity() ;
     public void addUserEntity(User user) ;
     public void updateUserEntity(User user) ;
-    public User getUserEntityByID(Integer id);
     public User findByName(String username);
 }

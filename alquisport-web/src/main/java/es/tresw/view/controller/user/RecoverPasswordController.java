@@ -1,4 +1,4 @@
-package es.tresw.view.controller;
+package es.tresw.view.controller.user;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;

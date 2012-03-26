@@ -21,7 +21,7 @@ import es.tresw.db.entities.SportFacility;
 import es.tresw.db.entities.Zone;
 import es.tresw.service.SportFacilityService;
 import es.tresw.util.Messages;
-import es.tresw.view.controller.AdminSessionController;
+import es.tresw.view.controller.user.AdminSessionController;
 
 public class NewSportFacilityController {
 	

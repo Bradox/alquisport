@@ -14,11 +14,11 @@ public class ContactInfo
 	@Column(name="EMAIL", length=255,unique=true)
 	private String email;
 	
-	@Size(min=9,max=15,message="{telefono_incorrecto}")
+	@Size(max=15,message="{telefono_incorrecto}")
 	@Column(name="PHONE1", length=255)
 	private String telephone1;
 	
-	@Size(min=0,max=15,message="{telefono_incorrecto}")
+	@Size(max=15,message="{telefono_incorrecto}")
 	@Column(name="PHONE2", length=255)
 	private String telephone2;
 

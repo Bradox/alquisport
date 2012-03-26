@@ -5,56 +5,68 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:t="http://myfaces.apache.org/tomahawk">
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition
 	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
 	<ui:define name="title">
 		<h:outputText value="Formulario de registro de usuario" />
 	</ui:define>
-	<ui:define name="content">
-		<p:panel id="contenido">
-			<h1>registro de instalación deportiva</h1>
-			<p>Rellene el siguiente formulario para registrarse en <strong>alquisport.com</strong> y formar parte de nuestra gran comunidad de deporte.</p>
-			<p>Una vez registrado podrá configurar su instalación deportiva al completo, desde horarios de apertura, tipo de pistas, precios, ...</p>
-			<h:form id="register">
-			<div class="filaformulario">
-				<div class="labelformulario w200"><label for="username"><h:outputText value="usuario (*):" /></label></div>
-				<div class="campoformulario"><h:inputText id="username" value="#{registerController.administrator.login}" class="field w300"></h:inputText></div>
-				<div class="mensajeformulario"><h:message for="username" errorClass="error" infoClass="ok"/></div>
-			</div>
-			<div class="filaformulario">
-				<div class="labelformulario w200"><label for="password"><h:outputText value="contraseña (*):" /></label></div>
-				<div class="campoformulario"><h:inputSecret id="password" value="#{registerController.administrator.password}" class="field w300"></h:inputSecret></div>
-				<div class="mensajeformulario"><h:message for="password" errorClass="error" infoClass="ok" /></div>
-			</div>
-			<div class="filaformulario">
-				<div class="labelformulario w200"><label for="firstname"><h:outputText value="nombre (*):" /></label></div>
-				<div class="campoformulario"><h:inputText id="firstname" value="#{registerController.administrator.name}" class="field w300"></h:inputText></div>
-				<div class="mensajeformulario"><h:message for="firstname" errorClass="error" infoClass="ok" /></div>
-			</div>
-			<div class="filaformulario">
-				<div class="labelformulario w200"><label for="lastname1"><h:outputText value="primer apellido (*):" /></label></div>
-				<div class="campoformulario"><h:inputText id="lastname1" value="#{registerController.administrator.firstLastName}" class="field w300"></h:inputText></div>
-				<div class="mensajeformulario"><h:message for="lastname1" errorClass="error" infoClass="ok" /></div>
-			</div>
-			<div class="filaformulario">
-				<div class="labelformulario w200"><label for="lastname2"><h:outputText value="segundo apellido (*):" /></label></div>
-				<div class="campoformulario"><h:inputText id="lastname2" value="#{registerController.administrator.secondLastName}" class="field w300"></h:inputText></div>
-				<div class="mensajeformulario"><h:message for="lastname2" errorClass="error" infoClass="ok" /></div>
-			</div>
-			<div class="filaformulario">
-				<div class="labelformulario w200"><label for="email"><h:outputText value="correo electrónico (*):" /></label></div>
-				<div class="campoformulario"><h:inputText id="email" value="#{registerController.administrator.contactInfo.email}" class="field w300"></h:inputText></div>
-				<div class="mensajeformulario"><h:message for="email" errorClass="error" infoClass="ok" /></div>
-			</div>
-			<div class="filaformulario">
-				<div class="labelformulario w200"><label for="telefono"><h:outputText value="teléfono (*):" /></label></div>
-				<div class="campoformulario"><h:inputText id="telefono" value="#{registerController.administrator.contactInfo.telephone1}" class="field w300"></h:inputText></div>
-				<div class="mensajeformulario"><h:message for="telefono" errorClass="error" infoClass="ok" /></div>
-			</div>
-			<div class="botonbuscador"><h:commandButton type="submit" action="#{registerController.registerAdministrator}" id="registrarte" value="Enviar" class="button big"/></div>
+	<ui:define name="colizq">
+		<p:panel header="Información">
+			<p>Que podrás hacer en pistea:</p>
+			<ul>
+				<li>Poner en alquiler todas tus pistas</li>
+				<li>Decidir tu horario personalizado</li>
+				<li>Poner el precio de tus pistas según los distintos horarios</li>
+				<li>Gestionar tus socios o afiliados</li>
+				<li>Crear cupones descuentos para tus usuarios</li>
+				<li>Comprobar en cada momento la ocupación de tus instalaciones</li>
+				<li>Sacar informes de uso</li>
+				<li>Asegurarte el pago de las pistas gracias a nuestro pago seguro.</li>
+				<li>y mucho más ... DESCUBRELO!</li>
+			</ul>
+		</p:panel>
+	</ui:define>
+	<ui:define name="colder">
+		<p:panel id="registroUsuario" header="Registrate como regente de una instalación deportiva">
+			<p>Rellene el siguiente formulario para registrarse en <strong>pistea.com</strong> y formar parte de nuestra gran comunidad de deporte.</p>
+			<h:form id="registroAdminForm">
+				<p:messages id="mensajesGlobales" globalOnly="true"/>
+				<h:panelGrid columns="3" >
+					<h:outputLabel value="Usuario*:" for="user"/>
+					<p:inputText id="user" value="#{registerController.administrator.username}" required="true" requiredMessage="El campo es obligatorio" maxlength="255"/>
+					<p:message id="userError" for="user"/>  
+					
+					<h:outputLabel value="Contraseña*:"/>
+					<p:password  id="password" value="#{registerController.administrator.password}" required="true" requiredMessage="El campo es obligatorio" maxlength="100" feedback="true"/>
+					<p:message id="passwordError" for="password" />  
+					
+					<h:outputLabel value="Repite Contraseña*:" for="passwordRepite"/>
+					<p:password  id="passwordRepite" value="#{registerController.repitePassword}" required="true" requiredMessage="El campo es obligatorio" maxlength="100" />
+					<p:message id="passwordRepiteError" for="passwordRepite" />  
+					
+					<h:outputLabel value="Nombre*:"/>
+					<p:inputText id="nombre" value="#{registerController.administrator.name}" required="true" requiredMessage="El campo es obligatorio" maxlength="255"/>
+					<p:message id="nombreError" for="nombre" />  
+					
+					<h:outputLabel value="Primer apellido*:" for="apellido1"/>
+					<p:inputText id="apellido1" value="#{registerController.administrator.firstLastName}" required="true" requiredMessage="El campo es obligatorio" maxlength="255"/>
+					<p:message id="apellido1Error" for="apellido1" /> 
+					
+					<h:outputLabel value="Segundo apellido*:" for="apellido2"/>
+					<p:inputText id="apellido2" value="#{registerController.administrator.secondLastName}" required="true" requiredMessage="El campo es obligatorio" maxlength="255"/>
+					<p:message id="apellido2Error" for="apellido2" /> 
+					
+					<h:outputLabel value="Email*:"/>
+					<p:inputText id="email" value="#{registerController.administrator.contactInfo.email}" maxlength="255" required="true" requiredMessage="El campo es obligatorio"/>
+					<p:message id="emailError" for="email"/>  
+					
+					<h:outputLabel value="Teléfono:"/>
+					<p:inputText id="telephone1" value="#{registerController.administrator.contactInfo.telephone1}" maxlength="15"/>
+					<p:message id="telephone1Error" for="telephone1"/>  
+				</h:panelGrid>
+				<p:commandButton type="submit" action="#{registerController.registerAdministrator}" ajax="false" id="registrarte" value="Enviar" />
 			</h:form>
 		</p:panel>
 	</ui:define>
