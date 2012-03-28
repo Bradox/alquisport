@@ -2,6 +2,8 @@ package es.tresw.db.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import es.tresw.db.dao.I_UserDao;
@@ -24,16 +26,11 @@ public class UserDao extends GenericDao<User, Long> implements  I_UserDao {
 
     public User findByName(String username) 
     {
-        User user = (User) sessionFactory.getCurrentSession().createQuery("select u form user u where u.username = '" + username + "'");
-        return user;
-
+    	Criteria criteria = getSession().createCriteria(User.class);
+    	criteria.add(Restrictions.eq("username", username));
+    	return (User)criteria.uniqueResult();
     }
 
-    public User getUserEntityByID(Integer id) 
-    {
-        User user = (User) sessionFactory.getCurrentSession().createQuery("select u form user u where id = '" + id + "'");
-        return user;
-    }
     
     public void updateUserEntity(User user) 
     {

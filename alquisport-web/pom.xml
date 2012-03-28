@@ -48,6 +48,20 @@
 		    <artifactId>javax.inject</artifactId>
 		    <version>1</version>
 		</dependency>
+		
+		<!-- EL -->
+		<dependency>
+		    <groupId>javax.el</groupId>
+		    <artifactId>el-api</artifactId>
+		    <version>2.2</version>
+		</dependency>
+		
+		 <dependency>
+		    <groupId>org.glassfish.web</groupId>
+		    <artifactId>el-impl</artifactId>
+		    <version>2.2</version>
+		</dependency>
+		
 	
 		<!-- API e implementación de JSF 2. Del repo dev.java.net -->
 		<dependency>

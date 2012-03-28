@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<h:head>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<title><ui:insert name="title" /></title>
+	
+	<!-- Incluimos las CSS necesarias -->
+	<h:outputStylesheet name="style.css" library="css" />
+</h:head>
+<h:body>
+		<ui:include src="../elements/header.xhtml" />
+		
+		<ui:insert name="content">
+		</ui:insert>
+		
+		<ui:include src="../elements/footer.xhtml" />
+		
+</h:body>
+</html>

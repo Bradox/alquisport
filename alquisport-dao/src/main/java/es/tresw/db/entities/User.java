@@ -19,6 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -310,6 +311,18 @@ public class User
 
 	public void setAccountNonLocked(boolean accountNonLocked) {
 		this.accountNonLocked = accountNonLocked;
+	}
+	
+	@Transient
+	public String getFullName()
+	{
+		return name + " " + firstLastName + " " + secondLastName;
+	}
+	
+	@Transient
+	public String getFullName2()
+	{
+		return firstLastName + " " + secondLastName + ", " + name ;
 	}
 	
 }

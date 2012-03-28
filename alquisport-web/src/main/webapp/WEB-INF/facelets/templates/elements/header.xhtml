@@ -11,7 +11,8 @@
             <h:graphicImage id="logo" alt="Alquisport: Tu página de alquiler de instalaciones deportivas" url="/resources/images/Logo-01.png"/>
          </div>
          <div class="span-12 last">
-            <p:panel id="login" rendered="#{!sesionController.logado}" style="fontSize:0.9em;">			
+         	el usuario = <h:outputText value="#{userSessionController.user.fullName}"/>
+            <p:panel id="login" rendered="#{!userSessionController.logado}" style="fontSize:0.9em;">			
 				<h:form id="loginForm">
 		            <h:panelGrid columns="3">  
 		                <h:outputLabel for="j_username" value="usuario: " />  
@@ -23,6 +24,11 @@
 		                <h:link value="Registrate!" outcome="/registro/registro-usuario" />
 		                <h:link value="No recuerdas tu contraseña?" outcome="/registro/recuperar-password" />
 		            </h:panelGrid>  
+		        </h:form>
+			</p:panel>
+			<p:panel id="usuarioLogado" rendered="#{userSessionController.logado}">			
+				<h:form id="menuUsuario">
+		            <h:outputText value="Bienvenido #{userSessionController.user.fullName}"/> 
 		        </h:form>
 			</p:panel>
          </div>

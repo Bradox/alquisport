@@ -19,9 +19,9 @@ public class Assembler {
     String username = userEntity.getUsername();
     String password = userEntity.getPassword();
     boolean enabled = userEntity.getEnabled();
-    boolean accountNonExpired = userEntity.getEnabled();
-    boolean credentialsNonExpired = userEntity.getEnabled();
-    boolean accountNonLocked = userEntity.getEnabled();
+    boolean accountNonExpired = userEntity.isAccountNonExpired();
+    boolean credentialsNonExpired = userEntity.isCredentialsNonExpired();
+    boolean accountNonLocked = userEntity.isAccountNonLocked();
 
     Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
     for (UserRole userRole : userEntity.getUserRoles()) {
