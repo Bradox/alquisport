@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -34,7 +35,7 @@ public class SportFacility
 	@NotNull
 	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Pattern(regexp="[a-z]*",message="{identificador_incorrecto}")
-	@Column(name="URL_NAME")
+	@Column(name="URL_NAME", length=255)
 	private String urlName;
 	
 	@NotNull
@@ -48,12 +49,15 @@ public class SportFacility
 	@Column(name="DESCRIPTION", columnDefinition="TEXT")
 	private String description;
 	
+	@NotNull
 	@Column(name="STATE", length=2)
 	private Integer state;
 	
+	@Valid
 	@Embedded
 	private Address address;
 	
+	@Valid
 	@Embedded
 	private ContactInfo contactInfo;
 	
@@ -80,6 +84,18 @@ public class SportFacility
 	
 	@OneToMany(mappedBy="sportFacility")	
 	private Set<Court> courts = new HashSet<Court>();
+
+	@OneToMany
+	@JoinTable(name = "SPORT_FACILITY_DAY", 
+	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
+	 		   inverseJoinColumns = { @JoinColumn(name = "DAY_ID") })
+	private Set<Day> days = new HashSet<Day>();
+
+	@OneToMany
+	@JoinTable(name = "SPORT_FACILITY_SPECIAL_DAY", 
+	     	   joinColumns = { @JoinColumn(name = "SPORT_FACILITY_ID") }, 
+	 		   inverseJoinColumns = { @JoinColumn(name = "DAY_ID") })
+	private Set<SpecialDay> specialDays = new HashSet<SpecialDay>();
 	
 	public SportFacility()
 	{
@@ -87,9 +103,8 @@ public class SportFacility
 	}
 
 	
-	public SportFacility(Long id,String name, String getHere, String description, Integer state, Set<Feature> features, Set<Image> images, Set<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, Set<SportFacilityMember> members, Set<Court> courts) 
+	public SportFacility(String name, String getHere, String description, Integer state, Set<Feature> features, Set<Image> images, Set<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, Set<SportFacilityMember> members, Set<Court> courts, Set<Day> days, Set<SpecialDay> specialDays) 
 	{
-		this.id = id;
 		this.name = name;
 		this.getHere = getHere;
 		this.description = description;
@@ -102,6 +117,8 @@ public class SportFacility
 		this.appearance = appearance;
 		this.members=members;
 		this.courts=courts;
+		this.days=days;
+		this.specialDays=specialDays;
 	}
 
 
@@ -254,7 +271,27 @@ public class SportFacility
 	{
 		this.courts = courts;
 	}
-	
-	
+
+
+	public Set<Day> getDays() {
+		return days;
+	}
+
+
+	public void setDays(Set<Day> days) {
+		this.days = days;
+	}
+
+
+	public Set<SpecialDay> getSpecialDays() 
+	{
+		return specialDays;
+	}
+
+
+	public void setSpecialDays(Set<SpecialDay> specialDays) 
+	{
+		this.specialDays = specialDays;
+	}
 
 }

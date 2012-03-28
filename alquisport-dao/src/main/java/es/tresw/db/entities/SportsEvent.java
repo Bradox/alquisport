@@ -40,9 +40,8 @@ public class SportsEvent
 		
 	}
 
-	public SportsEvent(Long id,String name, String description, SportFacility sportFacility, Set<Rental> rents) 
+	public SportsEvent(String name, String description, SportFacility sportFacility, Set<Rental> rents) 
 	{
-		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.sportFacility = sportFacility;

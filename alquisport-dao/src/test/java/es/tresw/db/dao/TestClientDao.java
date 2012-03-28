@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -37,7 +38,6 @@ public class TestClientDao{
 	@Autowired
 	private I_ProvinceDao provinceDao;
 
-	@SuppressWarnings("deprecation")
 	@Test
 	@Transactional
 	@Rollback(false)
@@ -61,7 +61,11 @@ public class TestClientDao{
 		client.setEnabled(true);
 		ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com"+lDateTime, "954417070", "665787878");
 		client.setContactInfo(contactInfo);
-		client.setBirthDate(new Date(1981, 3, 20));
+		Date d = null;
+		java.util.Calendar cal = GregorianCalendar.getInstance();
+		cal.set(1900 + 81, 3, 20);
+		d = cal.getTime();
+		client.setBirthDate(d);
 		client.setFirstLastName("Alves");
 		client.setUsername("Brato1982"+lDateTime);
 		client.setName("Alejandro");
@@ -69,7 +73,7 @@ public class TestClientDao{
 		client.setSecondLastName("Calderon");
 		clientDao.create(client);
 		Criteria criteria = clientDao.getSession().createCriteria(Client.class);
-		criteria.add(Restrictions.eq("login", "Brato1982"+lDateTime));
+		criteria.add(Restrictions.eq("username", "Brato1982"+lDateTime));
 		/*Role role = roleDao.read(new Long (1));
 		List<Role> lista = new ArrayList<Role>();
 		lista.add(role);
@@ -109,7 +113,7 @@ public class TestClientDao{
 	{
 		String login = clientDao.readAll().get(0).getUsername();
 		List<String> fields = new ArrayList<String>();
-		fields.add("login"); 
+		fields.add("username"); 
 		List<String> expressions = new ArrayList<String>();
 		expressions.add(PisteaConstants.EQUALS);
 		List<String> values = new ArrayList<String>();

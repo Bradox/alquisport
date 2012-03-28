@@ -41,8 +41,6 @@ public class TestUserRoleDao
 		UserRole userRole = new UserRole();
 		List<User> usersList = userDao.readAll();
 		Set<User> users = new HashSet<User>(usersList);
-		userRole.setUser(users);
-		userRole.setRoles(roles);
 		userRoleDao.create(userRole);
 		assertNotNull(userRoleDao.read(userRole.getId()));
 	}
@@ -50,14 +48,6 @@ public class TestUserRoleDao
 	@Test
 	public void testUpdate()
 	{
-		UserRole userRole = userRoleDao.readAll().get(0);
-		int numRoles = userRole.getRoles().size();
-		Role role = new Role();
-		role.setName("Nuevo Role");
-		roleDao.create(role);
-		userRole.getRoles().add(role);
-		userRoleDao.create(userRole);
-		assertEquals(numRoles+1, userRoleDao.read(userRole.getId()).getRoles().size());
 	}
 	
 	@Test

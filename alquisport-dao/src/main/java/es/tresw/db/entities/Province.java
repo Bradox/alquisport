@@ -30,9 +30,8 @@ public class Province
 		
 	}
 	
-	public Province(Long id,String name, Set<Municipality> municipalities)
+	public Province(String name, Set<Municipality> municipalities)
 	{
-		this.id = id;
 		this.name = name;
 		this.municipalities = municipalities;
 	}

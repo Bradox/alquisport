@@ -1,6 +1,9 @@
 package es.tresw.db.entities;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -8,14 +11,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import es.tresw.db.types.DayOfWeek;
 
 @Entity
-@Table(name="DAYS",catalog="PISTEA")
+@Table(name="DAY",catalog="PISTEA")
+@DiscriminatorColumn(name="DAYTYPE",discriminatorType=DiscriminatorType.STRING)
+@DiscriminatorValue("NORMAL")
 public class Day 
 {
 	@Id
@@ -24,11 +28,9 @@ public class Day
 	private Long id;
 	@Column(name="DAY", length=2)
 	private int day;
+	@Column(name="DAY_OF_WEEK")
 	@Enumerated(EnumType.STRING)
 	private DayOfWeek dayOfWeek;
-	@ManyToOne
-	@JoinColumn (name="ID_MONTH")
-	private Month month;
 	@OneToOne
 	@JoinColumn(name = "ID_SCHEDULE")
 	private Schedule schedule;
@@ -38,11 +40,9 @@ public class Day
 		
 	}
 	
-	public Day(Long id,int year, int day, Month month, Schedule schedule)
+	public Day(int year, int day, Schedule schedule)
 	{
-		this.id = id;
 		this.day = day;
-		this.month = month;
 		this.schedule = schedule;
 		dayOfWeek=DayOfWeek.fromCalendarDay(day);
 	}
@@ -65,16 +65,6 @@ public class Day
 	public void setDay(int day) 
 	{
 		this.day = day;
-	}
-	
-	public Month getMonth() 
-	{
-		return month;
-	}
-	
-	public void setMonth(Month month) 
-	{
-		this.month = month;
 	}
 
 	public DayOfWeek getDayOfWeek()

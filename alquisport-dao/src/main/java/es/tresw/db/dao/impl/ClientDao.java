@@ -17,5 +17,5 @@ public class ClientDao extends GenericDao<Client, Long> implements  I_ClientDao
     	criteria.add(Restrictions.eq("username", username));
     	return (Client)criteria.uniqueResult();
     } 
-	
+
 }

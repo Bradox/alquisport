@@ -10,7 +10,7 @@ import es.tresw.db.entities.Administrator;
 @Repository("administratorDao")
 public class AdministratorDao extends GenericDao<Administrator, Long> implements  I_AdministratorDao 
 {
-	
+
 	public Administrator findByName(String username)
 	{
     	Criteria criteria = getSession().createCriteria(Administrator.class);
@@ -18,5 +18,5 @@ public class AdministratorDao extends GenericDao<Administrator, Long> implements
     	return (Administrator)criteria.uniqueResult();
     } 
 
-	
+
 }

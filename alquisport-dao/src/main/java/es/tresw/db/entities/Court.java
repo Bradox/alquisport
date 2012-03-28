@@ -32,6 +32,8 @@ public class Court
 	private String description;
 	@Column(name="STATE", length=2)
 	private int state;
+	@Column(name="PRICE", length=4)
+	private double price;
 	@Embedded
 	private CourtType courtType=new CourtType();
 	@Embedded
@@ -43,30 +45,41 @@ public class Court
 	private Set<Feature> features=new HashSet<Feature>();
 	@OneToMany(mappedBy="court")
 	private Set<Rental> rents=new HashSet<Rental>();
-	@OneToMany(mappedBy="court")	
-	private Set<Calendar> calendar=new HashSet<Calendar>();
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_SPORT_FACILITY")
 	public SportFacility sportFacility;
-	
+	@OneToMany
+	@JoinTable(name = "COURT_DAY", 
+	     	   joinColumns = { @JoinColumn(name = "COURT_ID") }, 
+	 		   inverseJoinColumns = { @JoinColumn(name = "DAY_ID") })
+	private Set<Day> days = new HashSet<Day>();
+	@OneToMany
+	@JoinTable(name = "COURT_SPECIAL_DAY", 
+	     	   joinColumns = { @JoinColumn(name = "COURT_ID") }, 
+	 		   inverseJoinColumns = { @JoinColumn(name = "DAY_ID") })
+	private Set<SpecialDay> specialDays = new HashSet<SpecialDay>();
+	@OneToMany
+	@JoinColumn(name="COURT_ID")
+	private Set<SpecialPrice> specialPrices=new HashSet<SpecialPrice>();
 	
 	public Court()
 	{
 		
 	}
 	
-	public Court(Long id,String description, int state, CourtType courtType,ReservationConfig reservationConfig,Set<Feature> features, Set<Rental> rents, Set<Calendar> calendar, SportFacility sportFacility) 
+	public Court(String description, int state, CourtType courtType,ReservationConfig reservationConfig,Set<Feature> features, Set<Rental> rents, double price, SportFacility sportFacility, Set<Day> days, Set<SpecialDay> specialDays, Set<SpecialPrice> specialPrices) 
 	{
-		super();
-		this.id = id;
 		this.description = description;
 		this.state = state;
 		this.courtType = courtType;
 		this.reservationConfig = reservationConfig;
 		this.features = features;
 		this.rents=rents;
-		this.calendar=calendar;
 		this.sportFacility = sportFacility;
+		this.price = price;
+		this.days=days;
+		this.specialDays=specialDays;
+		this.specialPrices=specialPrices;
 	}
 
 	public Long getId() 
@@ -139,14 +152,6 @@ public class Court
 		this.rents = rents;
 	}
 
-	public Set<Calendar> getCalendar() {
-		return calendar;
-	}
-
-	public void setCalendar(Set<Calendar> calendar) {
-		this.calendar = calendar;
-	}
-
 	public SportFacility getSportFacility() 
 	{
 		return sportFacility;
@@ -157,5 +162,44 @@ public class Court
 		this.sportFacility = sportFacility;
 	}
 
+	public double getPrice() 
+	{
+		return price;
+	}
+
+	public void setPrice(double price) 
+	{
+		this.price = price;
+	}
+
+	public Set<Day> getDays() 
+	{
+		return days;
+	}
+
+	public void setDays(Set<Day> days) 
+	{
+		this.days = days;
+	}
+
+	public Set<SpecialDay> getSpecialDays() 
+	{
+		return specialDays;
+	}
+
+	public void setSpecialDays(Set<SpecialDay> specialDays) 
+	{
+		this.specialDays = specialDays;
+	}
+
+	public Set<SpecialPrice> getSpecialPrices() 
+	{
+		return specialPrices;
+	}
+
+	public void setSpecialPrices(Set<SpecialPrice> specialPrices)
+	{
+		this.specialPrices = specialPrices;
+	}
 	
 }

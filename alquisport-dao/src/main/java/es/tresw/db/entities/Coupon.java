@@ -31,9 +31,8 @@ public class Coupon
 		
 	}
 	
-	public Coupon(Long id,float discountQuantity, String code, int timesUsed,int maxTimesUse, int discountType) 
+	public Coupon(float discountQuantity, String code, int timesUsed,int maxTimesUse, int discountType) 
 	{
-		this.id = id;
 		this.discountQuantity = discountQuantity;
 		this.code = code;
 		this.timesUsed = timesUsed;

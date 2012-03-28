@@ -20,7 +20,7 @@ public class Rental
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
 	@Column(name="PAYMENT_STATE", length=2)
-	private int paymentState;
+	private Integer paymentState;
 	@Column(name="QUANTITY_PAID", length=2)
 	private int quantityPaid;
 	@Column(name="DATE_START")
@@ -36,9 +36,8 @@ public class Rental
 		
 	}
 
-	public Rental(Long id,int paymentState, int quantityPaid, Court court, Date dateStart, Date dateEnd) 
+	public Rental(Integer paymentState, int quantityPaid, Court court, Date dateStart, Date dateEnd) 
 	{
-		this.id = id;
 		this.paymentState = paymentState;
 		this.quantityPaid = quantityPaid;
 		this.court=court;
@@ -56,12 +55,12 @@ public class Rental
 		this.id = id;
 	}
 
-	public int getPaymentState() 
+	public Integer getPaymentState() 
 	{
 		return paymentState;
 	}
 
-	public void setPaymentState(int paymentState) 
+	public void setPaymentState(Integer paymentState) 
 	{
 		this.paymentState = paymentState;
 	}

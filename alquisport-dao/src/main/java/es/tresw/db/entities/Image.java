@@ -34,9 +34,8 @@ public class Image
 		
 	}
 	
-	public Image(Long id,String name, String description, int height,int weight, String discPath, byte[] image) 
+	public Image(String name, String description, int height,int weight, String discPath, byte[] image) 
 	{
-		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.height = height;

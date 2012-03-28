@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import es.tresw.db.entities.Municipality;
@@ -13,9 +14,11 @@ import es.tresw.db.entities.Zone;
 @Embeddable
 public class Address 
 {
+	@Size(max=255,message="{campo_demasiado_largo}")
 	@Column(name="ADDRESS", length=255)
 	public String address;
 	
+	@Size(max=255,message="{campo_demasiado_largo}")
 	@Column(name="TYPE", length=255)
 	public String type;
 	
@@ -23,16 +26,19 @@ public class Address
 	@Column(name="ZIP_CODE", length=255)
 	public String zipCode;
 	
+	@NotNull(message="{campo_obligatorio}")
 	@ManyToOne
-	@JoinColumn(name = "ID_PROVINCE")
+	@JoinColumn(name = "ID_PROVINCE", nullable =false)
 	public Province province;
 	
+	@NotNull(message="{campo_obligatorio}")
 	@ManyToOne
-	@JoinColumn(name = "ID_ZONE")
+	@JoinColumn(name = "ID_ZONE", nullable =false)
 	public Zone zone;
 	
+	@NotNull(message="{campo_obligatorio}")
 	@ManyToOne
-	@JoinColumn(name = "ID_MUNICIPALITY")
+	@JoinColumn(name = "ID_MUNICIPALITY", nullable =false)
 	public Municipality municipality;
 	
 	

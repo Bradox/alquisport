@@ -28,9 +28,8 @@ public class Zone
 		
 	}
 	
-	public Zone(Long id, String name, Municipality municipality) 
+	public Zone(String name, Municipality municipality) 
 	{
-		this.id = id;
 		this.name = name;
 		this.municipality = municipality;
 	}

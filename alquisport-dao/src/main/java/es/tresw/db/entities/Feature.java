@@ -27,9 +27,8 @@ public class Feature
 		
 	}
 	
-	public Feature(Long id,String key, String value, int position) 
+	public Feature(String key, String value, int position) 
 	{
-		this.id = id;
 		this.key = key;
 		this.value = value;
 		this.position = position;

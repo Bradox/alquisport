@@ -24,25 +24,18 @@ public class Schedule
 	private int minStart;
 	@Column(name="MINUTE_END", length=2)
 	private int minEnd;
-	@Column(name="PRICE_COURT", length=4)
-	private float priceCourt;
-	@Column(name="PRICE_LIGHT", length=4)
-	private float priceLight;
 	
 	public Schedule()
 	{
 		
 	}
 
-	public Schedule(Long id, int startHour, int endHour,int minStart, int minEnd, float priceCourt, float priceLight) 
+	public Schedule(int startHour, int endHour,int minStart, int minEnd, float priceCourt, float priceLight) 
 	{
-		this.id = id;
 		this.startHour = startHour;
 		this.endHour = endHour;
 		this.minStart = minStart;
 		this.minEnd = minEnd;
-		this.priceCourt = priceCourt;
-		this.priceLight=priceLight;		
 	}
 
 	public Long getId() {
@@ -93,24 +86,4 @@ public class Schedule
 		this.minEnd = minEnd;
 	}
 
-	public float getPriceCourt() 
-	{
-		return priceCourt;
-	}
-
-	public void setPriceCourt(float priceCourt) 
-	{
-		this.priceCourt = priceCourt;
-	}
-
-	public float getPriceLight() 
-	{
-		return priceLight;
-	}
-
-	public void setPriceLight(float priceLight) 
-	{
-		this.priceCourt = priceLight;
-	}
-	
 }

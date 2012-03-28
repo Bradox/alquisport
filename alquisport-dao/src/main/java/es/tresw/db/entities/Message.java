@@ -41,9 +41,8 @@ public class Message
 		
 	}
 
-	public Message(Long id,User userTo, User userFrom, int state, Date dateSend, Date dateRead, String subject, String text) 
+	public Message(User userTo, User userFrom, int state, Date dateSend, Date dateRead, String subject, String text) 
 	{
-		this.id = id;
 		this.userTo = userTo;
 		this.userFrom = userFrom;
 		this.state = state;

@@ -7,11 +7,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-
+import java.util.Set; 
 import javax.imageio.ImageIO;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Valid;
+import javax.validation.Validation;
+import javax.validation.Validator;
 
+import junit.framework.Assert;
+
+import org.hibernate.validator.HibernateValidator;
+import org.hibernate.validator.method.MethodConstraintViolation;
+import org.hibernate.validator.method.MethodConstraintViolationException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +29,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.Errors;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.Appearance;
@@ -31,10 +43,11 @@ import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
 import es.tresw.db.entities.SportFacilityMember;
 import es.tresw.db.entities.Zone;
+import javax.validation.Validator;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:intercambia-servlet-test.xml"})
-//@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
 @Transactional
 public class TestSportFacilityDao{
 	
@@ -45,102 +58,92 @@ public class TestSportFacilityDao{
 	private I_ProvinceDao provinceDao;
 	@Autowired
 	private I_ClientDao clientDao;
-	@Autowired 
-	private I_FeatureDao featureDao;
 	@Autowired
 	private I_ImageDao imageDao;
+	@Autowired
+	private I_ZoneDao zoneDao;
+	@Autowired
+	private Validator validator;
+	 
 	
 	@Test
 	@Rollback(false)
-	public void testCreate()
+	public void testCreateFail()
 	{
-		try
+		SportFacility sf = new SportFacility();
+		Set<ConstraintViolation<SportFacility>> constraintViolations = validator.validate(sf);
+		sf.setAddress(new Address());
+		if(constraintViolations.size() > 0)
 		{
-			Province province = provinceDao.read(new Long(1));
-			Address address = new Address();
-			address.setAddress("Mi Casa");
-			address.setType("Calle");
-			address.setZipCode("asdas");
-			address.setProvince(province);
-			address.setMunicipality(province.getMunicipalities().iterator().next());
-			SportFacility sportFacility = new SportFacility();
-			sportFacility.setAddress(address);
-			Appearance appearance = new Appearance();
-			appearance.setColor1("1");
-			appearance.setColor2("1");
-			appearance.setColor3("1");
-			sportFacility.setAppearance(appearance);
-			long lDateTime = new Date().getTime();
-			ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com"+lDateTime, "954417070", "665787878");
-			sportFacility.setContactInfo(contactInfo);	
-			sportFacility.setDescription("tenemos las mejores pistas y mÃ¡s guapas");
-			Feature feature = new Feature();
-			feature.setKey("Sergio");
-			feature.setPosition(1);
-			feature.setValue("PUTA");
-			Set<Feature> features = new HashSet<Feature>();
-			features.add(feature);
-			featureDao.create(feature);
-			sportFacility.setFeatures(features);
-			sportFacility.setGetHere("por mar tierra o aire");
-			BufferedImage originalImage = ImageIO.read(new File("../alquisport-dao/src/test/resources/google_logo_41.png"));
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ImageIO.write( originalImage, "jpg", baos );
-			baos.flush();
-			byte[] imageInByte = baos.toByteArray();
-			baos.close();
-			Image image = new Image();
-			image.setImage(imageInByte);
-			image.setDescription("Imagen guapa");
-			image.setDiscPath("/sdad/casad/casad");
-			image.setHeight(100);
-			image.setWeight(100);
-			image.setName("name");
-			imageDao.create(image);
-			Set<Image> images=new HashSet<Image>();
-			images.add(image);
-			sportFacility.setImages(images);
-			sportFacility.setName("Entidad guapa");
-			sportFacility.setState(1);
-			sportFacility.setUrlName("sergiomarica");
-			sportFacilityDao.create(sportFacility);
-			assertNotNull(sportFacilityDao.read(sportFacility.getId()));
-		}
-		catch (Exception e)
-		{
-			fail(e.toString());
-		}
-	}
+			Iterator<ConstraintViolation<SportFacility>> iterator = constraintViolations.iterator();
+			while(iterator.hasNext())
+				{
+					ConstraintViolation<SportFacility> cv = iterator.next();
+					System.out.println(cv.getMessage());
+					System.out.println(cv.getPropertyPath());
+				}
+			}		
+			
+			Set<ConstraintViolation<Address>> constraintViolations1 = validator.validate(sf.getAddress());
 	
+			if(constraintViolations1.size() > 0)
+			{
+				Iterator<ConstraintViolation<Address>> iterator = constraintViolations1.iterator();
+				while(iterator.hasNext())
+				{
+					ConstraintViolation<Address> cv = iterator.next();
+					System.out.println(cv.getMessage());
+					System.out.println(cv.getPropertyPath());
+				}
+			}		
+			
+		try {
+		    sportFacilityDao.create(sf);
+		    sportFacilityDao.getSession().flush();
+		} catch (MethodConstraintViolationException e) {
+			Iterator<MethodConstraintViolation<?>> it =e.getConstraintViolations().iterator();
+			while(it.hasNext())
+				it.next().getPropertyPath();
+		}
+	}	
+
 	@Test
-	public void testCreateForm()
+	@Rollback(false)
+	public void testCreateSuccess()
 	{
 		SportFacility sf = new SportFacility();
 		sf.setName("Name");
 		sf.setUrlName("asdasdasdasd");
-		
+		sf.setState(1);
 		ContactInfo ci = new ContactInfo();
 		ci.setTelephone1("asdasdasd");
-		ci.setEmail("asdad@asdsad.com");
+		ci.setEmail("asdad@asdsad.com" + new Date().getTime());
 		sf.setContactInfo(ci);
 		
 		Address a = new Address();
-		a.setAddress("asdasd sdas d ");
+		a.setAddress("asdasd sdas d");
 		a.setZipCode("41013");
 		
 		Province p = provinceDao.read(new Long(1));
 		a.setProvince(p);
 		Municipality m = p.getMunicipalities().iterator().next();
 		a.setMunicipality(m);
+		Zone zone = new Zone();
+		zone.setMunicipality(m);
+		zone.setName("zona1");
+		zoneDao.create(zone);
+		a.setZone(zone);
 		sf.setAddress(a);
-		
-		
-		
-		//Guardamos
-		//sf = sportFacilityService.createSportFacility(sf);
-		sportFacilityDao.create(sf);
-
+		try
+		{
+			sportFacilityDao.create(sf);
+		}
+		catch (ConstraintViolationException e) 
+		{
+			assertEquals(1, e.getConstraintViolations().size());
+		}
 	}
+
 	
 	@Test
 	public void testUpdate()
@@ -200,11 +203,14 @@ public class TestSportFacilityDao{
 	{
 		this.clientDao=clientDao;
 	}
-
-	public void setFeatureDao(I_FeatureDao featureDao) 
+	
+	public void setZoneDao(I_ZoneDao zoneDao)
 	{
-		this.featureDao = featureDao;
+		this.zoneDao=zoneDao;
 	}
 	
-	
+	public void setValidator(Validator validator)
+	{
+		this.validator=validator;
+	}
 }

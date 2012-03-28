@@ -32,9 +32,8 @@ public class CouponsUsed
 		
 	}
 	
-	public CouponsUsed(Long id,Coupon coupon, Rental rent, Client client) 
+	public CouponsUsed(Coupon coupon, Rental rent, Client client) 
 	{
-		this.id = id;
 		this.coupon = coupon;
 		this.rent = rent;
 		this.client = client;

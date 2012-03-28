@@ -1,10 +1,19 @@
 package es.tresw.db.dao;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
-
 import junit.framework.TestCase;
 
+import org.dbunit.DatabaseUnitException;
+import org.dbunit.database.DatabaseConnection;
+import org.dbunit.database.IDatabaseConnection;
+import org.dbunit.operation.DatabaseOperation;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
@@ -14,7 +23,6 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
@@ -22,10 +30,13 @@ import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.Company;
 import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
+import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:intercambia-servlet-test.xml"})
 @Transactional
+
 public class TestAdministratorDao extends TestCase{
 	
 
@@ -37,6 +48,53 @@ public class TestAdministratorDao extends TestCase{
 	private I_SportFacilityDao sportFacilityDao;
 	@Autowired
 	private I_CompanyDao companyDao;
+	@Autowired
+	private I_UserDao userDao;
+
+	
+	@Before
+	public void setUp()
+	{
+		
+		administratorDao.getSession().doWork(new Work() {
+			
+			@Override
+			public void execute(Connection connection) throws SQLException {
+				
+				// initialize database connection here
+		        IDatabaseConnection conn;
+				try
+				{
+					conn = new DatabaseConnection(connection);
+				
+			        // initializedataset here
+			        URL url = this.getClass().getResource("administrator.xml");
+			        File dataSetFile = new File(url.getFile());
+			        
+			        IDataSet dataSet = new FlatXmlDataSetBuilder().build(dataSetFile);
+			        // ...
+			        try
+			        {
+			            DatabaseOperation.CLEAN_INSERT.execute(conn, dataSet);
+			        }
+			        finally
+			        {
+			            connection.close();
+			        }
+				
+				}
+				catch (DatabaseUnitException e) 
+				{
+					// TODO: handle exception
+				} 
+				catch (MalformedURLException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}});
+
+	}
 	
 	@Test
 	@Transactional
@@ -60,7 +118,11 @@ public class TestAdministratorDao extends TestCase{
 		administrator.setEnabled(true);
 		ContactInfo contactInfo = new ContactInfo("alejandro.alvaes@gmail.com"+lDateTime, "954417070", "665787878");
 		administrator.setContactInfo(contactInfo);
-		administrator.setBirthDate(new Date(1981, 3, 20));
+		Date d = null;
+		java.util.Calendar cal = GregorianCalendar.getInstance();
+		cal.set(1900 + 81, 3, 20);
+		d = cal.getTime();
+		administrator.setBirthDate(d);
 		administrator.setFirstLastName("Alves");
 		administrator.setUsername("Brato1982"+lDateTime);
 		administrator.setName("Alejandro");
@@ -95,6 +157,7 @@ public class TestAdministratorDao extends TestCase{
 	public void testReadAll()
 	{
 		assertNotNull(administratorDao.readAll());
+		assertNotNull(userDao.readAll());
 	}
 	
 	@Test
@@ -113,6 +176,46 @@ public class TestAdministratorDao extends TestCase{
 		Long idDelete = administratorDelete.getId();
 		administratorDao.delete(administratorDelete);
 		assertNull(administratorDao.read(idDelete));
+	}
+
+	@Test
+	public void  removeUserEntity()
+	{
+		List<Administrator> administrators = administratorDao.readAll();
+		Administrator administratorDelete = administrators.get(administrators.size()-1);
+		Long idDelete = administratorDelete.getId();
+		administratorDao.delete(administratorDelete);
+		assertNull(administratorDao.read(idDelete));		
+	}
+	
+	@Test
+	public void  listUserEntity()
+	{
+		
+	}
+	
+	@Test
+	public void addUserEntity()
+	{
+		
+	}
+	
+	@Test
+    public void updateUserEntity()
+	{
+		
+	}
+	
+	@Test
+    public void  getUserEntityByID()
+	{
+		
+	}
+	
+	@Test
+    public void  findByName()
+	{
+		
 	}
 
 	
@@ -135,4 +238,11 @@ public class TestAdministratorDao extends TestCase{
 	{
 		this.companyDao=companyDao;
 	}
+
+	public void setUserDao(I_UserDao userDao) 
+	{
+		this.userDao = userDao;
+	}
+	
+	
 }

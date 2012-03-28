@@ -32,9 +32,8 @@ public class SportFacilityMember
 	
 	
 	
-	public SportFacilityMember(Long id,SportFacility sportFacility, Client client)
+	public SportFacilityMember(SportFacility sportFacility, Client client)
 	{
-		this.id = id;
 		this.sportFacility = sportFacility;
 		this.client = client;
 	}

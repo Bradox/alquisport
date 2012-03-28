@@ -28,9 +28,8 @@ public class AuditTrail
 		
 	}
 			
-	public AuditTrail(Long id,String description, Date date) 
+	public AuditTrail(String description, Date date) 
 	{
-		this.id = id;
 		this.description = description;
 		this.date=date;
 	}
