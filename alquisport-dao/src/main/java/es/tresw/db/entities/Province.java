@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PROVINCE",catalog="PISTEA")
+@Table(name="PROVINCE"/*, catalog="PISTEA"*/)
 public class Province 
 {
 

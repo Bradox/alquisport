@@ -5,6 +5,10 @@ import static org.junit.Assert.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -19,19 +23,33 @@ import javax.validation.Validator;
 
 import junit.framework.Assert;
 
+import org.dbunit.DatabaseUnitException;
+import org.dbunit.database.DatabaseConnection;
+import org.dbunit.database.IDatabaseConnection;
+import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.dbunit.operation.DatabaseOperation;
+import org.hibernate.AssertionFailure;
+import org.hibernate.jdbc.Work;
 import org.hibernate.validator.HibernateValidator;
 import org.hibernate.validator.method.MethodConstraintViolation;
 import org.hibernate.validator.method.MethodConstraintViolationException;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
@@ -44,6 +62,7 @@ import es.tresw.db.entities.SportFacility;
 import es.tresw.db.entities.SportFacilityMember;
 import es.tresw.db.entities.Zone;
 import javax.validation.Validator;
+import javax.validation.constraints.AssertTrue;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -65,46 +84,55 @@ public class TestSportFacilityDao{
 	@Autowired
 	private Validator validator;
 	 
-	
+	@Before
+	public void setUp()
+	{
+		
+		sportFacilityDao.getSession().doWork(new Work() {
+			
+			@Override
+			public void execute(Connection connection) throws SQLException {
+				
+				// initialize database connection here
+		        IDatabaseConnection conn;
+				try
+				{
+					conn = new DatabaseConnection(connection);
+				
+			        // initializedataset here
+//			        URL url = 
+//			        File dataSetFile = new File(url.getFile());
+			        
+			        IDataSet dataSet = new FlatXmlDataSetBuilder().build(this.getClass().getClassLoader().getResourceAsStream("database.xml"));
+			        // ...
+			        try
+			        {
+			        	DatabaseOperation.CLEAN_INSERT.execute(conn, dataSet);
+			        }
+			        finally
+			        {
+			            connection.close();
+			        }
+				
+				}
+				catch (DatabaseUnitException e) 
+				{
+					System.out.print("Error " + e.toString()); 
+				} 
+		}});
+
+	}
+
+
 	@Test
 	@Rollback(false)
 	public void testCreateFail()
 	{
 		SportFacility sf = new SportFacility();
-		Set<ConstraintViolation<SportFacility>> constraintViolations = validator.validate(sf);
+		int n =0; 
 		sf.setAddress(new Address());
-		if(constraintViolations.size() > 0)
-		{
-			Iterator<ConstraintViolation<SportFacility>> iterator = constraintViolations.iterator();
-			while(iterator.hasNext())
-				{
-					ConstraintViolation<SportFacility> cv = iterator.next();
-					System.out.println(cv.getMessage());
-					System.out.println(cv.getPropertyPath());
-				}
-			}		
-			
-			Set<ConstraintViolation<Address>> constraintViolations1 = validator.validate(sf.getAddress());
-	
-			if(constraintViolations1.size() > 0)
-			{
-				Iterator<ConstraintViolation<Address>> iterator = constraintViolations1.iterator();
-				while(iterator.hasNext())
-				{
-					ConstraintViolation<Address> cv = iterator.next();
-					System.out.println(cv.getMessage());
-					System.out.println(cv.getPropertyPath());
-				}
-			}		
-			
-		try {
-		    sportFacilityDao.create(sf);
-		    sportFacilityDao.getSession().flush();
-		} catch (MethodConstraintViolationException e) {
-			Iterator<MethodConstraintViolation<?>> it =e.getConstraintViolations().iterator();
-			while(it.hasNext())
-				it.next().getPropertyPath();
-		}
+		Set<ConstraintViolation<SportFacility>> constraintViolations = validator.validate(sf);
+		assertTrue(constraintViolations.size()==6);
 	}	
 
 	@Test

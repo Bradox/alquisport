@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MUNICIPALITY",catalog="PISTEA")
+@Table(name="MUNICIPALITY"/*, catalog="PISTEA"*/)
 public class Municipality 
 {
 	@Id

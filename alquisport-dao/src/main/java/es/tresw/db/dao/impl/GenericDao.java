@@ -5,6 +5,8 @@ import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.ConstraintViolationException;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -36,7 +38,7 @@ public class GenericDao<T, PK extends Serializable> implements I_GenericDao<T, P
 
 	@SuppressWarnings("unchecked")
 	//@Transactional(readOnly=false)
-	public PK create(T object) 
+	public PK create(T object) throws ConstraintViolationException
 	{
 		return (PK) getSession().save(object);
 	}

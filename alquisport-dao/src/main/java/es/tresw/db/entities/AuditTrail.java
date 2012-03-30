@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AUDIT_TRAIL",catalog="PISTEA")
+@Table(name="AUDIT_TRAIL"/*, catalog="PISTEA"*/)
 public class AuditTrail
 {
 

@@ -23,7 +23,7 @@ import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
-@Table(name="SPORT_FACILITY",catalog="PISTEA")
+@Table(name="SPORT_FACILITY"/*, catalog="PISTEA"*/)
 public class SportFacility 
 {
 
@@ -54,6 +54,7 @@ public class SportFacility
 	private Integer state;
 	
 	@Valid
+	@NotNull
 	@Embedded
 	private Address address;
 	
@@ -77,7 +78,7 @@ public class SportFacility
 	private Set<Image> images=new HashSet<Image>();
 	
 	@OneToMany (mappedBy="sportFacility")
-	private Set<Administrator> administrators=new HashSet<Administrator>();
+	private Set<AdministratorSportFacility> administratorSportFacilities=new HashSet<AdministratorSportFacility>();
 	
 	@OneToMany(mappedBy="sportFacility")	
 	private Set<SportFacilityMember> members=new HashSet<SportFacilityMember>();
@@ -103,7 +104,7 @@ public class SportFacility
 	}
 
 	
-	public SportFacility(String name, String getHere, String description, Integer state, Set<Feature> features, Set<Image> images, Set<Administrator> administrators, Address address, ContactInfo contactInfo, Appearance appearance, Set<SportFacilityMember> members, Set<Court> courts, Set<Day> days, Set<SpecialDay> specialDays) 
+	public SportFacility(String name, String getHere, String description, Integer state, Set<Feature> features, Set<Image> images, Set<AdministratorSportFacility> administratorSportFacilities, Address address, ContactInfo contactInfo, Appearance appearance, Set<SportFacilityMember> members, Set<Court> courts, Set<Day> days, Set<SpecialDay> specialDays) 
 	{
 		this.name = name;
 		this.getHere = getHere;
@@ -111,7 +112,7 @@ public class SportFacility
 		this.state = state;
 		this.features = features;
 		this.images = images;
-		this.administrators = administrators;
+		this.administratorSportFacilities = administratorSportFacilities;
 		this.address = address;
 		this.contactInfo = contactInfo;
 		this.appearance = appearance;
@@ -192,14 +193,14 @@ public class SportFacility
 		this.images = images;
 	}
 
-	public Set<Administrator> getAdministrators() 
+	public Set<AdministratorSportFacility> getAdministratorSportFacilities() 
 	{
-		return administrators;
+		return administratorSportFacilities;
 	}
 
-	public void setAdministrators(Set<Administrator> administrators) 
+	public void setAdministratorSportFacilities(Set<AdministratorSportFacility> administratorSportFacilities) 
 	{
-		this.administrators = administrators;
+		this.administratorSportFacilities = administratorSportFacilities;
 	}
 
 	public Address getAddress() 

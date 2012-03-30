@@ -17,6 +17,10 @@
 			</list>
 		</property>
 	</bean>
+	
+	<!-- jdbc:embedded-database type="H2" id="dataSource">
+	    <jdbc:script location="classpath:administrator.xml"/>
+	</jdbc:embedded-database-->
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName">
@@ -60,10 +64,12 @@
 	</bean>
 	
 	<!-- Initialize the database -->
-	<jdbc:initialize-database data-source="dataSource" enabled="${importsql}">
+	<!-- jdbc:initialize-database data-source="dataSource">
 		<jdbc:script location="insert_province.sql"/>
 		<jdbc:script location="insert_municipality.sql"/>
 		<jdbc:script location="insert_role.sql"/>
-	</jdbc:initialize-database>
+	</jdbc:initialize-database-->
+	
+
 
 </beans>

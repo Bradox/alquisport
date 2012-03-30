@@ -3,6 +3,8 @@ package es.tresw.db.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.validation.ConstraintViolationException;
+
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 
@@ -14,7 +16,7 @@ public interface I_GenericDao<T, PK extends Serializable>
 	 * @param newInstance
 	 * @return
 	 */
-	PK create(T newInstance);
+	PK create(T newInstance) throws ConstraintViolationException;
 
 	/**
 	 * Read by technical identifier

@@ -9,7 +9,7 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "IMAGE",catalog="PISTEA")
+@Table(name = "IMAGE"/*, catalog="PISTEA"*/)
 public class Image 
 {
 	@Id

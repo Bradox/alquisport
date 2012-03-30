@@ -112,11 +112,12 @@
 		
 		<!-- Testing -->
 		<dependency>
-		    <groupId>dbunit</groupId>
-    		    <artifactId>dbunit</artifactId>
-    		    <version>${dbunit.version}</version>
-    		    <scope>test</scope>
+		    <groupId>org.dbunit</groupId>
+    		<artifactId>dbunit</artifactId>
+    		<version>${dbunit.version}</version>
+    		<scope>test</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -160,7 +161,7 @@
 		<repository>
 			<id>SpringRepo</id>
 			<name>Spring Maven Repository</name>
-			<url>http://repo1.maven.org/maven2/org/springframework/security/</url>
+			<url>http://repo1.maven.org/maven2/</url>
 		</repository>
 	</repositories>
 </project>

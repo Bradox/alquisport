@@ -20,7 +20,7 @@ import es.tresw.db.embeddable.CourtType;
 import es.tresw.db.embeddable.ReservationConfig;
 
 @Entity
-@Table(name="COURT",catalog="PISTEA")
+@Table(name="COURT"/*, catalog="PISTEA"*/)
 public class Court 
 {
 

@@ -62,8 +62,6 @@ public class TestCourtDao{
 		schedule.setEndHour(22);
 		schedule.setMinEnd(00);
 		schedule.setMinStart(00);
-		schedule.setPriceCourt(10);
-		schedule.setPriceLight(5);
 		schedule.setStartHour(15);
 		scheduleDao.create(schedule);
 	}

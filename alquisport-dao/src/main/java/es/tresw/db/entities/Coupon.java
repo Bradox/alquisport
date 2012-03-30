@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="COUPON")
+@Table(name="COUPON"/*, catalog="PISTEA"*/)
 public class Coupon 
 {
 	@Id
