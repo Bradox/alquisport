@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import es.tresw.db.types.MonthName;
 
 @Entity
-@Table(name="SPECIAL_DAY"/*, catalog="PISTEA"*/)
+@Table(name="SPECIAL_DAY")
 @DiscriminatorColumn(name="DAYTYPE",discriminatorType=DiscriminatorType.STRING)
 @DiscriminatorValue("SPECIAL")
 public class SpecialDay extends Day

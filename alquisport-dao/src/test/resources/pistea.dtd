@@ -1,36 +1,36 @@
 <!ELEMENT dataset (
-    administrator_sportfacility*,
-    audit_trail*,
-    company*,
-    coupon*,
-    coupon_used*,
-    court*,
-    court_day*,
-    court_feature*,
-    court_special_day*,
-    day*,
-    feature*,
-    hibernate_sequences*,
-    image*,
-    message*,
-    municipality*,
-    province*,
-    rent*,
-    rental_client*,
-    role*,
-    schedule*,
-    special_price*,
-    sport_event_rentals*,
-    sport_facility*,
-    sport_facility_day*,
-    sport_facility_features*,
-    sport_facility_image*,
-    sport_facility_member*,
-    sport_facility_special_day*,
-    sports_event*,
-    user*,
-    user_role*,
-    zone*)>
+    administrator_sportfacility,
+    audit_trail,
+    company,
+    coupon,
+    coupon_used,
+    court,
+    court_day,
+    court_feature,
+    court_special_day,
+    day,
+    feature,
+    hibernate_sequences,
+    image,
+    message,
+    municipality,
+    province,
+    rent,
+    rental_client,
+    role,
+    schedule,
+    special_price,
+    sport_event_rentals,
+    sport_facility,
+    sport_facility_day,
+    sport_facility_features,
+    sport_facility_image,
+    sport_facility_member,
+    sport_facility_special_day,
+    sports_event,
+    user,
+    user_role,
+    zone)>
 
 <!ELEMENT administrator_sportfacility EMPTY>
 <!ATTLIST administrator_sportfacility
@@ -170,6 +170,7 @@
     NAME CDATA #IMPLIED
 >
 
+	
 <!ELEMENT rent EMPTY>
 <!ATTLIST rent
     ID CDATA #REQUIRED

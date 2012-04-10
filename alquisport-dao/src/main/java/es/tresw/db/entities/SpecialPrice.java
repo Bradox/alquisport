@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "SPECIAL_PRICE"/*, catalog="PISTEA"*/)
+@Table(name = "SPECIAL_PRICE")
 public class SpecialPrice 
 {
 	@Id

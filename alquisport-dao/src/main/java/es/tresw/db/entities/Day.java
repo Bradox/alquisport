@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import es.tresw.db.types.DayOfWeek;
 
 @Entity
-@Table(name="DAY"/*, catalog="PISTEA"*/)
+@Table(name="DAY")
 @DiscriminatorColumn(name="DAYTYPE",discriminatorType=DiscriminatorType.STRING)
 @DiscriminatorValue("NORMAL")
 public class Day 

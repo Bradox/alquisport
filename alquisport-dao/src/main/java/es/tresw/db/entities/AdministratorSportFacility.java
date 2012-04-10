@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ADMINISTRATOR_SPORTFACILITY"/*, catalog="PISTEA"*/)
+@Table(name="ADMINISTRATOR_SPORTFACILITY")
 public class AdministratorSportFacility
 {
 	@Id

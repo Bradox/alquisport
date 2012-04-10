@@ -23,7 +23,7 @@ import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
-@Table(name="SPORT_FACILITY"/*, catalog="PISTEA"*/)
+@Table(name="SPORT_FACILITY")
 public class SportFacility 
 {
 

@@ -1,7 +1,5 @@
-<!DOCTYPE root-element  SYSTEM "./src/test/resources/pistea.dtd">
+<!DOCTYPE root-element  SYSTEM "pistea.dtd">
 <dataset>
-<province ID="1" NAME="Sevilla"/>
-<municipality ID="1" NAME="Sevilla"/>
-<zone ID="1" ID_MUNICIPALITY="1" NAME="Bami"/>
-<user ID_MUNICIPALITY="1" username="admin" ID_ZONE="1" SECOND_LASTNAME="admin" NAME="admin" ID="1" USERTYPE="ADMIN" PASSWORD="123456" FIRST_LASTNAME="PEPE" ID_PROVINCE="1"/>
+<PROVINCE ID="1" NAME="Sevilla"/>
 </dataset>
+

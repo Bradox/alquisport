@@ -16,7 +16,7 @@ import es.tresw.db.embeddable.Address;
 
 
 @Entity
-@Table(name="COMPANY"/*, catalog="PISTEA"*/)
+@Table(name="COMPANY")
 public class Company 
 {
 	@Id

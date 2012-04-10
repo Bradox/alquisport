@@ -16,7 +16,7 @@ import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
-@Table(name="CLIENT"/*, catalog="PISTEA"*/)
+@Table(name="CLIENT")
 @DiscriminatorValue("CLIENT")
 public class Client extends User
 {
