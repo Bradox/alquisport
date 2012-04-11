@@ -2,12 +2,16 @@ package es.tresw.db.dao;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set; 
+
+import javax.annotation.PostConstruct;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
@@ -19,12 +23,14 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.hibernate.jdbc.Work;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.transaction.annotation.Transactional;
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.ContactInfo;
@@ -56,20 +62,36 @@ public class TestSportFacilityDao{
 	  @Before
 	  public void onSetUpInTransaction() throws Exception 
 	  {
+		  //Controller for allowing users to perform JDBC using the Connection managed by this Session.
 		  sportFacilityDao.getSession().doWork(new Work() {
 				@Override
 				public void execute(Connection connection) throws SQLException {
-					IDatabaseConnection conn;
+					 IDatabaseConnection conn;
 				     try {
 				      conn = new DatabaseConnection(connection);
-				
+				      //Populate the database using the DBunit xml
 				      FlatXmlDataSetBuilder builder = new FlatXmlDataSetBuilder();
-				      IDataSet dataSet=builder.build(this.getClass().getClassLoader().getResourceAsStream("database.xml"));
-				      
+				      builder.setDtdMetadata(false);
+				      //this is a hack to bypass constrain validations on delete, this is needed since the only way to populate the database is using @before which is called by every method
+				      if(connection.getMetaData().getDatabaseProductName().equals("H2"))
+				      {
+					      Statement sttmnt = connection.createStatement();
+					      sttmnt.execute("SET REFERENTIAL_INTEGRITY FALSE");
+					      sttmnt.close();
+				      }
+				      IDataSet dataSet= builder.build(new File("src/test/resources/database.xml"));//builder.build(this.getClass().getClassLoader().getResourceAsStream("database.xml"));
+				      //Populate the database
 				      DatabaseOperation.CLEAN_INSERT.execute(conn,dataSet);
+				      //Restore the referecnail integrity
+				      if(connection.getMetaData().getDatabaseProductName().equals("H2"))
+				      {
+				    	  Statement sttmnt = connection.createStatement();
+					      sttmnt.execute("SET REFERENTIAL_INTEGRITY TRUE");
+					      sttmnt.close();
+				      }
 				    }
 				    catch (Exception e) {
-						e.toString();
+						e.printStackTrace();
 					}
 				}
 		  });
@@ -77,7 +99,6 @@ public class TestSportFacilityDao{
 
 
 	@Test
-	@Rollback(false)
 	public void testCreateFail()
 	{
 		SportFacility sf = new SportFacility();
@@ -113,14 +134,7 @@ public class TestSportFacilityDao{
 		zoneDao.create(zone);
 		a.setZone(zone);
 		sf.setAddress(a);
-		try
-		{
-			sportFacilityDao.create(sf);
-		}
-		catch (ConstraintViolationException e) 
-		{
-			assertEquals(1, e.getConstraintViolations().size());
-		}
+		sportFacilityDao.create(sf);
 	}
 
 	
@@ -158,7 +172,7 @@ public class TestSportFacilityDao{
 	}
 	
 	@Test
-	@Transactional
+	@Rollback(false)
 	public void testDelete()
 	{
 		SportFacility sportFacility = sportFacilityDao.readAll().get(0);

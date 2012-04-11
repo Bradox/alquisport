@@ -1,49 +1,44 @@
 <!ELEMENT dataset (
-    administrator_sportfacility,
-    audit_trail,
-    company,
-    coupon,
-    coupon_used,
-    court,
-    court_day,
-    court_feature,
-    court_special_day,
-    day,
-    feature,
-    hibernate_sequences,
-    image,
-    message,
-    municipality,
-    province,
-    rent,
-    rental_client,
-    role,
-    schedule,
-    special_price,
-    sport_event_rentals,
-    sport_facility,
-    sport_facility_day,
-    sport_facility_features,
-    sport_facility_image,
-    sport_facility_member,
-    sport_facility_special_day,
-    sports_event,
-    user,
-    user_role,
-    zone)>
-
-<!ELEMENT administrator_sportfacility EMPTY>
-<!ATTLIST administrator_sportfacility
-    ID CDATA #REQUIRED
-    ADMINISTRATOR CDATA #REQUIRED
-    SportFacility CDATA #REQUIRED
->
+    audit_trail*,
+    calendar*,
+    company*,
+    coupon*,
+    coupon_used*,
+    court*,
+    court_feature*,
+    days*,
+    feature*,
+    hibernate_sequences*,
+    image*,
+    message*,
+    month*,
+    municipality*,
+    province*,
+    rent*,
+    rental_client*,
+    role*,
+    schedule*,
+    sport_event_rentals*,
+    sport_facility*,
+    sport_facility_features*,
+    sport_facility_image*,
+    sport_facility_member*,
+    sports_event*,
+    user*,
+    user_role*,
+    year*,
+    zone*)>
 
 <!ELEMENT audit_trail EMPTY>
 <!ATTLIST audit_trail
     ID CDATA #REQUIRED
     DATE CDATA #IMPLIED
     DESCRIPTION CDATA #IMPLIED
+>
+
+<!ELEMENT calendar EMPTY>
+<!ATTLIST calendar
+    ID CDATA #REQUIRED
 >
 
 <!ELEMENT company EMPTY>
@@ -54,9 +49,9 @@
     TYPE CDATA #IMPLIED
     ZIP_CODE CDATA #IMPLIED
     NAME CDATA #REQUIRED
-    ID_MUNICIPALITY CDATA #REQUIRED
-    ID_PROVINCE CDATA #REQUIRED
-    ID_ZONE CDATA #REQUIRED
+    ID_MUNICIPALITY CDATA #IMPLIED
+    ID_PROVINCE CDATA #IMPLIED
+    ID_ZONE CDATA #IMPLIED
 >
 
 <!ELEMENT coupon EMPTY>
@@ -83,19 +78,13 @@
     NAME CDATA #IMPLIED
     QUANTITY CDATA #IMPLIED
     DESCRIPTION CDATA #IMPLIED
-    PRICE CDATA #IMPLIED
     DAYS_CLIENT CDATA #IMPLIED
     DAYS_MEMBER CDATA #IMPLIED
     HOUR_LIGHTS_ON CDATA #IMPLIED
     RESERVATION_TYPE CDATA #IMPLIED
     STATE CDATA #IMPLIED
+    CALENDAR_ID CDATA #IMPLIED
     ID_SPORT_FACILITY CDATA #IMPLIED
->
-
-<!ELEMENT court_day EMPTY>
-<!ATTLIST court_day
-    COURT_ID CDATA #REQUIRED
-    DAY_ID CDATA #REQUIRED
 >
 
 <!ELEMENT court_feature EMPTY>
@@ -104,19 +93,12 @@
     FEATURE_ID CDATA #REQUIRED
 >
 
-<!ELEMENT court_special_day EMPTY>
-<!ATTLIST court_special_day
-    COURT_ID CDATA #REQUIRED
-    DAY_ID CDATA #REQUIRED
->
-
-<!ELEMENT day EMPTY>
-<!ATTLIST day
-    DAYTYPE CDATA #REQUIRED
+<!ELEMENT days EMPTY>
+<!ATTLIST days
     ID CDATA #REQUIRED
     DAY CDATA #IMPLIED
-    DAY_OF_WEEK CDATA #IMPLIED
-    MONTH_NAME CDATA #IMPLIED
+    dayOfWeek CDATA #IMPLIED
+    ID_MONTH CDATA #IMPLIED
     ID_SCHEDULE CDATA #IMPLIED
 >
 
@@ -157,6 +139,14 @@
     USER_TO_ID CDATA #IMPLIED
 >
 
+<!ELEMENT month EMPTY>
+<!ATTLIST month
+    ID CDATA #REQUIRED
+    MONTH CDATA #IMPLIED
+    monthName CDATA #IMPLIED
+    ID_YEAR CDATA #IMPLIED
+>
+
 <!ELEMENT municipality EMPTY>
 <!ATTLIST municipality
     ID CDATA #REQUIRED
@@ -170,7 +160,6 @@
     NAME CDATA #IMPLIED
 >
 
-	
 <!ELEMENT rent EMPTY>
 <!ATTLIST rent
     ID CDATA #REQUIRED
@@ -191,6 +180,7 @@
 <!ATTLIST role
     ID CDATA #REQUIRED
     NAME CDATA #IMPLIED
+    ROLE_ID CDATA #IMPLIED
 >
 
 <!ELEMENT schedule EMPTY>
@@ -199,20 +189,9 @@
     END_HOUR CDATA #IMPLIED
     MINUTE_END CDATA #IMPLIED
     MINUTE_START CDATA #IMPLIED
+    PRICE_COURT CDATA #IMPLIED
+    PRICE_LIGHT CDATA #IMPLIED
     START_HOUR CDATA #IMPLIED
->
-
-<!ELEMENT special_price EMPTY>
-<!ATTLIST special_price
-    ID CDATA #REQUIRED
-    DATE_FINISH CDATA #IMPLIED
-    DATE_START CDATA #IMPLIED
-    DESCRIPTION CDATA #IMPLIED
-    END_HOUR CDATA #IMPLIED
-    MINUTE_END CDATA #IMPLIED
-    MINUTE_START CDATA #IMPLIED
-    START_HOUR CDATA #IMPLIED
-    COURT_ID CDATA #IMPLIED
 >
 
 <!ELEMENT sport_event_rentals EMPTY>
@@ -236,18 +215,12 @@
     DESCRIPTION CDATA #IMPLIED
     GET_HERE CDATA #IMPLIED
     NAME CDATA #REQUIRED
-    STATE CDATA #REQUIRED
+    STATE CDATA #IMPLIED
     URL_NAME CDATA #REQUIRED
-    ID_MUNICIPALITY CDATA #REQUIRED
-    ID_PROVINCE CDATA #REQUIRED
-    ID_ZONE CDATA #REQUIRED
+    ID_MUNICIPALITY CDATA #IMPLIED
+    ID_PROVINCE CDATA #IMPLIED
+    ID_ZONE CDATA #IMPLIED
     IMAGE_ID CDATA #IMPLIED
->
-
-<!ELEMENT sport_facility_day EMPTY>
-<!ATTLIST sport_facility_day
-    SPORT_FACILITY_ID CDATA #REQUIRED
-    DAY_ID CDATA #REQUIRED
 >
 
 <!ELEMENT sport_facility_features EMPTY>
@@ -269,12 +242,6 @@
     ID_SPORTFACILITY CDATA #IMPLIED
 >
 
-<!ELEMENT sport_facility_special_day EMPTY>
-<!ATTLIST sport_facility_special_day
-    SPORT_FACILITY_ID CDATA #REQUIRED
-    DAY_ID CDATA #REQUIRED
->
-
 <!ELEMENT sports_event EMPTY>
 <!ATTLIST sports_event
     ID CDATA #REQUIRED
@@ -287,8 +254,6 @@
 <!ATTLIST user
     USERTYPE CDATA #REQUIRED
     ID CDATA #REQUIRED
-    ACCOUNT_NON_EXPIRED CDATA #IMPLIED
-    ACCOUNT_NON_LOCKED CDATA #IMPLIED
     ADDRESS CDATA #IMPLIED
     TYPE CDATA #IMPLIED
     ZIP_CODE CDATA #IMPLIED
@@ -300,26 +265,30 @@
     EMAIL CDATA #IMPLIED
     PHONE1 CDATA #IMPLIED
     PHONE2 CDATA #IMPLIED
-    CREATED_DATE CDATA #IMPLIED
-    CREDENTIALS_NON_EXPIRED CDATA #IMPLIED
     ENABLED CDATA #IMPLIED
     FIRST_LASTNAME CDATA #REQUIRED
-    LAST_MODIFIED_DATE CDATA #IMPLIED
     NAME CDATA #REQUIRED
     PASSWORD CDATA #REQUIRED
     SECOND_LASTNAME CDATA #REQUIRED
     username CDATA #REQUIRED
-    ID_MUNICIPALITY CDATA #REQUIRED
-    ID_PROVINCE CDATA #REQUIRED
-    ID_ZONE CDATA #REQUIRED
+    ID_MUNICIPALITY CDATA #IMPLIED
+    ID_PROVINCE CDATA #IMPLIED
+    ID_ZONE CDATA #IMPLIED
+    ROLE_ID CDATA #IMPLIED
     ID_COMPANY CDATA #IMPLIED
+    ID_SPORTFACILITY CDATA #IMPLIED
 >
 
 <!ELEMENT user_role EMPTY>
 <!ATTLIST user_role
     ID CDATA #REQUIRED
-    ROLE CDATA #REQUIRED
-    USER CDATA #REQUIRED
+>
+
+<!ELEMENT year EMPTY>
+<!ATTLIST year
+    ID CDATA #REQUIRED
+    YEAR CDATA #IMPLIED
+    ID_CALENDAR CDATA #IMPLIED
 >
 
 <!ELEMENT zone EMPTY>

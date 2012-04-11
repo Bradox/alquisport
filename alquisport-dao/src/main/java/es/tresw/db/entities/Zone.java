@@ -1,5 +1,6 @@
 package es.tresw.db.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ public class Zone
 	private Long id;
 	@Column(name="NAME")
 	private String name;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ID_MUNICIPALITY")
 	private Municipality municipality;
 

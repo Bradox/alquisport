@@ -20,7 +20,7 @@ public class DatabaseExport
 	 {
 
 		 DatabaseExport.generateSchema();
-		 DatabaseExport.export();		 
+		// DatabaseExport.export();		 
 	 }
 	 
 	 public static void export() throws Exception
@@ -38,12 +38,12 @@ public class DatabaseExport
 	 {
 		  // database connection
 	        Class driverClass = Class.forName("com.mysql.jdbc.Driver");
-	        Connection jdbcConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pistea", "root", "mpsbart");
+	        Connection jdbcConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pistea", "root", "");
 	        IDatabaseConnection connection = new DatabaseConnection(jdbcConnection);
 	        connection.getConfig().setProperty(DatabaseConfig.FEATURE_QUALIFIED_TABLE_NAMES, true);
 	        connection.getConfig().setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY, new MySqlDataTypeFactory());
 
 	        // write DTD file
-	        FlatDtdDataSet.write(connection.createDataSet(), new FileOutputStream("test.dtd"));
+	        FlatDtdDataSet.write(connection.createDataSet(), new FileOutputStream("src/test/resources/pistea.dtd"));
 	 }
 }
