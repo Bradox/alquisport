@@ -13,11 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import es.tresw.db.constants.PisteaConstants;
 import es.tresw.db.dao.I_AdministratorDao;
+import es.tresw.db.dao.I_AdministratorSportFacilityDao;
 import es.tresw.db.dao.I_ClientDao;
 import es.tresw.db.dao.I_RoleDao;
 import es.tresw.db.dao.I_UserDao;
 import es.tresw.db.dao.I_UserRoleDao;
 import es.tresw.db.entities.Administrator;
+import es.tresw.db.entities.AdministratorSportFacility;
 import es.tresw.db.entities.Client;
 import es.tresw.db.entities.Role;
 import es.tresw.db.entities.User;
@@ -46,6 +48,9 @@ public class RegisterService {
 	
 	@Autowired
 	private NotificationService notificacionService;
+	
+	@Autowired
+	private I_AdministratorSportFacilityDao administratorSportFacilityDao;
 	
 	public boolean register(Client c)
 	{
@@ -170,6 +175,11 @@ public class RegisterService {
 		return userDao.findByName(username);
 	}
 	
+	public void createAdministrators(AdministratorSportFacility asf)
+	{
+		
+	}
+	
 	/*PRIVATE METHOD*/
 	/**
 	 * Crea una cadena formada por numeros, mayusculas y minusculas de longitud indicada por parametro
@@ -237,6 +247,14 @@ public class RegisterService {
 	public void setUserRoleDao(I_UserRoleDao userRoleDao) {
 		this.userRoleDao = userRoleDao;
 	}
-	
+
+	public I_AdministratorSportFacilityDao getAdministratorSportFacilityDao() {
+		return administratorSportFacilityDao;
+	}
+
+	public void setAdministratorSportFacilityDao(
+			I_AdministratorSportFacilityDao administratorSportFacilityDao) {
+		this.administratorSportFacilityDao = administratorSportFacilityDao;
+	}
 
 }

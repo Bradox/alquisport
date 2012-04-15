@@ -11,7 +11,7 @@ public class ContactInfo
 
 	@Size(min=1,max=255,message="{campo_obligatorio}")
 	@Email(message="{email_incorrecto}")
-	@Column(name="EMAIL", length=255,unique=true)
+	@Column(name="EMAIL", length=255)
 	private String email;
 	
 	@Size(max=15,message="{telefono_incorrecto}")

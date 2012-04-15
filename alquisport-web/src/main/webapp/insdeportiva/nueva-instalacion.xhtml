@@ -18,7 +18,7 @@
 	</ui:define>
 	<ui:define name="colder">
 		<h1>Información General</h1>
-		<h:messages globalOnly="true" />
+		<p:messages globalOnly="true" />
 		<h:form id="nueva-instalacion" prependId="false">
 			<h:panelGrid columns="3">
 				<h:outputLabel for="name" value="Nombre(*)" />
@@ -49,7 +49,6 @@
 						value="#{newSportFacilityController.province}">
 						<f:selectItem itemLabel="Selecciona una provincia" itemValue="" />
 						<f:selectItems value="#{newSportFacilityController.provincias}" />
-						<p:ajax update="municipios" listener="#{newSportFacilityController.handleProvinceChange}" />
 					</p:selectOneMenu>
 					<p:message id="provinciaError" for="provincias" errorClass="error" />
 					
@@ -102,9 +101,6 @@
 						value="#{newSportFacilityController.email}" maxlength="255"
 						styleClass="w300" />
 					<p:message id="emailError" for="email" errorClass="error" />
-
-					<p:button value="Usar mis datos">
-					</p:button>
 
 				</h:panelGrid>
 			</p:fieldset>

@@ -492,3 +492,7 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Access denied for use
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:352)
 0    [32063489@qtp-9137209-0] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Column 'ID_MUNICIPALITY' cannot be null
 0    [2675678@qtp-26810747-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Column 'ID_MUNICIPALITY' cannot be null
+0    [30256499@qtp-19736274-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Column 'ID_ZONE' cannot be null
+0    [10388733@qtp-22128402-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'serrapos@gmail.com' for key 'EMAIL'
+883625 [10388733@qtp-22128402-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'serrapos@gmail.com' for key 'EMAIL'
+0    [33008558@qtp-6233000-0] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'serrapos@gmail.com' for key 'EMAIL'

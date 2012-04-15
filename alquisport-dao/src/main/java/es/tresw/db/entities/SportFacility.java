@@ -1,5 +1,6 @@
 package es.tresw.db.entities;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -52,6 +55,14 @@ public class SportFacility
 	@NotNull
 	@Column(name="STATE", length=2)
 	private Integer state;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "CREATED_DATE", length = 19)
+	private Date createDate;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "LAST_MODIFIED_DATE", length = 19)
+	private Date lastModifiedDate;
 	
 	@Valid
 	@NotNull
@@ -294,5 +305,27 @@ public class SportFacility
 	{
 		this.specialDays = specialDays;
 	}
+
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+	
+	
 
 }

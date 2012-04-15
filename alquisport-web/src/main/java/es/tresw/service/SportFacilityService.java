@@ -1,5 +1,6 @@
 package es.tresw.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import es.tresw.db.dao.I_MunicipalityDao;
 import es.tresw.db.dao.I_ProvinceDao;
 import es.tresw.db.dao.I_SportFacilityDao;
+import es.tresw.db.dao.I_ZoneDao;
 import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.Municipality;
 import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
+import es.tresw.db.entities.Zone;
 
 @Transactional
 public class SportFacilityService {
@@ -25,6 +28,9 @@ public class SportFacilityService {
 	@Autowired
 	private I_MunicipalityDao municipalityDao;
 	
+	@Autowired
+	private I_ZoneDao zoneDao;
+	
 	public String prueba()
 	{
 		return "Desde el service de sport facility";
@@ -32,6 +38,15 @@ public class SportFacilityService {
 	
 	public void createSportFacility(SportFacility sf)
 	{
+		//Le asignamo el estado inicial de la pista
+		sf.setState(new Integer(1));
+		
+		//Ponemos la fecha de control
+		Date now = new Date();
+		sf.setCreateDate(now);
+		sf.setLastModifiedDate(now);
+		
+		//Creamos el registro en BBDD
 		sportFacilityDao.create(sf);
 	}
 	
@@ -75,6 +90,22 @@ public class SportFacilityService {
 		return sportFacilityDao.getSportFacilityByAdministrator(a);
 	}
 	
+	public Zone searchZone(String name, Municipality mun)
+	{
+		return zoneDao.getZoneByNameAndMunicipality(name, mun);
+	}
+	
+	public void createZone(String name, Municipality mun)
+	{
+		Zone z = new Zone(name, mun);
+		zoneDao.create(z);
+	}
+	
+	public void createZone(Zone z)
+	{
+		zoneDao.create(z);
+	}
+	
 	
 	/*GETTERS AND SETTERS*/
 
@@ -101,5 +132,14 @@ public class SportFacilityService {
 	public void setMunicipalityDao(I_MunicipalityDao municipalityDao) {
 		this.municipalityDao = municipalityDao;
 	}
+
+	public I_ZoneDao getZoneDao() {
+		return zoneDao;
+	}
+
+	public void setZoneDao(I_ZoneDao zoneDao) {
+		this.zoneDao = zoneDao;
+	}
+	
 	
 }

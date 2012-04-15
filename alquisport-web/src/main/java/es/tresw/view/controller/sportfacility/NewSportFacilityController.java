@@ -2,7 +2,9 @@ package es.tresw.view.controller.sportfacility;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
@@ -16,6 +18,7 @@ import org.hibernate.validator.constraints.Email;
 
 import es.tresw.db.embeddable.Address;
 import es.tresw.db.embeddable.ContactInfo;
+import es.tresw.db.entities.AdministratorSportFacility;
 import es.tresw.db.entities.Municipality;
 import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
@@ -98,21 +101,40 @@ public class NewSportFacilityController implements Serializable{
 			a.setAddress(address);
 			a.setZipCode(zipCode);
 			
+			//Guardamos la provincia
 			Province p = sportFacilityService.getProvince(province);
 			a.setProvince(p);
 			Municipality m = sportFacilityService.getMunicipality(municipality);
 			a.setMunicipality(m);
-			Zone z = new Zone();
-			z.setName(zone);
-			z.setMunicipality(m);
+			
+			//Creamos la zona y la guardamos
+			Zone z = sportFacilityService.searchZone(zone, m);
+			if(z==null)
+			{
+				z = new Zone();
+				z.setName(zone);
+				z.setMunicipality(m);
+				sportFacilityService.createZone(z);
+			}
+			
 			a.setZone(z);	
 			sf.setAddress(a);
 			
 			sf.setGetHere(getHere);
 			
-			
 			//Guardamos
 			sportFacilityService.createSportFacility(sf);
+			
+			//Le decimos el administrador de la pista
+			AdministratorSportFacility asf = new AdministratorSportFacility();
+			asf.setSportFacility(sf);
+			asf.setAdministrator(userSessionController.getAdministrator());
+			userSessionController.createAdministrators(asf);
+			
+			Set<AdministratorSportFacility> adminsitradores = new HashSet<AdministratorSportFacility>();
+			adminsitradores.add(asf);
+			sf.setAdministratorSportFacilities(adminsitradores);
+			
 			//actualizo el objeto de la sesion metiendo el recien creado y nos vamos a la pagina resumen.
 			//adminSessionController.setSportFacility(sf);
 			
@@ -148,20 +170,39 @@ public class NewSportFacilityController implements Serializable{
     }  
 	
 	public List<SelectItem> getProvincias() {
-		provincias = new ArrayList<SelectItem>();
-		List<Province> provinciasEntity = sportFacilityService.getProvinces();
-		for(Province p:provinciasEntity)
+		if(provincias==null || provincias.size()==0)
 		{
-			SelectItem s = new SelectItem();
-			s.setLabel(p.getName());
-			s.setValue(p.getId());
-			provincias.add(s);
+			provincias = new ArrayList<SelectItem>();
+			List<Province> provinciasEntity = sportFacilityService.getProvinces();
+			for(Province p:provinciasEntity)
+			{
+				SelectItem s = new SelectItem();
+				s.setLabel(p.getName());
+				s.setValue(p.getId());
+				provincias.add(s);
+			}
 		}
 		return provincias;
 	}
 	
-	public List<SelectItem> getMunicipios() {
+	/*public List<SelectItem> getMunicipios() {
 		handleProvinceChange();
+		return municipios;
+	}*/
+	
+	public List<SelectItem> getMunicipios() {
+		if(municipios==null || municipios.size()==0)
+		{
+			municipios = new ArrayList<SelectItem>();
+			List<Municipality> listaMunicipios = sportFacilityService.getMunicipality();
+			for(Municipality m:listaMunicipios)
+			{
+				SelectItem s = new SelectItem();
+				s.setLabel(m.getName());
+				s.setValue(m.getId());
+				municipios.add(s);
+			}
+		}
 		return municipios;
 	}
 	
@@ -322,5 +363,6 @@ public class NewSportFacilityController implements Serializable{
 		this.provincias = provincias;
 	}
 	
-
+	
+	
 }

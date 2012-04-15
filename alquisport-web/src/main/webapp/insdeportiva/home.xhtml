@@ -18,7 +18,6 @@
 		<p:panel header="Mis instalaciones">
 			<h:link value="Nueva Instalación Deportiva"
 				outcome="nueva-instalacion" />
-				<h:outputText value="#{homeSportFacilityController.prueba}" />
 				<ul>
 				<ui:repeat value="#{homeSportFacilityController.instalaciones}" var="i">
 				  <li><h:outputText value="#{i.name}" /></li>

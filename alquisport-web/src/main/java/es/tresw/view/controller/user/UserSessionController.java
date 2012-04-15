@@ -8,6 +8,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import es.tresw.db.entities.Administrator;
+import es.tresw.db.entities.AdministratorSportFacility;
 import es.tresw.db.entities.User;
 import es.tresw.service.RegisterService;
 
@@ -76,6 +77,11 @@ public class UserSessionController implements Serializable{
 			return (Administrator)user;
 		else
 			return null;
+	}
+	
+	public void createAdministrators(AdministratorSportFacility asf)
+	{
+		registerService.createAdministrators(asf);
 	}
 	
 
