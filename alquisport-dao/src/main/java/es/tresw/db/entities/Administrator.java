@@ -17,7 +17,7 @@ import es.tresw.db.embeddable.BankAccount;
 import es.tresw.db.embeddable.ContactInfo;
 
 @Entity
-@Table(name="ADMINISTRATOR"/*, catalog="PISTEA"*/)
+@Table(name="ADMINISTRATOR")
 @DiscriminatorValue("ADMIN")
 public class Administrator extends User
 {

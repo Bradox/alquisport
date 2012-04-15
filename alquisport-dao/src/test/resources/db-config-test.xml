@@ -63,8 +63,8 @@
 	    <property name="validationMessageSource" ref="messageSource"/>
 	</bean>
 	
-	<!-- Initialize the database -->
-	<!-- jdbc:initialize-database data-source="dataSource">
+	<!-- Populate the database -->
+	<!-- jdbc:initialize-database data-source="dataSource" enabled="${importsql}">
 		<jdbc:script location="insert_province.sql"/>
 		<jdbc:script location="insert_municipality.sql"/>
 		<jdbc:script location="insert_role.sql"/>

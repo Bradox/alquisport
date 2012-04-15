@@ -2,67 +2,44 @@ package es.tresw.db.dao;
 
 import static org.junit.Assert.*;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set; 
-import javax.imageio.ImageIO;
+
+import javax.annotation.PostConstruct;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import javax.validation.Valid;
-import javax.validation.Validation;
 import javax.validation.Validator;
 
-import junit.framework.Assert;
-
-import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
-import org.hibernate.AssertionFailure;
 import org.hibernate.jdbc.Work;
-import org.hibernate.validator.HibernateValidator;
-import org.hibernate.validator.method.MethodConstraintViolation;
-import org.hibernate.validator.method.MethodConstraintViolationException;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.AfterTransaction;
-import org.springframework.test.jdbc.SimpleJdbcTestUtils;
+import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.Errors;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import es.tresw.db.embeddable.Address;
-import es.tresw.db.embeddable.Appearance;
 import es.tresw.db.embeddable.ContactInfo;
 import es.tresw.db.entities.Client;
-import es.tresw.db.entities.Feature;
-import es.tresw.db.entities.Image;
 import es.tresw.db.entities.Municipality;
 import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
 import es.tresw.db.entities.SportFacilityMember;
 import es.tresw.db.entities.Zone;
-import javax.validation.Validator;
-import javax.validation.constraints.AssertTrue;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -78,58 +55,53 @@ public class TestSportFacilityDao{
 	@Autowired
 	private I_ClientDao clientDao;
 	@Autowired
-	private I_ImageDao imageDao;
-	@Autowired
 	private I_ZoneDao zoneDao;
 	@Autowired
 	private Validator validator;
 	 
-	@Before
-	public void setUp()
-	{
-		
-		sportFacilityDao.getSession().doWork(new Work() {
-			
-			@Override
-			public void execute(Connection connection) throws SQLException {
-				
-				// initialize database connection here
-		        IDatabaseConnection conn;
-				try
-				{
-					conn = new DatabaseConnection(connection);
-				
-			        // initializedataset here
-//			        URL url = 
-//			        File dataSetFile = new File(url.getFile());
-			        
-			        IDataSet dataSet = new FlatXmlDataSetBuilder().build(this.getClass().getClassLoader().getResourceAsStream("database.xml"));
-			        // ...
-			        try
-			        {
-			        	DatabaseOperation.CLEAN_INSERT.execute(conn, dataSet);
-			        }
-			        finally
-			        {
-			            connection.close();
-			        }
-				
+	  @Before
+	  public void onSetUpInTransaction() throws Exception 
+	  {
+		  //Controller for allowing users to perform JDBC using the Connection managed by this Session.
+		  sportFacilityDao.getSession().doWork(new Work() {
+				@Override
+				public void execute(Connection connection) throws SQLException {
+					 IDatabaseConnection conn;
+				     try {
+				      conn = new DatabaseConnection(connection);
+				      //Populate the database using the DBunit xml
+				      FlatXmlDataSetBuilder builder = new FlatXmlDataSetBuilder();
+				      builder.setDtdMetadata(false);
+				      //this is a hack to bypass constrain validations on delete, this is needed since the only way to populate the database is using @before which is called by every method
+				      if(connection.getMetaData().getDatabaseProductName().equals("H2"))
+				      {
+					      Statement sttmnt = connection.createStatement();
+					      sttmnt.execute("SET REFERENTIAL_INTEGRITY FALSE");
+					      sttmnt.close();
+				      }
+				      IDataSet dataSet= builder.build(new File("src/test/resources/database.xml"));//builder.build(this.getClass().getClassLoader().getResourceAsStream("database.xml"));
+				      //Populate the database
+				      DatabaseOperation.CLEAN_INSERT.execute(conn,dataSet);
+				      //Restore the referecnail integrity
+				      if(connection.getMetaData().getDatabaseProductName().equals("H2"))
+				      {
+				    	  Statement sttmnt = connection.createStatement();
+					      sttmnt.execute("SET REFERENTIAL_INTEGRITY TRUE");
+					      sttmnt.close();
+				      }
+				    }
+				    catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-				catch (DatabaseUnitException e) 
-				{
-					System.out.print("Error " + e.toString()); 
-				} 
-		}});
-
-	}
+		  });
+	  }
 
 
 	@Test
-	@Rollback(false)
 	public void testCreateFail()
 	{
 		SportFacility sf = new SportFacility();
-		int n =0; 
 		sf.setAddress(new Address());
 		Set<ConstraintViolation<SportFacility>> constraintViolations = validator.validate(sf);
 		assertTrue(constraintViolations.size()==6);
@@ -162,14 +134,7 @@ public class TestSportFacilityDao{
 		zoneDao.create(zone);
 		a.setZone(zone);
 		sf.setAddress(a);
-		try
-		{
-			sportFacilityDao.create(sf);
-		}
-		catch (ConstraintViolationException e) 
-		{
-			assertEquals(1, e.getConstraintViolations().size());
-		}
+		sportFacilityDao.create(sf);
 	}
 
 	
@@ -207,7 +172,7 @@ public class TestSportFacilityDao{
 	}
 	
 	@Test
-	@Transactional
+	@Rollback(false)
 	public void testDelete()
 	{
 		SportFacility sportFacility = sportFacilityDao.readAll().get(0);
@@ -241,4 +206,6 @@ public class TestSportFacilityDao{
 	{
 		this.validator=validator;
 	}
+	
 }
+

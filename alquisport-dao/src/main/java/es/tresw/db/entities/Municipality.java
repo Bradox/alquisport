@@ -2,8 +2,11 @@ package es.tresw.db.entities;
 
 
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MUNICIPALITY"/*, catalog="PISTEA"*/)
+@Table(name="MUNICIPALITY")
 public class Municipality 
 {
 	@Id
@@ -22,10 +25,10 @@ public class Municipality
 	private Long id;
 	@Column(name="NAME")
 	private String name;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ID_PROVINCE")
 	private Province province;
-	@OneToMany(mappedBy="municipality")
+	@OneToMany(mappedBy="municipality",fetch=FetchType.LAZY)
 	private Set<Zone> zones;
 	
 	public Municipality()

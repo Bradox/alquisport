@@ -1,25 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!DOCTYPE log4j:configuration  SYSTEM "log4j.dtd">
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-	<appender name="console" class="org.apache.log4j.ConsoleAppender">
-		<param name="Target" value="System.out" />
+	<appender name="rolling" class="org.apache.log4j.rolling.RollingFileAppender"> 
+
+    	<!-- rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="FileNamePattern" value="logs/database-%d-{yyyy-MM-dd-HH-mm}.log"/>
+            <param name="ActiveFileName" value="logs/database.log"/>
+        </rollingPolicy-->
+        
+       <rollingPolicy class="org.apache.log4j.rolling.FixedWindowRollingPolicy">
+     	  <param name="ActiveFileName" value="logs/database.log"/>
+	      <param name="fileNamePattern" value="logs/database-%i-%d{yyyyMMdd-HHmm}.log"/>
+	      <param name="minIndex" value="1"/>
+	      <param name="maxIndex" value="9"/>
+   		</rollingPolicy>
+
+        <triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
+			<param name="maxFileSize" value="50000000" />
+	    </triggeringPolicy>
+        
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%-5p %c{1} - %m%n" />
+			<param name="ConversionPattern" value="%d - %-5p [%t]: %c %x - %m%n" />
 		</layout>
 	</appender>
-	<appender name="FA" class="org.apache.log4j.FileAppender">
-		<param name="File" value="sample.log"/>
-		<param name="Threshold" value="WARN"/>
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n" />
-		</layout>
-	</appender>
+	<!-- 
+	Hibernate Loggers 
+	must set the level to TRACE (or ALL) in order to see the JDBC parameter binding logging.
+	org.hibernate.SQL	Log all SQL DML statements as they are executed
+	org.hibernate.type	Log all JDBC parameters
+	org.hibernate.tool.hbm2ddl	Log all SQL DDL statements as they are executed
+	org.hibernate.pretty	 Log the state of all entities (max 20 entities) associated with the session at flush time
+	org.hibernate.cache	Log all second-level cache activity
+	org.hibernate.transaction	Log transaction related activity
+	org.hibernate.jdbc	Log all JDBC resource acquisition
+	org.hibernate.hql.ast.AST	 Log HQL and SQL ASTs during query parsing
+	org.hibernate.secure	Log all JAAS authorization requests
+	org.hibernate	 Log everything. This is a lot of information but it is useful for troubleshooting
+	 -->
+	<logger name="org.hibernate">
+    	<level value="ALL" />
+    	<appender-ref ref="rolling"/>
+	</logger>
 	<root>
 		<level value="ERROR" />
-			<appender-ref ref="console" />
-			<appender-ref ref="FA" />
+			<!-- appender-ref ref="console" /-->
+			<appender-ref ref="rolling" />
 	</root>
 	
 </log4j:configuration>

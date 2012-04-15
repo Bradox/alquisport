@@ -1,0 +1,6 @@
+<!DOCTYPE root-element  SYSTEM "pistea.dtd">
+<dataset>
+<province ID="1" NAME="Sevilla"/>
+<municipality ID="1" NAME="Sevilla" ID_PROVINCE="1"/>
+</dataset>
+

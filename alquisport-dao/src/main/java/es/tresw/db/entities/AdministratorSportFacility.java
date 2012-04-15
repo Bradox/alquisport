@@ -11,44 +11,61 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ADMINISTRATOR_SPORT_FACILITY")
-public class AdministratorSportFacility {
-	
+@Table(name="ADMINISTRATOR_SPORTFACILITY")
+public class AdministratorSportFacility
+{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ADMINISTRATOR", nullable = false)
 	private Administrator administrator;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "SPORTFACILITY", nullable = false)
+	@JoinColumn(name = "SportFacility", nullable = false)
 	private SportFacility sportFacility;
+	
+	public AdministratorSportFacility()
+	{
+		
+	}
 
-	public Long getId() {
+	public AdministratorSportFacility(Administrator administrator, SportFacility sportFacility) 
+	{
+		this.administrator = administrator;
+		this.sportFacility = sportFacility;
+	}
+
+	public Long getId()
+	{
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Long id) 
+	{
 		this.id = id;
 	}
 
-	public Administrator getAdministrator() {
+	public Administrator getAdministrator()
+	{
 		return administrator;
 	}
 
-	public void setAdministrator(Administrator administrator) {
+	public void setAdministrator(Administrator administrator) 
+	{
 		this.administrator = administrator;
 	}
 
-	public SportFacility getSportFacility() {
+	public SportFacility getSportFacility()
+	{
 		return sportFacility;
 	}
 
-	public void setSportFacility(SportFacility sportFacility) {
+	public void setSportFacility(SportFacility sportFacility) 
+	{
 		this.sportFacility = sportFacility;
 	}
+
+
 	
 }

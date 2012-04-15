@@ -31,7 +31,7 @@ import es.tresw.db.embeddable.ContactInfo;
 
 
 @Entity
-@Table(name="USER"/*, catalog="PISTEA"*/)
+@Table(name="USER")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="USERTYPE",discriminatorType=DiscriminatorType.STRING)
 public class User 
