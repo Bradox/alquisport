@@ -3,22 +3,25 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-		<bean id="loggerListener"
+	<bean id="loggerListener"
 		class="org.springframework.security.access.event.LoggerListener" />
-		
-		<bean id="registerService" class="es.tresw.service.RegisterService">
-	    </bean>
-	    
-	    <bean id="assembler" class="es.tresw.service.Assembler">
-	    </bean>
-	    
-	    <bean id="userDetailsService" class="es.tresw.service.UserDetailsServiceImpl">
-		</bean>
-		
-		<bean id="sportFacilityService" class="es.tresw.service.SportFacilityService">
-		</bean>
-		
-		
-		
+
+	<bean id="registerService" class="es.tresw.service.RegisterService">
+	</bean>
+
+	<bean id="assembler" class="es.tresw.service.Assembler">
+	</bean>
+
+	<bean id="userDetailsService" class="es.tresw.service.UserDetailsServiceImpl">
+	</bean>
+
+	<bean id="sportFacilityService" class="es.tresw.service.SportFacilityService">
+	</bean>
+	
+	<bean id="pruebaService" class="es.tresw.service.PruebaService">
+	</bean>
+
+
+
 </beans>
 

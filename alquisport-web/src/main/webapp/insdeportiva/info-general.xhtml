@@ -7,10 +7,11 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:t="http://myfaces.apache.org/tomahawk">
-	
-	<f:metadata>
-        <f:event type="preRenderView" listener="#{generalInfoController.postLoad}" />
-    </f:metadata>
+
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{generalInfoController.postLoad}" />
+</f:metadata>
 
 <ui:composition
 	template="/WEB-INF/facelets/templates/adminInsdepLayout.xhtml">
@@ -19,79 +20,105 @@
 	</ui:define>
 	<ui:define name="content">
 		<h1>Información General</h1>
-		<h:messages globalOnly="true"/> 
+		<h:messages globalOnly="true" />
 		<h:form rendered="#{generalInfoController.mostrarFormulario}">
-            <h:panelGrid columns="3">
-                <h:outputLabel for="name" value="Nombre(*)" />
-                <p:inputText id="name" label="Nombre"  value="#{generalInfoController.name}" maxlength="255" styleClass="w400"/>
-                <p:message id="nameError" for="name" errorClass="error" />
-                
-                <h:outputLabel for="id" value="Identificador(*)" />
-                <p:inputText id="id" label="Identificador" value="#{generalInfoController.urlName}" maxlength="255" styleClass="w400"/>
-                <p:message id="idError" for="id" errorClass="error" />
-             </h:panelGrid>
-             
-             <p:fieldset legend="Dirección">
-             	<h:panelGrid columns="3">
-	             	<h:outputLabel for="direccion" value="Dirección completa" styleClass="w100"/>
-		            <p:inputText id="direccion" label="Dirección completa" value="#{generalInfoController.address}" maxlength="255" styleClass="w400"/>
-		            <p:message id="direccionError" for="direccion" errorClass="error" />  
-			    	
-			    	<h:outputLabel for="provincias" value="Provincia(*)" styleClass="w100"/>
-			        <p:selectOneMenu id="provincias" value="#{generalInfoController.province}">
-			    		<f:selectItem itemLabel="Selecciona una provincia" itemValue="" />
-			    		<f:selectItems value="#{generalInfoController.provincias}" />
-			    		<p:ajax update="municipios"
-			           		listener="#{generalInfoController.handleProvinceChange}" />
+			<h:panelGrid columns="3">
+				<h:outputLabel for="name" value="Nombre(*)" />
+				<p:inputText id="name" label="Nombre"
+					value="#{generalInfoController.name}" maxlength="255"
+					styleClass="w400" />
+				<p:message id="nameError" for="name" errorClass="error" />
+
+				<h:outputLabel for="id" value="Identificador(*)" />
+				<p:inputText id="id" label="Identificador"
+					value="#{generalInfoController.urlName}" maxlength="255"
+					styleClass="w400" />
+				<p:message id="idError" for="id" errorClass="error" />
+			</h:panelGrid>
+
+			<p:fieldset legend="Dirección">
+				<h:panelGrid columns="3">
+					<h:outputLabel for="direccion" value="Dirección completa"
+						styleClass="w100" />
+					<p:inputText id="direccion" label="Dirección completa"
+						value="#{generalInfoController.address}" maxlength="255"
+						styleClass="w400" />
+					<p:message id="direccionError" for="direccion" errorClass="error" />
+
+					<h:outputLabel for="provincias" value="Provincia(*)"
+						styleClass="w100" />
+					<p:selectOneMenu id="provincias"
+						value="#{generalInfoController.province}">
+						<f:selectItem itemLabel="Selecciona una provincia" itemValue="" />
+						<f:selectItems value="#{generalInfoController.provincias}" />
+						<p:ajax update="municipios"
+							listener="#{generalInfoController.handleProvinceChange}" />
 					</p:selectOneMenu>
 					<p:message id="provinciaError" for="provincias" errorClass="error" />
-			
-			
-			 		<h:outputLabel for="municipios" value="Municipio(*)" styleClass="w100"/>
-					<p:selectOneMenu id="municipios" value="#{generalInfoController.municipality}">
-					    <f:selectItem itemLabel="Seleccione un municipio" itemValue="" />
-					    <f:selectItems value="#{generalInfoController.municipios}" />
+
+
+					<h:outputLabel for="municipios" value="Municipio(*)"
+						styleClass="w100" />
+					<p:selectOneMenu id="municipios"
+						value="#{generalInfoController.municipality}">
+						<f:selectItem itemLabel="Seleccione un municipio" itemValue="" />
+						<f:selectItems value="#{generalInfoController.municipios}" />
 					</p:selectOneMenu>
 					<p:message id="poblacionError" for="municipios" errorClass="error" />
-		              
-		            <h:outputLabel for="codigopostal" value="Código Postal(*)" />
-		            <p:inputText id="codigopostal" label="Código Postal" value="#{generalInfoController.sportFacility.address.municipality}"/>
-		            <p:message id="codigopostalError" for="codigopostal" errorClass="error" />
-		              
-		            <h:outputLabel for="zona" value="Zona" />
-		            <p:inputText id="zona" label="Zona" value="#{generalInfoController.zone}"/>
-		            <p:message id="zonaError" for="zona" errorClass="error" />
-		            
-		            <h:outputLabel for="comollegar" value="Como llegar" />
-		        	<p:inputTextarea style="width:300px;height:100px;" id="comollegar" value="#{generalInfoController.getHere}" effectDuration="400" /> 
-		            <p:message id="comollegarError" for="comollegar" errorClass="error" />
-		            
-		        </h:panelGrid>
-           </p:fieldset>
-             
-             <p:fieldset legend="Información Contacto">  
-             	
-             	
-             	<h:panelGrid columns="3">
-             	  <h:outputLabel for="telefono1" value="Teléfono 1(*)" styleClass="w200"/>
-	              <p:inputText id="telefono1" label="Teléfono 1" value="#{generalInfoController.phone1}" maxlength="9" styleClass="w100"/>
-	              <p:message id="telefono1Error" for="telefono1" errorClass="error" />
-	              
-	              <h:outputLabel for="telefono2" value="Teléfono 2" styleClass="w200"/>
-	              <p:inputText id="telefono2" label="Teléfono 2" value="#{generalInfoController.phone2}" maxlength="9" styleClass="w100"/>
-	              <p:message id="telefono2Error" for="telefono2" errorClass="error" />
-	              
-	              <h:outputLabel for="email" value="Email(*)" styleClass="w200"/>
-	              <p:inputText id="email" label="Email" value="#{generalInfoController.email}" maxlength="255" styleClass="w300"/>
-	              <p:message id="emailError" for="email" errorClass="error" />
-	              
-	              <p:button value="Usar mis datos">  
-				  </p:button>
-	              
-	             </h:panelGrid>
-             </p:fieldset>
-                
-            <div class="botonbuscador"><h:commandButton type="submit" action="#{generalInfoController.createSportFacility}" id="registrarte" value="Enviar" class="button big"/></div>
+
+					<h:outputLabel for="codigopostal" value="Código Postal(*)" />
+					<p:inputText id="codigopostal" label="Código Postal"
+						value="#{generalInfoController.sportFacility.address.municipality}" />
+					<p:message id="codigopostalError" for="codigopostal"
+						errorClass="error" />
+
+					<h:outputLabel for="zona" value="Zona" />
+					<p:inputText id="zona" label="Zona"
+						value="#{generalInfoController.zone}" />
+					<p:message id="zonaError" for="zona" errorClass="error" />
+
+					<h:outputLabel for="comollegar" value="Como llegar" />
+					<p:inputTextarea style="width:300px;height:100px;" id="comollegar"
+						value="#{generalInfoController.getHere}" effectDuration="400" />
+					<p:message id="comollegarError" for="comollegar" errorClass="error" />
+
+				</h:panelGrid>
+			</p:fieldset>
+
+			<p:fieldset legend="Información Contacto">
+
+
+				<h:panelGrid columns="3">
+					<h:outputLabel for="telefono1" value="Teléfono 1(*)"
+						styleClass="w200" />
+					<p:inputText id="telefono1" label="Teléfono 1"
+						value="#{generalInfoController.phone1}" maxlength="9"
+						styleClass="w100" />
+					<p:message id="telefono1Error" for="telefono1" errorClass="error" />
+
+					<h:outputLabel for="telefono2" value="Teléfono 2" styleClass="w200" />
+					<p:inputText id="telefono2" label="Teléfono 2"
+						value="#{generalInfoController.phone2}" maxlength="9"
+						styleClass="w100" />
+					<p:message id="telefono2Error" for="telefono2" errorClass="error" />
+
+					<h:outputLabel for="email" value="Email(*)" styleClass="w200" />
+					<p:inputText id="email" label="Email"
+						value="#{generalInfoController.email}" maxlength="255"
+						styleClass="w300" />
+					<p:message id="emailError" for="email" errorClass="error" />
+
+					<p:button value="Usar mis datos">
+					</p:button>
+
+				</h:panelGrid>
+			</p:fieldset>
+
+			<div class="botonbuscador">
+				<h:commandButton type="submit"
+					action="#{generalInfoController.createSportFacility}"
+					id="registrarte" value="Enviar" class="button big" />
+			</div>
 		</h:form>
 	</ui:define>
 

@@ -1,11 +1,11 @@
 <faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-    version="2.0">
-    <application>
-        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-        
-        <resource-bundle>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+
+		<resource-bundle>
 			<base-name>messages</base-name>
 			<var>msgs</var>
 		</resource-bundle>
@@ -13,88 +13,125 @@
 			<base-name>validations</base-name>
 			<var>msgsValidations</var>
 		</resource-bundle>
-    </application>
-    
-    <lifecycle>
+	</application>
+
+	<lifecycle>
 		<phase-listener>es.tresw.view.listener.LoginErrorPhaseListener</phase-listener>
 	</lifecycle>
-    
-    <managed-bean>
-	  <managed-bean-name>adminSessionController</managed-bean-name>
-	  <managed-bean-class>es.tresw.view.controller.user.AdminSessionController</managed-bean-class>
-	  <managed-bean-scope>session</managed-bean-scope>
-	</managed-bean> 
-    
-    <managed-bean>
-	  <managed-bean-name>registerController</managed-bean-name>
-	  <managed-bean-class>es.tresw.view.controller.user.RegisterController</managed-bean-class>
-	  <managed-bean-scope>request</managed-bean-scope>
-	  <managed-property>
-	   <property-name>registerService</property-name>
-	   <property-class>es.tresw.service.RegisterService</property-class>
-	   <value>#{registerService}</value>
-	  </managed-property>
-	</managed-bean> 
+	
+	
+	<!-- SESSION BEAN -->
 	
 	<managed-bean>
-	  <managed-bean-name>loginController</managed-bean-name>
-	  <managed-bean-class>es.tresw.view.controller.user.LoginController</managed-bean-class>
-	  <managed-bean-scope>request</managed-bean-scope>
-	</managed-bean> 
+		<managed-bean-name>userSessionController</managed-bean-name>
+		<managed-bean-class>es.tresw.view.controller.user.UserSessionController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>registerService</property-name>
+			<property-class>es.tresw.service.RegisterService</property-class>
+			<value>#{registerService}</value>
+		</managed-property>
+	</managed-bean>
+	
 	
 	<managed-bean>
-	  <managed-bean-name>recoverPasswordController</managed-bean-name>
-	  <managed-bean-class>es.tresw.view.controller.user.RecoverPasswordController</managed-bean-class>
-	  <managed-bean-scope>request</managed-bean-scope>
-	  <managed-property>
-	   <property-name>registerService</property-name>
-	   <property-class>es.tresw.service.RegisterService</property-class>
-	   <value>#{registerService}</value>
-	  </managed-property>
-	</managed-bean>  
+		<managed-bean-name>sportFacilitySessionController</managed-bean-name>
+		<managed-bean-class>es.tresw.view.controller.sportfacility.SportFacilitySessionController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<!-- REGISTER BEAN -->
+
+	<managed-bean>
+		<managed-bean-name>registerController</managed-bean-name>
+		<managed-bean-class>es.tresw.view.controller.user.RegisterController</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>registerService</property-name>
+			<property-class>es.tresw.service.RegisterService</property-class>
+			<value>#{registerService}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>loginController</managed-bean-name>
+		<managed-bean-class>es.tresw.view.controller.user.LoginController</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>recoverPasswordController</managed-bean-name>
+		<managed-bean-class>es.tresw.view.controller.user.RecoverPasswordController</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>registerService</property-name>
+			<property-class>es.tresw.service.RegisterService</property-class>
+			<value>#{registerService}</value>
+		</managed-property>
+	</managed-bean>
+
+
+	<!-- SPORTFACILITY CONTROLLER -->
+
+	<managed-bean>
+		<managed-bean-name>generalInfoController</managed-bean-name>
+		<managed-bean-class>es.tresw.view.controller.sportfacility.GeneralInfoController</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		
+		<managed-property>
+			<property-name>sportFacilityService</property-name>
+			<property-class>es.tresw.service.SportFacilityService</property-class>
+			<value>#{sportFacilityService}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>newSportFacilityController</managed-bean-name>
+		<managed-bean-class>es.tresw.view.controller.sportfacility.NewSportFacilityController</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>sportFacilityService</property-name>
+			<property-class>es.tresw.service.SportFacilityService</property-class>
+			<value>#{sportFacilityService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>userSessionController</property-name>
+			<property-class>es.tresw.view.controller.user.UserSessionController</property-class>
+			<value>#{userSessionController}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>sportFacilitySessionController</property-name>
+			<property-class>es.tresw.view.controller.sportfacility.SportFacilitySessionController</property-class>
+			<value>#{sportFacilitySessionController}</value>
+		</managed-property>
+	</managed-bean>
+
+	
+
+	<managed-bean>
+		<managed-bean-name>homeSportFacilityController</managed-bean-name>
+		<managed-bean-class>es.tresw.view.controller.sportfacility.HomeSportFacilityController</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>sportFacilityService</property-name>
+			<property-class>es.tresw.service.SportFacilityService</property-class>
+			<value>#{sportFacilityService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>userSessionController</property-name>
+			<property-class>es.tresw.view.controller.user.UserSessionController</property-class>
+			<value>#{userSessionController}</value>
+		</managed-property>
+	</managed-bean>
+	
+	
+	<!-- PRUEBA CONTROLLER -->
 	
 	<managed-bean>
-	  <managed-bean-name>generalInfoController</managed-bean-name>
-	  <managed-bean-class>es.tresw.view.controller.sportfacility.GeneralInfoController</managed-bean-class>
-	  <managed-bean-scope>view</managed-bean-scope>
-	  <managed-property>
-	   <property-name>adminSessionController</property-name>
-	   <property-class>es.tresw.view.controller.AdminSessionController</property-class>
-	   <value>#{adminSessionController}</value>
-	  </managed-property>
-	  <managed-property>
-	   <property-name>sportFacilityService</property-name>
-	   <property-class>es.tresw.service.SportFacilityService</property-class>
-	   <value>#{sportFacilityService}</value>
-	  </managed-property>
-	</managed-bean>  
-	
-	<managed-bean>
-	  <managed-bean-name>newSportFacilityController</managed-bean-name>
-	  <managed-bean-class>es.tresw.view.controller.sportfacility.NewSportFacilityController</managed-bean-class>
-	  <managed-bean-scope>view</managed-bean-scope>
-	  <managed-property>
-	   <property-name>adminSessionController</property-name>
-	   <property-class>es.tresw.view.controller.AdminSessionController</property-class>
-	   <value>#{adminSessionController}</value>
-	  </managed-property>
-	  <managed-property>
-	   <property-name>sportFacilityService</property-name>
-	   <property-class>es.tresw.service.SportFacilityService</property-class>
-	   <value>#{sportFacilityService}</value>
-	  </managed-property>
-	</managed-bean>  
-	
-	<managed-bean>
-	  <managed-bean-name>userSessionController</managed-bean-name>
-	  <managed-bean-class>es.tresw.view.controller.user.UserSessionController</managed-bean-class>
-	  <managed-bean-scope>session</managed-bean-scope>
-	  <managed-property>
-	   <property-name>registerService</property-name>
-	   <property-class>es.tresw.service.RegisterService</property-class>
-	   <value>#{registerService}</value>
-	  </managed-property>
-	</managed-bean>  
-    
-    
+		<managed-bean-name>pruebaController</managed-bean-name>
+		<managed-bean-class>es.tresw.view.controller.sportfacility.PruebaController</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+
 </faces-config>

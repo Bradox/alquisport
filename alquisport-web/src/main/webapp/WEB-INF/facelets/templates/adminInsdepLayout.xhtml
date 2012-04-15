@@ -11,34 +11,44 @@
 <h:head>
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<title></title>
-	
+
 	<!-- Incluimos las CSS necesarias -->
 	<h:outputStylesheet name="style.css" library="css" />
 </h:head>
 <h:body>
-		<ui:include src="elements/header.xhtml" />
-			<p:layout id="contenido">  
-		    	<p:layoutUnit position="north" size="85">
-		    		<t:div styleClass="bloque-400w">
-						<h:outputText value="Charco de la pava" styleClass="titulo-instalacion"/>  
-						<h:link value="Administrar" title="Ir a la administración de la instalación deportiva" outcome="/admin-instalacion-deportiva" styleClass="button small-text verde" style="float: right;"/>  
-					</t:div>
-					<t:div styleClass="bloque-400w">
-						<h:outputText value="Seleccione una pista deportiva:" styleClass="small-text"/>  
-						<h:link value="Nueva pista" title="Ir al formulario de creación de una nueva pista deportiva" outcome="/admin-instalacion-deportiva" styleClass="button small-text verde" style="float: right;"/>
-					</t:div>
-			    </p:layoutUnit>  
-			    <p:layoutUnit closable="false" collapsible="true" header="Menú" position="west" resizable="true" size="200" minSize="40" maxSize="200">  
-			        <ui:include src="elements/menu-instalaciones-deportivas.xhtml" />
-			    </p:layoutUnit>  
-			    <p:layoutUnit position="center">
-				    <ui:insert name="content">
-						<div id="pagina-construccion" class="rounded10 box-shadow-light">
-							<h1>Página en construcción</h1>
-						</div>
-					</ui:insert>
-			    </p:layoutUnit>  
-			</p:layout>  
-		<ui:include src="elements/footer.xhtml" />
+	<ui:include src="elements/header.xhtml" />
+	<p:layout id="contenido">
+		<p:layoutUnit position="north" size="85">
+			<t:div styleClass="bloque-400w">
+				<h:outputText value="Charco de la pava"
+					styleClass="titulo-instalacion" />
+				<h:link value="Administrar"
+					title="Ir a la administración de la instalación deportiva"
+					outcome="/admin-instalacion-deportiva"
+					styleClass="button small-text verde" style="float: right;" />
+			</t:div>
+			<t:div styleClass="bloque-400w">
+				<h:outputText value="Seleccione una pista deportiva:"
+					styleClass="small-text" />
+				<h:link value="Nueva pista"
+					title="Ir al formulario de creación de una nueva pista deportiva"
+					outcome="/admin-instalacion-deportiva"
+					styleClass="button small-text verde" style="float: right;" />
+			</t:div>
+		</p:layoutUnit>
+		<p:layoutUnit closable="false" collapsible="true" header="Menú"
+			position="west" resizable="true" size="200" minSize="40"
+			maxSize="200">
+			<ui:include src="elements/menu-instalaciones-deportivas.xhtml" />
+		</p:layoutUnit>
+		<p:layoutUnit position="center">
+			<ui:insert name="content">
+				<div id="pagina-construccion" class="rounded10 box-shadow-light">
+					<h1>Página en construcción</h1>
+				</div>
+			</ui:insert>
+		</p:layoutUnit>
+	</p:layout>
+	<ui:include src="elements/footer.xhtml" />
 </h:body>
 </html>

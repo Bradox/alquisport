@@ -1,14 +1,11 @@
 package es.tresw.view.controller.sportfacility;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 
 import es.tresw.db.entities.Court;
 import es.tresw.db.entities.SportFacility;
 
-@ManagedBean
-@SessionScoped
-public class SportFacilitySessionController {
+public class SportFacilitySessionController implements Serializable{
 	
 	private SportFacility sportFacility;
 	private Court court;

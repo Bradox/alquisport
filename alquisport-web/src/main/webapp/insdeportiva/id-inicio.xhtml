@@ -11,34 +11,47 @@
 <ui:composition
 	template="/WEB-INF/facelets/templates/simpleLayout.xhtml">
 	<ui:define name="title">
-		<h:outputText value="Panel de inicio de la Administración de Instalaciones Deportivas" />
+		<h:outputText
+			value="Panel de inicio de la Administración de Instalaciones Deportivas" />
 	</ui:define>
 	<ui:define name="content">
-	<h:outputLink  value="Nueva Instalación Deportiva" title="Ir al formulario de creación de una nueva instalación deportiva" outcome="/id-nueva" styleClass="small-text orange-text bold-text"/>
-			<p:dashboard id="contenido" model="#{homeController.model}">
-				<p:ajax event="reorder" listener="#{homeController.handleReorder}" update="growl" />
-				
-		        <p:panel id="ocupacion" header="Ocupación" styleClass="caja-dashboard">
-		            <h:outputText value="Resumen de la ocupación" />
-		        </p:panel>
-		
-		        <p:panel id="instalaciones" header="Mis instalaciones" styleClass="caja-dashboard">
-		        	<p:dataList value="#{homeController.instalaciones}" var="i" itemType="none">  
-					    <h:outputLink  value="#{sportFacilitySessionController.sportFacilityDetail(i)}" title="Ir al detalle de la instalación deportiva" >#{i.name}</h:outputLink>
-					</p:dataList> 
-					<h:outputLink  value="id-nueva.xhtml" title="Ir al formulario de creación de una nueva instalación deportiva" styleClass="button small-text">Nueva Instalación Deportiva</h:outputLink>
-		        </p:panel>
-		
-		        <p:panel id="notificaciones" header="Notificaciones" styleClass="caja-dashboard">
-		            <h:outputText value="Lista de las últimas notificaciones"  />
-		        </p:panel>
-		
-		        <p:panel id="publicidad" header="Publicidad" styleClass="caja-dashboard">
-		            <h:outputText value="Cuadro publicitario" />
-		        </p:panel>
-		
-		    </p:dashboard>
-		
+		<h:outputLink value="Nueva Instalación Deportiva"
+			title="Ir al formulario de creación de una nueva instalación deportiva"
+			outcome="/id-nueva" styleClass="small-text orange-text bold-text" />
+		<p:dashboard id="contenido" model="#{homeController.model}">
+			<p:ajax event="reorder" listener="#{homeController.handleReorder}"
+				update="growl" />
+
+			<p:panel id="ocupacion" header="Ocupación"
+				styleClass="caja-dashboard">
+				<h:outputText value="Resumen de la ocupación" />
+			</p:panel>
+
+			<p:panel id="instalaciones" header="Mis instalaciones"
+				styleClass="caja-dashboard">
+				<p:dataList value="#{homeController.instalaciones}" var="i"
+					itemType="none">
+					<h:outputLink
+						value="#{sportFacilitySessionController.sportFacilityDetail(i)}"
+						title="Ir al detalle de la instalación deportiva">#{i.name}</h:outputLink>
+				</p:dataList>
+				<h:outputLink value="id-nueva.xhtml"
+					title="Ir al formulario de creación de una nueva instalación deportiva"
+					styleClass="button small-text">Nueva Instalación Deportiva</h:outputLink>
+			</p:panel>
+
+			<p:panel id="notificaciones" header="Notificaciones"
+				styleClass="caja-dashboard">
+				<h:outputText value="Lista de las últimas notificaciones" />
+			</p:panel>
+
+			<p:panel id="publicidad" header="Publicidad"
+				styleClass="caja-dashboard">
+				<h:outputText value="Cuadro publicitario" />
+			</p:panel>
+
+		</p:dashboard>
+
 	</ui:define>
 
 </ui:composition>

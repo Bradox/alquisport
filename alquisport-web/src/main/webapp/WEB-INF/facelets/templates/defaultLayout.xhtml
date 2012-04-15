@@ -10,39 +10,41 @@
 <h:head>
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<title><ui:insert name="title" /></title>
-	
+
 	<!-- Incluimos las CSS de blueprint -->
-	<h:outputStylesheet name="screen.css" library="css" media="screen, projection"/>
+	<h:outputStylesheet name="screen.css" library="css"
+		media="screen, projection" />
 	<h:outputStylesheet name="print.css" library="css" media="print" />
 	<!--[if lt IE 8]>
 	<h:outputStylesheet name="ie.css" library="css" media="screen, projection" />
 	<![endif]-->
-	
+
 	<h:outputStylesheet name="style.css" library="css" />
 </h:head>
 <h:body>
-	<p:growl id="growl" showDetail="false" sticky="true" globalOnly="true" life="15000"/>  
+	<p:growl id="growl" showDetail="false" sticky="true" globalOnly="false"
+		life="60000" />
 	<div id="cabecera">
-      <ui:include src="elements/header.xhtml" />
+		<ui:include src="elements/header.xhtml" />
 	</div>
-	
-    <div class="container">
-      <div class="span-6">
-      	<ui:insert name="colizq">
-			<h1>Página en construcción</h1>
-			<p>Lo sentimos pero la página solicitada no ha sido encontrada.</p>
-		 </ui:insert>
-      </div>
-      <div class="span-18 last">
-         <ui:insert name="colder">
-			<h1>Página en construcción</h1>
-			<p>Lo sentimos pero la página solicitada no ha sido encontrada.</p>
-		 </ui:insert>
-      </div>
-    </div>
-    
-    <div id="pie">
-      <ui:include src="elements/footer.xhtml" />
-    </div>
+
+	<div class="container">
+		<div class="span-6">
+			<ui:insert name="colizq">
+				<h1>Página en construcción</h1>
+				<p>Lo sentimos pero la página solicitada no ha sido encontrada.</p>
+			</ui:insert>
+		</div>
+		<div class="span-18 last">
+			<ui:insert name="colder">
+				<h1>Página en construcción</h1>
+				<p>Lo sentimos pero la página solicitada no ha sido encontrada.</p>
+			</ui:insert>
+		</div>
+	</div>
+
+	<div id="pie">
+		<ui:include src="elements/footer.xhtml" />
+	</div>
 </h:body>
 </html>

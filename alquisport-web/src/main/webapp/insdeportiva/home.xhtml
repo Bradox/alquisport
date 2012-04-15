@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+	<ui:define name="title">
+		<h:outputText value="PISTEA.com - Página de inicio" />
+	</ui:define>
+	<ui:define name="colizq">
+		<h1>Menú</h1>
+	</ui:define>
+	<ui:define name="colder">
+		<p:panel header="Mis instalaciones">
+			<h:link value="Nueva Instalación Deportiva"
+				outcome="nueva-instalacion" />
+				<h:outputText value="#{homeSportFacilityController.prueba}" />
+				<ul>
+				<ui:repeat value="#{homeSportFacilityController.instalaciones}" var="i">
+				  <li><h:outputText value="#{i.name}" /></li>
+				</ui:repeat>
+				</ul>
+			
+		</p:panel>
+	</ui:define>
+
+</ui:composition>
+</html>

@@ -11,14 +11,15 @@
 <ui:composition
 	template="/WEB-INF/facelets/templates/simpleLayout.xhtml">
 	<ui:define name="title">
-		<h:outputText value="Panel de inicio de la Administración de Instalaciones Deportivas" />
+		<h:outputText
+			value="Panel de inicio de la Administración de Instalaciones Deportivas" />
 	</ui:define>
 	<ui:define name="content">
-	
-			<p:panel id="contenido">
+
+		<p:panel id="contenido">
 				La instalación deportiva en sesion es: #{sportFacilitySessionController.sportFacility.name} (#{sportFacilitySessionController.sportFacility.id})
 			</p:panel>
-		
+
 	</ui:define>
 
 </ui:composition>

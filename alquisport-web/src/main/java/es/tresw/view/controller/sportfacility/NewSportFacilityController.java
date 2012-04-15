@@ -1,5 +1,6 @@
 package es.tresw.view.controller.sportfacility;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,17 +22,18 @@ import es.tresw.db.entities.SportFacility;
 import es.tresw.db.entities.Zone;
 import es.tresw.service.SportFacilityService;
 import es.tresw.util.Messages;
-import es.tresw.view.controller.user.AdminSessionController;
+import es.tresw.view.controller.user.UserSessionController;
 
-public class NewSportFacilityController {
+public class NewSportFacilityController implements Serializable{
 	
-	/*Bean en session*/
-	@ManagedProperty("#{adminSessionController}")
-	private AdminSessionController adminSessionController;
-	
-	/*Services*/
 	@ManagedProperty("#{sportFacilityService}")
 	private SportFacilityService sportFacilityService;
+	
+	@ManagedProperty("#{userSessionController}")
+	private UserSessionController userSessionController;
+	
+	@ManagedProperty("#{sportFacilitySessionController}")
+	private SportFacilitySessionController sportFacilitySessionController;
 	
 	/*campos del formulario*/
 	@Size(min=1,max=255,message="{campo_obligatorio}")
@@ -52,10 +54,8 @@ public class NewSportFacilityController {
 	@Email(message="{email_incorrecto}")
 	private String email;
 	
-	@NotNull
 	private Long province;
 	
-	@NotNull
 	private Long municipality;
 	
 	@Size(min=1,max=255,message="{campo_obligatorio}")
@@ -70,10 +70,9 @@ public class NewSportFacilityController {
 	private List<SelectItem> municipios;
 	private List<SelectItem> provincias;
 	
-	
-	/*Constructor*/
 	public NewSportFacilityController()
 	{
+		
 	}
 	
 	/*Acciones*/
@@ -106,14 +105,13 @@ public class NewSportFacilityController {
 			Zone z = new Zone();
 			z.setName(zone);
 			z.setMunicipality(m);
-			a.setZone(z);			
+			a.setZone(z);	
 			sf.setAddress(a);
 			
 			sf.setGetHere(getHere);
 			
 			
 			//Guardamos
-			//sf = sportFacilityService.createSportFacility(sf);
 			sportFacilityService.createSportFacility(sf);
 			//actualizo el objeto de la sesion metiendo el recien creado y nos vamos a la pagina resumen.
 			//adminSessionController.setSportFacility(sf);
@@ -124,6 +122,11 @@ public class NewSportFacilityController {
 			return null;
 		}
 		
+	}
+	
+	public String getPrueba()
+	{
+		return "desde el controller";
 	}
 	
 	/*Manejadores de eventos*/
@@ -144,109 +147,6 @@ public class NewSportFacilityController {
         	municipios = new ArrayList<SelectItem>();
     }  
 	
-	
-	/*Metodos privados*/
-	/**
-	 * Validamos que el usuario haya elegido una provincia y un municipio.
-	 * @param facesContext
-	 * @return
-	 */
-	private boolean validate(FacesContext facesContext)
-	{
-		boolean r = true;
-		
-		if(province==null || municipality==null)
-		{
-			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					Messages.getString("sportfacility.infogeneral.error.direccion_incorrecta"),
-					Messages.getString("sportfacility.infogeneral.error.direccion_incorrecta"));
-			facesContext.addMessage("register:username",message);
-			r = false;
-		}
-		
-		return r;
-	}
-	
-	/*GETTERS y SETTERS*/
-	public AdminSessionController getAdminSessionController() {
-		return adminSessionController;
-	}
-	public void setAdminSessionController(AdminSessionController sessionController) {
-		this.adminSessionController = sessionController;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getUrlName() {
-		return urlName;
-	}
-	public void setUrlName(String urlName) {
-		this.urlName = urlName;
-	}
-	public String getPhone1() {
-		return phone1;
-	}
-	public void setPhone1(String phone1) {
-		this.phone1 = phone1;
-	}
-	public String getPhone2() {
-		return phone2;
-	}
-	public void setPhone2(String phone2) {
-		this.phone2 = phone2;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public Long getProvince() {
-		return province;
-	}
-	public void setProvince(Long province) {
-		this.province = province;
-	}
-	public Long getMunicipality() {
-		return municipality;
-	}
-	public void setMunicipality(Long municipality) {
-		this.municipality = municipality;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getZipCode() {
-		return zipCode;
-	}
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
-	public String getZone() {
-		return zone;
-	}
-	public void setZone(String zone) {
-		this.zone = zone;
-	}
-	public String getGetHere() {
-		return getHere;
-	}
-	public void setGetHere(String getHere) {
-		this.getHere = getHere;
-	}
-	public List<SelectItem> getMunicipios() {
-		handleProvinceChange();
-		return municipios;
-	}
-	public void setMunicipios(List<SelectItem> municipios) {
-		this.municipios = municipios;
-	}
 	public List<SelectItem> getProvincias() {
 		provincias = new ArrayList<SelectItem>();
 		List<Province> provinciasEntity = sportFacilityService.getProvinces();
@@ -259,14 +159,168 @@ public class NewSportFacilityController {
 		}
 		return provincias;
 	}
-	public void setProvincias(List<SelectItem> provincias) {
-		this.provincias = provincias;
+	
+	public List<SelectItem> getMunicipios() {
+		handleProvinceChange();
+		return municipios;
 	}
+	
+	
+	/*Metodos privados*/
+	/**
+	 * Validamos que el usuario haya elegido una provincia y un municipio.
+	 * @param facesContext
+	 * @return
+	 */
+	private boolean validate(FacesContext facesContext)
+	{
+		boolean r = true;
+		System.out.println("provincia = "+province+"; municipio = "+municipality);
+		
+		if(province==null)
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					Messages.getString("sportfacility.infogeneral.error.direccion_incorrecta"),
+					Messages.getString("sportfacility.infogeneral.error.direccion_incorrecta"));
+			facesContext.addMessage("nueva-instalacion:provincias",message);
+			r = false;
+		}
+		
+		if(municipality==null)
+		{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					Messages.getString("sportfacility.infogeneral.error.direccion_incorrecta"),
+					Messages.getString("sportfacility.infogeneral.error.direccion_incorrecta"));
+			facesContext.addMessage("nueva-instalacion:municipios",message);
+			r = false;
+		}
+		
+		return r;
+	}
+	
+	/*GETTERS AND SETTERS*/
+	
+	public UserSessionController getUserSessionController() {
+		return userSessionController;
+	}
+
+
+	public void setUserSessionController(UserSessionController userSessionController) {
+		this.userSessionController = userSessionController;
+	}
+
 	public SportFacilityService getSportFacilityService() {
 		return sportFacilityService;
 	}
+
 	public void setSportFacilityService(SportFacilityService sportFacilityService) {
 		this.sportFacilityService = sportFacilityService;
 	}
+
+	public SportFacilitySessionController getSportFacilitySessionController() {
+		return sportFacilitySessionController;
+	}
+
+	public void setSportFacilitySessionController(
+			SportFacilitySessionController sportFacilitySessionController) {
+		this.sportFacilitySessionController = sportFacilitySessionController;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getUrlName() {
+		return urlName;
+	}
+
+	public void setUrlName(String urlName) {
+		this.urlName = urlName;
+	}
+
+	public String getPhone1() {
+		return phone1;
+	}
+
+	public void setPhone1(String phone1) {
+		this.phone1 = phone1;
+	}
+
+	public String getPhone2() {
+		return phone2;
+	}
+
+	public void setPhone2(String phone2) {
+		this.phone2 = phone2;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Long getProvince() {
+		return province;
+	}
+
+	public void setProvince(Long province) {
+		this.province = province;
+	}
+
+	public Long getMunicipality() {
+		return municipality;
+	}
+
+	public void setMunicipality(Long municipality) {
+		this.municipality = municipality;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+	public String getZone() {
+		return zone;
+	}
+
+	public void setZone(String zone) {
+		this.zone = zone;
+	}
+
+	public String getGetHere() {
+		return getHere;
+	}
+
+	public void setGetHere(String getHere) {
+		this.getHere = getHere;
+	}
+
+	public void setMunicipios(List<SelectItem> municipios) {
+		this.municipios = municipios;
+	}
+
+	public void setProvincias(List<SelectItem> provincias) {
+		this.provincias = provincias;
+	}
+	
 
 }

@@ -1,5 +1,6 @@
 package es.tresw.service;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import es.tresw.db.entities.Province;
 import es.tresw.db.entities.SportFacility;
 
 @Transactional
-public class SportFacilityService {
+public class PruebaService{
 	
 	@Autowired
 	private I_SportFacilityDao sportFacilityDao;
@@ -27,7 +28,7 @@ public class SportFacilityService {
 	
 	public String prueba()
 	{
-		return "Desde el service de sport facility";
+		return "Desde el service";
 	}
 	
 	public void createSportFacility(SportFacility sf)
@@ -102,4 +103,5 @@ public class SportFacilityService {
 		this.municipalityDao = municipalityDao;
 	}
 	
+
 }

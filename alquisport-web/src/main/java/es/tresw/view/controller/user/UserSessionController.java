@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedProperty;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import es.tresw.db.entities.Administrator;
 import es.tresw.db.entities.User;
 import es.tresw.service.RegisterService;
 
@@ -67,6 +68,14 @@ public class UserSessionController implements Serializable{
 			return true;
 		else
 			return false;
+	}
+	
+	public Administrator getAdministrator()
+	{
+		if(user instanceof Administrator)
+			return (Administrator)user;
+		else
+			return null;
 	}
 	
 

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.tresw.db.dao.I_UserDao;
-import es.tresw.db.dao.impl.UserDao;
 import es.tresw.db.entities.User;
 
 @Service("userDetailsService")
@@ -22,6 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
   public UserDetails loadUserByUsername(String username)
       throws DataAccessException {
 	  User u = dao.findByName(username);
+	  System.out.println("username="+u);
 	  if (u == null)
 		  throw new UsernameNotFoundException("El usuario no existe");
 	  return assembler.buildUserFromUserEntity(u);

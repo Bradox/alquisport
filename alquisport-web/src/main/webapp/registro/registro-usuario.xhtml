@@ -14,49 +14,75 @@
 	</ui:define>
 	<ui:define name="colizq">
 		<p:panel header="Información">
-			<p>¿Eres un administrador de una instalación deportiva? Pincha en el botón para poder registrarte y dar de alta tus pistas.</p>
-			<h:link value="Registrate como administrador" outcome="registro-instalaciondeportiva.xhtml"/>
+			<p>¿Eres un administrador de una instalación deportiva? Pincha en
+				el botón para poder registrarte y dar de alta tus pistas.</p>
+			<h:link value="Registrate como administrador"
+				outcome="registro-instalaciondeportiva.xhtml" />
 		</p:panel>
 	</ui:define>
 	<ui:define name="colder">
 		<p:panel id="registroUsuario" header="Registro de usuario">
-			<p>Rellene el siguiente formulario para registrarse en <strong>pistea.com</strong> y formar parte de nuestra gran comunidad de deporte.</p>
+			<p>
+				Rellene el siguiente formulario para registrarse en <strong>pistea.com</strong>
+				y formar parte de nuestra gran comunidad de deporte.
+			</p>
 			<h:form id="registroUsuarioForm">
-				<p:messages id="mensajesGlobales" globalOnly="true"/>
-				<h:panelGrid columns="3" >
-					<h:outputLabel value="Usuario*:" for="user"/>
-					<p:inputText id="user" value="#{registerController.client.username}" required="true" requiredMessage="El campo es obligatorio" maxlength="255"/>
-					<p:message id="userError" for="user"/>  
-					
-					<h:outputLabel value="Contraseña*:"/>
-					<p:password  id="password" value="#{registerController.client.password}" required="true" requiredMessage="El campo es obligatorio" maxlength="100" feedback="true"/>
-					<p:message id="passwordError" for="password" />  
-					
-					<h:outputLabel value="Repite Contraseña*:" for="passwordRepite"/>
-					<p:password  id="passwordRepite" value="#{registerController.repitePassword}" required="true" requiredMessage="El campo es obligatorio" maxlength="100" />
-					<p:message id="passwordRepiteError" for="passwordRepite" />  
-					
-					<h:outputLabel value="Nombre*:"/>
-					<p:inputText id="nombre" value="#{registerController.client.name}" required="true" requiredMessage="El campo es obligatorio" maxlength="255"/>
-					<p:message id="nombreError" for="nombre" />  
-					
-					<h:outputLabel value="Primer apellido*:" for="apellido1"/>
-					<p:inputText id="apellido1" value="#{registerController.client.firstLastName}" required="true" requiredMessage="El campo es obligatorio" maxlength="255"/>
-					<p:message id="apellido1Error" for="apellido1" /> 
-					
-					<h:outputLabel value="Segundo apellido*:" for="apellido2"/>
-					<p:inputText id="apellido2" value="#{registerController.client.secondLastName}" required="true" requiredMessage="El campo es obligatorio" maxlength="255"/>
-					<p:message id="apellido2Error" for="apellido2" /> 
-					
-					<h:outputLabel value="Email*:"/>
-					<p:inputText id="email" value="#{registerController.client.contactInfo.email}" maxlength="255" required="true" requiredMessage="El campo es obligatorio"/>
-					<p:message id="emailError" for="email"/>  
-					
-					<h:outputLabel value="Teléfono:"/>
-					<p:inputText id="telephone1" value="#{registerController.client.contactInfo.telephone1}" maxlength="15"/>
-					<p:message id="telephone1Error" for="telephone1"/>  
+				<p:messages id="mensajesGlobales" globalOnly="true" />
+				<h:panelGrid columns="3">
+					<h:outputLabel value="Usuario*:" for="user" />
+					<p:inputText id="user"
+						value="#{registerController.client.username}" required="true"
+						requiredMessage="El campo es obligatorio" maxlength="255" />
+					<p:message id="userError" for="user" />
+
+					<h:outputLabel value="Contraseña*:" />
+					<p:password id="password"
+						value="#{registerController.client.password}" required="true"
+						requiredMessage="El campo es obligatorio" maxlength="100"
+						feedback="true" />
+					<p:message id="passwordError" for="password" />
+
+					<h:outputLabel value="Repite Contraseña*:" for="passwordRepite" />
+					<p:password id="passwordRepite"
+						value="#{registerController.repitePassword}" required="true"
+						requiredMessage="El campo es obligatorio" maxlength="100" />
+					<p:message id="passwordRepiteError" for="passwordRepite" />
+
+					<h:outputLabel value="Nombre*:" />
+					<p:inputText id="nombre" value="#{registerController.client.name}"
+						required="true" requiredMessage="El campo es obligatorio"
+						maxlength="255" />
+					<p:message id="nombreError" for="nombre" />
+
+					<h:outputLabel value="Primer apellido*:" for="apellido1" />
+					<p:inputText id="apellido1"
+						value="#{registerController.client.firstLastName}" required="true"
+						requiredMessage="El campo es obligatorio" maxlength="255" />
+					<p:message id="apellido1Error" for="apellido1" />
+
+					<h:outputLabel value="Segundo apellido*:" for="apellido2" />
+					<p:inputText id="apellido2"
+						value="#{registerController.client.secondLastName}"
+						required="true" requiredMessage="El campo es obligatorio"
+						maxlength="255" />
+					<p:message id="apellido2Error" for="apellido2" />
+
+					<h:outputLabel value="Email*:" />
+					<p:inputText id="email"
+						value="#{registerController.client.contactInfo.email}"
+						maxlength="255" required="true"
+						requiredMessage="El campo es obligatorio" />
+					<p:message id="emailError" for="email" />
+
+					<h:outputLabel value="Teléfono:" />
+					<p:inputText id="telephone1"
+						value="#{registerController.client.contactInfo.telephone1}"
+						maxlength="15" />
+					<p:message id="telephone1Error" for="telephone1" />
 				</h:panelGrid>
-				<p:commandButton type="submit" action="#{registerController.registerClient}" ajax="false" id="registrarte" value="Enviar" />
+				<p:commandButton type="submit"
+					action="#{registerController.registerClient}" ajax="false"
+					id="registrarte" value="Enviar" />
 			</h:form>
 		</p:panel>
 	</ui:define>

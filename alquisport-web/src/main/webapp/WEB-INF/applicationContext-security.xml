@@ -7,16 +7,17 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
-		
+
 	<global-method-security pre-post-annotations="enabled" />
 
 	<http use-expressions="true">
 		<intercept-url pattern="/superadmin/**" access="hasRole('superadmin')" />
-		<!-- <intercept-url pattern="/insdeportiva/**" access="hasRole('admin')" /> -->
+		<!-- <intercept-url pattern="/insdeportiva/**" access="hasRole('admin')" 
+			/> -->
 		<intercept-url pattern="/user/**" access="isAuthenticated()" />
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-processing-url="/j_spring_security_check"
-			login-page='/login.xhtml' default-target-url='/index.xhtml'
+			login-page='/index.xhtml' default-target-url='/insdeportiva/home.xhtml'
 			always-use-default-target='true' authentication-failure-url="/login.xhtml?error=true" />
 		<logout logout-success-url="/index.xhtml" />
 		<session-management invalid-session-url="/index.xhtml">
@@ -27,24 +28,24 @@
 	</http>
 
 	<beans:bean id="daoAuthenticationProvider"
-	 class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
-	  <beans:property name="userDetailsService" ref="userDetailsService"/>
+		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<beans:property name="userDetailsService" ref="userDetailsService" />
 	</beans:bean>
-	
+
 	<beans:bean id="authenticationManager"
-	    class="org.springframework.security.authentication.ProviderManager">
-	  <beans:property name="providers">
-	    <beans:list>
-	      <beans:ref local="daoAuthenticationProvider" />
-	    </beans:list>
-	  </beans:property>
+		class="org.springframework.security.authentication.ProviderManager">
+		<beans:property name="providers">
+			<beans:list>
+				<beans:ref local="daoAuthenticationProvider" />
+			</beans:list>
+		</beans:property>
 	</beans:bean>
-	
+
 	<authentication-manager>
-	  <authentication-provider user-service-ref="userDetailsService">
-	    <password-encoder hash="md5"/>
-	  </authentication-provider>
+		<authentication-provider user-service-ref="userDetailsService">
+			<password-encoder hash="md5" />
+		</authentication-provider>
 	</authentication-manager>
 
-	
+
 </beans:beans>

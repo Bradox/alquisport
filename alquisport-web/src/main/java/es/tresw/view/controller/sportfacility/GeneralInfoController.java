@@ -18,13 +18,12 @@ import es.tresw.db.entities.Municipality;
 import es.tresw.db.entities.Province;
 import es.tresw.service.SportFacilityService;
 import es.tresw.util.Messages;
-import es.tresw.view.controller.user.AdminSessionController;
 
 public class GeneralInfoController {
 	
 	/*Bean en session*/
-	@ManagedProperty("#{adminSessionController}")
-	private AdminSessionController adminSessionController;
+	@ManagedProperty("#{sportFacilitySessionController}")
+	private SportFacilitySessionController sportFacilitySessionController;
 	
 	/*Services*/
 	@ManagedProperty("#{sportFacilityService}")
@@ -93,16 +92,16 @@ public class GeneralInfoController {
 		if(validate(facesContext))
 		{
 			Province p = sportFacilityService.getProvince(province);
-			adminSessionController.getSportFacility().getAddress().setProvince(p);
+			sportFacilitySessionController.getSportFacility().getAddress().setProvince(p);
 			
 			Municipality m = sportFacilityService.getMunicipality(municipality);
-			adminSessionController.getSportFacility().getAddress().setMunicipality(m);
+			sportFacilitySessionController.getSportFacility().getAddress().setMunicipality(m);
 			
 			//Actualizamos el objeto en sesion
 			writeSession();
 			
 			//Guardamos
-			sportFacilityService.createSportFacility(adminSessionController.getSportFacility());
+			sportFacilityService.createSportFacility(sportFacilitySessionController.getSportFacility());
 		}else
 		{
 			return null;
@@ -135,7 +134,7 @@ public class GeneralInfoController {
 		boolean r = true;
 		
 		//Primero tenemos que revisar que existe en sesion una instalacion
-		if(adminSessionController ==null || adminSessionController.getSportFacility()==null)
+		if(sportFacilitySessionController ==null || sportFacilitySessionController.getSportFacility()==null)
 		{
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					Messages.getString("sportfacility.no_session"),
@@ -156,25 +155,25 @@ public class GeneralInfoController {
 	
 	private void loadData()
 	{
-		if(adminSessionController!=null && adminSessionController.getSportFacility()!=null)
+		if(sportFacilitySessionController!=null && sportFacilitySessionController.getSportFacility()!=null)
 		{
-			name = adminSessionController.getSportFacility().getName();
-			urlName = adminSessionController.getSportFacility().getUrlName();
-			if(adminSessionController.getSportFacility().getContactInfo()!=null)
+			name = sportFacilitySessionController.getSportFacility().getName();
+			urlName = sportFacilitySessionController.getSportFacility().getUrlName();
+			if(sportFacilitySessionController.getSportFacility().getContactInfo()!=null)
 			{
-				phone1 = adminSessionController.getSportFacility().getContactInfo().getTelephone1();
-				phone2 = adminSessionController.getSportFacility().getContactInfo().getTelephone2();
-				email = adminSessionController.getSportFacility().getContactInfo().getEmail();
+				phone1 = sportFacilitySessionController.getSportFacility().getContactInfo().getTelephone1();
+				phone2 = sportFacilitySessionController.getSportFacility().getContactInfo().getTelephone2();
+				email = sportFacilitySessionController.getSportFacility().getContactInfo().getEmail();
 			}
-			if(adminSessionController.getSportFacility().getAddress()!=null)
+			if(sportFacilitySessionController.getSportFacility().getAddress()!=null)
 			{
-				province = adminSessionController.getSportFacility().getAddress().getProvince().getId();
-				municipality = adminSessionController.getSportFacility().getAddress().getMunicipality().getId();
-				address = adminSessionController.getSportFacility().getAddress().getAddress();
-				zipCode = adminSessionController.getSportFacility().getAddress().getZipCode();
-				zone = adminSessionController.getSportFacility().getAddress().getZone().getName();
+				province = sportFacilitySessionController.getSportFacility().getAddress().getProvince().getId();
+				municipality = sportFacilitySessionController.getSportFacility().getAddress().getMunicipality().getId();
+				address = sportFacilitySessionController.getSportFacility().getAddress().getAddress();
+				zipCode = sportFacilitySessionController.getSportFacility().getAddress().getZipCode();
+				zone = sportFacilitySessionController.getSportFacility().getAddress().getZone().getName();
 			}
-			getHere = adminSessionController.getSportFacility().getGetHere();
+			getHere = sportFacilitySessionController.getSportFacility().getGetHere();
 			mostrarFormulario = true;
 		}
 		else{
@@ -192,7 +191,7 @@ public class GeneralInfoController {
 	public String postLoad()
 	{
 		System.out.println("entra en postload");
-		if(adminSessionController!=null && adminSessionController.getSportFacility()!=null)
+		if(sportFacilitySessionController!=null && sportFacilitySessionController.getSportFacility()!=null)
 		{
 			System.out.println("hay sesion");
 			return null;
@@ -205,35 +204,37 @@ public class GeneralInfoController {
 	
 	private void writeSession()
 	{
-		if(adminSessionController!=null && adminSessionController.getSportFacility()!=null)
+		if(sportFacilitySessionController!=null && sportFacilitySessionController.getSportFacility()!=null)
 		{
-			adminSessionController.getSportFacility().setName(name);
-			adminSessionController.getSportFacility().setUrlName(urlName);
-			if(adminSessionController.getSportFacility().getContactInfo()!=null)
+			sportFacilitySessionController.getSportFacility().setName(name);
+			sportFacilitySessionController.getSportFacility().setUrlName(urlName);
+			if(sportFacilitySessionController.getSportFacility().getContactInfo()!=null)
 			{
-				adminSessionController.getSportFacility().getContactInfo().setTelephone1(phone1);
-				adminSessionController.getSportFacility().getContactInfo().setTelephone2(phone2);
-				adminSessionController.getSportFacility().getContactInfo().setEmail(email);
+				sportFacilitySessionController.getSportFacility().getContactInfo().setTelephone1(phone1);
+				sportFacilitySessionController.getSportFacility().getContactInfo().setTelephone2(phone2);
+				sportFacilitySessionController.getSportFacility().getContactInfo().setEmail(email);
 			}
-			if(adminSessionController.getSportFacility().getAddress()!=null)
+			if(sportFacilitySessionController.getSportFacility().getAddress()!=null)
 			{
-				adminSessionController.getSportFacility().getAddress().getProvince().setId(province);
-				adminSessionController.getSportFacility().getAddress().getMunicipality().setId(municipality);
-				adminSessionController.getSportFacility().getAddress().setAddress(address);
-				adminSessionController.getSportFacility().getAddress().setZipCode(zipCode);
-				adminSessionController.getSportFacility().getAddress().getZone().setName(zone);
+				sportFacilitySessionController.getSportFacility().getAddress().getProvince().setId(province);
+				sportFacilitySessionController.getSportFacility().getAddress().getMunicipality().setId(municipality);
+				sportFacilitySessionController.getSportFacility().getAddress().setAddress(address);
+				sportFacilitySessionController.getSportFacility().getAddress().setZipCode(zipCode);
+				sportFacilitySessionController.getSportFacility().getAddress().getZone().setName(zone);
 			}
-			adminSessionController.getSportFacility().setGetHere(getHere);
+			sportFacilitySessionController.getSportFacility().setGetHere(getHere);
 		}
 	}
 	
 	
 	/*GETTERS y SETTERS*/
-	public AdminSessionController getAdminSessionController() {
-		return adminSessionController;
+	public SportFacilitySessionController getSportFacilitySessionController() {
+		return sportFacilitySessionController;
 	}
-	public void setAdminSessionController(AdminSessionController sessionController) {
-		this.adminSessionController = sessionController;
+
+	public void setSportFacilitySessionController(
+			SportFacilitySessionController sportFacilitySessionController) {
+		this.sportFacilitySessionController = sportFacilitySessionController;
 	}
 	public String getName() {
 		return name;

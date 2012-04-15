@@ -9,10 +9,35 @@
 <ui:composition
 	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
 	<ui:define name="title">
-		<h:outputText value="PISTEA.com - Tu página de reserva de pistas deportivas." />
+		<h:outputText
+			value="PISTEA.com - Tu página de reserva de pistas deportivas." />
 	</ui:define>
 	<ui:define name="colder">
 		<h1>Página por definir</h1>
+		    <h:form id="form">  
+      
+		        <p:growl id="msgs" showDetail="true"/>  
+		                      
+		            <h:panelGrid columns="2" cellpadding="5">  
+		                <p:selectOneMenu id="city" value="#{pruebaController.city}">  
+		                    <f:selectItem itemLabel="Select City" itemValue="" />  
+		                    <f:selectItems value="#{pruebaController.cities}" />  
+		                    <p:ajax update="suburbs"  process="city"
+		                            listener="#{pruebaController.handleCityChange}" />  
+		                </p:selectOneMenu>  
+		                
+		                <p:selectOneMenu id="suburbs" value="#{pruebaController.suburb}">  
+		                    <f:selectItem itemLabel="Select Suburb" itemValue="" />  
+		                    <f:selectItems value="#{pruebaController.suburbs}" />  
+		                </p:selectOneMenu>  
+		            </h:panelGrid>  
+		      
+		            <p:separator />  
+		              
+		            <p:commandButton value="Submit" update="@form" actionListener="#{pruebaController.displayLocation}" id="btnSubmit"/>  
+		      
+		      
+		    </h:form>  
 	</ui:define>
 
 </ui:composition>

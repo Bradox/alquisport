@@ -28,17 +28,17 @@ public class Address
 	
 	@NotNull(message="{campo_obligatorio}")
 	@ManyToOne
-	@JoinColumn(name = "ID_PROVINCE", nullable =false)
+	@JoinColumn(name = "ID_PROVINCE", nullable =true)
 	public Province province;
 	
 	@NotNull(message="{campo_obligatorio}")
 	@ManyToOne
-	@JoinColumn(name = "ID_ZONE", nullable =false)
+	@JoinColumn(name = "ID_ZONE", nullable =true)
 	public Zone zone;
 	
 	@NotNull(message="{campo_obligatorio}")
 	@ManyToOne
-	@JoinColumn(name = "ID_MUNICIPALITY", nullable =false)
+	@JoinColumn(name = "ID_MUNICIPALITY", nullable =true)
 	public Municipality municipality;
 	
 	
